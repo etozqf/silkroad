@@ -1,0 +1,154 @@
+.mod-weibo {
+    margin: 0 0 10px;
+    padding: 16px 0;
+    border-top: 1px dotted #D1D1D1;
+    border-bottom: 1px dotted #D1D1D1;
+    color: #333333;
+    background-color: #FFF;
+    overflow: hidden;
+    font-size: 14px;
+    position: relative;
+}
+.mod-weibo div,
+.mod-weibo span,
+.mod-weibo a,
+.mod-weibo img {
+    margin: 0;
+    padding: 0;
+}
+.mod-weibo img {
+    border: none;
+}
+.mod-weibo a {
+    font-size: 14px;
+    text-decoration: none;
+}
+.mod-weibo a:hover {
+    text-decoration: underline;
+}
+.mod-weibo .weibo-avatar {
+    float: left;
+    padding: 4px 15px 4px 20px;
+    position: relative;
+}
+.weibo-avatar .weibo-head {
+    overflow: hidden;
+}
+.weibo-avatar .weibo-head,
+.weibo-avatar .weibo-head img {
+    display: inline-block;
+    zoom: 1;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.weibo-avatar .weibo-icon {
+    position: absolute;
+    right: 15px;
+    bottom: 4px;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    text-indent: -999em;
+    background: transparent url(images/icon.png) no-repeat 0 0;
+    _background-image: url(images/icon-ie6.png);
+}
+.weibo-avatar .weibo-icon-tencent {
+    background-position: 0 0;
+}
+.weibo-avatar .weibo-icon-sina {
+    background-position: 0 -90px;
+}
+.mod-weibo .weibo-message {
+    overflow: hidden;
+    zoom: 1;
+    line-height: 23px;
+    padding-right: 20px;
+}
+.weibo-message .weibo-user {
+    font-style: normal;
+    font-weight: bold;
+    overflow: hidden;
+    color: #999999;
+    padding-right: 5px;
+}
+.weibo-message .weibo-user a {
+    float: left;
+    color: #006A92;
+}
+.weibo-message .weibo-user a:hover {
+
+}
+.weibo-message .weibo-user .weibo-icon {
+    float: left;
+    margin: 3px 0 0 2px;
+    display: inline-block;
+    zoom: 1;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    vertical-align: text-top;
+    background: transparent url(images/icon.png) no-repeat 0 0;
+    _background-image: url(images/icon-ie6.png);
+}
+.weibo-message .weibo-user .weibo-icon-tencent-vip {
+    background-position: 0 -60px;
+}
+.weibo-message .weibo-user .weibo-icon-tencent-cvip {
+    background-position: 0 -30px;
+}
+.weibo-message .weibo-user .weibo-icon-sina-approve {
+    background-position: 0 -120px;
+}
+.weibo-message .weibo-user .weibo-icon-sina-approve_co {
+    background-position: 0 -150px;
+}
+.weibo-message .weibo-content {
+    display: inline;
+    word-wrap: break-word;
+}
+.weibo-message .weibo-content img {
+    vertical-align: middle;
+    display: inline;
+}
+.mod-weibo .weibo-media {
+    display: block;
+    padding: 8px 0 3px;
+    overflow: hidden;
+}
+.weibo-media .weibo-image {
+    float: left;
+    margin-right: 15px;
+    overflow: hidden;
+}
+.weibo-media .weibo-loading {
+    border: none;
+    background: transparent url(images/loading.gif) no-repeat center center;
+    position: absolute;
+}
+.weibo-media .weibo-image a {
+    padding: 2px 0;
+    display: inline-block;
+    zoom: 1;
+    cursor: url(images/cursor_zoom.cur), pointer;
+}
+.weibo-media .weibo-image a img {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    padding: 3px;
+}
+.weibo-media .weibo-image-zoomout a {
+    cursor: url(images/cursor_minify.cur), pointer;
+}
+.mod-weibo .weibo-info {
+    line-height: 19px;
+}
+.mod-weibo .weibo-info a {
+    font-size: 12px;
+}
+.weibo-info .weibo-time {
+    color: #759AAD;
+}
+.weibo-info .weibo-time:hover {
+    color: #006A92;
+}

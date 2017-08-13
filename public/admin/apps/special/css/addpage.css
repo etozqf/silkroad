@@ -1,0 +1,10 @@
+.diy-spinning {
+    height:42px;
+    margin:4px;
+    background:transparent url(../images/diy-spinning.gif) no-repeat center center;
+}
+@include "message.css";
+@include "part/tip.css";
+@include "part/reel.css";
+@include "part/pagination.css";
+@include "part/addpage.css";

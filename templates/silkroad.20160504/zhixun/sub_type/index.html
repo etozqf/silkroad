@@ -1,0 +1,40 @@
+<div class="news" style="display:block"> 
+                                
+                        <ul>
+                            <!--{loop $data $i $m}-->
+                                <?php 
+                                     $db = & factory::db();
+                                        if($m['modelid']==3){
+                                           $m['contentid'] =  table('link',$m['contentid'],'referenceid');
+                                        }
+                                     $author = table('article',$m['contentid'],'author');
+                                     $sql = "select spaceid,typeid,alias from cmstop_space where author='$author'";
+                                     $arr = $db->get($sql);
+                                        
+                                ?>
+                                <li catid="{$m['catid']}" contentid="{$m['contentid']}">
+                                    <!--{if $m[thumb]}-->
+                                    <img src="{thumb($m[thumb],133,100,1,null,0)}" alt="">
+                                    <!--{/if}-->
+                                    <h2><a href="{$m[url]}">{$m[title]}</a></h2>
+                                    <div class="info"><i>
+                                    <!--{if $arr}-->
+                                    <a href="{SPACE_URL}{$arr['alias']}?typeid={$arr['typeid']}&spaceid={$arr['spaceid']}" target="_blank">{$author}</a>
+                                    <!--{else}-->
+                                    <a href="javascript:;">{$author}</a>
+                                    <!--{/if}-->
+                                    </i><span class="time">{date('Y-m-d',$m[published])}</span></div>
+                                    <p>{str_natcut(description($m['contentid']),60,'')}&nbsp;&nbsp;&nbsp;<span><a href="{$m[url]}" style="color:#ff6c00;">详细</a></span></p>
+                                </li>
+                            <!--{/loop}-->   
+                        </ul>  
+                                   
+                                
+                        <div class="page">
+                            <tr>
+                                <!--{space_pages($total, $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                            </tr>
+                            <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+                        </div>
+                              
+                    </div>

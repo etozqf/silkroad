@@ -1,0 +1,101 @@
+.date-menu-wapper {
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.date-menu {
+    position: absolute;
+    line-height: 30px;
+    top: 8px;
+}
+.date-menu a {
+    margin: 0 6px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #333!important;
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+.date-menu .now {
+    border-bottom: 2px solid #0091e4;
+}
+
+/*列表*/
+.news-list-box .list-point {
+  margin: 0;
+}
+.news-list-box .list-point .item {
+  height: 40px;
+  overflow: hidden;
+  _zoom: 1;
+}
+.news-list-box .list-point .item .title {
+  line-height: 24px;
+  color: #444;
+  font-size: 16px;
+}
+.news-list-box .list-point .item .title a {
+    color: #444!important;
+}
+.news-list-box .list-point .item .title a:hover {
+  color: #cc0000!important;
+}
+.news-list-box .list-point .item .date {
+  color: #cccccc;
+  margin-left: 6px;
+}
+.news-list-box .list-point .ico {
+  float: left;
+  _display: inline;
+  text-align: center;
+  width: 78px;
+  height: 28px;
+  line-height: 28px;
+  margin-right: 6px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  color: #ffffff;
+  margin-top: 6px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.news-list-box .list-point .ico > p {
+    float: right;
+    text-align: center;
+    font-size: 13px;
+    color: #da2b2b;
+    width: 42px;
+    text-align: center;
+}
+.news-list-box .list-point .ico a {
+    float: left;
+    width: 34px;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+.news-list-box .list-point .n1,
+.news-list-box .list-point .n2,
+.news-list-box .list-point .n3 {
+  background-position: 0 0;
+}
+.news-list-box .list-point .dashed {
+  padding: 20px 0;
+}
+.news-list-box .list-point .ico .num {
+  color: #da2b2b;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 31px;
+}
+.news-list-box .list-point .item .info .date,
+.news-list-box .list-point .item .info .tag,
+.news-list-box .list-point .item .info .click,
+.news-list-box .list-point .item .info .comment {
+  margin: 0 20px 0 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 16px;
+}

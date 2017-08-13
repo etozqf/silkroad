@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[name]}_{/loop}{$name}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+ <style>
+ 	body{
+ 		
+ 		font-family: "微软雅黑", "幼圆", Verdana, Arial;
+    	font-size: 14px;
+   	 	line-height: 1.428571429;
+    	color: #333;
+    	background-color: #ffffff;
+    	margin:0px;
+    	padding:0px;
+ 	}
+ 	
+ 	.allframe{
+		margin: 0px auto;
+   	 	padding: 0px;
+    	overflow: hidden;
+    	clear: both;
+    	height:61px;
+    	line-height:30px;
+ 	}
+ 	.box_local, .box_local a {
+    	color: #8e8e8e;
+	}
+	.box_local{
+	    float: left;
+	    width: 500px;
+	    padding-left: 20px;
+	    font-size: 12px;
+	    overflow: hidden;
+	}
+ 	.box_userbar {
+	    margin: 0px auto;
+	    padding: 15px 0px;
+	    height: 20px;
+	    margin-bottom: 10px;
+	    width: 1000px;
+	    clear: both;
+	    position: relative;
+	    z-index: 0;
+	}
+	.frame_box{
+		margin:10px auto;
+		padding:0px;
+		height:950px;
+	}
+ </style>
+</head>
+<body style="background-color:#F3F3F3;">
+<!-- 顶部 -->
+    <!--{template "system/head.html"}-->
+    	  <div id="DHead"></div>
+
+    <div class="frame_box" style="width:100%;">
+        <div>
+            <iframe src="http://114.247.108.234:8080/xhprice2/macrodata_outer.jsp?type=3" frameborder=no scrolling="no" width="100%" height="910"></iframe>
+        </div>
+        
+    </div>
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+</body>
+</html>

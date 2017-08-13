@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+<title>{$m[name]}_{$sitename[0]}</title>
+<meta name="Keywords" content="{$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[description]} ">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/report.css"> 
+<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<!-- ajax 分页/ -->
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.template.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.pagination.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/item/js/item.tablelist.js"></script>
+</head>
+<body>
+<style>
+		.optionlist ul li p{text-indent:2em;}
+		.page *{  border: 1px solid #dedede;color: #0079c6;display: inline-block;height: 31px;margin: 0 5px;text-align: center;width: 31px;}
+	  .page .current{color:red;}
+	  .page .prev,.page .next{ border: 1px solid #ebebeb;}
+	  .page .prev.current,.page .next.current{ border: 1px solid #ebebeb;background: #ebebeb;}
+	  .page{padding:0 0 20px 0;text-align:center;}
+		.page a{display:inline-block;height:28px;width:28px;text-align:center;line-height:28px;font-size:16px;border:1px solid #ddd;background:#fff;margin:0 5px;color:#666;}
+		.page a:hover,.page a.on{background:#e4393c;border:1px solid #e4393c;color:#fff;text-decoration:none;}
+		.page i{color:#e4393c;font-style:normal;}
+</style>
+<script type="text/javascript">
+	var mid = '{$m[mid]}';
+	var url = "{APP_URL}?app=magazine&controller=page&action=pagesize&mid="+mid;
+</script>
+<script>
+		catname_top = '报告';	// 顶级栏目名称
+		catname = '{$m[name]}';
+</script>
+<!-- 顶部 -->
+    <!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<!--{if $m[mid] == 4}-->
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/country.css"> 
+ 	<!--#include virtual="/section/303.html"--><!--# 思路报告 国别报告-国别区块 #-->
+<!--{/if}-->
+<div class="container">
+	<!-- left -->
+	<div class="left730">  
+		<div class="block guob">
+			<div class="hd"><h3>{$m[name]}</h3></div>
+			<div class="bd"> 
+				<div class="wrapper">
+                    <div id="focus">
+                    	<ul style="left: 0px; width: 795px;">
+
+                    	<?php $logo = json_decode($m['logo'], true); foreach ($logo as $key => $value) {
+                    		?>
+								<li><img src="{thumb($value,240,340,1)}" alt=""></a></li>
+                    	<?php } ?>
+                            
+                        </ul>
+                    </div>
+                </div>
+				<div class="prointro">
+					<p>{str_cut($m[memo], 500, '...')}</p>
+					<a href="" class="abtn"  style="display:none;">我要购买</a>	
+				</div>
+			</div>
+		</div>
+		<div class="block themenu">
+			<div class="hd"><h3>往期回顾</h3></div>
+			<div class="optionlist" >
+					<ul id="tablelist">
+					</ul>
+          <div class="page">
+          </div> 
+			</div>
+			<div class="bd" style="display:none">
+				<ul>
+				<?php $mid = $m['mid'];?>
+				<!--{db sql="SELECT * FROM #table_magazine_edition WHERE mid = $mid  ORDER BY publish DESC"}-->
+					<li>
+						<h3><a href="{APP_URL}?app=magazine&controller=download&id={$r['eid']}" target="_blank">{str_cut($r['title'], 80, '')}</a></h3>
+						<p>{$r[description]}<!--[<a href="{WWW_URL}magazine/{$m['alias']}/{$r['eid']}/" target="_blank">详细</a>]--></p>
+					</li>
+				<!--{/db}-->
+				</ul>
+			</div>
+		</div>
+		<div class="grayblock"></div>
+		<div class="block subscribers" style="display:none;">
+			<div class="hd"><h3>已购买报告</h3></div>
+			<div class="bd">
+				<ul>
+					<li><a href="">
+						<img src="{IMG_URL}templates/{TEMPLATE}/zn/images/silkdb_tu_sczk.jpg" alt="">
+						<p>巴基斯坦投融资环境与风险分析(2015版)</p></a>
+					</li>
+					<li><a href="">
+						<img src="{IMG_URL}templates/{TEMPLATE}/zn/images/silkdb_tu_sczk.jpg" alt="">
+						<p>巴基斯坦投融资环境与风险分析(2015版)</p></a>
+					</li>
+					<li><a href="">
+						<img src="{IMG_URL}templates/{TEMPLATE}/zn/images/silkdb_tu_sczk.jpg" alt="">
+						<p>巴基斯坦投融资环境与风险分析(2015版)</p></a>
+					</li>
+				</ul>
+				<a href="" class="more">更多已订阅报告</a>
+			</div>
+		</div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+				<!--#include virtual="/section/372.html"--><!--# 报告 右侧-智讯参考区块 #-->
+				
+				<!--#include virtual="/section/301.html"--><!--# 思路报告 右侧-丝路情报区块 #-->
+				
+				<!--#include virtual="/section/304.html"--><!--# 思路报告 右侧-国别报告区块 #-->
+			
+				<!--#include virtual="/section/302.html"--><!--# 思路报告 右侧-征信报告区块 #-->
+			
+	</div>
+	<div class="clearfix"></div>	
+</div>
+<!--<div style="left:0px;top:460px;position:fixed;z-index:999">
+  <em class="db-li-close"></em>
+  <a href="http://db.silkroad.news.cn/2016/1121/219273.shtml">
+    <img src="{IMG_URL}templates/{TEMPLATE}/img/survey.gif">
+  </a>
+</div>-->
+<!--{template "system/foot_zn.html"}-->
+<!-- 自助申请 -->
+<div class="self-application" style="display:none;">
+	<div class="hd">
+		<h3>自助申请</h3>
+		<span class="close" onclick="$('.self-application').hide();"></span>
+	</div>
+	<div class="bd">
+		<div class="txt1">尊敬的用户，很高兴您对我们{$m[name]}产品感兴趣，还请留下您的个人信息。<br>若有需要我司会在2小时内联系您，为您提供更详细的解答。</div>
+		<div class="txt2">您也可以直接拨打我司<b>400-890-8858</b>进行咨询。</div>
+		<form action="">
+			<ul>
+				<li><label for="">联系人</label><input type="text" class="inp"><div class="tips">请填写您的真实姓名</div></li>
+				<li><label for="">手机号码</label><input type="text" class="inp"><div class="tips">请填写您的手机号码</div></li>
+				<li><label for="">固定电话(选填)</label><input type="text" class="inp"><div class="tips">请填写您的固定电话。格式：区号电话号码－分机号码。例如：01063076886-1234</div></li>
+				<li><label for="">您的要求</label><textarea name="" id="" class="textarea"></textarea><div class="tips">您有什么要求请在这填写</div></li>
+				<li><input type="submit" value="确定" class="btn"></li>
+			</ul>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{IMG_URL}apps/magazine/js/magazine_table.js"></script>
+
+<script type="text/javascript">
+$(function() {
+var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+var len = $("#focus ul li").length; //获取焦点图个数
+var index = 0;
+var picTimer;
+
+//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+var btn = "<div class='btn'>";
+for(var i=0; i < len; i++) {
+	btn += "<span></span>";
+}
+btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+if($('#focus ul li').length>1){
+	$("#focus").append(btn); 
+}
+
+
+//为小按钮添加鼠标滑入事件，以显示相应的内容
+$("#focus .btn span").mouseenter(function() {
+	index = $("#focus .btn span").index(this);
+	showPics(index);
+}).eq(0).trigger("mouseenter");
+
+//上一页、下一页按钮透明度处理
+$("#focus .preNext").hover(function() {
+	$(this).stop(true,false).animate({"opacity":"1"},300);
+},function() {
+	$(this).stop(true,false).animate({"opacity":"0.6"},300);
+});
+
+//上一页按钮
+$("#focus .pre").click(function() {
+	index -= 1;
+	if(index == -1) {index = len - 1;}
+	showPics(index);
+});
+
+//下一页按钮
+$("#focus .next").click(function() {
+	index += 1;
+	if(index == len) {index = 0;}
+	showPics(index);
+});
+
+//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+$("#focus ul").css("width",sWidth * (len));
+
+//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+$("#focus").hover(function() {
+	clearInterval(picTimer);
+},function() {
+	picTimer = setInterval(function() {
+		showPics(index);
+		index++;
+		if(index == len) {index = 0;}
+	},4000); //此4000代表自动播放的间隔，单位：毫秒
+}).trigger("mouseleave");
+
+//显示图片函数，根据接收的index值显示相应的内容
+function showPics(index) { //普通切换
+	var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+	$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+	//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+	$("#focus .btn span").eq(index).stop(true,false).css({"background-color":"#ff6c00"}).siblings().css("background-color","#999"); //为当前的按钮切换到选中的效果
+}
+});
+
+</script>
+</body>
+</html>

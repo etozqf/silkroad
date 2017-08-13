@@ -1,0 +1,52 @@
+body { background:#F5F1E1; font-family:宋体,Arial Narrow,arial,serif; font-size:12px; _text-align:center; line-height:21px;}
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, input, textarea { margin:0; padding:0;}
+address, caption, cite, code, dfn, ins, em, th, var { font-style:normal; font-weight:normal; font-size:12px;}
+.diy-root { margin:0 auto; text-align:left;}
+.diy-widget a { color:#333; text-decoration: none;}
+.diy-widget a:hover { color:#f00; text-decoration: underline;}
+.diy-widget input,.diy-widget textarea,.diy-widget select,.diy-widget button { vertical-align:middle;}
+.diy-widget input.input-text,.diy-widget textarea { border:1px solid #ccc;}
+.diy-widget input.input-radio,.diy-widget input.input-checkbox { border:none; outline:none;}
+.diy-widget input.input-submit,.diy-widget button,.diy-widget input.input-button { cursor:pointer; border:none; background:#fff url("http://img.silkroad.news.cn/apps/special/ui/page/yellow-a/images/btn.gif") no-repeat; height:22px; width:60px;}
+.diy-content-menu { }
+.diy-content-menu a { color:#fff;}
+.diy-content-menu a:hover { color:#ff0;}
+.diy-content-menu span.sepr { margin:0 4px; color:#fff;}
+.require { color:red;}
+.title-yellow-a { overflow: hidden; background:url("http://img.silkroad.news.cn/apps/special/ui/title/yellow-a/images/yellow-a.png") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-yellow-a,.title-yellow-a span{color:#D7000F;}
+.frame-white{ background:#fff;}
+.widget-gray-a .diy-inner { border:1px solid #dadada; background:#fff;}
+.content-menu-black { background:#333 url("http://img.silkroad.news.cn/apps/special/ui/content/menu/black/images/bg.jpg") no-repeat 0 0; padding:0px 10px;}
+.content-menu-black a { color:#fff; font-size:12px;}
+.content-menu-black a:hover { color:#ccc; text-decoration:none;}
+.content-menu-black span.sepr { margin:0 4px; color:#fff; font-size:12px;}
+.title-red-d { overflow: hidden; background:url("http://img.silkroad.news.cn/apps/special/ui/title/red-d/images/red-d.jpg") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-red-d a,.title-red-d span{color:#fff;font-weight:bold;font-size:14px;}
+.content-list-gray-e ul { padding:5px 8px;}
+.content-list-gray-e li { line-height:25px; padding-left:8px; background:url("http://img.silkroad.news.cn/apps/special/ui/content/list/gray-e/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-e a { font-size:14px; color:#999;}
+.content-list-gray-e a:hover{}
+.content-list-gray-e .date{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #bbb;}
+ .content-palist-blue li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-blue img { margin:8px 8px 8px 0;}
+ .content-palist-blue .summary { margin:0; padding:0;}
+ .content-palist-blue{background-color:#fff;}
+ .content-palist-blue .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-blue .imgtxtsummary-list a{color:#333;}
+ .content-palist-blue .imgtxtsummary-list h3 a{ color:#06c; font-size:12px;font-weight:bold;}
+ .content-palist-blue .imgtxtsummary-list p{color:#333;}
+ .content-palist-blue .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.content-list-blue ul { padding:5px 8px;}
+.content-list-blue li { line-height:25px; padding-left:8px; background:url("http://img.silkroad.news.cn/apps/special/ui/content/list/blue/images/point.gif") no-repeat 0 10px;}
+.content-list-blue a { font-size:14px; color:#06c;}
+.content-list-blue a:hover{ color:#c00;}
+.content-list-blue .date{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #bbb;}
+.frame-margin-t10{ margin-top:10px;}
+.title-red-b { overflow: hidden; background:#BC2421 url("http://img.silkroad.news.cn/apps/special/ui/title/red-b/images/red-b.jpg") no-repeat 0 0; height:40px; line-height:40px; padding-left:80px; }
+.title-red-b a,.title-red-b span{color:#fc0;font-size:24px;font-family:"微软雅黑";}
+ .content-piclist-gray-a{padding-top:10px;background-color:#FFF;}
+ .content-piclist-gray-a li {margin:0 7px 10px;}
+ .content-piclist-gray-a img{border:1px solid #ccc;padding:1px;}
+ .content-piclist-gray-a a { color:#333; font-size:12px;}
+ .content-piclist-gray-a a:hover{text-decoration:none;color:#c00;}

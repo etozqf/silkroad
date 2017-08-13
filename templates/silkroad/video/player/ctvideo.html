@@ -1,0 +1,5 @@
+<?php $width = isset($width) ? htmlspecialchars($width) : 650; ?>
+<?php $height = isset($height) ? htmlspecialchars($height) : 519; ?>
+<?php $manual = isset($manual) ? htmlspecialchars($manual) : 0; ?>
+<?php $autostart = ($autostart == 'false' || !$autostart) ? 0 : 1; ?>
+<script class="cmstopVideo" data-mce-role="cmstopVideo" type="text/javascript" src="{$playerurl}?w={$width}&amp;h={$height}&amp;id={$video}&&amp;manual={$manual}&amp;autoStart={$autostart}"></script>

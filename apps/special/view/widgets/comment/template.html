@@ -1,0 +1,100 @@
+<script type="text/javascript" src="{IMG_URL}apps/member/js/logindialog.js"></script>
+<link href="{IMG_URL}js/lib/dialog/style.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-comment-mode.css" />
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.dialog.js"></script>
+<style type="text/css">
+.hide {display: none}
+</style>
+<script>
+	var topicid = {$topicid};
+</script>
+	<?php if(setting('cloud', 'sohu_changyan')){?>
+		<?php include(PUBLIC_PATH."www/section/cloud/specialcomment.html");?>
+	<?php }else{ ?>
+<div class="mod-comment">
+	<input type="hidden" name="options" value="{htmlspecialchars($options)}" />
+	<dl class="comment-list"></dl>
+	<div class="view-comment"><span><a href="{APP_URL}?app=comment&controller=review&action=index&topicid={$topicid}" title="点击查看全部评论" style="color:#0B3B8C;"> 已有<span class="comments" style="color:#CC0000; font-weight:bold;">0</span>人发表了评论</a></span></div>
+	<div class="post-comment-area">
+            <form class="comment-form" action="{$commentUrl}" method="post" onsubmit="return commentPost(this);" target="_blank">
+			<input type="hidden" name="topicid" value="{$topicid}" />
+			<input type="hidden" name="followid" value="{$followid}" />
+			<div class="textarea-wrap"><textarea name="content" class="textarea" style="width:99%;"></textarea><div class="login-warn"><p class="info">
+				您需要登录后才可以评论，<a href="javascript:;" class="cloud-login" hideFocus="true">登录</a>| <a href="{APP_URL}{url('member/index/register')}"  hideFocus="true">注册</a>
+			</p></div></div>
+			<div class="ov">
+				<div class="loginform-user-info" style="width:98%"></div>
+				<input class="btn-post" type="submit" value="发表评论" style="margin: -24px 0 6px; padding-left:4px; padding-right:4px;">
+			</div>
+		</form>
+	</div>
+</div>
+	<?php }?>
+<script type="text/javascript">
+if (typeof(cmstop) == 'undefined' || typeof(cmstop.loginDialog) == 'undefined') {
+	document.write('<script type="text/javascript" src="{IMG_URL}apps/member/js/logindialog.js"><\/script>');
+}
+var islogin = {setting('comment', 'islogin')};
+var ischeck = {setting('comment', 'ischeck')};
+var defaultname = "{setting('comment', 'defaultname')}";
+var commentPost = function (form) {
+	var content = form.content.value;
+	if (content == '') {
+		alert('评论内容不能为空');
+		return false;
+	}
+	if (APP_URL.search(location.host) < 1) {
+		return true;
+	}
+	$.post($(form).attr('action'), $(form).serialize(), function (data) {
+		if (data.state) {
+			if (typeof(comment) != 'undefined' && typeof(comment.page) != 'undefined') {
+				comment.page(form.topicid.value, page, pagesize);
+			}
+			alert(ischeck ? '评论发表成功，请等待审核！' : '评论发表成功!');
+			form.reset();
+			{if $indialog}
+			replyDialog.close();
+			{/if}
+		} else {
+			alert(data.error);
+		}
+		if ($('.seccode_image').length > 0) {
+			$('.seccode_image').click();
+		}
+	}, 'json');
+	return false;
+}
+var getSeccode = function () {
+	{if setting('comment', 'isseccode')}
+	return ['<span class="seccode">',
+			'<label for="seccode">验证码： </label>',
+			'<input type="text" name="seccode" id="seccode" size="4" maxlength="4" style="ime-mode:disabled;width: 30px;"/>',
+			'<img class="seccode_image" src="<?=APP_URL?>?app=system&controller=seccode&action=image" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="absmiddle" onclick="this.src=\'<?=APP_URL?>?app=system&controller=seccode&action=image&=\'+Math.random()*5;" onload="$(this).parent(\'span\').slideDown(\'fast\');" />',
+		'</span>'].join('\r\n');
+	{/if}
+	return '';
+}
+$(function() {
+	cmstop.loginDialog();
+	$('.commentForm').submit(function() {
+		if ($(this).find('textarea[name=content]').val() == '') {
+			alert('评论内容不能为空');
+			return false;
+		}
+		if (islogin == 1 && !$.cookie(COOKIE_PRE+'auth')) {
+			alert('请登录后再发表评论');
+			return false;
+		}
+		return comment.post(this);
+	});
+	$.getJSON(APP_URL+'?app=comment&controller=review&action=ajax_allow_weibo&jsoncallback=?', function(json){
+		if (json.state) {
+			if ($('.loginform-user-info').find('.comment-postweibo').length == 0) {
+				$('.loginform-user-info').children('.seccode-area').append('<label><input type="checkbox" class="comment-postweibo" name="post_weibo" value="1" />转发到微博</label>');
+			}
+		}
+	});
+	$('.seccode-area').css('margin-right', '50px');
+});
+</script>

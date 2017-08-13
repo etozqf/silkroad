@@ -1,0 +1,13 @@
+#case-list .tab_contitle{height: 42px;}
+#case-list .tab_contitle ul {left:10px;width:710px; height:42px;}
+#case-list .tab_contitle ul li {float:left;height:42px;  font-size:16px; z-index:3;font-weight: normal; font-family: "Arial";}
+#case-list .tab_contitle ul li a{display: block;border-right: 1px solid #ccc;padding: 0 20px; height:16px;
+        line-height:16px; margin-top: 13px;float: left;  _display: inline; }
+#case-list .tab_contitle ul li.on {line-height:39px; color:#c71721;height: 39px; background: #333;
+        border-top:solid 3px #c71721; border-left:solid 1px #c71721; border-right:solid 1px #c71721;border-bottom:solid 1px #fff;
+        background: #fff;position: relative;left: -1px;}
+#case-list .tab_contitle ul li.on a{color: #c81623;text-decoration: none;font-weight: normal;border-right: none;margin-top: 10px;}
+.tab-data-box{width: 718px; float: left; margin-left: 5px; overflow: hidden;  }
+.del-box{width: 545px; float: left; margin-left: 10px; _display: inline; }
+.tab-data h3 a:hover{text-decoration: none; color: #E4393C;}
+

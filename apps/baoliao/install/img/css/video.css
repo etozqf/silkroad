@@ -1,0 +1,51 @@
+.video-dialog-head { 
+	height: 38px;
+	position: relative;
+	top: 2px;
+	z-index: 10;
+	padding-left: 18px;
+	margin-top: 6px;
+}
+.video-dialog-head .item { 
+	float: left; 
+	width: 114px; 
+	height: 32px; 
+	line-height: 32px; 
+	text-align: center; 
+	font-size: 14px; 
+	background-color: #E4E4E4;
+	border-right: 2px solid #CCCCCC;
+	border-top: 2px solid #CCCCCC;
+	position: relative;
+	cursor: pointer;
+	top: 2px;
+}
+.video-dialog-head .cur {
+	background-color: #F9F9F9;
+	padding-top: 4px;
+	cursor: default;
+	top: 0;
+	left: -2px;
+	border-left: 2px solid #CCCCCC;
+}
+.video-dialog-head .first {
+	border-left: 2px solid #CCCCCC;
+	left: 0!important;
+}
+.video-dialog-body {
+	width: 100%;
+	height: 360px;
+	border-top: 2px solid #CCCCCC;
+	overflow-x: hidden;
+}
+.video-dialog-body iframe {
+	width: 402px;
+	height: 346px;
+	border: none;
+	background: #F9F9F9;
+}
+
+.video-dialog-close {
+	top: -14px!important; 
+	right: -14px!important;
+}

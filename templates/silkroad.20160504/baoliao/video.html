@@ -1,0 +1,47 @@
+ <!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>报料视频选择</title>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+</head>
+<style type="text/css">
+	input {
+		width: 266px;
+		height: 24px;
+		line-height: 24px;
+		padding: 1px 6px;
+		margin-left: 6px;
+		float: left;
+	}
+	button {
+		width: 78px;
+		height: 30px;
+		float: left;
+		font-size: 13px;
+	}
+	.info {
+		font-size: 13px; 
+		padding: 12px;
+	}
+	.warnning {
+		font-size: 13px; 
+		padding: 12px;
+		color: #ff0000;
+	}
+</style>
+<body>
+	<form id="form" action="?app=baoliao&controller=index&action=video" method="post" onsubmit="return postForm(this);">
+		<input type="text" id="video" name="video" value="" placeholder="请直接输入视频播放器地址" />
+		<input type="hidden" name="thumb" value="" />
+		<button>插入视频</button>
+	</form>
+	<div style="clear:both;"></div>
+	<div id="warnning" class="warnning" style="display:none;"></div>
+	<div class="info">目前支持优酷、土豆、搜狐、腾讯、乐视、奇艺、CNTV、56、新浪、酷6、激动视频网站的视频播放页链接</div>
+</body>
+<script type="text/javascript">
+var token = '{$token}';
+</script>
+<script type="text/javascript" src="{IMG_URL}apps/baoliao/js/insert_video.js"></script>
+</html>

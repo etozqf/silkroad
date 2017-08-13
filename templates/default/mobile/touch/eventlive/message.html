@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title>错误提示</title>
+    <style type="text/css">
+        body {
+            background-color: #efeff4;
+            color: #666666;
+            font-size: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/eventlive.css?{TIME}" />
+</head>
+<body>
+
+<div class="section message">
+    <i class="icon message"></i>
+    <div class="content">
+        <?php if (isset($message)): ?><?= $message ?><?php else: ?>未知错误<?php endif; ?>
+        <?php if (isset($redirect)): ?>
+        <a class="button" href="<?= $redirect ?>">确定</a>
+        <?php endif; ?>
+    </div>
+</div>
+
+</body>
+</html>

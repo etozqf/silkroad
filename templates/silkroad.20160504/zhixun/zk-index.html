@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$sitename[0]}_{$SYSTEM[seotitle]}_智库-首页</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zk-common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zk-index.css">
+    <style type="text/css">
+    .news p{height:42px;}
+    </style>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <!-- <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script> -->
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/zk-common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/zk-index.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+	<script>
+	$(function () {
+		catname_top = '智讯';	// 顶级栏目名称
+		$('.n_ind_contitle>ul>li').each(function(){
+			if($(this).hasClass('n_ind_contitle_on')){
+				catname = $(this).find('b').html();
+			}
+		})
+	})
+	</script>
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+
+<div class="box1000 focus m_t20">
+    <em></em>
+
+    <div class="ov  focus-b">
+        <!--左侧焦点-->
+        <div class="focus-l f-l">
+            <!--#include virtual="/section/350.html"--><!--# 智库频道 左侧-焦点事件-头条 #-->
+            <!--#include virtual="/section/351.html"--><!--# 智库频道 左侧-三个小标题 #-->
+        </div>
+        <!--右侧往期回顾-->
+        <!--#include virtual="/section/352.html"--><!--# 智库频道 右侧-往期回顾 #-->
+    </div>
+    <!--智库动态-->
+    <!--#include virtual="/section/353.html"--><!--# 智库频道 智库动态-滚动新闻 #-->
+</div>
+<div class="column ov">
+    <!--左侧-->
+    <div class="bor-rb col-l-main ov m_t20 ">
+        <div class="bor-trbl ov h-1410">
+            <div class="pad-10 ">
+            <!--tab-->
+            <div class="m_t10">
+                <div class="n_ind_contitle">
+                    
+                    <!--{if $sub}-->
+                    <ul>
+                        <!--{loop $sub_type $k $r}-->
+                            <!--{if $r['catid']==$sub}-->
+                             <li class="n_ind_contitle_on"><a href="{APP_URL}?app=system&controller=zhixun&action=index_show&sub_type={$r['catid']}"><span><b>{$r[name]}</b></span></a></li>
+                            <!--{elseif $k!=169 & $k<228}-->
+                             <li><a href="{APP_URL}?app=system&controller=zhixun&action=index_show&sub_type={$r['catid']}"><span><b>{$r[name]}</span></b></a></li>
+                            <!--{/if}-->
+                        <!--{/loop}-->
+                    </ul>
+                    <!--{else}-->
+                    <ul>
+                        <!--{loop $sub_type $k $r}-->
+                                        
+                                <!--{if $k!=169}--> 
+                                    <!--{if $k==204}-->
+                                    <li class="n_ind_contitle_on"><a href="{APP_URL}?app=system&controller=zhixun&action=index_show&sub_type={$r['catid']}"><span><b>{$r[name]}</b></span></a></li>
+                                    <!--{elseif $k>204&$k<228}-->
+                                    <li><a href="{APP_URL}?app=system&controller=zhixun&action=index_show&sub_type={$r['catid']}"><span><b>{$r[name]}</span></b></a></li>
+                                    <!--{/if}-->
+                                
+                                <!--{/if}-->
+                        <!--{/loop}-->
+                    </ul>
+                <!--{/if}-->
+                </div>
+                
+                <div class="n_ind_contmain">
+                    <!--{if $sub}-->
+                            <!--{template "zhixun/sub_type/index.html"}-->
+                    <!--{else}-->
+                            
+                      
+                            <div class="news" style="display:block"> 
+                                        
+                                <ul>
+                                    <!--{loop $data $i $m}-->
+                                        <?php 
+                                             $db = & factory::db();
+                                                if($m['modelid']==3){
+                                                   $m['contentid'] =  table('link',$m['contentid'],'referenceid');
+                                                }
+                                             $author = table('article',$m['contentid'],'author');
+                                             $sql = "select spaceid,typeid,alias from cmstop_space where author='$author'";
+                                             $arr = $db->get($sql);
+                                                
+                                        ?>
+                                        <li catid="{$m['catid']}" contentid="{$m['contentid']}">
+                                            <!--{if $m[thumb]}-->
+                                            <img src="{thumb($m[thumb],133,100,1,null,0)}" alt="">
+                                            <!--{/if}-->
+                                            <h2><a href="{$m[url]}">{$m[title]}</a></h2>
+                                            <div class="info"><i>
+                                            <!--{if $arr}-->
+                                            <a href="{SPACE_URL}{$arr['alias']}?typeid={$arr['typeid']}&spaceid={$arr['spaceid']}" target="_blank">{$author}</a>
+                                            <!--{else}-->
+                                            <a href="javascript:;">{$author}</a>
+                                            <!--{/if}-->
+                                            </i><span class="time">{date('Y-m-d',$m[published])}</span></div>
+                                            <p>{str_natcut(description($m['contentid']),60,'')}&nbsp;&nbsp;&nbsp;<span><a href="{$m[url]}" style="color:#ff6c00;">详细</a></span></p>
+                                        </li>
+                                    <!--{/loop}-->   
+                                </ul>  
+                                           
+                                        
+                                <div class="page">
+                                    <tr>
+                                        <!--{space_pages($total, $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                                    </tr>
+                                    <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+                                </div>
+                                      
+                            </div>
+                               
+                    <!--{/if}-->
+            
+          </div>
+            </div>
+        </div>
+    </div>
+	</div>
+    <!--右侧-->
+    <div class="col-r-main bor-rb ov  m_t20 ">
+        <div class="bor-trbl h-1410">
+            <!--智讯参考-->
+            <!--#include virtual="/section/356.html"--><!--# 智库频道 智讯参考 #-->
+            <!--智库简介-->
+            <!--#include virtual="/section/357.html"--><!--# 智库频道 首页-阅读排行 #-->
+            <!--热门智库-->
+            <!--#include virtual="/section/358.html"--><!--# 智库频道 热门智库 #-->
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(".n_ind_contitle li").bind("click",function(){
+        var index = $(this).index();
+        $(this).addClass("n_ind_contitle_on").siblings().removeClass("n_ind_contitle_on");
+        $(".n_ind_contmain .news").eq(index).show().siblings().hide();
+    })
+        //三个小标题添加更多链接
+        var moreurl = $("#more").children().attr("href");
+        $("#more2").children().attr("href",moreurl);
+        var memberid = $.cookie(COOKIE_PRE+'userid');
+        $.getJSON(
+                '{APP_URL}?app=member&controller=index&action=ajax_article_collect&jsoncallback=?&memberid='+memberid+'&typeid=0',
+                    function(data){
+                        $('.fav').each(function(){
+                        var contentid = $(this).attr('contentid');
+                            for(var i in data){ 
+                                    if(parseInt(data[i])==contentid){
+                                         $(this).attr('class','fav on');
+                                         $(this).text("取消收藏");
+                                    }
+                                }
+                            })
+                        }
+        );
+    $(".news li .fav").click(function(){
+        var fav = $(this).attr('class');
+        var contentid = $(this).attr('contentid');
+        $(this).toggleClass("on");
+        var res = $(this).hasClass("on");
+        if(!res){
+            //ajax请求服务器取消收藏
+            $.getJSON(
+                APP_URL+'?app=member&controller=index&action=ajax_not_collect&jsoncallback=?&contentid='+contentid+'&memberid='+memberid+'&typeid=0',
+                    function(data){
+                               if(data.status!='success')
+                               {
+                                      alert('取消失败');
+                                      return false;
+                               }
+                        }
+                    );
+            $(this).text("收藏");
+            }else{
+            //ajax请求服务器完成收藏
+            $.getJSON(
+                    APP_URL+'?app=member&controller=index&action=ajax_collect&jsoncallback=?&contentid='+contentid+'&memberid='+memberid+'&status=0',
+                    function(data){
+                        console.log(data);
+                               if(data.status!='success')
+                               {
+                                      alert('收藏失败');
+                                      return false;
+                               }
+                        }
+                    );
+            $(this).text("取消收藏");
+        }
+    });
+});
+</script>
+<!--{template 'system/foot_zn.html'}-->
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/zn/js/silder.js"></script>
+<script type="text/javascript">
+    jQuery('.zx-home-banner').banqh({
+        box:".zx-home-banner",
+        pic:".silder-big-img",
+        pnum:".silder-small-img",
+        prev_btn:".prev_btn1",
+        next_btn:".next_btn1",
+        autoplay:true,
+        interTime:3000,
+        delayTime:200,
+        order:0,
+        picdire:true,
+        mindire:true,
+        min_picnum:4
+    })
+</script>
+</body>
+</html>

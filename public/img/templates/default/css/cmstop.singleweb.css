@@ -1,0 +1,55 @@
+.map-cont {
+    font-size: 14px;
+    overflow: hidden;
+    _zoom: 1;
+    margin: 5px auto 5px;
+}
+.map-cont dd {
+    width: 782px;
+    background: url(images/map-hr.png) 0 bottom no-repeat;
+    padding: 17px 0 10px;
+    overflow: hidden;
+    _zoom: 1;
+}
+.map-cont dd h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85px;
+    padding-left: 5px;
+    float: left;
+    _display: inline;
+}
+.map-cont a {
+    line-height: 32px;
+    color: #0066cc!important;
+}
+.map-list {
+    overflow: hidden;
+    _zoom: 1;
+    float: left;
+    _display: inline;
+    width: 692px;
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 28px;
+}
+.map-list li {
+    float: left;
+    _display: inline;
+    margin-left: 35px;
+    width: 103px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.map-list li a {
+    color: #333333!important;
+}
+.map-list li a:hover {
+    color: #c30;
+}
+.map-list li a span {
+    color: #999999;
+    padding-right: 6px;
+}

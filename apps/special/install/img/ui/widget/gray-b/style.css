@@ -1,0 +1,8 @@
+﻿/*
+ @name 白底浅灰色边框
+ @notes 白底浅蓝灰色边框
+*/
+.widget-gray-b .diy-inner {
+	border:1px solid #B6BBC0;
+	background:#fff;
+}

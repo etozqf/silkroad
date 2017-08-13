@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+  <define>
+    <frame><![CDATA[gray-a]]></frame>
+    <content/>
+  </define>
+  <name><![CDATA[班列]]></name>
+</theme>

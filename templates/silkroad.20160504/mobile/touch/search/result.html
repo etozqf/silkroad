@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>搜索：{$keyword}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+    <script src="{IMG_URL}js/lib/cmstop.template.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.scrolllist.js"></script>
+</head>
+<body>
+<div class="ui-container">
+    <header>
+        <div class="ui-header-bar"> <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+            <div class="ui-pagetitle">新闻搜索</div>
+            <div class="ui-menu-trigger js-menubtn-top"></div>
+        </div>
+    </header>
+    <!--{template 'mobile/touch/_blocks/nav.html'}-->
+    <div class="search-page">
+        <!-- @end 栏目导航 -->
+        <div class="search-container">
+            <div class="search-box">
+                <div class="search-cont">
+                    <form action="{MOBILE_URL}search/" method="get">
+                        <input type="text" class="txt" placeholder="请输入关键词" name="keyword" value="{$keyword}">
+                        <input type="submit" value="" class="search-btn">
+                    </form>
+                </div>
+            </div>
+            <!--{if !empty($data)}-->
+            <div class="search-list">
+                <ul>
+                    <!--{loop $data['data'] $i $r}-->
+                    <li><a href="{$r[url]}">{str_replace($keyword, '<span>'.$keyword.'</span>', $r[title])}</a></li>
+                    <!--{/loop}-->
+                </ul>
+                <!--{if $data[total] > 10}-->
+                <a class="ui-more">点击查看更多</a>
+                <script type="text/template" id="tpl-row">
+                    <li>
+                        <a href="{%url%}">{%title%}</a>
+                    </li>
+                </script>
+                <!--{/if}-->
+            </div>
+            <!--{/if}-->
+        </div>
+    </div>
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container"></div>
+<!--@end 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<!--@end 底部 -->
+<script>
+    $(function() {
+        var list = $('.search-list');
+        new ScrollList({
+            url: '{MOBILE_URL}search/',
+            trigger: list.find('.ui-more'),
+            container: list,
+            template: $('#tpl-row').html(),
+            page: 2,
+            pagesize: 10,
+            ajaxOptions: {
+                keyword: '{$keyword}'
+            },
+            sorttime: list.children().first().attr('data-sorttime') || 0
+        });
+    });
+</script>
+</body>
+</html>

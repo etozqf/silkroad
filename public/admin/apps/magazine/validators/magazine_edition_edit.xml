@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <paper tips="请选择杂志">
+	  	<min args="1">请选择杂志</min>
+    </paper>
+    <date tips="请输入出版日期">
+	  	<required event="submit">出版日期不能为空</required>
+    </date>
+</root>

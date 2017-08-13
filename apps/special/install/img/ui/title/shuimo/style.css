@@ -1,0 +1,15 @@
+﻿/*
+ @name 水墨
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-shuimo {
+	overflow: hidden;
+	background:url("images/shuimo.jpg") no-repeat 0 0;
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:10px;
+}
+.title-shuimo a,
+.title-shuimo span{color:#663300; font-weight:bold;font-size:14px;}

@@ -1,0 +1,107 @@
+
+.diy-icon {
+	display:block;
+	width:24px;
+	height:24px;
+	cursor:pointer;
+	background: url(../images/diy.png) no-repeat 0 -370px;
+}
+.diy-icon.diy-icon-publish {
+	background-position:0 -370px;
+}
+.diy-icon.diy-icon-publish:hover {
+	background-position:0 -394px;
+}
+.diy-icon.diy-icon-edit {
+	background-position:-24px -370px;
+}
+.diy-icon.diy-icon-edit:hover {
+	background-position:-24px -394px;
+}
+.diy-icon.diy-icon-remove {
+	background-position:-48px -370px;
+}
+.diy-icon.diy-icon-remove:hover {
+	background-position:-48px -394px;
+}
+.diy-icon.diy-icon-style {
+	background-position:-72px -370px;
+}
+.diy-icon.diy-icon-style:hover {
+	background-position:-72px -394px;
+}
+.diy-icon.diy-icon-title {
+	background-position:-96px -370px;
+}
+.diy-icon.diy-icon-title:hover {
+	background-position:-96px -394px;
+}
+.diy-icon.diy-icon-share {
+	background-position:-120px -370px;
+}
+.diy-icon.diy-icon-share:hover {
+	background-position:-120px -394px;
+}
+.diy-icon.diy-icon-preview {
+	background-position:-144px -370px;
+}
+.diy-icon.diy-icon-preview:hover {
+	background-position:-144px -394px;
+}
+.diy-icon.diy-icon-setting {
+	background-position:-168px -370px;
+}
+.diy-icon.diy-icon-setting:hover {
+	background-position:-168px -394px;
+}
+.diy-icon.diy-icon-visible {
+    background-position:-240px -370px;
+}
+.diy-icon.diy-icon-visible:hover {
+    background-position:-240px -394px;
+}
+
+#diy-placement-panel {
+	padding:2px;
+	position:absolute;
+	border:1px solid #666;
+	background-color:#333;
+	overflow:hidden;
+	display:none;
+	right:0;
+	top:0;
+	z-index:20;
+	opacity:0.6;
+	filter:Alpha(Opacity="60");
+	border-radius: 5px;
+}
+#diy-placement-panel .diy-icon {
+	margin:1px;
+	float:left;
+}
+#diy-placement-panel:hover {
+	opacity:1;
+	filter:'';
+}
+.diy-wrapper #diy-placement-panel .diy-icon.diy-icon-edit,
+.diy-wrapper #diy-placement-panel .diy-icon.diy-icon-share,
+.diy-wrapper #diy-placement-panel .diy-icon.diy-icon-publish{
+	display:none;
+}
+.diy-widget #diy-placement-panel .diy-icon.diy-icon-edit,
+.diy-widget #diy-placement-panel .diy-icon.diy-icon-share,
+.diy-widget #diy-placement-panel .diy-icon.diy-icon-publish{
+	display:block;
+}
+.diy-placement:hover #diy-placement-panel {
+	display:block;
+}
+.diy-placement.diy-move #diy-placement-panel {
+	display:none;
+}
+.diy-hidden>#diy-placement-panel .diy-icon.diy-icon-visible {
+    background-position:-264px -370px;
+}
+.diy-hidden>#diy-placement-panel .diy-icon.diy-icon-visible:hover {
+    background-position:-264px -394px;
+}

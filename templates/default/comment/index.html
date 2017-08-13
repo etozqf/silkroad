@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>评论：{$title}_{$SYSTEM[sitename]}</title>
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script type="text/javascript" src="{IMG_URL}apps/comment/js/comment.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    <script>
+    $(function(){
+        $('.js-overlay').mouseenter(function() {
+            overlayPlay($(this));
+        }).mouseleave(function(){
+            var timeSpan = $('.time',$(this));
+            timeSpan.css({'background-color':timeSpan.attr('data-bgc')});
+            $(this).find('.overlay').fadeOut('fast');
+        });
+    });
+    </script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+</head>
+<script type="text/javascript">
+var page = 1;
+var pagesize = ({$pagesize} + 0) || 12;
+var topicid = '{$topicid}';
+var total = {$total} + 0;
+</script>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    
+    <div class="hr20"></div>
+
+    <!-- 广告位 -->
+    <div class="column ad1 ad1000x80">
+        <!--#include virtual="/section/34.html"--><!--# 文章内容页 顶通 1000x80 #-->
+    </div>
+    
+    <div class="hr20"></div>
+
+    <!-- 面包屑 -->
+    <div class="column m-crumb" style="border-bottom:none;">
+        <a href="">首页</a>
+        <!--{loop $pos $cat}-->
+        <em class="icon16x16"></em>
+        <a href="{$cat[url]}">{$cat[name]}</a>
+        <!--{/loop}-->
+    </div>
+
+    <div class="column article-content pos-r js-returntop">
+        <h1 class="article-content-title" style="padding-bottom:10px;padding-top:8px;">{str_natcut($title, 25, '...')}</h1>
+        <div class="hr40"></div>
+        <article class="article-detail w650">
+            <!-- 二维码 -->
+            <!--{if $qrcode}-->
+            <div class="article-content-disilicide disilicide js-disilicide pos-a">
+                <img src="{$qrcode}" alt="">
+                <div class="cover hidden"><span>手机浏览</span></div>
+            </div>
+            <!--{/if}-->
+        	<!-- {if setting('cloud', 'sohu_changyan')} -->
+            <div class="article-comment">
+				<div class="comment" id="comment">
+					<div class="comment-list ov">
+					<!--#include virtual="/section/cloud/comment.html"-->
+					</div>
+				</div>
+			</div>
+			<!-- {else} -->
+            <!-- 评论列表 -->
+            <div class="article-comment">
+                <div class="comment-title-tab pos-r">
+                    <h2 class="title pos-a ov">
+                        <a id="change_hotcomment" href="javascript:;" href="" class="fl-l">热门评论</a>
+                        <a id="change_comment" href="javascript:;" href="" class="current fl-l">全部评论</a>
+                    </h2>
+                    <div class="pagination ov fl-r page page-bottom">
+                        
+                    </div>
+                    <div class="line pos-a"></div>
+                </div>
+                <div class="m-comment" id="comment_list">
+                    
+                </div>
+                <div class="hr20"></div>
+                <!-- 底部分页 -->
+                <div class="align-c">
+                    <div class="pagination ov page page-bottom">
+                        
+                    </div>
+                </div>
+                <div class="hr20"></div>
+            </div>
+			<!-- 评论框 -->
+			<!--{template 'comment/comment.html'}-->
+			<!-- @end 评论框 -->
+			<!-- {/if} -->
+            <div class="hr30"></div>
+        </article>
+
+
+        <!-- 右侧内容 -->
+        <aside class="article-aside article-content-right pos-a fl-r">
+            <!-- 今日推荐 -->
+            <div class="commend-article">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                </div>
+                <div class="commend-inner">
+                    <div class="m-accordion js-accordion">
+                        <ul>
+                            <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+    <div class="hr10"></div>
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns">
+        <div class="btn home icon40x40">
+            <a href="{WWW_URL}" class="text">返回首页</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="" class="text">返回顶部</a>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+</body>
+</html>
+<div id="page_template" class="hidden">
+    <div class="comment-panel ov">
+        <div class="hr20"></div>
+        <div class="usernamephoto fl-l">
+            <div class="userphoto defaultphoto"></div>
+            <a href="" class="username">{username}</a>
+        </div>
+        <div class="comment-infos">
+            <div class="comment-address-date ov">
+                <span class="fl-l">{location}</span>
+                <span class="fl-r">{date}</span>
+            </div>
+            {follow}
+            <div class="comment-content">
+                <p class="">{content}</p>
+            </div>
+            <div class="comment-interaction ov">
+                <a href="javascript:;" onclick="comment.report({commentid}, this);" class="report fl-r">举报</a>
+                <a href="" class="share fl-r">分享</a>
+                <a href="javascript:;" onclick="comment.reply({commentid});" class="reply fl-r">回复</a>
+                <a href="javascript:;" onclick="comment.support({commentid}, this);" class="love fl-r icon16x16">{supports}</a>
+            </div>
+        </div>
+</div>
+<div class="hr10"></div>
+<div class="hlinedotted"></div>
+</div>
+<div id="follow_template" class="hidden">
+    <div class="reply-box">
+        <div class="reply-box-username ov">
+            <span class="floornums fl-r"></span>
+            <span>{location}</span>
+            <a href="">{username}</a>
+        </div>
+        <div class="reply-content">
+            <p>{content}</p>
+        </div>
+        <div class="comment-interaction ov hidden">
+            <a href="javascript:;" onclick="comment.report({commentid}, this);" class="report fl-r">举报</a>
+            <a href="" class="share fl-r">分享</a>
+            <a href="javascript:;" onclick="comment.reply({commentid});" class="reply fl-r">回复</a>
+            <a href="javascript:;" onclick="comment.support({commentid}, this);" class="love fl-r icon16x16">{supports}</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('.article-aside').length >0 && $('.article-aside').height()) {
+            var contentheight = $('.article-aside').height();
+            if (navigator.userAgent.indexOf("MSIE")>0 && navigator.userAgent.indexOf("MSIE 6.0")>0) {
+                $('.article-detail').css('height', contentheight+'px');
+            } else {
+                $('.article-detail').css('min-height', contentheight+'px');
+            }
+        }
+        $('#change_hotcomment').bind('click', function () {
+            $('#comment').hide();
+            $('#hotcomment').show();
+            $('.page').hide();
+            $('#change_hotcomment').addClass('now');
+            $('#change_comment').removeClass('now');
+        });
+        $('#change_comment').bind('click', function () {
+            $('#hotcomment').hide();
+            $('#comment').show();
+            $('.page').show();
+            $('#change_comment').addClass('now');
+            $('#change_hotcomment').removeClass('now');
+        });
+        comment.page(topicid, page, pagesize);
+
+        (function(){
+            if (total == 0) return;
+            var pageNum = Math.ceil(total / pagesize);
+            var pagePanel = $('.page');
+            var buildTd = function (text, thePage, className) {
+                pagePanel.append('<a href="javascript:;" class="'+className+'">'+text+'</a>');
+                if (thePage) {
+                    var td = pagePanel.find('a:last');
+                    td.bind('click', function () {
+                        page = thePage;
+                        comment.page(topicid, thePage, pagesize);
+                        update();
+                    });
+                }
+            }
+            var update = function () {
+                pagePanel.empty();
+                if (pageNum == 1) {
+                    // 不显示
+                } else if (pageNum < 8){
+                    if (page == 1) {
+                        buildTd('&lt', 0, 'disable');
+                    } else {
+                        buildTd('&lt', page -1, '');
+                    }
+                    for (var i = 1; i <= pageNum; i++) {
+                        var isNow = (i == page) ? 'current' : '';
+                        buildTd(i.toString(), i, isNow);
+                    }
+                    if (page == pageNum) {
+                        buildTd('&gt', 0, 'disable');
+                    } else {
+                        buildTd('&gt', page + 1, '');
+                    }
+                } else {
+                    if (page == 1) {
+                        buildTd('&lt', 0, 'disable');
+                    } else {
+                        buildTd('&lt', 1, '');
+                    }
+                    for (var i = Math.min(Math.max(1, (page - 3)), pageNum - 6), l = i + 7; i < l; i++) {
+                        var isNow = (i == page) ? 'current' : '';
+                        buildTd(i.toString(), i, isNow);
+                    }
+                    if (page == pageNum) {
+                        buildTd('&gt', 0, 'disable');
+                    } else {
+                        buildTd('&gt', page + 1, '');
+                        buildTd('&gt', pageNum, '');
+                    }
+                }
+            }
+            update();
+        })()
+    });
+</script>

@@ -1,0 +1,17 @@
+/*
+ @name 水墨菜单样式
+ @notes  
+*/
+.content-menu-shuimo {
+	background:url("images/bg.jpg") no-repeat 0 0;
+	padding:0px 10px;
+}
+.content-menu-shuimo a {
+	color:#993206;
+	font-size:12px;
+}
+.content-menu-shuimo span.sepr {
+	margin:0 4px;
+	color:#993206;
+	font-size:12px;
+}

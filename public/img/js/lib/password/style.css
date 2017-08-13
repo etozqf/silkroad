@@ -1,0 +1,100 @@
+.password-panel {
+	position: relative;
+}
+
+.password-panel input {
+	padding-right: 18px!important;
+}
+
+.password-generation {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 16px;
+	height: 16px;
+	background: url(images/bullet_key.png);
+	margin: auto -20px auto -18px;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	cursor: pointer;
+}
+
+.password-generation:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.password-dialog {
+	position: absolute;
+	width: 220px;
+	background: #fff;
+	height: 44px;
+	border: 1px solid #ccc;
+	padding: 8px;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.password-dialog p {
+	display: block;
+	margin: 0;
+	padding: 0 3px 3px 3px;
+	font-size: 14px;
+	height: 16px;
+	line-height: 16px;
+	position: relative;
+}
+
+.password-arrow {
+ 	border: #BBB solid 1px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	-webkit-transform: rotate(44deg);
+	-moz-transform: rotate(44deg);
+	-ms-transform: rotate(44deg);
+	background: #FFF;
+	left: -11px;
+	top: 15px;
+	border-top: none;
+	border-right: none;
+	filter: progid:DXImageTransform.Microsoft.Matrix(
+		M11 = 0.70710678,
+		M12 = -0.70710678,
+		M21 = 0.70710678,
+		M22 = 0.70710678,
+		sizingMethod = 'auto expand'
+	);
+	-ms-filter: progid:DXImageTransform.Microsoft.Matrix(
+		M11 = 0.70710678,
+		M12 = -0.70710678,
+		M21 = 0.70710678,
+		M22 = 0.70710678,
+		SizingMethod = 'auto expand'
+	);
+}
+
+.password-dialog input, .password-dialog a, .password-dialog .password-turn {
+	float: left;
+	margin-top: 0;
+	position: relative;
+}
+
+.password-dialog a {
+	padding: 2px 3px;
+	text-decoration: none!important;
+	color: #333!important;
+	border: #999 solid 1px;
+	border-radius: 2px;
+	font-size: 13px;
+	margin: 0 4px;
+}
+
+.password-turn {
+	display: block;
+	width: 18px;
+	height: 18px;
+	background: url(images/turn.png);
+	cursor: pointer;
+	margin-left: 4px;
+}

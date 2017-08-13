@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$sitename[1]}_{$SYSTEM[seotitle]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/login.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/login.js"></script>
+    <script type="text/javascript" src="{IMG_URL}js/lib/md5.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+    <style>
+        .tab_contitle ul li a{
+            padding:0 31px;
+        }
+    </style>
+</head>
+<body>
+<header class="login-header pos-r">
+    <img src="{IMG_URL}templates/{TEMPLATE}/css/images/login-head-bg.jpg" alt="" class="pos-a header-bg"/>
+
+    <div class="column pos-r header-topbar ov">
+        <!--左侧-->
+        <div class="f-l topbar-l-main ov">
+            <div class="ov mar-t-35">
+                <a href="" target="_blank" class="logo f-l"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/logo.png" width="207" height="42" alt=""/></a>
+                <a href="{WWW_URL}" class="china f-r mar-t-5 ie6_png32">中文</a>
+            </div>
+            <h1 class="t-c"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/h1.png" width="563" height="45" alt=""/></h1>
+
+            <h2 class="t-c ie6_png32"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/h2.png" width="336" height="47" alt=""/></h2>
+        </div>
+        <!--@end 左侧-->
+        <!--右侧-->
+        <div class="topbar-r-main f-r ov mar-t-35">
+            <div class="logoin-cavs ie6_png32"></div>
+            <div class="bg-1 ov">
+            <div class="logoin-block">
+             <form action="{APP_URL}?app=member&controller=index&action=login_cn" method="POST" name="loginForm" id="member_loginForm">
+                <ul>
+                   
+                    <li class="bor">
+                        <input type="text" name ="username" class="input w-250" placeholder="User ID"/>
+                    </li>
+                    <li class="bor">
+                        <input type='password' name="password" id="pwd_txt" class="input w-250" placeholder="Password">
+                    </li>
+                    <li class="ov">
+                        <div class="f-l code bor">
+                            <input type="text" name="seccode" id="check_txt" class="input w-105" onfocus="$('#seccode_img').click();return false;" placeholder="Code"/>
+                        </div>
+                        <div class="yzm f-l mar-t-5">
+                            <img id="seccode_img" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5;" src="{APP_URL}?app=system&controller=seccode&action=image" class="fl-l" alt="" style="cursor: pointer;">
+                        </div>
+                        <div class="f-r not-clear"><a onclick="$('#seccode_img').click();return false;" style="cursor: pointer;"class="reload fl-l icon16x16">Not Clear?</a></div>
+                    </li>
+                    <li class="ov">
+                        <div class="f-l w-130">
+                            <input class="checkbox_ind" id="box" type="checkbox" style="vertical-align:middle;" type="checkbox" name="checkboxcn" value="{$checkedcn}" name="" id=""> Keep password
+                        </div>
+                        <div class="f-r zhm"><a href="{APP_URL}{url('member/index/getpassword_cn')}" target="_blank" style="color:blue">Forgot password?</a></div>
+                    </li>
+                    <li>
+                        <div class="ok-box ov">
+                        <a href="javascript:void(0);" type="submit" value="Log In" id="login" class="f-l dl ie6_png32"  style="cursor: pointer;"/>Log In</a>
+                            <a href="javascript:void(0);" class="f-r zc ie6_png32" onclick="popbox('.pop_boxl')"> Sign Up </a>
+                        </div>
+                    </li>
+                </ul>
+                </form>
+            </div>
+            </div>
+             <div class="logoin-cavs2 ie6_png32"></div>
+        </div>
+        <!--@end 右侧-->
+    </div>
+</header>
+<div class="header-t"></div>
+<!-- 多图滚动开始 -->
+<div class="column ov mar-t-15 img-box">
+    <a class="prev-img ie6_png32"></a>
+        <ul class="img-ul">
+          <!--#include virtual="/section/259.html"--><!--# 网站首页 轮播图 #-->
+        </ul>
+    <a class="next-img ie6_png32"></a>
+    <!-- 多图滚动结束 -->
+</div>
+<!-- tab切换开始-->
+<div class="column ov mar-t-15 tab_cont">
+    <div class="tab_contitle">
+        <ul id="ultab">
+            <li class="on" onmouseover='ind_tagitem("dllist1",this)'><a href="javascript:void(0);">China Factbook </a></li>
+            <li onmouseover='ind_tagitem("dllist2",this)'><a href="javascript:void(0);">Credit Info</a></li>
+            <li onmouseover='ind_tagitem("dllist4",this)'><a href="javascript:void(0);">Projects </a></li>
+            <li onmouseover='ind_tagitem("dllist5",this)'><a href="javascript:void(0);">Customized Service</a></li>
+            <li onmouseover='ind_tagitem("dllist6",this)'><a href="javascript:void(0);" style="border: 0;">Companies</a></li>
+        </ul>
+
+    </div>
+    <div class="tab_contmain mar-t-30">
+        <!--#include virtual="/section/260.html"--><!--# 网站首页 tab切换-China Factbook #-->
+        <!--#include virtual="/section/261.html"--><!--# 网站首页 tab切换-Laws and Rules #-->
+        <!--#include virtual="/section/263.html"--><!--# 网站首页 tab切换-Project #-->
+        <!--#include virtual="/section/264.html"--><!--# 网站首页 tab切换-Customized Service #-->
+        <!--#include virtual="/section/265.html"--><!--# 网站首页 tab切换-Companies #-->
+    </div>
+    <!-- tab切换结束-->
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+<!--浮动图层-->
+<div class="right-box">
+    <!--#include virtual="/section/266.html"--><!--# 网站首页 客服反馈 #-->
+</div>
+<!--弹出层-->
+<div class="exoperation"></div>
+<!--{template "cn/register.html"}-->
+<script>
+// if ($.cookie(COOKIE_PRE+'auth'))
+// {
+//     //location.href="http://www.silkroad.news.cn/English/News/";
+// }
+
+//记住用户名
+$(function(){
+    $("#box").change(function(){
+      var a = $(this).prop("checked");
+      if(a){
+         $(this).val('1');
+        }else{
+         $(this).val('0');
+        }
+     })
+    var site_type = $.cookie(COOKIE_PRE+'site_type');
+    if(site_type==2){
+    var rememberusername = $.cookie(COOKIE_PRE+'rememberusername');
+    }
+     var num = $("#box").val();
+    if(num=='1'){
+      $("#box").prop("checked","checked");
+      $("input[type=text][name=username]").val(rememberusername);
+     }else{
+      $("input[type=text][name=username]").val('');
+     }
+     
+
+})
+    /*加入特殊字符判断*/
+    var pattern=/[~#^$@%&!*]/gi; 
+    
+    //登陆表单中用户名和密码和验证码的input丧失焦点事件
+     $('#member_loginForm input').blur(function(){
+            /*判断用户名不能为空*/
+            if ($(this).attr('name') == 'username' && !$(this).val()) {
+                 $(this).parent().append('<p style="margin-top:-8px;color:red;" class="pos-a">Username can not be empty</p>');
+            }
+            /*判断用户名是否含有特殊字符*/
+            if($(this).attr('name') == 'username' && pattern.test($(this).val()))
+            {
+              $(this).parent().append('<p style="margin-top:-8px;color:red;font-size:12px;" class="pos-a">User name cannot contain special characters </p>');
+              return false;
+            }
+            
+            
+          
+            /*验证密码不能为空*/
+            if ($(this).attr('name') == 'password' && !$(this).val()) {
+                 $(this).parent().append('<p style="margin-top:-8px;color:red;" class="pos-a">Password can not be empty</p>');
+            } 
+            /*判断验证码*/
+            if($(this).attr('name')=='seccode' && !$(this).val()) {
+                $(this).parent().append('<p style="margin-top:-8px;color:red;font-size:12px;" class="pos-a">Seccode can not be empty</p>');
+            }
+        });
+    //登陆表单中用户名和密码的input获取焦点事件
+    $('#member_loginForm input').focus(function(){
+            $(this).parent().removeClass('border-red').find('p').remove();
+        });
+    //在当前页面敲回车自动登陆事件
+    $(window).keydown(function(event){
+        if(event.keyCode==13)
+         {
+            /*检测登陆，判断用户名、密码、验证码是否为空，是否含有特殊字符*/
+            if(!check_login())
+            {
+                return false;
+            }
+        }
+      })
+    function check_login (){
+
+        //验证用户名是否为空
+         if (!$('#member_loginForm input[name=username]').val())
+            {
+                
+                $('#member_loginForm input[name=username]').parent().append('<p style="margin-top:-8px;color:red;" class="pos-a pos-b">Username can not be empty</p>');
+                return false;
+            }
+        else
+            {
+            /*判断用户名是否含有特殊字符*/
+            if(pattern.test($('#member_loginForm input[name=username]').val()))
+            {
+              
+              $(this).parent().append('<p style="margin-top:-8px;color:red;font-size:12px;" class="pos-a pos-b">User name cannot contain special characters </p>');
+              return false;
+            }
+          }
+
+        //验证密码是否为空
+         if (!$('#member_loginForm input[name=password]').val())
+            {
+               
+                $('#member_loginForm input[name=password]').parent().append('<p style="margin-top:-8px;color:red;" class="pos-a pos-b">Password can not be empty</p>');
+                return false;
+            }
+        //验证验证码是否为空
+        if (!$('#member_loginForm input[name=seccode]').val())
+            {
+              
+                $('#member_loginForm input[name=seccode]').parent().append('<p style="margin-top:-8px;color:red;" class="pos-a pos-b">Seccode can not be empty</p>');
+                return false;
+            }
+        //验证没有问题,直接提交表单
+        $('#member_loginForm').submit();
+
+
+    }
+
+    //登录按钮点击事件
+    $('#login').click(function(){
+        $('.pos-b').remove();
+        check_login();
+    });
+
+</script>
+<!--@end next-->
+<!--@end 用户注册-->
+
+</body>
+</html>

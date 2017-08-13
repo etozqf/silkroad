@@ -1,0 +1,10 @@
+.diy-reel {
+    position: relative;
+    overflow: hidden;
+}
+.diy-reel-shell {
+    position: relative;
+    display: none;
+    overflow: hidden;
+    top:0;
+}

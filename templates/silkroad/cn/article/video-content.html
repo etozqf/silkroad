@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[name]}_{/loop}{$name}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/video.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/video.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+ <!--{template "system/head.html"}-->
+<!--@end 搜索-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb bg-fff ov">
+        <div class="bor-trbl ov">
+            <div class="mod-tit-box ov mar-t-10">
+                <h3 class="tit-h3"><a href="" target="_blank">{$title}</a></h3>
+                <div class="ov tag info">
+                    <em class="dates f-l">Issue:{date('d-m-Y', $published)}</em>
+                    <!--{if $playtime && $playtime !=0}-->
+                    <em class="dates f-l">Length:{$playtime} minutes</em>
+                    <!--{/if}-->
+                    <span class="f-r ie6_png32 fav fav{$contentid}" id="mark{$contentid}" value="{$contentid}" onclick="bookmark({$contentid})">Bookmark</span>
+                </div>
+
+            </div>
+            <div class="open-video">
+
+                <?php
+                    $width = 1000;
+                    $height = 500;
+                    $this->assign('width', $width);
+                    $this->assign('height', $height);
+                ?>
+                <!-- 临时占位 -->
+                    <!--{template 'video/player/'.$player.'.html'}-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb col-l-main ov">
+        <div class="bor-trbl ov h-772">
+            <div class="l-pic">
+                <div class="b-tit-box mar-t-20">
+                    <h3 class="b-h3"><a href="javascript:void(0);">Guess you like</a></h3>
+                    <!-- <a class="more1" href="">
+                        <span class="f-l">more</span>
+                        <em class="jiao ie6_png32"></em>
+                    </a> -->
+                </div>
+                <div class="pic-summary ov">
+                    <ul class="mar-t-20">
+                        <!--#include virtual="/section/319.html"--><!--# 视讯内容页 Guess you like #-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧-->
+    <div class="bor-rb col-r-main ov">
+        <div class="bor-trbl ov h-772">
+            <div class="most mar-t-20">
+                <!--标题-->
+                <div class="b-tit-box">
+                    <h3 class="b-h3"><a href="javascript:void(0);" style="font-weight: normal">Most Popular</a>
+                    </h3>
+                </div>
+                <div class="most-box">
+                    <ul class="most-list">
+                    <!--{content catid="61" where="contentid<>$contentid" modelid="4" orderby="pv desc,published desc" size="10"}--> 
+                        <li>
+                            <em class="icon2 <?php if ($i<4){echo 'tops';}?>">{$i}</em>
+                            <a href="{$r[url]}" target="_blank">
+                                {$r[title]}
+                            </a>
+                        </li>
+                    <!--{/content}-->
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    <!--@end 右侧-->
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+<script>
+    $(function(){
+           var contentids =$(".fav");
+           var contentid='';
+           $.each(contentids,function(i,j){
+                contentid += $(j).attr('value')+',';
+           })           
+            var url = "{APP_URL}?app=system&controller=property&action=videoselect&jsoncallback=?&contentid=" + contentid+'&flush=1';
+            $.ajax({
+                type:"get",
+                url:url,
+                dataType:'jsonp',
+                success:function(data){
+                    if(data.status){
+                        $.each(data.status,function(i,j){
+                            $('#mark'+j).addClass("on");
+                            $('#mark'+j).text("Unfavorite");
+                        })
+
+                    }
+                }
+            })
+    })
+        function bookmark(contentid){
+            var url = "{APP_URL}?app=system&controller=property&action=videoselect&jsoncallback=?&contentid=" + contentid;
+            $.ajax({
+                type:"get",
+                url:url,
+                dataType:'jsonp',
+                success:function(data){
+                    if(data.status=='bookmar'){
+                        $('.fav'+contentid).text("Bookmark");
+                    }else{
+                        $('.fav'+contentid).addClass("on");
+                        $('.fav'+contentid).text("Unfavorite");
+                    }
+                }
+            })
+
+        }
+</script>
+</body>
+</html>

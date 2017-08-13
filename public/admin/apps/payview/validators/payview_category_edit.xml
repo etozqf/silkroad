@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<title tips="请填写栏目组名称">
+		<required event="submit">请填写栏目组名称</required>
+	</title>
+	<!--
+	<catid tips="请选择订阅栏目">
+		<required event="submit">请选择订阅栏目</required>
+	</catid>
+	<fee tips="请填写订阅费用">
+		<required event="submit">请填写订阅费用</required>
+		<float event="blur">金额格式不正确</float>
+	</fee>
+	<timetype tips="请填写订阅期限">
+		<required event="submit">请填写订阅期限</required>
+		<number event="blur">请填写数字</number>
+	</timetype>
+	-->
+</root>

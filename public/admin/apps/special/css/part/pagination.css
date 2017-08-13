@@ -1,0 +1,31 @@
+.diy-pagination {
+	position: relative;
+	overflow: hidden;
+}
+.diy-pagination .diy-pagination-nav {
+	position: absolute;
+	bottom: 5px;
+}
+.diy-pagination .diy-pagination-shell {
+	display: none;
+	top:0;
+}
+.diy-pagination .diy-pagination-page {
+	padding: 10px;
+}
+.diy-pagination .diy-pagination-item {
+
+}
+.diy-pagination .diy-pagination-nav .diy-pagination-nav-item {
+	display:inline-block;
+	/* for ie 7*/
+    +display:inline;
+    +zoom:1;
+	height:24px;
+	width: 24px;
+	background: url(../images/diy.png) no-repeat -192px -370px;
+	margin: 2px;
+}
+.diy-pagination .diy-pagination-nav .diy-pagination-nav-current {
+	background-position: -192px -394px;
+}

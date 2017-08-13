@@ -1,0 +1,129 @@
+<div class="member-right fl-l w680 margin-l-20">
+            <div class="hr10"></div>
+            <form action="" class="member-form">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="align-r"><label for="" class="label">昵称</label></td>
+                            <td><a href="">{$member[name]}</a></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">性别</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov"><div class="fl-l margin-r-20">
+                                <?php 
+                                    if($member['sex']==1){?>
+                                        <input type="radio" name="s" checked="checked" id="" style="margin-left:5px;margin-right:5px;">男</div><div class="fl-l">
+                                        <input type="radio" name="s" id="" style="margin-left:5px;margin-right:5px;">女</div></div>
+                                <?php }else{?>
+                                    <input type="radio" name="s"  id="" style="margin-left:5px;margin-right:5px;">男</div><div class="fl-l">
+                                    <input type="radio" name="s" checked="checked" id="" style="margin-left:5px;margin-right:5px;">女</div></div>
+                                <?php } ?>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">头像</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov"><a href="" class="fl-l photo"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/p_bg.jpg" alt=""></a><a href="" class="fl-l cor06c" style="margin-top:80px;">修改</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">真实姓名</label></td>
+                            <td><div class="hr30"></div><input type="text" class="m-input-text w160" value="{$member[username]}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">生日</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div><select name="" id="">
+                                        <option value="">2015</option>
+                                        <option value="">1988</option>
+                                    </select> 年
+                                    <select name="" id="">
+                                        <option value="">1月</option>
+                                        <option value="">2月</option>
+                                        <option value="">3月</option>
+                                        <option value="">4月</option>
+                                        <option value="">5月</option>
+                                        <option value="">6月</option>
+                                        <option value="">7月</option>
+                                        <option value="">8月</option>
+                                        <option value="">9月</option>
+                                        <option value="">10月</option>
+                                        <option value="">11月</option>
+                                        <option value="">12月</option>
+                                    </select> 月
+                                    <select name="" id="">
+                                        <option value="">01</option>
+                                        <option value="">02</option>
+                                        <option value="">03</option>
+                                        <option value="">04</option>
+                                    </select> 日
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Email</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <span style="padding-right:20px;">{$member[email]}</span><a href="" class="cor06c">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">QQ</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <input type="text" class="m-input-text w160" value="{$member[qq]}" />
+                                <label for="" class="label" style="margin-left:50px;">MSN</label>
+                                <input type="text" class="m-input-text w160" value="{$member[msn]}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">电话</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <input type="text" class="m-input-text w160" value="{$member[telephone]}"/>
+                                <label for="" class="label" style="margin-left:50px;">手机</label>
+                                <input type="text" class="m-input-text w160" value="{$member[mobile]}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">职业</label></td>
+                            <td><div class="hr30"></div><input type="text" class="m-input-text w260" value="{$member[job]}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">联系地址</label></td>
+                            <td><div class="hr30"></div><input type="text" class="m-input-text w380" value="{$member[address]}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">邮编</label></td>
+                            <td><div class="hr30"></div><input type="text" class="m-input-text w160" value="{$member[zipcode]}" /></td>
+                        </tr>
+                        <!-- <tr>
+                            <td></td>
+                            <td>
+                                <div class="hr20"></div>
+                                <div class="ov submit-bar">
+                                    <input type="text" name="" id="" class="m-input-text fl-l" style="margin-left:0;" value="验证码">
+                                    <img src="{IMG_URL}template{TEMPLATE}/img/seccode.png" class="fl-l" alt="">
+                                    <a href="" class="reload fl-l icon16x16"></a>
+                                </div>
+                            </td>
+                        </tr> -->
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov submit-bar">
+                                    <input type="submit" value="保存" class="submit button1" />
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>

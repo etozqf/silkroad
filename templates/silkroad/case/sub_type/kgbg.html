@@ -1,0 +1,36 @@
+
+                    <div class="news" style="display:block"> 
+                                
+                        <ul>
+                            <!--{loop $data $i $m}-->
+                                <li catid="{$m['catid']}" contentid="{$m['contentid']}">
+                                    <h2><a href="{$m['url']}" id="{$m['contentid']}">{$m['title']}</a></h2>
+                                    <div class="info">
+                                        <em>
+                                        <!--{if $m['source']}-->
+
+                                        来源：{$m['source']}&nbsp;&nbsp;
+                                      <!--{/if}-->
+                                        <!--{if $m['author']}-->
+
+                                        作者：{$m['author']}
+                                       <!--{/if}-->
+                                        </em>&nbsp;&nbsp;
+                                        <span class="time">{$m['date']}<b>{$m['hour']}</b></span>
+                                    </div>
+                                    <p>{$m['description']}<a href="{$m['url']}">【全文】</a>
+                                    </p>
+                                    </li>
+                            <!--{/loop}-->   
+                        </ul>  
+                                   
+                                
+                        <div class="page">
+                                <tr>
+                                   <!--{space_pages($total, $page, 10, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                                </tr>
+                                <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+                        </div>
+                              
+                    </div>
+               

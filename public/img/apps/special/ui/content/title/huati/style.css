@@ -1,0 +1,24 @@
+/*
+ @name 话题专题方案标题
+ @notes 
+*/
+.content-title-huati{ height:80px;}
+.content-title-huati li {
+	height:60px; 
+	padding-left:220px;
+	background:url(images/huati.png) no-repeat 0 10px;
+}
+.content-title-huati a {
+	line-height:18px;
+	line-height:70px;
+	color:#fff;
+	font-family:"微软雅黑";
+	font-size:32px;
+	cursor:default;
+	height:50px;
+	display:block;
+}
+.content-title-huati a:hover {
+	text-decoration:none;
+	color:#fff;
+}

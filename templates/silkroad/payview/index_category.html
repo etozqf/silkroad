@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$data[title]}-付费频道-{$SYSTEM[sitename]}</title>
+<link rel="shortcut icon" href="{IMG_URL}images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<base target="_blank" />
+<style type="text/css">
+<!--
+.crumbs { width:670px; overflow:hidden; height:33px; line-height:33px; margin-top:0; background-position:0 10px}
+li { height:auto}
+.payview_header {padding-left:130px}
+.mainContent h1 {
+    background: url(http://img.xinhua08.com/templates/xinhua08/images/titlebg12345678.gif) no-repeat scroll right center transparent;
+    font-family: simhei;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.mainContent a { color:#333; text-decoration:none}
+.unilist a:hover { text-decoration:underline}
+h3 span { float:left;}
+.morenews { float:right; font-size:12px; color:#656565; font-weight:normal}
+.borderB { border-bottom:1px solid #CBCBCB; padding-bottom:10px;}
+.unilist { padding:0 0 0 15px}
+-->
+</style>
+<script type="text/javascript" src="{IMG_URL}js/jquery.js"></script>
+</head>
+<body>
+<div class="container_25">	
+<a name="top" id="top"></a>    
+    <!--#include virtual="/section/249.html"--><!--头部小-->       
+    <!--#include virtual="/section/287.html"--><!--付费导航-->
+    <div class="grid_25 mb0">     
+        <div class="crumbs"><a href="{WWW_URL}">首页</a> > <a href="http://vip.xinhua08.com/">付费阅读</a> > <a href="{APP_URL}{url('payview/index/index')}">我的栏目组</a> > {$data[title]}</div>
+	</div>
+  	<div class="grid_17 mb10">
+        <div class="Gborder"></div>
+        <div class="innercontent">
+			<div class="mainContent"> <div class="payview_header" style="background: url(<?=UPLOAD_URL?>{$data[logo]}) no-repeat;">  
+            	<h1>{$data[title]}</h1>
+				<p>{$data[description]}</p>
+</div>				
+				<!--{loop $data['categorys'] $cat}-->
+				<?php $catids = explode(',',$cat['childids'] ? $cat['childids']:$cat['catid']); ?>
+					<!--{loop $catids $catid}-->
+					<?php $child_cat = table('category',$catid); ?>
+						<h3 class="borderB"><span>{$child_cat[name]}</span><a class="morenews" href="{$child_cat[url]}">更多>></a></h3>
+						<ul class="unilist">
+						<!--{content catid="$child_cat[catid]" status="7" orderby="published DESC" size="10"}-->
+							<li><a href="{$r[url]}">{$r[title]}</a> <span class="sp_lan14 gray">{date('n月j日 G:i', $r['published'])}</span></li>
+						<!--{/content}-->
+						</ul>
+					<!--{/loop}-->
+				<!--{/loop}-->
+    			<div class="backtotop"><a href="#top">返回顶部</a></div> 
+  			</div>
+  		</div>
+  	</div>
+    <div class="grid_8">
+	<!--#include virtual="/section/271.html"-->        
+        <!--#include virtual="/section/270.html"--><!--金融词典-->
+        <!--#include virtual="/section/253.html"--><!--点击排行-->
+        <!--#include virtual="/section/264.html"--><!--周刊订阅-->
+    </div>
+    <!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+</body>
+</html>

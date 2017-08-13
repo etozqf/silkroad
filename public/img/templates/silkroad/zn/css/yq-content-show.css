@@ -1,0 +1,85 @@
+body{background: #cfe2f3 url("../images/yq-bg-l.jpg") repeat-x!important;letter-spacing: 0pt;}
+/*头部*/
+.yq-header{width: 100%; height: 29px; background: #f7f7f7; border-bottom: 1px solid #dfdfdf;font-size: 12px;}
+.zd{width: 150px; height: 29px;position: relative;z-index: 999}
+.zd em {float: left; height: 22px;color: #666}
+.searchselect {z-index: 999; float: left; width: 88px; height: 22px; position: relative;border: 1px solid #dfdfdf;background: #fff; margin-top: 2px;}
+.searchselect a.searchselectbtn {float:left; height:17px;width: 12px;margin: 3px 0px 0 0;background:url("../images/arrow-bottom.jpg") no-repeat}
+.searchselect span { COLOR: #333333;text-indent:5px;line-height: 22px; POSITION: relative; height: 22px; overflow:hidden;width: 72px;float: left;display: block}
+.searchbtn {float: left; width: 69px; height: 25px}
+.searchselect ul {display: none; z-index: 150; left: -1px; overflow-y: hidden; width: 90px; position: absolute; top: 23px}
+.searchselect ul li {float: left; width: 90px; height: 24px; text-align:center;}
+.searchselect ul li {background: #fff}
+.searchselect ul li a {border-right: #dfdfdf 1px solid; border-left: #dfdfdf 1px solid; width: 88px; color: #666666; line-height: 24px;display: block}
+.searchselect ul li a:hover {background: #2282d6; color: #fff; text-decoration: none}
+.searchselect ul li a.current {color: #9c9c9c}
+.searchselect ul li a.current:hover { color: #fff}
+.yq-header-r{width: 220px; height: 29px; line-height: 29px}
+.yq-header-r em{display: block;width: 19px; height: 17px; background: url("../images/yq-icon.png") no-repeat; margin-top: 5px;}
+.yq-header-r em.em02{background-position: -32px 2px;}
+.yq-header-r em.em03{background-position: -64px 1px;}
+.yq-header-r a{display: block;float: left;margin-left: 14px;}
+.yq-header-r a:hover{color: #666; text-decoration: underline}
+/*背景部分*/
+.yq-bg{width: 100%;height: 300px;overflow: hidden;position: absolute;z-index: 1;left: 0;}
+.yq-bg img{width: 100%;}
+.tit-content{z-index: 2;position: relative;top:54px;}
+.content{background: #fff; margin-top: 65px;padding: 20px;padding-bottom: 0;}
+/*共用*/
+.col-l{width: 400px; float: left; _display: inline}
+.col-r{width: 540px; float: right; _display: inline}
+.tit{height: 35px; line-height: 35px; border-bottom: 2px solid #ccc}
+.tit h3{font-size: 24px;font-weight: normal;line-height: 32px;}
+.tit h3 a,.tit h3 a:hover{color: #393939}
+.tit .more{font-family: "宋体";font-size: 12px;}
+/*文字列表*/
+.summary-ul a.b{color: #1352aa; font-size: 20px; line-height: 40px; overflow: hidden; height: 40px;}
+.summary-ul a.b:hover{color: #1352aa;}
+.summary-ul li a{font-size: 14px; line-height: 28px; height: 28px; overflow: hidden;display: block;color: #393939}
+.summary-ul li a:hover{color: #1352aa}
+/*滚动图片*/
+.img-scroll{height:340px;width:100%;overflow:hidden;position:relative;}
+.img-scroll ul li{position:absolute;top:0;left:540px;height:340px;}
+.img-scroll ul li h3{position:absolute;bottom:0px;left:0;width: 100%;font-weight:normal;color:#FFF;z-index: 111;font-size: 20px;height:40px;line-height: 40px; overflow: hidden;text-indent: 15px;}
+.img-scroll ul li h3 a{color: #fff;}
+.img-scroll ul li h3 a:hover{text-decoration: underline}
+.img-scroll ul li p{position:absolute;bottom:0;left:0;height:40px;background:#7f7f7f;width:100%;}
+.img-scroll .pages{width:100%;height:340px;}
+.img-scroll .controler{position:absolute;bottom:46px;right:220px;}
+.img-scroll .controler b{cursor:pointer;width:25px;height:5px;display:block;overflow:hidden;text-indent:20px;background:#000; float:left;margin:0 0 0 5px;opacity: 0.6;}
+.img-scroll .controler b.down{background:#ff6c00;opacity: 1}
+.img-scroll .controler2 a{display:block; width:29px;position:absolute;top:120px;height:48px;background: url("../images/yq-icon.png") no-repeat -92px 0}
+.img-scroll .controler2 .prev{left:0;}
+.img-scroll .controler2 .next{right:0; background-position: -124px 0}
+/*图片*/
+.pic-list{height: 151px;}
+.pic-list ul{width: 542px; overflow: hidden}
+.pic-list li{float: left;position: relative;width: 269px; height: 151px; overflow: hidden;margin-right: 2px;}
+.open{display: block;width: 45px; height: 45px;position: absolute; left: 110px;top: 40px; background: url("../images/yq-icon.png") no-repeat -167px 0}
+.bg,.tit-h3{position: absolute;left: 0; bottom: 0; width: 100%; height: 30px;line-height: 30px;overflow: hidden}
+.bg{ background: #000; opacity: 0.4;z-index: 10;}
+.tit-h3{z-index: 11;text-align: center}
+.tit-h3 a{font-size: 14px; font-family: "宋体";color: #fff;}
+.tit-h3 a:hover{color: #fff;text-decoration: underline}
+/*优势列表*/
+.ys-list ul{width: 570px; overflow: hidden}
+.ys-list li{float: left; width: 160px; text-align: center;margin-right: 30px;}
+.ys-list .img{width: 158px; height: 158px; border-radius: 50%; border: 1px solid #c5caca;overflow: hidden}
+.ys-list li a{display: block;font-size: 16px; color: #1352aa;line-height: 24px; height: 24px; overflow: hidden}
+/*园区风光*/
+.pic-box{width: 956px;margin: 20px auto; height: 158px; border: 1px solid #e0e0e0}
+.pic-box-tit{width: 34px; border-right: 1px solid #e0e0e0;background: #f3f3f3;height: 100%;font-size: 16px;font-family: "宋体";padding-top: 50px;}
+.pic-box-tit li{color: #252525;font-weight: bold;line-height: 20px;}
+.thumb{height: 141px;width: 902px;overflow: hidden;margin: 9px;}
+.thumb li{width: 210px;height: 140px; margin-right: 8px;display: inline; overflow: hidden}
+.thumb li img{width: 208px; height: 138px; display: inline;border: 1px solid #fff;}
+.thumb li img:hover{border: 1px solid #ff8400;}
+/*投资环境*/
+.tzhj-txt{width: 272px;height: 290px;position: relative; top: -5px;}
+.tzhj-txt p{text-indent: 2em;font-family: "宋体";font-size: 14px; line-height: 24px;color: #393939;}
+/*footer*/
+.n_ind_cpy{background: #fff; margin: 20px auto; border-top:1px solid #e0e0e0}
+.footer-link{border-bottom: 1px dashed #e0e0e0;width: 444px; margin: 10px auto; height: 40px;font-family: "宋体";padding-left: 40px;*padding-left: 30px;}
+.footer-link li{float: left;}
+.footer-link li a{color: #305798;margin: 0 18px;}
+.footer-link li span{color: #c6c6c6;}

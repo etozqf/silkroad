@@ -1,0 +1,125 @@
+/*排行榜,news*/
+.rank{ height: 36px;line-height: 36px;font-size: 14px;color: #666;padding-bottom: 10px;}
+.rank em{display: block;width: 15px; height: 15px;background: url("../image/new-icon.png") no-repeat 1px 1px;margin-right: 5px;}
+.rank em.em02{background-position: -17px 0;}
+.rank ul li{float: left;margin-left: 11px;padding: 0 40px; background: #e7f2f9; border-radius: 2px;}
+.rank ul li a{color: #0079c6}
+.rank p{color: #0079c6}
+/*搜索*/
+.search-bg{background: red;width: 960px; height: 90px; margin: 15px  auto}
+/*内容*/
+.content{width: 960px; margin: 15px auto;font-family: "Arial"}
+.content ul{width: 966px;overflow: hidden}
+.content ul li{float: left;width: 132px; text-align: center;margin-bottom: 6px; margin-right: 6px;}
+.content ul li a{color: #fff;font-size: 16px;display: block; margin:15px auto; height: 90px;}
+.content ul li.bg01,.classify-list-l.bg01{background: #e51c2b;}
+.content ul li.bg02,.classify-list-l.bg02{background: #0079c6;}
+.content ul li.bg03,.classify-list-l.bg03{background: #666;}
+.content ul li.bg04{background: #f33644;}
+.content ul li.bg05{background: #1792df;}
+.content ul li.bg06{background: #7e7e7e;}
+.content ul li.bg07{background: #fa5763;}
+.content ul li.bg08{background: #3aadf5;}
+.content ul li.bg09{background: #949494;}
+.content ul li.bg10{background: #ff6873;}
+.content ul li.bg11{background: #5dbffc;}
+.content ul li.bg12{background: #b0b0b0;}
+/*classify*/
+.classify-box{width: 960px; margin: 15px auto}
+.classify-list-l{width: 132px; height: 140px;font-family: "Arial";font-size: 16px;}
+.classify-list-l a{color: #fff;display: block;margin-top: 60px;}
+.classify-list-r{width: 827px;max-height: 550px; min-height: 140px; border: 1px solid #f3f3f3;border-left: 0;overflow-y: auto;font-size: 14px;}
+.classify-list-r li{line-height: 30px; height: 30px; overflow: hidden;width: 380px;float: left;margin-left: 20px;}
+.classify-list-r li a{color: #0079c6}
+.classify-list-r li em{color: #999;font-size: 12px; display: block;margin: 0 5px;line-height: 26px;}
+/*华东重机*/
+.hdzj-l{width: 110px;}
+.hdzj-l h3{font-size: 20px;}
+.hdzj-l em{color: #1060ad;font-size: 16px;}
+.hdzj-r{width: 830px;}
+.hdzj-r ul li{float: left;height: 28px; line-height: 28px; overflow: hidden;font-size: 14px;margin-bottom: 3px; margin-right:5px;}
+.hdzj-r ul li a{display: block;padding: 0 22px; color: #1060ad; border-radius: 4px;}
+.hdzj-r ul li a:hover,.hdzj-r ul li a.on{background: #0079c6;color: #fff;}
+.hdzj-r ul li span{color: #ccc;}
+.hdzj-tag{border-bottom: 2px solid #dcdcdc;}
+.hdzj-tag ul{margin: 5px 0 5px 120px;}
+.hdzj-tag ul li{float: left;line-height: 28px;height: 28px; font-size: 12px;}
+.hdzj-tag ul li a{color: #333;display: block;padding:0 20px;}
+.hdzj-tag ul li span{color: #ccc}
+
+.w-960{width: 960px; margin:15px auto;font-size: 14px;}
+/*标题*/
+.mod-title{height: 32px;line-height: 32px;color: #fff;font-size: 14px;text-indent: 15px;}
+.bgff9933{background: #ff9933}
+.bgf3f3f3{background: #f3f3f3}
+.bge51c2b{background: #e51c2b}
+.bg666{background: #666}
+.zb-tab-menu{height: 33px; border-bottom: 1px solid #0079c6;font-size: 14px;}
+.zb-tab-menu ul li{float: left;line-height: 30px; border-top: 3px solid #fff;padding: 0 30px;cursor: pointer}
+.zb-tab-menu ul li.sel{ border-top-color: #0079c6; border-left: 1px solid #0079c6;border-right: 1px solid #0079c6;background: #fff;
+    position:relative;top: 1px;line-height: 29px;height: 30px;color: #0079c6}
+.tab-data-con{font-size: 14px;color: #666; overflow: auto; padding-bottom: 10px; max-height: 400px;}
+.table-header{line-height: 28px; height: 28px;background: url("../image/header-bg.jpg") repeat-x;overflow: hidden;border: 1px solid #e9e9e9}
+.table-header li{float: left;}
+.w-70{width: 70px;}
+.w-87{width: 87px;}
+.w-120{width: 120px;}
+.w-126{width: 126px;}
+.w-144{width: 144px;}
+.w-150{width: 150px;}
+.w-170{width: 170px;}
+.w-200{width: 200px;}
+.w-280{width: 280px;}
+.t-r{text-align: right}
+.pad-r-10{padding-right: 10px;}
+.table-body{border-left: 1px solid #e9e9e9;cursor: pointer;}
+.table-body:hover li{color: #1060ad;background: #ecf3f8;}
+.table-body li{float: left;border: 1px solid #e9e9e9;border-left: 0;border-top: 0;line-height: 28px; height: 28px;overflow: hidden;}
+.table-body li em{color: #c81623}
+/*大事提醒*/
+.bor-e9e9e9{border: 1px solid #e9e9e9;}
+.ds,.news{line-height: 28px;padding: 20px;color: #333}
+.ds span,.news span{color: #1060ad}
+/*限售解禁*/
+.xsjj{height: 115px;color: #666}
+.xsjj-l{width: 130px;height: 115px;line-height: 115px;}
+.xsjj-r{width: 828px;}
+.xsjj-r ul li{float: left; line-height: 28px; height: 28px; border-left: 1px solid #e9e9e9;border-bottom: 1px solid #e9e9e9;overflow: hidden}
+.w-115{width: 115px;}
+.w-260{width: 260px;}
+.w-176{width: 176px;}
+.w-146{width: 146px;}
+/*最新消息*/
+.news em{ color: #999}
+/*揭秘*/
+.jm{color: #333;height: 347px;}
+.jm li{line-height: 28px; height: 28px;overflow: hidden;border-right: 1px solid #e9e9e9;border-bottom: 1px solid #e9e9e9;}
+.jm-header li{float: left;color: #1060ad}
+.jm-body-l{width: 593px;}
+.jm-body-l li{float: left}
+.jm-body-l ul{overflow: hidden;cursor: pointer}
+.jm-body-l ul:hover{background: #ecf3f8;color: #1060ad!important;}
+.jm-body-r{width: 360px;}
+.w-120{width: 120px;}
+.w-350{width: 350px;}
+.w-365{width: 365px;}
+.w-241{width: 241px;}
+
+.btn-search{width: 108px; height: 38px; _width: 100px; background: #0079c6; float: right; font-size: 18px; color: #fff;  line-height: 38px;  text-align: right; padding-right: 15px; font-family: "微软雅黑"; border: none;}
+.search_icon{position: relative; right: -564px;  top: -27px;}
+.txt-input{color:#333;}
+.load{margin: 100px; text-align: center; font-size: 18px;  color: #999;}
+.autocompleter{width: 550px; background: #FFF; margin-top: 39px; border: 1px solid #0079c6; border-top: none;}
+.autocompleter-item{font-size: 12px; padding:5px; color:#333;}
+.autocompleter-item:hover{background: #9FCCE9}
+.autocompleter-item strong{color:orangered;}
+.autocompleter-item-selected{background: #9FCCE9}
+
+.table{min-width: 100%; border: 1px solid #e9e9e9; margin-top: 10px;}
+.table td, .table th{padding:6px 5px; border: 1px solid #e9e9e9; text-align: right;}
+.table th{text-align: center; font-weight: bold; background: #f3f3f3; white-space:nowrap; padding:6px 30px;}
+.table td.center{text-align: center;}
+.table tr.center td{text-align: center;}
+.table tr td.right{text-align:right;}
+.table td.none{text-align: left; padding:20px;}
+.remarks{color:#666;}

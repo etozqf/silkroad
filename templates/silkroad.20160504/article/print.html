@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <title>打印_{$title}_{$SYSTEM[sitename]}</title>
+<style type="text/css">
+	body{ margin:0 auto; padding:0; background:#FFF; font:14px '宋体'; text-align: center; }
+	a{ color: #06c; }
+	a:hover{ color: #f00; }
+	select,input{ vertical-align: middle;}
+</style>
+<style type="text/css" media="screen">
+
+	/*顶部样式*/
+	a{ text-decoration: none;}
+	.print-title{font-size: 24px;color: #555;font-family: Microsoft YaHei;padding-right: 100px;}
+	.text{font-size: 12px;}
+	.printtop{ width: 100%; height: 46px; padding-top: 6px; display: block; text-align: center; background-image: url({IMG_URL}templates/{TEMPLATE}/css/images/print-top-bg.png);}
+	.printtop span{ margin: 0 14px;}
+	.printtop select{margin-right: 50px;}
+	.zihaosmall,.zihaomidding,.zihaobig{margin: 0 2px; cursor: pointer; color: #06c; font-style: normal; font-weight: bold;  font-size: 14px;}
+	.zihaomidding{ font-size: 16px; }
+	.zihaobig{ font-size: 20px; }
+	.current{color: #ccc; cursor: text; text-decoration: none; }
+	.startprint{ vertical-align: middle; margin-left: 100px; cursor: pointer;}
+	
+	/* 内容样式  */
+	.content{ margin: 30px auto; padding: 16px; border: 1px solid #ccc; text-align: left; }
+	.content .article-infos{text-align: center;border-bottom: 1px dotted #ccc;padding-bottom: 10px;}
+	.content .article-infos span{margin-right: 20px;font-size: 12px;color: #999;}
+	.content h1{ font-size: 22px; font-family: Microsoft YaHei,SimHei; font-weight: normal;}
+	.content p{ text-align: left; text-indent: 2em;}
+	.content p.position{ font-size: 12px;  text-indent: 0; color: #333; margin: 4px 0; padding-bottom: 10px; border-bottom: 1px dotted #ccc; }
+	.content .title{padding-bottom: 6px;  text-align: left; }
+	.content .title h1{ text-align: center;}
+	.content .relinfo{ font-size: 12px; }
+	.content .center{ text-align: center;}
+	.content .from{ font-size: 12px; text-align: right; color: #666; }
+	.post-time{ text-align: left; font-size: 12px; color: #666; font-family: Arial, Helvetica, sans-serif; }
+	.content p.print-bj{ color: #666; text-align: right;}
+	.cont-wrap p.p_img{ text-align: center; text-indent: 0;}
+	#vote dl dt,#vote dl dd{ text-align: left;}
+	.line-h24 p{ line-height: 24px; }
+	.line-h26 p{ line-height: 26px; }
+	.line-h28 p{ line-height: 28px; }
+	.w-a4{ width: 596px;  }
+	.w-a3{ width: 958px;  }
+</style>
+
+<style type="text/css" media="print">
+	body{ font-size: 14pt; font-family: '宋体';}
+	.printtop{ display: none; visibility: hidden; }
+	.content{ width: 96%; padding: 16pt; }
+	.content .c-logo{padding-bottom: 16pt; border-bottom: 1pt solid  #333; text-align: left; }
+	.content h1{ font-size: 22pt; font-family: Microsoft YaHei,SimHei; font-weight: normal; }
+	.content p{ text-align: left; text-indent: 2em;}
+	.content p.position{  text-indent: 0; color: #333; margin: 4px 0; }
+	.content .title{padding-bottom: 20pt;  border-bottom: 1pt dotted #666; }
+	.content .relinfo,.content .from,.content p.position{ font-size: 12pt; }
+	.content .center{ text-align: center;}
+	.content a{ text-decoration: underline; }
+</style>
+<!-- A3（285*420mm） , A4（210*285mm）-->
+</head>
+<body><!--startprint-->
+
+	<!-- 顶部选项 -->
+	<header class="printtop">
+		<span class="print-title">打印页面</span>
+		<label class="text" for="">大小：</label><select id="paper" onchange="changeSize(this)"><option selected="selected" value="A4">A4</option><option value="A3">A3</option></select>
+		<label class="text" >字号：</label><select id="fontSize" onchange="changeFont(this)"><option selected="selected" value="14px">14px</option><option value="16px">16px</option><option value="18px">18px</option></select>
+		<label for="" class="text">行高：</label><select id="lineHeight" onchange="changeLh(this)"><option selected="selected" value="24">24px</option><option value="26">26px</option></select>
+		<input type="checkbox" checked="checked" onclick="havePic(this)"/><label class="isimg">带图打印</label>
+		<span><img class="startprint" src="{IMG_URL}templates/{TEMPLATE}/css/images/print-btn.png" alt="" onclick="doPrint()" /></span>
+	</header><!-- @end 顶部选项 -->
+
+	<!-- 打印内容 -->
+	<div id="content" class="content w-a4">
+		<p class="position">首页 &gt; {loop $pos $cat}<span>{$cat[name]}</span>{/loop} <span>{$title}</span></p>
+		<div class="title">
+			<h1>{$title}</h1>
+			<div class="article-infos">
+                <!--{if $source_name}--><span>来源：{$source_name}</span><!--{/if}-->
+                <!--{if $author}--><span>{$author}</span><!--{/if}-->
+                <span>{date('Y年m月d日 H:i', $published)}</span>
+			</div>
+		</div>
+		<div class="cont-wrap" style="line-height:26px">
+            {$content}
+            <p class="txt-r f-r fs-12 cor-999 print-bj">责任编辑：{$editor}</p>
+			<p class="from f-l">文章来源：{$url}</p>
+		</div>
+	</div>
+<!--endprint-->
+	
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var positions = $('.position span');
+		positions.each(function(k){
+			if(k==positions.length-1) return;
+			$(this).after('&nbsp;>');
+		})
+	});
+	function changeFont(t){
+		$('.cont-wrap').css('font-size',$(t).val());
+	}
+
+	function changeLh(t){
+		$('.cont-wrap').css('line-height',$(t).val()+'px');
+	}
+
+	var content = '';//全文缓存
+	function havePic(t){
+		if($(t).attr('checked')){
+			$('.cont-wrap').html(content);
+		}
+		else{
+			content = content==''?$('.cont-wrap').html():content;
+			$('.cont-wrap')[0].innerHTML =  $('.cont-wrap').html().replace(/<img\s*[^>]*[\/]?>/img,'');
+		}
+	}
+	function changeSize(t){
+		var wid = $(t).val()=='A3'?'998px':'596px';
+		$('#content').css('width',wid);
+	}
+	var isPrintHtml = false;
+    function doPrint() {
+        var bdhtml = window.document.body.innerHTML;
+        if(!isPrintHtml){
+        	var sprnstr="<!--startprint-->";
+	        var eprnstr="<!--endprint-->";
+	        var prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+	        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+	        window.document.body.innerHTML=prnhtml;
+    	}
+        isPrintHtml = true;
+        window.print();
+    }
+</script>
+
+</body>
+
+</html>

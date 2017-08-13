@@ -1,0 +1,43 @@
+<?php
+    $offset = 2;
+	$page = max(intval($page), 1);
+	$total = count($pages);
+	$page = min($total, $page);
+	$prepage = max($page-1, 1);
+	$nextpage = min($page+1, $total);
+	$from = max($page - $offset, 2);
+	if ($total - $page - $offset < 1) $from = max($total - $offset*2 - 1, 2);
+	$to = min($page + $offset, $total-1);
+	if ($page - $offset < 2) $to = min($offset*2+2, $total-1);
+	$more = 1;
+	if ($total <= ($offset*2+5))
+	{
+		$from = 1;
+		$to = $total - 1;
+		$more = 0;
+	}
+?>
+<div class="article-list-pagination pagination ov fl-l" style="margin-top:0;">
+	{if $page == 1}
+		<a class="prev disable" title="上一页">&lt</a>
+	{else}
+		<a class="prev" href="{$pages[$prevpage]['url']}" title="上一页">&lt</a>
+	{/if}
+	<?php
+		if ($to >= $from)
+		{
+			for($i = $from; $i <= $to; $i++)
+			{
+				$str .= $i == $page ? '<a href="'.$pages[$i]['url'].'" class="current">'.$i.'</a>' : '<a href="'.$pages[$i]['url'].'">'.$i.'</a>';
+			}
+		}
+
+		$str .= $page == $total ? '<a href="'.$pages[$total]['url'].'" class="current">'.$total.'</a>' : '<a href="'.$pages[$total]['url'].'">'.($to < $total-1 && $more ? '...' : '').$total.'</a>';
+		echo $str;
+	?>
+	{if $page == $total}
+		<a class="next disable" title="下一页">&gt</a>
+	{else}
+		<a class="next disable" href="{$pages[$nextpage]['url']}" title="下一页">&gt</a>
+	{/if}
+</div>

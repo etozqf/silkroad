@@ -1,0 +1,148 @@
+<?php
+    $thepsn=substr(table('category', $catid, 'path'),5,-1);
+?>
+<!--{if $thepsn=="2"}-->
+    <?php $thechannel="-中国财经";?>
+    <!--{/if}-->
+<!--{if $thepsn=="22"}-->
+    <?php $thechannel="-国际财经";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="17"}-->
+    <?php $thechannel="-观点";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="3"}-->
+    <?php $thechannel="-股票";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="4"}-->
+    <?php $thechannel="-基金";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="5"}-->
+    <?php $thechannel="-期货";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="6"}-->
+    <?php $thechannel="-外汇";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="7"}-->
+    <?php $thechannel="-债券";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="9"}-->
+    <?php $thechannel="-财趣生活";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="10"}-->
+    <?php $thechannel="-银行";?>
+    <!--{/if}-->
+<!--{if $thepsn=="11"}-->
+    <?php $thechannel="-视频";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="16"}-->
+    <?php $thechannel="-指数";?>
+    <!--{/if}-->
+    <!--{if $thepsn=="1" || $thepsn=="8"}-->
+    <?php $thechannel="";?>
+    <!--{/if}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$name}{$thechannel}-{$SYSTEM[sitename]}</title>
+<link rel="shortcut icon" href="{IMG_URL}images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<base target="_blank" />
+<style type="text/css">
+<!--
+.crumbs { width:670px; overflow:hidden; height:33px; line-height:33px; margin-top:0; background-position:0 10px}
+li { height:auto}
+.mainContent h1 {
+    background: url(http://img.xinhua08.com/templates/xinhua08/images/titlebg12345678.gif) no-repeat scroll right center transparent;
+    font-family: simhei;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+.mainContent a { color:#333; text-decoration:none}
+.unilist a:hover { text-decoration:underline}
+h3 span { float:left;}
+.morenews { float:right; font-size:12px; color:#656565; font-weight:normal}
+.borderB { border-bottom:1px solid #CBCBCB; padding-bottom:10px;}
+.unilist { padding:0 0 0 15px}
+-->
+</style>
+<script type="text/javascript" src="{IMG_URL}js/jquery.js"></script>
+<!--#include virtual="/section/70.html"--><!--广告源-->
+<script type="text/javascript">
+BAIDU_CLB_preloadSlots("253727");
+</script>
+</head>
+<body>
+<div class="container_25">	
+<a name="top" id="top"></a>    
+    <!--#include virtual="/section/249.html"--><!--头部小-->       
+    <!--{if $thepsn=="2"}-->
+    <!--#include virtual="/section/255.html"--><!--要闻导航-->
+    <!--{/if}-->
+<!--{if $thepsn=="22"}-->
+    <!--#include virtual="/section/272.html"--><!--国际导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="17"}-->
+    <!--#include virtual="/section/256.html"--><!--观点导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="3"}-->
+    <!--#include virtual="/section/266.html"--><!--股票导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="4"}-->
+    <!--#include virtual="/section/257.html"--><!--基金导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="5"}-->
+    <!--#include virtual="/section/258.html"--><!--期货导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="6"}-->
+    <!--#include virtual="/section/259.html"--><!--外汇导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="7"}-->
+    <!--#include virtual="/section/260.html"--><!--债券导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="9"}-->
+    <!--#include virtual="/section/261.html"--><!--财趣生活导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="10"}-->
+    <!--#include virtual="/section/262.html"--><!--银行导航-->
+    <!--{/if}-->
+	<!--{if $thepsn=="11"}-->
+    <!--#include virtual="/section/247.html"--><!--视频导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="16"}-->
+    <!--#include virtual="/section/263.html"--><!--指数导航-->
+    <!--{/if}-->
+    <!--{if $thepsn=="1" || $thepsn=="8"}-->
+    <!--#include virtual="/section/267.html"--><!--其他导航-->
+    <!--{/if}-->
+    <div class="grid_25 mb0">     
+        <div class="crumbs"><a href="{WWW_URL}">首页</a><!--{loop $pos $cat}--> > <a href="{$cat[url]}">{$cat[name]}</a><!--{/loop}--></div>
+	</div>
+  	<div class="grid_17 mb10">
+        <div class="Gborder"></div>
+        <div class="innercontent">
+			<div class="mainContent">   
+<h1>{$name}</h1>          
+            	<!--{loop subcategory($catid) $id $cat}-->
+            	<h3 class="borderB"><span>{$cat[name]}</span><a class="morenews" href="{$cat[url]}">更多>></a></h3>
+              	<ul class="unilist"> 
+                <!--{content catid="$cat[catid]" status="7" orderby="published DESC" size="10"}-->
+                	<li><a href="{$r[url]}">{$r[title]}</a> <span class="sp_lan14 gray">{date('n月j日 G:i', $r['published'])}</span></li>
+                <!--{/content}-->
+             	</ul>
+            	<!--{/loop}-->
+    			<div class="backtotop"><a href="#top">返回顶部</a></div> 
+  			</div>
+  		</div>
+  	</div>
+    <div class="grid_8">
+	<div class="mb10" align="center"><!--#include virtual="/section/25.html"--><!--内文右侧矩形--></div>
+<!--#include virtual="/section/271.html"-->        
+        <!--#include virtual="/section/270.html"--><!--金融词典-->
+        <!--#include virtual="/section/253.html"--><!--点击排行-->
+        <!--#include virtual="/section/264.html"--><!--周刊订阅-->
+    </div>
+    <!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+</body>
+</html>

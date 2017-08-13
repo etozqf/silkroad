@@ -1,0 +1,36 @@
+<div class="column header pos-r">
+    <div class="hr40"></div>
+    <div class="hr10"></div>
+    <div class="photo">
+        <div class="align-c">
+            <a href="{url('member/panel/index')}"><img src="<?=element::member_photo($_userid,90,90)?>" alt="{$_username}"></a>
+        </div>
+    </div>
+    <div class="hr10"></div>
+    <div class="userinfo align-c">
+        <a href="{url('member/panel/index')}" title="{$_username}">{$_username}</a><a href="javascript:;" title="退出" class="logout">退出</a>
+    </div>
+    <div class="titles pos-a ov" style="width:450px">
+        <a rel="space" href="{url('contribution/panel/index')}" class="fl-l">收藏管理</a>
+        <a rel="member" href="{url('member/panel/index')}" class="fl-l">账号设置</a>
+        <a rel="member" href="{url('country/list/index')}" class="fl-l">我的报告</a>
+        <a href="{url('space/panel/buy')}" class="fl-l">购买信息</a>
+        <a href="{url('member/index/successlogin')}" class="fl-l">返回首页</a>
+    
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    var APP_URL = "{APP_URL}";
+    var USERNAME = $.cookie(COOKIE_PRE+'username');
+    var NOW_ONLINE = $.cookie(COOKIE_PRE+USERNAME+'_now_online');
+    $(".logout").click(function(){
+        $(this).attr('href',APP_URL+'?app=member&controller=index&action=logout&logintime='+NOW_ONLINE);
+    })
+	var rel = "{$_GET[app]}";
+	if (rel == 'contribution') {
+		rel = 'space';
+	}
+	$('#nav a[rel="'+rel+'"]').addClass('current');
+});
+</script>

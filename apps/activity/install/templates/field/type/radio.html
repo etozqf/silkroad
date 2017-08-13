@@ -1,0 +1,8 @@
+<tr{activityField::genValidateAttributes($field, intval($field['options']['limit']) > 1)}>
+    <td class="align-r"><div class="hr20"></div>{if $field[need]}<span class="leveltop">*</span>{/if} <label for="" class="label">{$field[label]}</label></td>
+    <td style="padding-top: 20px;">
+        <!--{loop $field[options][option] $index $option}-->
+        <input name="{$field[fieldid]}{if intval($field['options']['limit']) > 1}[]{/if}" type="radio" value="{if is_array($option)}{$option[1]}{else}{$option}{/if}" class="input-radio" {if $index == 0}checked{/if}/> <label>{if is_array($option)}{$option[0]}{else}{$option}{/if}</label>
+        <!--{/loop}-->
+    </td>
+</tr>

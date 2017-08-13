@@ -1,0 +1,17 @@
+﻿/*
+ @name 褚红色菜单样式
+ @notes  褚红底白字
+*/
+.content-menu-red-b {
+	background:#835047;
+	padding:0px 10px;
+}
+.content-menu-red-b a {
+	color:#fff;
+	font-size:12px;
+}
+.content-menu-red-b span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}

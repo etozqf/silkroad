@@ -1,0 +1,157 @@
+#section-form {
+    background: #FFF;
+    overflow: hidden;
+}
+#section-form .panel-left {
+    margin: 0;
+    width: 359px;
+    height: 420px;
+    float: left;
+}
+#section-form .scroll-list {
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 393px;
+    border-right: solid 1px #A0C3DA;
+}
+.scroll-list-item {
+    cursor: pointer;
+    padding: 5px 5px 0;
+    border-bottom: 1px dotted #D7E3F2;
+}
+.scroll-list-item .remove {
+    display: none;
+    float: right;
+    margin-top: 3px;
+}
+.scroll-list-item:hover {
+    background: #FFFDDD;
+}
+.scroll-list-item:hover .remove {
+    display: block;
+}
+.scroll-list-item.checked {
+    background-color: #E7F2F5;
+    border-bottom-color: #FFFFFF;
+}
+.scroll-list-item h5 {
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    overflow: hidden;
+    color: #333;
+}
+.scroll-list-item p {
+    text-indent: 20px;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    color: #999999;
+}
+.scroll-list-item p span {
+    margin-right: 10px;
+}
+.scroll-list-item p span a,
+.scroll-list-item p span a:visited {
+    color: #999999;
+    text-decoration: none;
+}
+.scroll-list-item p span a:hover,
+.scroll-list-item p span a:active {
+    color: #666;
+}
+#section-form th.bdr_3 {
+    border-left: 1px solid #D0E6EC !important;
+}
+#section-form .panel-right {
+    margin: 0;
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+}
+
+.section-form-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 388px;
+    position: relative;
+}
+.section-form-list .section-form {
+    padding: 0 5px 10px;
+    position: relative;
+}
+.section-form.submited .section-form-overlay {
+    display: block;
+}
+.section-form .section-form-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    background:rgba(255, 255, 255, 0.8);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#CCFFFFFF', EndColorStr='#CCFFFFFF');
+}
+.section-form .section-form-overlay table {
+    height: 100%;
+}
+.section-form .section-form-overlay table td {
+    background: transparent;
+    color: green;
+    text-align: center !important;
+}
+:root .section-form .section-form-overlay {
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#00FFFFFF', EndColorStr='#00FFFFFF');
+}
+.section-form .section-form-title {
+    background: none repeat scroll 0 0 #EFF7FD;
+    color: #333;
+    height: 25px;
+    line-height: 26px;
+    border-left: 3px solid #D0E6EC;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.section-form .section-form-title .remove {
+    float: right;
+    margin: 4px 0 0 0;
+}
+.section-form .section-form-title .form-title {
+    white-space: nowrap;
+}
+.section-form .section-form-title .index {
+    font-family: Tahoma,Geneva,sans-serif;
+    font-weight: bold;
+}
+
+.content-model .icon {
+    background: transparent url(/css/images/model.gif) no-repeat 0 -46px;
+    margin-right: 3px;
+    width: 16px;
+    height: 20px;
+    float: left;
+}
+/*.content-model .icon.article {background-position: 0 -46px;}*/
+.content-model .icon.picture {background-position: 0 -333px;}
+.content-model .icon.link {background-position: 0 -96px;}
+.content-model .icon.video {background-position: 0 -119px;}
+.content-model .icon.activity {background-position: 0 -248px;}
+.content-model .icon.vote {background-position: 0 -167px;}
+.content-model .icon.interview {background-position: 0 -143px;}
+.content-model .icon.survey {background-position: 0 -304px;}
+.content-model .icon.special {background-position: 0 -275px;}
+
+#pick-content {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+#add-input {
+    position: absolute;
+    right: 80px;
+    top: 5px;
+}

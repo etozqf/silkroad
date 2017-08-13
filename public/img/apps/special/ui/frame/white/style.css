@@ -1,0 +1,8 @@
+/*
+@name 白色背景
+@notes 白色背景，无边框
+*/
+
+.frame-white{
+	background:#fff;
+}

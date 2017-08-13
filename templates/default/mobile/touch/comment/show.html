@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>评论：{$topic[title]}</title>
+	<link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+
+    <script src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}js/lib/cmstop.template.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.cookie.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.scrolllist.js"></script>
+</head>
+<body>
+	<div class="ui-container">
+		<section>
+			<header>
+				<div class="ui-header-bar">
+                    <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+					<div class="ui-pagetitle">最新评论</div>
+                    <!-- {if !setting('cloud', 'sohu_changyan')} -->
+					<a id="btn-comment" class="ui-comment-post-btn">发 表</a>
+                    <!-- {/if} -->
+				</div>
+
+                <!--{template 'mobile/touch/member/login.html'}-->
+
+                <div id="form-comment-container" class="ui-comment-post ui-carbonfibre" style="display:none;">
+                    <form id="form-comment" action="{MOBILE_URL}comment/add" method="post" class="ui-login-form js-form-focusblur">
+                        <input type="hidden" name="topicid" value="{$topic[topicid]}" />
+                        <div>
+                            <label>发表评论</label>
+                            <textarea name="content" cols="30" rows="10"></textarea>
+                            <div class="ui-validate-info" style="display:none;">评论内容不能为空</div>
+                        </div>
+                        <div>
+                            <input type="submit" value="发表">
+                        </div>
+                    </form>
+                </div>
+
+                <script type="text/template" id="tpl-comment">
+                    <li>
+                        <div class="ui-comment-infos">
+                            <span class="ui-name">{%nickname%}</span><span class="ui-timer">{%date%}</span>
+                        </div>
+                        <div class="ui-comment-detail">{%content%}</div>
+                    </li>
+                </script>
+
+                <script type="text/javascript">
+                    $(function() {
+                        var commentsListContainer = $('#comment-list-container');
+                        var tplComment = new Template($('#tpl-comment').html());
+                        var needLogin = parseInt('{$SETTING[comment][islogin]}');
+                        var btnComment = $('#btn-comment');
+                        var formComment = $('#form-comment');
+                        var containerComment = $('#form-comment-container');
+                        var containerLogin = $('#form-login-container');
+                        var state = false;
+                        $(window).bind('login', function() {
+                            if (state) {
+                                btnComment.text('取 消');
+                                containerLogin.hide();
+                                containerComment.show();
+                            } else {
+                                btnComment.text('发 表');
+                            }
+                        });
+                        btnComment.click(function() {
+                            if (state) {
+                                containerLogin.hide();
+                                containerComment.hide();
+                                btnComment.text('发 表');
+                            } else {
+                                if (needLogin && !cookie.get(COOKIE_PRE + 'auth')) {
+                                    containerLogin.show();
+                                    containerComment.hide();
+                                } else {
+                                    containerLogin.hide();
+                                    containerComment.show();
+                                }
+                                btnComment.text('取 消');
+                            }
+                            state = !state;
+                        });
+                        var label = $(formComment[0].content).next('.ui-validate-info');
+                        formComment.submit(function() {
+                            if (!formComment[0].content.value) {
+                                label.text('评论内容不能为空').show();
+                                return false;
+                            } else {
+                                label.hide();
+                            }
+                            $.post(formComment.attr('action'), formComment.serialize(), function(json) {
+                                if (json && json.state) {
+                                    formComment[0].reset();
+                                    btnComment.click();
+                                    commentsListContainer.prepend(tplComment.render(json.data));
+                                } else {
+                                    alert('评论失败，请重试');
+                                }
+                            }, 'json');
+                            return false;
+                        });
+                    });
+                </script>
+			</header>
+			
+		<div class="ui-comment-container">
+            <!-- {if setting('cloud', 'sohu_changyan')} -->
+            <!--#include virtual="/section/cloud/mobilecomment.html"-->
+            <!-- {else} -->
+			<ul id="comment-list-container">
+                <?php $comments = loader::model('comment', 'comment')->ls_last($topic['topicid'], 1, 10); ?>
+                <!--{loop $comments $i $r}-->
+				<li>
+					<div class="ui-comment-infos">
+						<span class="ui-name">{$r[nickname]}</span><span class="ui-timer">{$r[date]}</span>
+					</div>
+					<div class="ui-comment-detail">{$r[content]}</div>
+				</li>
+                <!--{/loop}-->
+			</ul>
+            <a id="ui-more" class="ui-more">查看更多</a>
+            <!-- {/if} -->
+		</div>	
+		</section>
+	</div>
+    <!-- 底部栏目面板 -->
+    <div class="js-category-bottom-container">
+        <!-- 栏目导航 -->
+        <menu class="ui-categorys js-category-panel js-categorys-bottom js-hidden">
+            <ul>
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{MOBILE_URL}">首页</a></li>
+                <!--{loop mobile_category() $category}-->
+                <!--{if !$category[headline]}-->
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{$category[url]}">{$category[catname]}</a></li>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </ul>
+        </menu>
+        <!-- @end 栏目导航 -->
+    </div>
+    <!-- 底部 -->
+    <footer class="ui-bottom-bar">
+        <!--{template 'mobile/touch/_blocks/footer.html'}-->
+    </footer>
+	<script>
+	$(function() {
+		// 底部栏目选择
+		var bb = $('.js-menubtn-bottom');
+		bb.click(function() {
+			$('.js-categorys-bottom').toggleClass('js-hidden');
+			setTimeout(function() {
+				document.body.scrollTop = document.body.clientHeight;
+			}, 50);
+		});
+        var list = $('#comment-list-container');
+        new ScrollList({
+            url: '{MOBILE_URL}comment/{$topic[topicid]}',
+            trigger: list.next('#ui-more'),
+            container: list,
+            template: $('#tpl-comment').html(),
+            page: 2,
+            pagesize: 10,
+            sorttime: list.children().first().attr('data-sorttime') || 0
+        });
+	});
+	</script>
+</body>
+</html>

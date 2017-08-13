@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>滚动新闻_{$sitename[0]}</title>
+    <meta name="keywords" content="滚动新闻 {$SYSTEM[sitename]} {$SYSTEM[seokeywords]}" />
+    <meta name="description" content="滚动新闻 {$SYSTEM[sitename]} {$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.roll.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.roll.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    <div class="hr20"></div>
+    <div class="column">
+    <!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #-->
+    </div>
+    <div class="hr20"></div>
+    <div class="column">
+        <div class="m-title-a">
+            <h2 class="m-title-h2">滚动新闻</h2>
+            <span id="cond-date" class="cond-date">{date('Y年m月d日')}</span>
+        </div>
+    </div>
+    <div class="hr20"></div>
+    <div class="column ov">
+        <div class="w660 fl-l">
+            <div class="console">
+                <span class="num-bar" id="data-pagesize">条数：<a href="10"><span class="blue-border">10条</span></a><a href="20"><span class="blue-border">20条</span></a><a href="40"><span class="blue-border">40条</span></a></span>
+                <span class="interval" id="data-interval">刷新间隔：<a href="60"><span class="blue-border">60秒</span></a><a href="120"><span class="blue-border">120秒</span></a></span>
+                <label class="refresh">
+                    <input id="auto" class="select-check" type="checkbox" name="privcy" />
+                    <span id="auto-on" style="display:none"><b class="cor-red b">59</b>秒后刷新</span>
+                    <span id="auto-off">自动刷新</span>
+                </label>
+                <a id="hand" href="javascript:;" class="refresh-link">手动刷新</a>
+                <a id="date" href="javascript:;" class="refresh-link date-link">往期回顾</a>
+            </div>
+            <div class="hr20"></div>
+            <div id="data-channel" class="category-list pos-r">
+                <a href="{APP_URL}roll.php" class="title now" title="全部">全部</a>
+                <a href="javascript:;" class="open">更多<i class="arrow-down"></i></a>
+                <a href="javascript:;" class="close">收起</a>
+                <!--{loop channel() $cha}-->
+                <a href="{$cha[catid]}" class="title">{$cha[name]}</a>
+                <!--{/loop}-->
+            </div>
+            <div class="hr20"></div>
+            <section class="column-main news-list-box">
+                <!-- 右边列表 -->
+                <ul class="list list-point" id="data-container"></ul><!-- @end 右边列表 -->
+                <div class="hr20"></div>
+                <!-- 分页 -->
+                <div class="align-c">
+                    <div class="pagination ov" id="pagination"></div><!-- @end 分页 -->
+                </div>
+            </section>
+        </div>
+        <div class="w300 fl-r">
+            <!-- 今日推荐 -->
+            <div class="commend-article">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                </div>
+                <div class="commend-inner">
+                    <div class="m-accordion js-accordion">
+                        <ul>
+                            <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hr20"></div>
+            
+            <div class="">
+                <!--#include virtual="/section/21.html"--><!--# 列表页广告 右侧 300 x 240 #-->
+            </div>
+            
+            <div class="hr20"></div>
+
+            <!-- 推荐图片 -->
+            <div class="commend-picture">
+                <!--#include virtual="/section/11.html"--><!--# 公共区块 推荐图片 #-->
+            </div>
+
+            
+            <div class="">
+                <!--#include virtual="/section/23.html"--><!--# 列表页广告 右侧 300 x 90 #-->
+            </div>
+            
+            <div class="hr20"></div>
+
+            <!-- 推荐视频 -->
+            <div class="commend-video">
+                <!--#include virtual="/section/14.html"--><!--# 公共区块 推荐视频 #-->
+            </div>
+        </div>
+    </div>
+
+    <div class="hr40"></div>
+    <!--#include virtual="/section/2.html"--><!--网站底部-->
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/jquery.pagination.js"></script>
+    <script type="text/javascript">
+        var channelid = 0;
+        var pagesize = 20;
+        var interval = 120;
+        $(function () {
+            APP.init(channelid, pagesize, interval);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.title {margin:0 20px;width:760px;}
+.cloud-box {margin:8px 40px; width:720px;}
+.cloud-banner {background:url('images/banner-bg.png');padding:0 1px;width:100%;height:38px; border:1px #DDD solid;position: relative;}
+.cloud-show .cloud-banner {border-bottom:1px #f8f8f8 solid;}
+.cloud-banner h3 {color:#666; display:inline;line-height: 38px; padding-left: 30px; font-size:14px;}
+.cloud-banner-ico {background-image:url('images/banner-ico.png');width:11px; height:11px; top:14px;left:14px;position: absolute;}
+.cloud-hide .cloud-banner-ico {background-position: 0 0;}
+.cloud-show .cloud-banner-ico {background-position: 11px 0;}
+.cloud-banner-setting {background:url("images/setting.png");width:60px; height:28px; top:5px;left:558px;position: absolute; cursor: pointer;}
+.cloud-switch {position: absolute; top: 6px; left: 626px;}
+.cloud-panel {background:#FAFAFA;width:100%;padding:12px 1px 24px 1px;border:1px #DDD solid;position: relative;}
+.cloud-panel .table_head {padding:0 10%}
+.cloud-hide .cloud-panel {display:none;}
+.cloud-show .cloud-panel {display: block;}
+.cloud-bg-white {background: #FFF;}
+.cloud-panel-arrow {background:url("images/arrow.png"); width:13px; height:9px; top:-3px; left:50px;position: absolute;}
+.cloud-panel-context {padding-left:24px;}
+.cloud-input-text {width:218px; height: 22px; border:1px #ABADB3 solid; background:#FFF;}
+.cloud-panel table {margin: 0 auto;text-align: center; }
+.cloud-panel table thead td {background:#EEE; font-weight:bold;}
+.cloud-panel table td {height:40px;line-height:40px; border-bottom: 1px dashed #DDD; padding:0px; color:#666;}
+.cloud-share-textarea {text-align: center;}
+.cloud-share-textarea textarea {width:600px; height:220px; border-color: #888888}
+.cloud-share-textarea textarea:focus {border-color: #00A5D5}
+.cloud-share-line {height:22px; width:618px; margin:0 auto;}
+.cloud-share-line a {height:22px; line-height: 22px;}
+.cloud-onekeyfollow-textarea {text-align: center;}
+.cloud-onekeyfollow-textarea textarea {width:600px; height:220px; border-color: #888888}
+.cloud-onekeyfollow-textarea textarea:focus {border-color: #00A5D5}
+
+/* 去掉cmstop.table.js中表格hover背景与checked背景 */
+.cloud-panel table tbody td{background:#fff!important;}
+
+.cloud-bshare-uuidtext {display: inline-block; float: left; height:22px; line-height: 22px;}
+.bshare-setting {position: absolute; left: 0; top: 16px; z-index: 2; border: 1px #000 solid;}
+.bshare-setting li {width: 24px; padding: 4px 16px; background: #FFF; color: #000;}
+.bshare-setting li:hover {background: #000; color: #fff;}
+.cloud-btn-red-48 {width: 48px; background: url("images/btn-bg-red48.gif"); border-width: 0; color: #FFFFFF; height: 22px; line-height: 22px; padding: 0; cursor: pointer;}
+.cloud-btn-red-60 {width: 60px; background: url("images/btn-bg-red60.gif"); border-width: 0; color: #FFFFFF; height: 22px; line-height: 22px; padding: 0; cursor: pointer;}
+.cloud-btn-red-106 {width: 106px; background: url("images/btn-bg-red106.gif"); border-width: 0; color: #FFFFFF; height: 22px; line-height: 22px; padding: 0; cursor: pointer;}
+.cloud-empty {width:2px; display:inline-block;}
+.cloud-setting {width: 16px; height: 16px; background: url("images/cogwheel.png"); display: inline-block; cursor: pointer; position: relative;}
+
+.mar_l_4 { margin-left: 4px;}
+.mar_l_16 { margin-left: 16px;}
+.mar_l_50 { margin-left: 50px;}

@@ -1,0 +1,14 @@
+/*
+ @name 三角系列
+ @notes 背景颜色可修改
+*/
+.title-arrow-a {
+	font-size:14px;
+	font-weight:bold;
+	padding-left:9px;
+	background:#633 url("images/title-5.gif") no-repeat left bottom;
+    height:32px;
+	line-height:28px;
+}
+.title-arrow-a,
+.title-arrow-a span{ color:#fff;}

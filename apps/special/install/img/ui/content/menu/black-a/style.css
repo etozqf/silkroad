@@ -1,0 +1,21 @@
+/*
+ @name 黑色菜单样式
+ @notes  黑底白字
+*/
+.content-menu-black-a {
+	background:#171717;
+	padding:0px 10px;
+}
+.content-menu-black-a a {
+	color:#ddd;
+	font-size:12px;
+}
+.content-menu-black-a a:hover {
+	color:#fff;
+	text-decoration:none;
+}
+.content-menu-black-a span.sepr {
+	margin:0 4px;
+	color:#ddd;
+	font-size:12px;
+}

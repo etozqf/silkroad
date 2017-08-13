@@ -1,0 +1,34 @@
+<?php $width = isset($width) ? htmlspecialchars($width) : 650; ?>
+<?php $height = isset($height) ? htmlspecialchars($height) : 519; ?>
+<?php $manual = isset($manual) ? htmlspecialchars($manual) : 0; ?>
+<?php $playerID = '17fe3abf0af0466ca1cb3da123487345'; ?>
+<?php
+if(strpos($video, ','))
+{
+    $tmp_video = explode(',', $video);
+    $video = $tmp_video[0];
+    $playerID = $tmp_video[1];
+    $tmp_video = NULL;
+}
+?>
+<script type="text/javascript" src="http://113.142.30.196:8060/CMSTOP/media/player/{$playerID}.js"></script>
+<script type="text/javascript">
+    (function() {
+        window.contentid = window.contentid || '';
+        var interval, timeout,
+            query = function() {
+                var container = window['jQuery'] && $(document.getElementById('{$playerID}')).parent();
+                if (typeof createPlayer != 'undefined') {
+                    clearInterval(interval);
+                    clearTimeout(timeout);
+                    createPlayer("video://vid:{$video}", "@VIDEOID@", "{$width}", "{$height}");
+                    container && container.trigger('change.video');
+                }
+            };
+        interval = setInterval(query, 100);
+        timeout = setTimeout(function() {
+            clearInterval(interval);
+        }, 10000);
+    })();
+</script>
+<div id="{$playerID}"></div>

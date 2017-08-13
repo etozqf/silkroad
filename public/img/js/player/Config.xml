@@ -1,0 +1,15 @@
+{
+	"videoInfoPath": "",
+	"adInfoPath": "",
+	"recommendInfoPath": "",
+	"statUrl": "",
+	"isShowAd": 0,
+	"autoStart": 0,
+	"isBreakpoint": 0,
+	"skinNum": "1",
+	"videoProportion": "4*3",
+	"definition": "3",
+	"isShowRecommend": 0,
+	"logoImgPath": "",
+	"logoClickUrl": ""
+}

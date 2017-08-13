@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$sitename[0]} _ 资讯</title>
+<meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css"> 
+<style type="text/css">
+.n_ind_contitle ul li{float:left;display:block;line-height:40px;font-size:16px;border-right:solid 0px #ededed;z-index:3;cursor:pointer;font-family:'宋体';font-weight: bold;padding:0 0px;}
+	.n_ind_contitle ul li a{border-left: 1px solid #ccc;display: block;height: 20px;line-height: 16px;margin-top: 13px;overflow: hidden;padding:0px 7px;}
+</style>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script>
+$(function () {
+	catname_top = '资讯';	// 顶级栏目名称
+	$('.n_ind_contitle>ul>li').each(function(){
+		if($(this).hasClass('n_ind_contitle_on')){
+			catname = $(this).find('span').html();
+		}
+	})
+})
+</script>
+</head>
+<body>
+
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+
+<div class="container">
+	<!-- left -->
+	<div class="left730">
+			<div class="n_ind_contitle">
+			<!--{if $sub}-->
+		    <ul class="information_proid">
+			    <li class="{if $sub=='all'}n_ind_contitle_on{/if}"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=all"><span>最新</span></a></li>	
+			    <li class="{if $sub=='236'}n_ind_contitle_on{/if}"catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=236"><span>政治外交</span></a></li>	
+			    <li class="{if $sub=='237,240,241,242'}n_ind_contitle_on{/if}"catids="237,240,241,242"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=237,240,241,242"><span>营商环境</span></a></li>	
+			    <li class="{if $sub=='245,246'}n_ind_contitle_on{/if}"catids="245,246"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=245,246"><span>政策法规</span></a></li>	
+			    <li class="{if $sub=='238'}n_ind_contitle_on{/if}"catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=238"><span>贸易往来</span></a></li>	
+			    <li class="{if $sub=='239'}n_ind_contitle_on{/if}"catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=239"><span>投资动向</span></a></li>	
+			    <li class="{if $sub=='243,244'}n_ind_contitle_on{/if}"catids="243,244"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=243,244"><span>金融合作</span></a></li>	
+			    <li class="{if $sub=='234,235'}n_ind_contitle_on{/if}"catids="234,235"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=234,235"><span>人文交流</span></a></li>	
+			    <li class="{if $sub=='247,248'}n_ind_contitle_on{/if}"catids="247,248"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=247,248"><span>投资提示</span></a></li>	
+				</ul>
+			<!--{else}-->
+			<ul class="information_proid">
+			    <li class="n_ind_contitle_on"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=all"><span>最新</span></a></li>	
+			    <li catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=236"><span>政治外交</span></a></li>	
+			    <li catids="237,240,241,242"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=237,240,241,242"><span>营商环境</span></a></li>	
+			    <li catids="245,246"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=245,246"><span>政策法规</span></a></li>	
+			    <li catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=238"><span>贸易往来</span></a></li>	
+			    <li catids=""><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=239"><span>投资动向</span></a></li>	
+			    <li catids="243,244"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=243,244"><span>金融合作</span></a></li>	
+			    <li catids="234,235"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=234,235"><span>人文交流</span></a></li>	
+			    <li catids="247,248"><a href="{APP_URL}?app=system&controller=property&action=index_show&sub_type=247,248"><span>投资提示</span></a></li>	
+			</ul>
+			<!--{/if}-->
+		  </div>
+		  <div class="n_ind_contmain" sub="{$Subtype}">
+				<!--{if $sub}-->
+                    <!--{template "information/sub_type/index.html"}-->
+       	<!--{else}-->
+				
+					  <div class="news" style="display:block"> 
+					   	
+				        	<ul>
+				        		<!--{loop $data $i $m}-->
+											<li>
+					                <h2><a href="{$m['url']}" target="_blank">{$m['title']}</a></h2>
+					                  <div class="info">
+						                      <em>
+							         								<!--{if $m['source']}-->
+							         									来源：{$m['source']}&nbsp;&nbsp;
+							                        <!--{/if}-->
+							                        <!--{if $m['author']}-->
+																				作者：{$m['author']}
+						                         	<!--{/if}-->
+						                      </em>&nbsp;&nbsp;
+						                      <span class="time">{date("Y-m-d H:i",$m['published'])}</span>
+					                  </div>
+					                  <p>{description($m['contentid'])} &nbsp;&nbsp;&nbsp;&nbsp; [<a href="{$m['url']}" target="_blank">详细</a>]</p>
+					                       
+					           	</li>	
+					           <!--{/loop}-->								
+									</ul> 
+				          <div class="page">
+			              <tr>
+			                 <!--{space_pages($total, $page, 10, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+			              </tr>
+							      <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+							    </div>
+							
+			      </div>
+      		
+				<!--{/if}-->
+
+		  </div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+		
+			<!--#include virtual="/section/301.html"--><!--# 资讯频道 丝路情报 #-->
+			<!--#include virtual="/section/372.html"--><!--# 报告 右侧-智讯参考区块 #-->
+			
+			<!--#include virtual="/section/304.html"--><!--# 资讯频道 国别报告 #-->
+		
+		<div class="item">
+			<div class="hd"><a >阅读排行</a></div>
+			<div class="bd">
+				<ul class="tops">
+				<!--{content catid="4" modelid="1" orderby="published desc, pv desc" page="$page" size="10"}-->
+					<!--{if $i<=3}-->
+								<li><a href="{$r['url']}"><span class="num t3">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+						<!--{else}-->
+								<li><a href="{$r['url']}"><span class="num">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+					<!--{/if}-->	
+				<!--{/content}-->
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+
+
+<!--{template 'system/foot_zn.html'}-->
+
+<script>
+	$(function(){
+		// $(".n_ind_contitle li").bind("click",function(){
+		// 	var index = $(this).index();
+		// 	$(this).addClass("n_ind_contitle_on").siblings().removeClass("n_ind_contitle_on");
+		// 	$(".n_ind_contmain .news").eq(index).show().siblings().hide();
+		// })
+	})
+</script>
+
+</body>
+</html>

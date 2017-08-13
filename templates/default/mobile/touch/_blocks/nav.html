@@ -1,0 +1,49 @@
+<div class="ui-cateandsearch js-category-search">
+    <!-- 栏目导航 -->
+    <menu class="ui-categorys js-category-panel js-hidden">
+        <div class="bd">
+            <ul>
+                <?php
+                    $i = 1;
+                ?>
+                <!--{loop mobile_category() $category}-->
+                <!--{if !$category[headline]}-->
+                <!--{if $i == 1}-->
+                <li>
+                <a href="{MOBILE_URL}">首页</a>
+                <!--{/if}-->
+                <!--{if $i % 4 == 0}-->
+                <li>
+                <!--{/if}-->
+                <a href="{$category[url]}">{$category[catname]}</a>
+                <!--{if ($i % 4 == 3)}-->
+                </li>
+                <!--{/if}-->
+                <?php
+                    $i++;
+                ?>
+                <!--{/if}-->
+                <!--{/loop}-->
+                <!--{if !(($i - 1) % 4 == 3)}-->
+                </li>
+                <!--{/if}-->
+            </ul>
+            <div class="search-box">
+                <div class="search-cont">
+                    <form action="{MOBILE_URL}search/" method="get">
+                        <input type="text" class="txt" placeholder="请输入关键词" name="keyword" value="{$keyword}">
+                        <input type="submit" value="" class="search-btn">
+                    </form>
+                </div>
+            </div>
+            <div class="ui-section-block homebanner">
+                <div class="ui-catgory ui-catgory1">
+                    <a href="{MOBILE_URL}picture/">图片</a>
+                    <a href="{MOBILE_URL}video/">视频</a>
+                    <a href="{MOBILE_URL}special/">专题</a>
+                </div>
+            </div>
+        </div>
+    </menu>
+    <!-- @end 栏目导航 -->
+</div>

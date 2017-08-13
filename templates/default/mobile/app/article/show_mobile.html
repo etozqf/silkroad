@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.9, maximum-scale=0.9, user-scalable=no" />
+    <title>{$title}_{$SYSTEM[sitename]}</title>
+<style type="text/css">
+	html,body{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+	/*base 16px*/
+	body{background-color:#f4f4f4; text-align: center; margin: 0; padding: 0 0;}
+	a{ color: #06c; text-decoration: none;} a:hover{ color: #f00; } 
+
+	.ui-content{ margin: 0 auto;  text-align: left; display: none;}
+	.ui-content .ui-title {
+		padding-bottom: 2%;
+		text-align: left; 
+		font-size: 75%;
+	}
+	.ui-article-h1{ 
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 150%;
+        margin-bottom: 0;
+		padding: 0 10px 0 10px;
+		text-align: left;
+	}
+	.ui-content-wrap {
+		padding: 10px 0;
+	}
+	.ui-content .article-infos {
+		text-align: left;
+        margin: 5px 0 0;
+        padding: 0 8px;
+	}
+	.ui-content .article-infos span {
+		color: #999;
+		margin: 0 4px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.ui-contents p{ 
+		text-align: justify; 
+		text-indent: 2em; 
+		line-height: 160%;
+		font-size: 14px;
+        margin: 0 0 5px;
+		padding-bottom: 2%;
+		padding-left: 10px;
+		padding-right: 10px;
+		text-shadow:1px 1px 1px #fff;
+
+		display: none;
+		-webkit-transition: font-size 0.5s ease-out 0, display 2s ease-out 0.2s;
+		transition: font-size 0.5s ease-out 0, display 2s ease-out 0.2s;
+	}
+
+
+    .ui-contents p a {
+        text-decoration: underline;
+    }
+	.ui-contents p img{ text-align: center; max-width: 230px; }
+	.ui-contents p a img{ text-align: center; max-width: 230px; }
+    .ui-contents {font-size: 62.5%;}
+    /*JS控制字号大小*/
+    .js-fontsize-small p {
+    	display: block;
+    	font-size: 14px;
+    }
+    .js-fontsize-normal p{
+    	display: block;
+    	font-size: 16px;
+    }
+    .js-fontsize-big p{
+    	display: block;
+    	font-size: 18px;
+    }
+
+
+	#vote dl dt,#vote dl dd{ text-align: left;}
+	ul,li,ol{list-style:none;}
+	/* addon */
+	.addon-gallery, .addon-video, .addon-vote{
+		margin:0 auto;
+	}
+	.mod-list.rel-news.topblank {
+		margin: 10px 10px;
+		background-color: #fff;
+	}
+	.rel-news .hd {
+		padding: 10px 0 0 10px;
+	}
+	.rel-news .list{
+		padding-left: 30px;
+		margin: 3% 0;
+	}
+	.rel-news .item {
+		line-height: 150%;
+		padding-top: 1%;
+		list-style-type: square;
+		font-size: 14px;
+		color: #ccc;
+	}
+	.rel-news .title {
+		color: #333;
+	}
+
+	.addon-vote .vote-title {
+		border: 1px solid #ccc;
+		background-color: #fff;
+		margin: 0 10px;
+		line-height: 250%;
+		padding-left: 10px;
+	}
+	.ui-addon-type {
+		background-color: #60A3FC;
+		color: #fff;
+		margin-right: 8px;
+		padding: 2px 4px;
+	}
+
+	/*addon-widget*/
+	.ui-addon-gallery, .ui-addon-video {
+		position: relative;
+		width: 300px;
+		margin: 0 auto;
+	}
+	.ui-addon-gallery .gallery-photo-items, .ui-addon-video .video-content-items {
+		text-align: center;
+	}
+	.ui-gallery-mark {
+		position: absolute;
+		left: 0;
+		bottom: 5px;
+		background-color: #c00;
+		color: #fff;
+		width: 50px;
+		padding: 2px 0;
+		text-align: center;
+	}
+	.ui-addon-video .ui-video-mark {
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		left: 120px;
+		top: 35%;
+
+		background: transparent url({IMG_URL}images/video_btn_2x.png) no-repeat;
+		-webkit-background-size: cover;
+	}
+	.ui-addon-video .ui-video-link {
+		width: 60px;
+		height: 60px;
+		display: inline-block;
+	}
+
+    .mod-ad {
+        margin: 0 auto 10px;
+        text-align: center;
+        display: none;
+    }
+
+    #loading {
+    	width: 32px;
+    	height: 32px;
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	margin-left: -16px;
+    	margin-top: -16px;
+    	background-image: url({IMG_URL}images/commentLoad.gif);
+    }
+</style>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+</head>
+<body>
+<div id="loading"></div>
+<div id="content" class="ui-content">
+	<div class="ui-title">
+		<h1 class="ui-article-h1">{$title}</h1>
+		<div class="article-infos">
+            <span>{date('m-d H:i', $published)}</span>
+            <!--{if $source}--><span>{$source}</span><!--{/if}-->
+		</div>
+	</div>
+
+	<div class="ui-content-wrap">
+		<!--{if $addon[A2]}-->
+			<?php foreach($addon['A2'] as $a){ echo $a; } ?>
+		<!--{/if}-->
+		<div id="content-show" class="ui-contents">
+			{$content}
+		</div>
+		<!--{if $addon[A5]}-->
+			<?php foreach($addon['A5'] as $a){ echo $a; } ?>
+		<!--{/if}-->
+	</div>
+
+	<!--{if $relateds}-->
+	<!-- 相关阅读 -->
+	<div class="mod-list rel-news topblank">
+		<div class="hd ov">
+			<strong class="rel-title">相关阅读</strong>
+		</div>
+		<div class="bd">
+			<ul class="list list-point">
+				<!--{loop $relateds $k $r}-->
+				<li class="item"><span class="ico"></span><a href="{MOBILE_PROTOCOL}://{$r[contentid]},{$r[modelid]}" class="title" target="_blank">{$r[title]}</a></li>
+				<!--{/loop}-->
+			</ul>
+		</div>	
+	</div><!-- @end 相关阅读 -->
+	<!--{/if}-->
+
+    <div class="mod-ad">{mobile_content_ad('mobile')}</div>
+</div>
+	
+<script type="text/javascript">
+    function nonwrap2p(container) {
+        var node, box = [], i, len, j, p, prev;
+        function render() {
+            if (!box.length) return;
+            p = document.createElement('p');
+            for (j = 0; j < box.length; j++) {
+                p.appendChild(box[j]);
+            }
+            box = [];
+            container.insertBefore(p, prev);
+        }
+        if (container) {
+            for (i = 0, len = container.childNodes.length; i < len; i++) {
+                node = container.childNodes[i];
+                if (!node || (node.parentNode && node.parentNode.nodeName.toLowerCase() == 'p')) continue;
+                if (node.nodeType == 3) {
+                    node.nodeValue.match(/[^\s&nbsp;]+/g) && box.push(node);
+                } else if (window.getComputedStyle(node).display.substr(0, 6) == 'inline') {
+                    box.push(node);
+                } else {
+                    prev = node;
+                    render();
+                    node.childNodes && nonwrap2p(node);
+                }
+            }
+            render();
+        }
+    }
+	/**
+	 * author: xiaoqiang <samirtohope@gmail.com>
+	 * description: 设置内容文字大小的三个函数
+	 */
+	$.controlFontSize = {
+		small: function() {
+			$('#content-show').removeClass('js-fontsize-normal').removeClass('js-fontsize-big');
+			$('#content-show').addClass('js-fontsize-small');
+			$('.mod-ad').show();
+		},
+		normal: function() {
+			$('#content-show').removeClass('js-fontsize-small').removeClass('js-fontsize-big');
+			$('#content-show').addClass('js-fontsize-normal');
+			$('.mod-ad').show();
+		},
+		big: function() {
+			$('#content-show').removeClass('js-fontsize-small').removeClass('js-fontsize-normal');
+			$('#content-show').addClass('js-fontsize-big');
+			$('.mod-ad').show();
+		}
+	}
+	$(function(){
+        var content = $('#content-show');
+        content.find('a').each(function () {
+            if (this.href[5] !== 'link:') {
+              this.href = 'link:' + this.href;
+            }
+        });
+        nonwrap2p(content[0]);
+        content.find('p').each(function() {
+            var paragraph = $(this), html = paragraph.html(), regex = /^(\s|&nbsp;)+/;
+            if (html.match(regex)) {
+                paragraph.html(html.replace(regex, ''));
+            }
+        }).filter(function() {
+            return $(this).find('img').length;
+        }).css({'text-indent': '0', 'padding-bottom': '0', 'text-align': "center"});
+        setTimeout(function () {
+        	$('#content').fadeIn();
+        	$('#loading').fadeOut();
+        	$('.mod-ad').fadeIn();
+        }, 300);
+        $.each(content.find('img'), function(i,k) {
+        	a = $('<a ' + 'href="pic:'+k.src+'"></a>').insertAfter($(k));
+        	$(k).appendTo(a);
+        });
+	});
+</script>
+
+</body>
+
+</html>

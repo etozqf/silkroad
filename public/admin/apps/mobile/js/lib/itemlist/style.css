@@ -1,0 +1,83 @@
+.ui-itemlist {
+    clear: both;
+}
+.ui-itemlist .t_l {
+    text-align: left;
+}
+.ui-itemlist .t_c {
+    text-align: center;
+}
+.ui-itemlist .t_r {
+    text-align: right;
+}
+.ui-itemlist .hidden {
+    display: none;
+}
+.ui-itemlist img,
+.ui-itemlist label {
+    display: inline-block;
+    zoom: 1;
+    margin: -1px 8px 0;
+    vertical-align: middle;
+}
+.ui-itemlist .ui-itemlist-header,
+.ui-itemlist .ui-itemlist-footer {
+    overflow: hidden;
+    background: url(images/bg.png) repeat-x 0 -50px;
+    border: solid #C9D4E5;
+    border-width: 1px 0;
+}
+.ui-itemlist .ui-itemlist-header,
+.ui-itemlist .ui-itemlist-header th {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+}
+.ui-itemlist-header th {
+    text-align: left;
+    vertical-align: middle;
+    font-weight: normal;
+}
+.ui-itemlist-footer {
+    margin: 0;
+    padding: 5px 10px;
+    height: 20px;
+}
+.ui-itemlist-footer .ui-itemlist-actions {
+    float: left;
+}
+.ui-itemlist-footer .ui-itemlist-pager {
+    float: right;
+}
+.ui-itemlist-body {
+    min-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+.ui-itemlist-body .ui-itemlist-loading,
+.ui-itemlist-body .ui-itemlist-message {
+    width: 100px;
+    padding-top: 55px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 50%;
+    margin-left: -50px;
+    text-align: center;
+}
+.ui-itemlist-body .ui-itemlist-loading {
+    background: url(images/loading.gif) no-repeat center top;
+}
+.ui-itemlist-body .ui-itemlist-item {
+    border-bottom: 1px dotted #D7E3F2;
+}
+.ui-itemlist-body .ui-itemlist-item-hover {
+    background-color: #FFFDDD;
+}
+.ui-itemlist-body .ui-itemlist-item-check {
+    background-color: #E7F2F5;
+    border-bottom-color: #FFF;
+}

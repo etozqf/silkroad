@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$SYSTEM[sitename]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-slider.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+<div class="ui-container">
+    <header>
+        <div class="ui-header-bar">
+            <div class="ui-logo"></div>
+            <div class="ui-menu-trigger js-menubtn-top"></div>
+        </div>
+    </header>
+    <!--{template 'mobile/touch/_blocks/nav.html'}-->
+    <section class="ui-articles-container ui-index-container">
+        <!-- 幻灯片 -->
+        <div class="ui-section-block homebanner">
+            <!--{if $headline[slider_size]}-->
+            <!--{mobile_slider catid="$headline[catid]" size="$headline[slider_size]" return="data" /}-->
+            <!--{if !empty($data)}-->
+            <!-- swipe -->
+            <section class="category-gallery js-index-slider">
+                <ul>
+                    <!--{loop $data['data'] $i $r}-->
+                    <li> <a href="{$r[url]}"> <img src="{thumb($r[thumb_slider], 640, 320)}" alt="">
+                        <p>
+                            <span>
+                                <span class="swipeslide-index"><?=$i+1?>/{count($data['data'])}</span>{str_natcut($r[title], 18, '')}
+                            </span>
+                        </p>
+                    </a> </li>
+                    <!--{/loop}-->
+                </ul>
+            </section>
+            <!--@end swipe -->
+            <!--{/if}-->
+            <!--{/if}-->
+        </div>
+        <!--@end 幻灯片 -->
+        <!--{mobile_content catid="$headline[catid]" inslider="0" thumb="1" size="5" return="thumbs" /}-->
+        <?php
+            $contentids = array();
+            if ($thumbs) {
+                foreach($thumbs['data'] as $thumb) {
+                    $contentids[] = $thumb['contentid'];
+                }
+            }
+            $where = !empty($thumbs) ? "mc.`contentid` not in (" . implode(',', $contentids) . ")" : "";
+        ?>
+        <!--{mobile_content catid="$headline[catid]" inslider="0" where="$where" size="5" return="data" /}-->
+        <div class="ui-section-block">
+            <!--{if !empty($thumbs)}-->
+            <!--{loop $thumbs['data'] $i $r}-->
+            <div class="ui-mod-picsummary ui-border-bottom-gray">
+                <a href="{$r[url]}">
+                    <img class="ui-pic" src="{thumb($r[thumb], 160, 120, 1, null, 1, 95)}">
+                    <h3 class="ui-title">{$r[title]}</h3>
+                    <div class="ui-summary">{$r[description]}
+                        
+                    </div>
+                </a>
+            </div>
+            <!--{/loop}-->
+            <!--{/if}-->
+            <!--{if !empty($data)}-->
+            <div class="ui-mod-lists ui-cate-list">
+                <ul>
+                    <!--{loop $data['data'] $i $r}-->
+                    <li> <a href="{$r[url]}">{$r[title]}</a> </li>
+                    <!--{/loop}-->
+                </ul>
+                <a href="{$headline[url]}" class="ui-more">查看更多头条</a> </div>
+            <!--{/if}-->
+        </div>
+        <!--{loop mobile_category() $category}-->
+        <!--{if !$category[headline]}-->
+        <!--{mobile_content catid="$category[catid]" thumb="1" size="1" return="thumb" /}-->
+        <?php $where = !empty($thumb) ? "mc.`contentid` <> ".intval($thumb['data'][0]['contentid']) : ''; ?>
+        <!--{mobile_content catid="$category[catid]" where="$where" size="5" return="data" /}-->
+        <!--{if !empty($thumb) || !empty($data)}-->
+        <div class="ui-section-block">
+            <div class="ui-catgory">
+                <h2 class="ui-category-title">{$category[catname]}</h2>
+            </div>
+            <!--{if !empty($thumb)}-->
+            <!--{loop $thumb['data'] $i $r}-->
+            <div class="ui-mod-picsummary ui-border-bottom-gray">
+                <a href="{$r[url]}">
+                    <img class="ui-pic" src="{thumb($r[thumb], 160, 120, 1, null, 1, 95)}">
+                    <h3 class="ui-title">{$r[title]}</h3>
+                    <div class="ui-summary">{$r[description]}
+                        
+                    </div>
+                </a>
+            </div>
+            <!--{/loop}-->
+            <!--{/if}-->
+            <!--{if !empty($data)}-->
+            <div class="ui-mod-lists ui-cate-list">
+                <ul>
+                    <!--{loop $data['data'] $i $r}-->
+                    <li> <a href="{$r[url]}">{$r[title]}</a> </li>
+                    <!--{/loop}-->
+                </ul>
+                <a href="{$category[url]}" class="ui-more">查看{$category[catname]}频道</a>
+            </div>
+            <!--{/if}-->
+        </div>
+        <!--{/if}-->
+        <!--{/if}-->
+        <!--{/loop}-->
+    </section>
+</div>
+<div class="download">
+    <!--#include virtual="/section/246.html"--><!--# 手机版 客户端下载 #-->
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container"></div>
+<!--@end 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<!--@end 底部 -->
+</body>
+</html>

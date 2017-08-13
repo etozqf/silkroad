@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <title>Digg排行榜_{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!--别忘记此处的meta标签，确保IE都是在标准模式下渲染-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.digg.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <!--IE8及IE8以下浏览器都支持HTML5-->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!--IE6支持png24-->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!--# 顶部 #-->
+    <!--{template "system/head_simple_php.html"}-->
+    <div class="hr20"></div>
+    <div class="column ov">
+        <!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #-->
+        <div class="hr20"></div>
+        <div class="fl-l w660">
+            <div class="category-list pos-r">
+                <a href="{APP_URL}digg.php" class="title{if $cha['alias'] == $alias} now{/if}" title="全部">全部</a>
+                <a href="javascript:;" class="open">更多<i class="arrow-down"></i></a>
+                <a href="javascript:;" class="close">收起</a>
+                <!--{loop channel() $cha}-->
+                <a href="{APP_URL}digg.php?catid={$cha[catid]}" title="{$cha['name']}" {if $cha['alias'] == $alias}class="now"{/if}>{$cha['name']}</a>
+                <!--{/loop}-->
+            </div>
+            <div class="date-menu-wapper">
+                <div id="date-menu" class="date-menu">
+                    <a rel="tab" href="javascript:;" class="now">今日</a>
+                    <a rel="tab" href="javascript:;">本周</a>
+                    <a rel="tab" href="javascript:;">本月</a>
+                    <a rel="tab" href="javascript:;">全部</a>
+                </div>
+            </div>
+            <section class="column-main news-list-box" id="tabcontent">
+                <div  class="tab">
+                <!-- 右边列表 -->
+                    <ul class="list list-point">
+                    <?php $this->assign('time', 'today');?>
+                    <!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+                        <?php $this->assign('r', $r);?>
+                        <!--{template "digg/item.html"}-->
+                    <!--{/db}-->
+                    </ul><!-- @end 右边列表 -->
+                </div>
+                <div  class="tab" style="display:none;">
+                <!-- 右边列表 -->
+                    <ul class="list list-point">
+                    <?php $this->assign('time', 'week');?>
+                    <!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-7*24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+                        <?php $this->assign('r', $r);?>
+                        <!--{template "digg/item.html"}-->
+                    <!--{/db}-->
+                    </ul><!-- @end 右边列表 -->
+                </div>
+                <div  class="tab" style="display:none;">
+                <!-- 右边列表 -->
+                    <ul class="list list-point">
+                    <?php $this->assign('time', 'month');?>
+                    <!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.published>UNIX_TIMESTAMP()-30*24*3600 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+                        <?php $this->assign('r', $r);?>
+                        <!--{template "digg/item.html"}-->
+                    <!--{/db}-->
+                    </ul><!-- @end 右边列表 -->
+                </div>
+                <div  class="tab" style="display:none;">
+                <!-- 右边列表 -->
+                    <ul class="list list-point">
+                    <?php $this->assign('time', 'all');?>
+                    <!--{db sql="SELECT * FROM #table_content AS c,#table_digg AS d WHERE c.status=6 AND c.contentid=d.contentid ORDER BY d.supports DESC" size="20"}-->
+                        <?php $this->assign('r', $r);?>
+                        <!--{template "digg/item.html"}-->
+                    <!--{/db}-->
+                    </ul><!-- @end 右边列表 -->
+                </div>
+            </section>
+        </div>
+        <div class="fl-r w300">
+            <!-- 今日推荐 -->
+            <div class="commend-article">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                </div>
+                <div class="commend-inner">
+                    <div class="m-accordion js-accordion">
+                        <ul>
+                            <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hr20"></div>
+            
+            <div class="">
+                <!--#include virtual="/section/21.html"--><!--# 列表页广告 右侧 300 x 240 #-->
+            </div>
+            
+            <div class="hr20"></div>
+
+            <!-- 推荐图片 -->
+            <div class="commend-picture">
+                <!--#include virtual="/section/11.html"--><!--# 公共区块 推荐图片 #-->
+            </div>
+
+            
+            <div class="">
+                <!--#include virtual="/section/23.html"--><!--# 列表页广告 右侧 300 x 90 #-->
+            </div>
+            
+            <div class="hr20"></div>
+
+            <!-- 推荐视频 -->
+            <div class="commend-video">
+                <!--#include virtual="/section/14.html"--><!--# 公共区块 推荐视频 #-->
+            </div>
+        </div>
+    </div>
+    <div class="hr40"></div>
+    <!--#include virtual="/section/2.html"--><!--网站底部-->
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.digg.js"></script>
+</body>
+</html>

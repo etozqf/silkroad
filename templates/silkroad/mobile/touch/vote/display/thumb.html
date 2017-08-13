@@ -1,0 +1,152 @@
+<form id="form-vote" class="ui-vote-mode-thumb ui-vote-type-{$content[vote][type]}" method="post" action="{MOBILE_URL}vote/vote">
+    <input name="contentid" type="hidden" value="{$content[contentid]}"/>
+    <input name="type" type="hidden" value="{$content[vote][type]}"/>
+    <input name="maxoptions" type="hidden" value="{$content[vote][maxoptions]}"/>
+    <!--{loop $content[vote][option] $v}-->
+    <div class="ui-vote-item">
+        <div style="text-align:center;"><img {if $content[thumb_width]} width="{intval($content[thumb_width])}"{/if}{if $content[thumb_height]} height="{intval($content[thumb_height])}"{/if} src="{thumb($v[thumb], $content[thumb_width] ? intval($content[thumb_width]) : null,  $content[thumb_height] ? intval($content[thumb_height]) : null)}" />
+        <center>{$v[name]}</center>
+        </div>
+        <div class="ui-voteitem-panel"><a class="ui-voteitem">投一票</a></div>
+        <input type="hidden" name="optionid{if $content[vote][type] == 'checkbox'}[]{/if}" value="{$v[optionid]}" disabled />
+    </div>
+    <!--{/loop}-->
+    <div class="ui-vote-item vote-button">
+        <input type="submit" value="提交">
+    </div>
+    <!--{if $content['vote']['seccode_type'] === 'advanced'}-->
+    <div class="ui-seccode" style="display:none;">
+        <div class="ui-seccode-overlay"></div>
+        <div class="ui-seccode-container">
+            <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image_pro&no_border=1&length=11" /><a class="change-img" href="javascript:;">换一个</a>
+                <br/>请输入<span class="seccode-color"></span>字符
+            </p>
+            <p><input type="text" name="seccode" /></p>
+            <div class="ok">确认</div>
+            <div class="canel">取消</div>
+        </div>
+    </div>
+    <!--{else}-->
+    <div class="ui-seccode" style="display:none;">
+        <div class="ui-seccode-overlay"></div>
+        <div class="ui-seccode-container">
+            <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&length=11" /><a class="change-img" href="javascript:;">换一个</a></p>
+            <p><input type="text" name="seccode" /></p>
+            <div class="ok">确认</div>
+            <div class="canel">取消</div>
+        </div>
+    </div>
+    <!--{/if}-->
+</form>
+
+<div class="vote-result" style="display:none;"></div>
+
+<script type="text/template" id="tpl-vote-result">
+    <div>
+        <h3 class="ui-vote-item-title">{%name%}</h3>
+
+        <div class="ui-vote-bar">
+            <div class="ui-vote-total">
+                <div class="ui-vote-occ" style="width: {%percent%}%;"></div>
+            </div>
+            <div class="ui-vote-number">{%percent%}%</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.template.js"></script>
+<script type="text/javascript">
+(function() {
+    var form = $('#form-vote'),
+        result = $('.vote-result'),
+        tplResult = new Template($('#tpl-vote-result').html()),
+        type = $.trim(form.find('[name=type]').val()),
+        maxoptions = type == 'radio' ? 1 : parseInt(form.find('[name=maxoptions]').val()),
+        items = form.find('.ui-voteitem'),
+        fields = form.find('[optionid="optionid' + (type == 'radio' ? '' : '[]') + '"]'),
+        clazz = 'ui-voteok';
+
+    function render(data) {
+        form.hide();
+        $('.ui-vote-type').remove();
+        result.show();
+        $.each(data, function(index, option) {
+            result.append(tplResult.render(option));
+        });
+        result.after('<div class="ui-vote-success-text">投票成功,感谢您的参与</div>')
+    }
+
+    items.click(function() {
+        var _this = $(this), size;
+        if (type == 'radio') {
+            items.removeClass(clazz);
+            fields.attr('disabled', 'disabled');
+            _this.addClass(clazz);
+            _this.parent().next('input').attr('disabled', null);
+        } else {
+            if (_this.hasClass(clazz)) {
+                _this.removeClass(clazz);
+                _this.parent().next('input').attr('disabled', 'disabled');
+            } else {
+                size = items.filter('.' + clazz).length;
+                if (maxoptions && size >= maxoptions) {
+                    alert('最多只能选 ' + maxoptions + '项');
+                } else {
+                    _this.addClass(clazz);
+                    _this.parent().next('input').attr('disabled', null);
+                }
+            }
+        }
+        return false;
+    });
+
+    form.submit(function() {
+        var seccode = $('.ui-seccode'),
+            submitCallback = function () {
+                $.post(form.attr('action'), form.serialize(), function(json) {
+                    if (json && json.state) {
+                        alert('投票成功');
+                        render(json.data);
+                    } else {
+                        alert(json && json.error || '投票失败，请重试');
+                    }
+                }, 'json');
+            };
+
+        if (!items.filter('.' + clazz).length) {
+            alert('请至少选择一项');
+            return false;
+        }
+        if (seccode.length) {
+            if (seccode.is(':visible') && seccode.find('input').val()) {
+                seccode.hide();
+                submitCallback();
+            } else {
+                seccode.find('img').trigger('click');
+                seccode.show();
+                seccode.find('.ok').unbind().bind('click', function () {
+                    if (seccode.find('input').val()) {
+                        seccode.hide();
+                        submitCallback();
+                    }
+                });
+                seccode.find('.canel').unbind().bind('click', function () {
+                    seccode.hide();
+                });
+            }
+        } else {
+            submitCallback();
+        }
+        return false;
+    });
+    $('.ui-seccode').find('.change-img').on('click', function (e) {
+        var img = $('.ui-seccode').find('img'),
+            src = img.attr('data-src');
+        img.on('load', function () {
+            $('.seccode-color').html(decodeURIComponent(document.cookie.match(new RegExp(COOKIE_PRE + 'seccode_color=(.*?)(?:;|$)'))[1]).replace(/\+/, ' '));
+        });
+        img.attr('src', src + '&_=' + Date.now());
+        $('[name="seccode"]').val('');
+    });
+})();
+</script>

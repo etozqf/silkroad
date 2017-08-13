@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[name]}_{/loop}{$name}_{$sitename[0]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/information-list.css"/>
+     <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+       <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/information-list.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+<!-- 顶部 -->
+    <!--{template "system/head.html"}-->
+
+
+<div class="columnA mar-t-15 ov">
+    <div class="bor-rb">
+        <div class=" bor-trbl list-con">
+            <!--左侧-->
+            <div class="col-r-extra mar-t-20 mar-l-20">
+                <div class="bor-rbs">
+                    <div class="bor-trbs">
+                        <ul class="list-ul">
+                           <!--#include virtual="/section/269.html"--><!--# 文章列表页 列表页左侧新闻分类区块 #-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="col-r-main ov f-r mar-r-20 mar-t-20">
+                <ul class="summary-list">
+                    <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+                        <li class="bor-b">
+
+                        <em class="f-l">&bull;</em>
+                        <a href="{$r[url]}" target="_blank" class="f-l">{str_natcut($r[title], 70, '...')}</a>
+
+                        <div class="f-r txt mar-t-3">
+                            <span>{date('Y-m-d', $r['published'])}</span>
+                            <i>{date('H:i', $r['published'])}</i>
+                        </div>
+                         </li>
+                    <!--{/content}-->
+
+                    
+                </ul>
+                <!--分页-->
+                 <div class="page mar-b-120 mar-t-20">
+                     <ul>
+                         
+
+                     </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<footer class="footer ov mar-t-30">
+    <div class="column">Sponsored by China Economic Information Service, Xinhua News Agency, Copyright © 2000-2015 silkroad.news.cn All Rights Reserved</div>
+</footer>
+<!--@end页脚-->
+</body>
+</html>

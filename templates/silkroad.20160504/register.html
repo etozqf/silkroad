@@ -1,0 +1,358 @@
+<!-- 注册 -->
+<div class="pop_box">
+<div class="register">
+  <div class="hd">
+    <h3>用户注册 - 获取邀请码</h3>
+    <span class="close" onclick="popclose('.pop_box')"></span>
+  </div>
+  <div class="bd">  
+    <form action="{APP_URL}?app=member&controller=index&action=register" method="POST"  name="registerForm" id="member_registerForm">
+      <ul class="step1">
+        <li><label for=""><span class="cred">*</span>电子邮箱</label><input type="email" name="email" class="inp"><div class="tips">请填写您的电子邮箱，我们会发送验证码到您的邮箱</div></li>
+        <li>
+          <label for=""><span class="cred">*</span>邀请码</label>
+          <input type="text" name="invitation_code" class="inp w180" id="invitation_code">
+          <span class="getcode">获得邀请码</span><div class="tips">请输入您的邀请码</div>
+        </li>
+        <li>
+          <label for=""><span class="cred">*</span>验证码</label>
+          <input type="text"  class="inp w180" name="reseccode">
+          <span><img id="seccode_img_re" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5;" src="{APP_URL}?app=system&controller=seccode&action=image" class="fl-l" alt="" style="cursor: pointer;height:30px;"></span><span><a onclick="$('#seccode_img_re').click();return false;" style="cursor: pointer;margin-left:20px"class="reload fl-l icon16x16">看不清</a></span>
+        </li> 
+        <li>
+         <input type="submit" value="下一步" class="btn the-next" disabled="disabled" style="background-color:#ddd"/>
+        </li>
+      </ul>
+      <ul class="step2" style="display:none">
+        <li><label for=""><span class="cred">*</span>用户名</label><input type="text" class="inp" name="username"><div class="tips">请填写一个您常用的大于3位小于16位的用户名</div></li>
+        <li><label for=""><span class="cred">*</span>联系人姓名</label><input type="text" class="inp" name="name"><div class="tips">请填写一个您的真实姓名</div></li>
+        <li><label for=""><span class="cred">*</span>联系电话</label><input type="text" class="inp" name="telephone"><div class="tips">请填写一个您的联系电话</div></li>
+        <li><label for=""><span class="cred">*</span>联系人单位</label><input type="text" class="inp" name="job"><div class="tips">请填写您的工作单位</div></li>
+        <li><label for=""><span class="cred"></span>联系地址</label><input type="text" class="inp" name="address"><div class="tips">请填写您的联系地址</div></li>
+        <li><label for=""><span class="cred"></span>QQ</label><input type="text" class="inp" name="qq"><div class="tips">请填写您的QQ</div></li>
+        <li><label for=""><span class="cred">*</span>请设置密码</label><input type="password" class="inp" name="password"><div class="tips">请您设置一个大于8位小于16位的登录密码</div></li>
+        <li><label for="" ><span class="cred">*</span>请确认密码</label><input type="password" name="password_check" class="inp"><div class="tips">请您再次输入密码</div></li> 
+        <li><input type="submit" value="完成" class="btn" id="register" ></li>
+      </ul>
+
+    </form>
+  </div>
+</div> 
+</div>
+
+ <script type="text/javascript">
+$(function(){
+    //
+        var email=$(".inp");  //email
+        var getcode=$(".getcode"); //获取邀请码按钮
+        var invitation_code=$("#invitation_code");  //邀请码输入框
+        var next=$(".the-next");    //下一步按钮
+
+        /*邀请码触发失去焦点事件*/
+        $("#invitation_code").blur(function(){
+           if(email.val()!="" && invitation_code.val()!="")
+           {
+              //改变下一步按钮状态，允许点击
+              next.attr("disabled",false);
+              next.css('background-color','#ff6c00');
+           }else{
+              getcode.next("div.tips").text('请输入正确的6位数字邀请码');
+           }
+        })
+
+        /*点击下一步按钮*/
+        next.click(function()
+        {
+           $('.step1').hide();$('.step2').show();
+           return false;
+        })
+
+
+        /*点击按钮获得邀请码*/
+       getcode.click(function(){
+              var zhi=email.val();
+              $.getJSON(APP_URL+"?app=system&controller=invitation&action=getcode&jsoncallback=?&email="+zhi,function(json){
+                  if(json.status=='success'){
+                    var info=json['info'];
+                    getcode.next("div.tips").text(info);
+                  }else{
+                    info=json['info'];
+                     getcode.next("div.tips").text(info);
+                  }
+                 
+              })
+
+
+        });
+
+    //
+})
+
+
+  /*在当前点击回车，触发点击登陆按钮*/
+  $(window).keydown(function(event){
+
+         if(event.keyCode==13)
+         {
+
+            /*检测登陆，判断用户名、密码、验证码是否为空，是否含有特殊字符*/
+            if(!check_login())
+            {
+                return false;
+            }
+
+         }
+      
+  })
+
+
+  var member_value=$("#member_loginForm input[name='username']");
+  var password_value=$("#member_loginForm input[name='password']");
+  var seccode_value=$("input.input_ind[name='seccode']");
+
+  /*加入特殊字符判断*/
+  var pattern=/[~#^$@%&!*]/gi;  
+
+  /*用户名失去焦点*/
+  member_value.blur(function(){
+       $(".pos-a").remove();
+          if (!member_value.val())
+          {
+              member_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">用户名不能为空</p>');
+              return false;
+          }      
+          else
+          {
+            /*判断用户名是否含有特殊字符*/
+            if(pattern.test(member_value.val()))
+            {
+              member_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">用户名不能含有特殊字符</p>');
+              return false;
+            }
+          }
+
+  });
+  /*密码失去焦点*/
+  password_value.blur(function(){
+     $(".pos-a").remove();
+      if (!password_value.val())
+          {
+              password_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">密码不能为空</p>');
+              return false;
+          }
+
+  }); 
+  /*验证码失去焦点*/
+  seccode_value.blur(function(){
+     $(".pos-a").remove();
+      if (!seccode_value.val())
+          {
+              seccode_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">验证码不能为空</p>');
+              return false;
+          }      
+          else
+          {
+              /*判断验证码是否含有特殊字符*/
+              if(pattern.test(seccode_value.val()))
+              {
+              seccode_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">验证码不能含有特殊字符</p>');
+                return false;
+              }
+          }
+
+  });
+
+
+  /*登录检测*/
+  $('#login').click(check_login);
+
+  /*点击登陆按钮，测试用户名、密码、验证码是否为空，是否存在特殊字符*/
+  function check_login()
+  {
+    
+     $(".pos-a").remove();
+
+      /*判断用户名不能为空*/
+      if (!member_value.val())
+      {
+          member_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">用户名不能为空</p>');
+          return false;
+      }
+      else
+      {
+        /*判断用户名是否含有特殊字符*/
+        if(pattern.test(member_value.val()))
+        {
+          member_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">用户名不能含有特殊字符</p>');
+          return false;
+        }
+      }
+
+      /*判断密码不能为空*/
+      if (!password_value.val())
+      {
+          password_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">密码不能为空</p>');
+          return false;
+      }
+ 
+
+      /*判断验证码是否为空*/
+      if (!seccode_value.val())
+      {
+        seccode_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">验证码不能为空</p>');
+        return false;
+      }
+      else
+      {
+          /*判断验证码是否含有特殊字符*/
+          if(pattern.test(seccode_value.val()))
+          {
+          seccode_value.parent().append('<p style="margin-top:4px;color:red;font-size:12px;" class="pos-a">验证码不能含有特殊字符</p>');
+            return false;
+          }
+      }
+
+
+      //没有错误时，则直接提交登陆表单
+      $('#member_loginForm').submit();
+  }
+
+
+  $(function(){
+     //用户注册判断失焦
+        $('#member_registerForm input').blur(function(){
+
+          if ($(this).attr('name') == 'email') {
+            var email = $(this).val();
+                if (!email)
+                {
+                    alert("邮箱不能为空");return false;
+                }else if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)) {
+                    alert("邮箱格式不正确");return false;
+                  }
+                 
+          }
+          if ($(this).attr('name') == 'name') {
+            var tname = $(this).val();
+                if (!tname)
+                {
+                    alert("姓名不能为空");return false;
+                }
+                 
+          }
+          if ($(this).attr('name') == 'telephone') {
+            var telephone = $(this).val();
+                if (!telephone)
+                {
+                    alert("联系电话不能为空");return false;
+                }
+                 
+          }
+          if ($(this).attr('name') == 'job') {
+            var job = $(this).val();
+                if (!job)
+                {
+                    alert("联系人单位不能为空");return false;
+                }
+                 
+          }
+
+            if ($(this).attr('name') == 'username') {
+              var name = $(this).val();
+              
+                if (!name)
+                {
+                    alert("用户名不能为空");return false;
+                } else if ($(this).val().length < 3) {
+                    alert("用户名不能小于3位");return false;
+                } else if ($(this).val().length > 16) {
+                    alert("用户名不能大于16位");return false;
+                } 
+                //ajax验证是否已经被注册
+                 $(function(){
+                    $.getJSON(
+                        '?app=member&controller=index&action=ajax_username_check&jsoncallback=?&username='+name,
+                        function(data){
+                                   if(data){
+                                          alert('用户名已存在');
+                                          return false;
+                                   }else{
+                                          return;
+                                   }
+                        }
+                        );
+                });
+            }
+            if ($(this).attr('name') == 'password') {
+                if (!$(this).val())
+                {
+                    alert("密码不能为空");return false;
+                } else if ($(this).val().length < 8) {
+                    alert("密码不能小于6位");return false;
+                } else if ($(this).val().length > 16) {
+                    alert("密码不能大于16位");return false;
+                }
+            }
+            if ($(this).attr('name') == 'password_check') {
+                if (!$(this).val())
+                {   
+                    alert("确认密码不能为空");return false;
+                } else if ($(this).val() != $('#member_registerForm input[name=password]').val()) {
+                    alert("密码不一致");return false;
+                }
+            }
+        })
+  });
+
+//用户注册提交事件
+    $('#register').click(function(){
+        if (!$('#member_registerForm input[name=username]').val())
+        {   
+            alert("用户名不能为空");
+            return false;
+        } else if ($('#member_registerForm input[name=username]').val().length < 3) {
+                alert("用户名不能小于3位");
+                return false;
+        } else if ($('#member_registerForm input[name=username]').val().length > 16) {
+            alert("用户名不能大于16位");
+            return false;
+        }
+        if (!$('#member_registerForm input[name=password]').val())
+        {   
+            alert("密码不能为空");
+            return false;
+        } else if ($('#member_registerForm input[name=password]').val().length < 8) {
+            alert("密码不能小于8位");
+            return false;
+        } else if ($('#member_registerForm input[name=password]').val().length > 16) {
+            alert("密码不能大于16位");
+            return false;
+        }
+        if (!$('#member_registerForm input[name=password_check]').val())
+        {   
+            alert("确认密码不能为空");
+            return false;
+        } else if($('#member_registerForm input[name=password]').val() != $('#member_registerForm input[name=password_check]').val()){
+            alert("与密码不一致");
+            return false;
+        }
+        if (!$('#member_registerForm input[name=name]').val())
+        {   
+            alert("联系人姓名不能为空");
+            return false;
+        }
+        if (!$('#member_registerForm input[name=telephone]').val())
+        {   
+            alert("联系人电话不能为空");
+            return false;
+        }
+        if (!$('#member_registerForm input[name=job]').val())
+        {   
+            alert("联系人单位不能为空");
+            return false;
+        }
+        
+        $('#member_registerForm').submit();
+    });
+
+ </script>

@@ -1,0 +1,7 @@
+<div class="hr20"></div>
+<div class="addon-map mod-map"{if $width} style="width:{$width}px"{/if}>
+    <a target="_blank" href="http://map.baidu.com/?latlng={$marker['lat']},{$marker['lng']}&title={urlencode($keyword ? $keyword : '地图位置')}&content={urlencode($keyword ? $keyword : '地图位置')}">
+        <img src="http://api.map.baidu.com/staticimage?center={$center['lng']},{$center['lat']}&zoom={$zoom}&markers={$marker['lng']},{$marker['lat']}&width={$width}&height={$height}" width="{$width}" height="{$height}" alt="" />
+    </a>
+</div>
+<div class="hr20"></div>

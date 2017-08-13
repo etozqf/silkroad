@@ -1,0 +1,10 @@
+<li class="item dashed">
+    <div class="ico">
+        <p id="supports_{$time}_{$r[contentid]}" class="num">{$r[supports]}</p>
+        <a href="javascript:digg.set({$r[contentid]},'supports_{$time}_{$r[contentid]}')">顶</a>
+    </div>
+    <div class="txt">
+        <p class="title"><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+        <p class="info"><span class="date">{date('Y-m-d H:i', $r[published])}</span></p>
+    </div>
+</li> 

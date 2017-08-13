@@ -1,0 +1,84 @@
+body {font-family:simsun,Tahoma,Arial, Helvetica, sans-serif;font-size:12px;color:#333; background:#fff}
+p{text-indent:2em;}
+html,body,div,ol,ul,i,li,form,p,h1,h2,h3,h4,h5,h6,dd,dl,dt,span,em,table{margin:0;padding:0;border:0;}
+ul,li{ list-style:none;}
+img {border:0 none; -ms-interpolation-mode: bicubic;}
+table p { text-indent:0;}
+a {text-decoration:none;}
+a:hover { text-decoration:underline;}
+.diy-area, .diy-frame, .diy-widget, .diy-inner { margin: 0; padding: 0; border:none; word-wrap: break-word; zoom: 1;}
+div.diy-area:after, .diy-frame:after,.diy-widget:after, .diy-content:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden;}
+.diy-frame .diy-area { float:left; overflow:hidden;}
+.diy-area, .diy-widget { min-height: 5px;}
+.diy-root { }
+.diy-frame { }
+.diy-widget {}
+.diy-title { overflow: hidden;}
+.diy-title img { vertical-align: middle;}
+.diy-frame .diy-title {}
+.diy-widget .diy-title {}
+.clear {height: 0;font-size: 0;clear: both;}
+.hr-dot {border-bottom:1px dashed #ccc;height:10px;clear:both;overflow:hidden;}
+.slider-player { position:relative;}
+.slider-player .slider-content { position:relative; overflow:hidden;}
+.slider-player .slider-content,.slider-content li { margin:0; padding:0; list-style:none;}
+.slider-content li { position:absolute; left:0; top:0; z-index:0; display:none;}
+.slider-content .pic {}
+.slider-player .title { font-size:14px; color:#000; font-weight:bold; padding-left:15px; margin-top:2px; text-decoration: none;}
+.slider-player .title:hover { text-decoration: underline; color:#f00;}
+.slider-player .slider-link { height:25px; line-height:22px; overflow:hidden;}
+.slider-content img { border:none;padding:0;margin:0;}
+.slider-player .slider-moon { height:100%; width:100%; display:none; position:absolute; left:0;top:0; background:transparent url(http://img.xinhua08.com/apps/special/widget/slider/loader.gif) no-repeat center; z-index:3;}
+.slider-player .slider-nav { position:absolute; padding:2px; right:0px; z-index:2; opacity:0.7; filter:Alpha(Opacity="70");}
+.slider-nav a { cursor:pointer; display:inline-block; height:15px; width:15px; text-align:center; margin:0 2px; background-color:#eee; border:1px solid #ccc;}
+.slider-nav a.active { background-color:#AD2D2D; border-color:#ccc; color:#fff;}
+.imgtxtsummary-list { overflow:hidden; margin:0; padding:0; list-style:none; font-size:12px;}
+.imgtxtsummary-list li { list-style:none; margin:0; padding:0;}
+.imgtxtsummary-list h3 { margin:0 0 4px; padding:0; font-size:14px; line-height: 21px;}
+.imgtxtsummary-list a { text-decoration:none; font-weight:normal;}
+.imgtxtsummary-list a:hover { text-decoration:underline;}
+.imgtxtsummary-list .pic {}
+.imgtxtsummary-list img { width:80px; height:60px; float:left; border:none;}
+.imgtxtsummary-list .summary { margin:0;padding:0; line-height:20px; text-indent:2em;}
+.imgtxtsummary-list .clear { clear:both; font-size:0; height:0;}
+.txtlink-list { overflow:hidden; margin:0; list-style:none;}
+.txtlink-list li { style-type:none; line-height: 20px;}
+.txtlink-list li a { text-decoration:none;}
+.txtlink-list li a:hover { text-decoration:underline;}
+.txtlink-list li .date { float: right;}
+.pic-list { margin:0;padding:0;}
+.pic-list li { list-style:none; display:inline-block; vertical-align:top; *display:inline-table; +display:inline; +zoom:1; padding:1px 1px 2px 2px; margin:2px; text-align:center; line-height:16px;}
+.pic-list img { width:80px; height:60px; border:none; display: block; margin:0 auto 6px;}
+.pic-list a { display:inline-block; text-decoration: none;}
+.mod-weibo { margin: 0 0 10px; padding: 16px 0; border-top: 1px dotted #D1D1D1; border-bottom: 1px dotted #D1D1D1; color: #333333; background-color: #FFF; overflow: hidden; font-size: 14px; position: relative;}
+.mod-weibo div,.mod-weibo span,.mod-weibo a,.mod-weibo img { margin: 0; padding: 0;}
+.mod-weibo img { border: none;}
+.mod-weibo a { font-size: 14px; text-decoration: none;}
+.mod-weibo a:hover { text-decoration: underline;}
+.mod-weibo .weibo-avatar { float: left; padding: 4px 15px 4px 20px; position: relative;}
+.weibo-avatar .weibo-head { overflow: hidden;}
+.weibo-avatar .weibo-head,.weibo-avatar .weibo-head img { display: inline-block; zoom: 1; width: 50px; height: 50px; overflow: hidden;}
+.weibo-avatar .weibo-icon { position: absolute; right: 15px; bottom: 4px; width: 16px; height: 16px; overflow: hidden; text-indent: -999em; background: transparent url(http://img.xinhua08.com/apps/special/widget/weibo/images/icon.png) no-repeat 0 0; _background-image: url(http://img.xinhua08.com/apps/special/widget/weibo/images/icon-ie6.png);}
+.weibo-avatar .weibo-icon-tencent { background-position: 0 0;}
+.weibo-avatar .weibo-icon-sina { background-position: 0 -90px;}
+.mod-weibo .weibo-message { overflow: hidden; zoom: 1; line-height: 23px; padding-right: 20px;}
+.weibo-message .weibo-user { font-style: normal; font-weight: bold; overflow: hidden; color: #999999; padding-right: 5px;}
+.weibo-message .weibo-user a { float: left; color: #006A92;}
+.weibo-message .weibo-user a:hover {}
+.weibo-message .weibo-user .weibo-icon { float: left; margin: 3px 0 0 2px; display: inline-block; zoom: 1; width: 16px; height: 16px; overflow: hidden; vertical-align: text-top; background: transparent url(http://img.xinhua08.com/apps/special/widget/weibo/images/icon.png) no-repeat 0 0; _background-image: url(http://img.xinhua08.com/apps/special/widget/weibo/images/icon-ie6.png);}
+.weibo-message .weibo-user .weibo-icon-tencent-vip { background-position: 0 -60px;}
+.weibo-message .weibo-user .weibo-icon-tencent-cvip { background-position: 0 -30px;}
+.weibo-message .weibo-user .weibo-icon-sina-approve { background-position: 0 -120px;}
+.weibo-message .weibo-user .weibo-icon-sina-approve_co { background-position: 0 -150px;}
+.weibo-message .weibo-content { display: inline; word-wrap: break-word;}
+.weibo-message .weibo-content img { vertical-align: middle; display: inline;}
+.mod-weibo .weibo-media { display: block; padding: 8px 0 3px; overflow: hidden;}
+.weibo-media .weibo-image { float: left; margin-right: 15px; overflow: hidden;}
+.weibo-media .weibo-loading { border: none; background: transparent url(http://img.xinhua08.com/apps/special/widget/weibo/images/loading.gif) no-repeat center center; position: absolute;}
+.weibo-media .weibo-image a { padding: 2px 0; display: inline-block; zoom: 1; cursor: url(http://img.xinhua08.com/apps/special/widget/weibo/images/cursor_zoom.cur), pointer;}
+.weibo-media .weibo-image a img { background: #FFFFFF; border: 1px solid #EAEAEA; padding: 3px;}
+.weibo-media .weibo-image-zoomout a { cursor: url(http://img.xinhua08.com/apps/special/widget/weibo/images/cursor_minify.cur), pointer;}
+.mod-weibo .weibo-info { line-height: 19px;}
+.mod-weibo .weibo-info a { font-size: 12px;}
+.weibo-info .weibo-time { color: #759AAD;}
+.weibo-info .weibo-time:hover { color: #006A92;}

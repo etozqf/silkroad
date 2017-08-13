@@ -1,0 +1,12 @@
+<?php
+	$config = loader::import('config', CONFIG_PATH);
+	$newpath = str_encode($catid.'|'.$video,$config['authkey']);
+	$playerurl = APP_URL.url('payview/vedio/player').'&w=620&h=470&id='.$newpath;
+?>
+<div id="nopower" style="width: 620px; height:470px;display:none;">
+<div style="margin: 20px auto; border: 1px solid rgb(204, 204, 204); width: 300px; padding: 20px;">			本内容需要付费阅读，如果您已付费请<a style="color:#fff" href="{APP_URL}{url('member/index/login')}" target="_blank">登录</a><br>如果您要订阅本栏目内容，<a style="color:#fff" href="{APP_URL}{url('payview/order/add')}" target="_blank">请点这里进行订阅</a>			</div>
+<div style="text-align:center;">
+<img id="vedio_img" src="" width="400"/>
+</div>
+</div>
+<script type="text/javascript" src="{$playerurl}"></script>

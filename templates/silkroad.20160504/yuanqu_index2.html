@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$sitename[0]}_{$SYSTEM[seotitle]}_园区首页</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+   
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/index.js"></script>
+</head>
+<body>
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<!--园区tab切换-->
+<div class="dh_mainbox">
+    <div class="n_ind_contitle">
+        <ul>
+            <li class="n_ind_contitle_on"><a href="javascript:;" style="border-left: 0">中国园区</a></li>
+            <li><a href="javascript:;">境外园区</a></li>
+        </ul>
+        <div class="n-ind-right" style="display:none;">
+            <!--<span>点击“+”号可选择园区进行比较</span>-->
+        <a href="{APP_URL}?app=system&controller=yuanqu&action=yq_search" target="_blank" class="sx-btn">按条件筛选</a>
+        </div>
+    </div>
+    <div class="n_ind_contmain">
+        <div class="news">
+            <div class="box960">
+                <div class="bor-e0e0e0 pad-10 ov">
+                    <div class="map" style="position:relative;"><iframe src="{APP_URL}?app=system&controller=yuanqu&action=get_yuanqu"  width="560" height="406" frameborder="0"></iframe><div style="position: absolute; z-index: 99; bottom: 0px;"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/mouse.png"></div></div>
+                    
+                    <div id="guonei" class="r-list">
+                        <div class="hd">
+                            <h3 style="text-align: center;">河北省</h3>
+                        </div>
+                        <ul class="pad-10" style="height:343px;overflow-y:scroll;">
+                            <!--{db sql="select * from cmstop_position_yq where province='河北省'"}-->
+                            <li>
+                                <a href="{$r[url]}" target="_blank">{$r[name]}</a>
+                            </li>
+                            <!--{/db}-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news" style="display: none;">
+            <div class="box960">
+                <div class="bor-e0e0e0 pad-10 ov">
+                    <div class="map" style="position:relative;"><iframe id="map_world_container" src="{APP_URL}?app=system&controller=yuanqu&action=get_yuanqu_guoji"  width="560" height="406" frameborder="0"></iframe><div style="position: absolute; z-index: 99; bottom: 0px;"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/mouse.png"></div></div>
+                    <div id="guoji" class="r-list">
+                        <div class="hd">
+                            <h3 style="text-align: center;">俄罗斯</h3>
+                        </div>
+                        <ul class="pad-10" style="height:343px;overflow-y:scroll;">
+                           <!--{db sql="select * from cmstop_position_yq where province='俄罗斯'"}-->
+                            <li>
+                                <a href="{$r[url]}" target="_blank">{$r[name]}</a>
+                            </li>
+                            <!--{/db}-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+          $(function(){
+            document.domain='silkroad.news.cn';
+          })
+            function right(params){
+                // alert(params);
+                //查询右侧数据
+                if(params=='新疆' || params=='西藏' || params=='宁夏' || params=='内蒙古' || params=='广西'){
+                    if(params=='新疆'){
+                        params=params+'维吾尔自治区';
+                    }else if(params=='宁夏'){
+                        params=params+'回族自治区';
+                    }else if(params=='广西'){
+                        params=params+'壮族自治区';
+                    }else{
+                        params=params+'自治区';
+                    }
+                    $.getJSON(APP_URL+'?app=system&controller=yuanqu&action=get_map_yuanqu&jsoncallback=?&province='+params,function(data){
+                        $("#guonei ul").empty();
+                        if(data.length){
+                            for(i in data){
+                                createLi(data[i].name,data[i].url);
+                            }
+                        }else{
+                           createSpan();
+                        }
+                    $("#guonei .hd h3").html(params);
+
+                    })
+                }else if(params=='北京' || params=='天津' || params=='上海' || params=='重庆'){
+                    params=params+'市';
+                    $.getJSON(APP_URL+'?app=system&controller=yuanqu&action=get_map_yuanqu&jsoncallback=?&province='+params,function(data){
+                        $("#guonei ul").empty();
+                        if(data.length){
+                            for(i in data){
+                                createLi(data[i].name,data[i].url);
+                            }
+                        }else{
+                          createSpan();
+                        }
+                    $("#guonei .hd h3").html(params);
+
+                    })
+                
+                }else{
+                    params=params+'省';
+                    $.getJSON(APP_URL+'?app=system&controller=yuanqu&action=get_map_yuanqu&jsoncallback=?&province='+params,function(data){
+                        $("#guonei ul").empty();
+                        
+                        // console.log(data.length);
+                        if(data.length){
+                            for(i in data){
+                                createLi(data[i].name,data[i].url);
+                            }
+                        }else{
+                           createSpan();
+                        }
+                    $("#guonei .hd h3").html(params);
+
+                    })
+                }
+                //插入各个园区
+                
+            }
+
+            function createLi(name,url){
+                $("#guonei ul").append("<li><a href="+url+" target='_blank'>"+name+"</a></li>");
+            }
+            function createSpan(){
+                $("#guonei ul").append("<span>暂无园区</span>");
+            }
+
+
+            function right_guoji(params){
+                // alert(params);
+                //查询右侧数据
+                // console.log(params);return false;
+               $.getJSON(APP_URL+'?app=system&controller=yuanqu&action=get_map_yuanqu&jsoncallback=?&province='+params,function(data){
+                        $("#guoji ul").empty();
+                        if(data.length){
+                            for(i in data){
+                                createLi_guoji(data[i].name,data[i].url);
+                            }
+                        }else{
+                           createSpan_guoji();
+                        }
+                        if(params=='印尼'){
+                            params='印度尼西亚';
+                        }
+                    $("#guoji .hd h3").html(params);
+
+                    })
+                
+                //插入各个园区
+                
+            }
+            
+            function createLi_guoji(name,url){
+                $("#guoji ul").append("<li><a href="+url+" target='_blank'>"+name+"</a></li>");
+            }
+            function createSpan_guoji(){
+                $("#guoji ul").append("<span>暂无园区</span>");
+            }
+    </script>
+    <div class="box960">
+        <!--#include virtual="/section/370.html"--><!--# 园区频道 首页-新闻动态 #-->
+        <!--#include virtual="/section/371.html"--><!--# 园区频道 首页-特别推荐 #-->
+    </div>
+</div>
+<div class="db-right hide">
+    <div class="db-r-top">
+        <h3>[1/2]对比框</h3>
+        <em class="db-close" onclick="$('.db-right').hide();"></em>
+    </div>
+    <div class="db-r-list">
+        <ul>
+            <li>
+                <a href="" target="_blank" class="r-img">
+                    <img src="img/w230-h230.jpg" width="90" height="68" alt=""/>
+                </a>
+
+                <h3 class="mar-t-6"><a href="" target="_blank">河北固安园区</a></h3>
+            </li>
+            <li>
+                <a href="" target="_blank" class="r-img">
+                    <img src="img/w230-h192.jpg" width="90" height="68" alt=""/>
+                </a>
+
+                <h3 class="mar-t-6"><a href="" target="_blank">中关村国家自主创新示范区</a></h3>
+            </li>
+        </ul>
+        <a href="" target="_blank" class="db-r-btn">
+            对比
+        </a>
+
+        <p class="db-clear" onclick="$('.db-right').hide();">清空对比栏</p>
+    </div>
+</div>
+</body>
+</html>

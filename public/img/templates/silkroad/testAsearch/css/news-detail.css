@@ -1,0 +1,22 @@
+.mar-t-74{margin-top: 74px;}
+.news-conts{width: 645px; overflow: hidden;}
+.nc-tit{width: 100%; line-height: 30px; font-size: 30px;}
+.nc-tit a{color: #333;}
+.nc-tit a:hover{text-decoration: none; color: #006e97;}
+.nc-date{font-size: 14px; color: #666;}
+.nc-img{width: 100%; overflow: hidden;  border-top: 1px dashed #ccc;padding-top: 15px;}
+.nc-img p{width:100%; height: 24px; overflow: hidden; font-size: 14px; line-height: 24px; color: #666;}
+.nc-p{width: 100%; font-size: 16px; line-height: 24px; color: #333;}
+.nc-p a{font-size: 16px; font-weight: bold; color: #006e97; text-decoration: underline;}
+/*分享按钮*/
+.news-joy-box{width: 100%; height: 33px; overflow: hidden; }
+.news-joy-box a{float: left; margin-right: 9px; _display: inline;}
+.joy-icon1,.joy-icon2,.joy-icon3,.joy-icon4{width: 33px; height: 33px; background: url("images/joy-icon.jpg") 0 0 no-repeat; float: left;}
+.joy-icon2{background-position: -42px 0;}
+.joy-icon3{background-position: -82px 0;}
+.joy-icon4{background-position: -124px 0;}
+/*文字列表*/
+.txt-list-1{width: 100%; overflow: hidden;}
+.txt-list-1 li{width: 100%; height: 30px; line-height: 30px; overflow: hidden;}
+.txt-list-1 li a{color: #006e97;}
+.tl1-icon{font-size: 12px; color: #999; margin-left: 9px; margin-right: 9px;}

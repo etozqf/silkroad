@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>news-list</title>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/list.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+ 	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<body>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<!--面包屑-->
+<div class="column ov mar-t-20">
+	<div class="crumbs">
+		<a href="{WWW_URL}newcn/views/" target="_blank">Views</a> > {$proid}
+	</div>
+</div>
+<!--内容-->
+<div class="column ov mar-t-18">
+	<div class="list-left ">
+
+<?php if($_GET['proid'] == '12'){?> 
+		<!--#include virtual="/section/402.html"--><!--# 新英文站 views-list页面头条(China Voice) #-->
+<?php }else{ ?>
+                <!--#include virtual="/section/436.html"--><!--# 新英文站 views-list页面头条(Overseas Think- #-->
+<?php } ?>
+
+		<div class="txt-list2 mar-t-5">
+			<ul class="nl-ul">
+				
+				<!--{loop $data $i $m}-->
+					<li>
+						<h3>
+							<a href="{$m['url']}" target="_blank">
+								{$m['title']}
+							</a>
+						</h3>
+						<span>
+							{date("F j, Y",$m['published'])}
+						</span>
+					</li>
+       	<!--{/loop}-->   
+			</ul>
+
+		</div>
+		<!--分页-->
+		
+		<div class="page mar-t-36">
+				                <tr>
+				                   <!--{space_pages($total, $page, 12, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+				                </tr>
+				                <span style="display:none">共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+				            </div>
+	</div>
+	<div class="list-right">
+		<!--#include virtual="/section/391.html"--><!--# 新闻频道 右侧顶部广告 #-->
+		<div class="hr-20"></div>
+		<!--Most Read-->
+		<!--#include virtual="/section/380.html"--><!--# 新英文站 右侧-Most Read #-->
+	</div>
+</div>
+<!--尾部-->
+<!--{template "newcn/system/footer.html"}-->
+</body>
+</html>

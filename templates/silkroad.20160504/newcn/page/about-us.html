@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$sitename[1]}_{$SYSTEM[seotitle]}_about-us</title>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/about-us.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".about-tab-menu ul li" ).hover ( function () {
+                $ ( this ).addClass ( "active" ).siblings ().removeClass ();
+                $ ( ".about-tab-data>div" ).hide ().eq ( $ ( '.about-tab-menu ul li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+</head>
+<body>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<!--面包屑-->
+<div class="column ov mar-t-20">
+    <div class="crumbs">
+        About Us
+    </div>
+</div>
+<!--内容-->
+<div class="column ov mar-t-10">
+    <div class="about-tab-menu ov">
+        <ul class="ov">
+            <li class="active"> Who we are</li>
+            <li>What we do</li>
+            <li> Leadership</li>
+        </ul>
+    </div>
+    <div class="about-tab-data mar-t-20 ov">
+        <!--Who we are -->
+        <div>
+            <a href="" target="_blank"> <img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/w1000-h381.jpg" width="1000" height="381" alt=""/></a>
+
+            <p class="about-p mar-t-20">
+                Xinhua Silk Road is part of China Economic Information Service (CEIS), a wholly-owned company of Xinhua
+                News Agency and a leading economic information service provider in China. Capitalizing on Xinhua's
+                global news
+                and information gathering network comprising 180 overseas branches, excellent research and information
+                professionals and unparalleled databank, CEIS serves various businesses, governments and non
+                governmental organizations, helping its clients make sustained improvements to their performance and
+                realize their important goals. It currently has 30 branches across China and also controls four key
+                subsidiaries.
+            </p>
+
+            <p class="about-p mar-t-20">
+                In the wake of a major restructuring, CEIS launched in July 2015 a series of new products and services
+                in response to China's "Belt and Road" Initiative, with Xinhua Silk Road Information Department at the
+                helm,
+                thus taking on the mission of linking people, enterprises and institutions in countries and regions
+                along the Belt and Road and facilitating information sharing and business cooperation.
+            </p>
+
+            <p class="about-p mar-t-20">
+               As a multi-language platform focusing on information related to the “Belt and Road” Initiative, Xinhua Silk Road serves global participants of the initiative with all-dimensional, full workflow information products and consulting services, in a bid to help Chinese companies “go out” and companies outside China “come in.” Its services cover information search engine, country-specific research, business project release and trade matching, as well as investment and international trade-related customized services covering such fields as finance, patent, accounting, tax affairs, law affairs, training and exhibition.
+            </p>
+        </div>
+        <!--What we do -->
+        <div style="display: none">
+            <a href=""target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/w1000-h427.jpg" width="1000" height="427" alt=""/></a>
+
+            <div class="ov mar-t-20">
+                <div class="w-600 f-l ">
+                    <h3 class="about-h3"><a href="" target="_blank">Xinhua Silk Road Database</a></h3>
+
+                    <p class="about-p mar-t-5">
+                        Xinhua Silk Road Database is a bilingual (Chinese and English) multi-media information product
+                        and service platform aimed at helping users better understand China and
+                        countries and regions along the Belt & Road, and seize the trade and investment opportunities
+                        brought about by the Belt & Road Initiative.
+                    </p>
+
+                    <p class="about-p mar-t-20">
+Xinhua Silk Road Database provides clients with Belt and Road-related news and publications such as the Belt & Road Weekly, FDI in China, Customized Reports, China’s major economic and development data, business environment assessments by country and by Chinese province, Chinese company database, as well as project database which not only tracks the progress of Belt and Road-related projects, but also offers project release and project matching services. 
+                    </p>
+                </div>
+                <div class="w-386 f-r mar-t-36"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/w386-h248.jpg" width="386" height="248" alt=""/></div>
+            </div>
+            <h3 class="about-h3 mar-t-20"><a href="" target="_blank">Xinhua Silk Road Website</a></h3>
+
+            <div class="ov mar-t-10">
+                <div class="f-l mar-t-5">
+                    <img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/w260-h356.jpg" width="260" height="356" alt=""/>
+                </div>
+                <div class="f-r w-700">
+                    <p class="about-p">
+                        Silkroad.news.cn is a web portal for Xinhua Silk Road information products and services which
+                        provides Belt and Road-related government policies by China and relevant countries, official
+                        documents, market information, investment and financing environment, project progress as well as
+                        updated news and experts’ views, all free of charge. It also offers businesses and institutions
+                        a
+                        platform to showcase their products, services, achievements and events, with built-in online
+                        interaction and commenting function. Besides, it serves as the foregate to the Xinhua Silk Road
+                        Database and a number of domestic and overseas subsites while offering links to our partners’
+                        sites.
+                    </p>
+
+                    <h3 class="about-h3 mar-t-10"><a href="" target="_blank">Consulting and Think-tank Services </a>
+                    </h3>
+
+                    <p class="about-p mar-t-5">
+                        Our consulting and think-tank services are a suite of tools that offer personalized solutions
+                        and decision support for clients. They consist of the Xinhua Silk Road Think-tank Service, which
+                        collects the opinions of key global think tanks, the Xinhua Silk Road Public Opinion Service,
+                        which monitors Chinese and foreign media coverage, and other products and services tailored to
+                        the needs of specific clients.
+                    </p>
+                </div>
+            </div>
+            <div class="ov mar-t-10">
+                <h3 class="about-h3 mar-t-10"><a href="" target="_blank">Xinhua Credit Information</a></h3>
+
+                <div class="f-l w-500">
+                    <p class="about-p mar-t-5">
+                        Xinhua Credit Information provides government businesses clients with objective and independent
+                        information gathering, processing and rating services based on integrating credit data acquired
+                        from government organs, enterprises and other organizations and employing advanced technical
+                        means
+                        and assessment measures. Its main services include credit information reports, credit
+                        investigations, credit consulting and assessment. </p>
+                </div>
+                <div class="f-r">
+                    <img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/w483-h177.jpg" width="483" height="177" alt=""/>
+                </div>
+            </div>
+            <div class=" mar-t-20">
+                <h3 class="about-h3 mar-t-20"><a href="" target="_blank">Trade Matching Service</a></h3>
+
+                <p class="about-p mar-t-5">
+Xinhua Silk Road provides clients with online and offline trade matching service to help Chinese companies “go out” and companies outside China “come in,” principally through project promotion and matching. Clients not only are able to search online for information about investment projects in countries and regions along the Belt and Road by logging in into Xinhua Silk Road Database, but also can get offline professional advisory service in a range of fields such as patent, auditing and legal affairs during the process of “going out” or “coming in.”
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--尾部-->
+<!--{template "newcn/system/footer.html"}-->
+</body>
+</html>

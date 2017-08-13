@@ -1,0 +1,28 @@
+更换域名步骤
+
+1、修改脚本（change_domain.sh）文件中相关配置
+MYSQLHOST="localhost"
+MYSQLROOT="root"
+MYSQLPASS="root12"
+MYSQLPORT="3306"
+MYSQLDB="cmstop"
+CMSTOPDIR="/data/www/cmstop"
+NGINXCONF="/usr/local/server/nginx/conf/vhosts"
+#HTTPDCONF="/etc/httpd/vhosts" 已放弃Apache
+
+2、执行脚本
+执行方法：
+chmod +x change_domain.sh
+./change_domain.sh 旧域名 新域名
+
+注意：旧域名与新域名只需要填写主域名，如：xxx.com
+
+3、更换授权文件
+需要提前申请新域名授权文件  license
+
+4、进入后台重新生成所有静态页面
+生成栏目页
+生成内容页
+进入页面管理，生成各个页面及区块，注意手动区块中的连接地址需要手动修改。
+
+5、配合客户测试，客户确认

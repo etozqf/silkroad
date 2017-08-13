@@ -1,0 +1,15 @@
+<tr{activityField::genValidateAttributes($field, intval($field['options']['limit']) > 1)}>
+    <td class="align-r"><div class="hr20"></div>{if $field[need]}<span class="leveltop">*</span>{/if} <label for="" class="label">{$field[label]}</label></td>
+    <td>
+        <!--{if $field['options']['limit'] > 1}-->
+        <select name="{$field[fieldid]}[]" multiple="multiple" size="{intval($field['options']['limit'])}">
+        <!--{else}-->
+        <select name="{$field[fieldid]}">
+            <!--{/if}-->
+            <option value="">请选择</option>
+            <!--{loop $field[options][option] $index $option}-->
+            <option value="{if is_array($option)}{$option[1]}{else}{$option}{/if}">{if is_array($option)}{$option[0]}{else}{$option}{/if}</option>
+            <!--{/loop}-->
+        </select>
+    </td>
+</tr>

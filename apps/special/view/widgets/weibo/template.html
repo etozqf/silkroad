@@ -1,0 +1,28 @@
+{loop $items $k $v}
+<div class="mod-weibo">
+    <div class="weibo-avatar">
+        <a class="weibo-icon weibo-icon-{$v[platform]}" href="{$v[profile]}" target="_blank"></a>
+        <a class="weibo-head" href="{$v[profile]}" target="_blank">
+            <img src="{$v[avatar]}" />
+        </a>
+    </div>
+    <div class="weibo-message">
+        <span class="weibo-user">
+            <a href="{$v[profile]}" target="_blank">{$v[username]}</a>
+            {if $v['vtype']}<a href="{$v[profile]}" target="_blank" class="weibo-icon weibo-icon-{$v[vtype]}"></a>{/if}
+            :
+        </span>
+        <span class="weibo-content">{$v[text]}</span>
+        {if $v['image']}
+        <div class="weibo-media">
+            <div class="weibo-image">
+                <a href="{$v[image][1]}" target="_blank"><img class="fn-zoom" src="{$v[image][0]}" alt=""></a>
+            </div>
+        </div>
+        {/if}
+        <span class="weibo-info">
+            <a class="weibo-time"{if $v['url']} href="{$v[url]}" target="_blank"{/if}>{$v[time]}</a>
+        </span>
+    </div>
+</div>
+{/loop}

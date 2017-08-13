@@ -1,0 +1,16 @@
+.diy-tip {
+    font-family: "Verdana","Simsun","Hei",serif;
+    font-size: 12px;line-height: normal;
+    color:#fff;
+	position:absolute;
+	z-index: 99999;
+	padding: 3px 10px;
+	background-color: #222;
+    background-color: rgba(2, 2, 2, .85);
+    border: 1px solid #403E3F;
+	border-radius: 15px;
+	letter-spacing: 2px;
+	cursor: default;
+	display: none;
+    font-size: 12px;
+}

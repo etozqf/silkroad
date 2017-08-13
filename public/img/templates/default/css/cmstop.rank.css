@@ -1,0 +1,76 @@
+.r-list {
+    width: 659px;
+}
+.r-channel {}
+.r-head {
+    height: 60px;
+    line-height: 60px;
+    color: #444;
+    font-size: 18px;
+    text-align: center;
+}
+.r-content {
+    border-top: 2px solid #ddd;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.r-grid {
+    width: 328px;
+    float: left;
+    border-right: 1px solid #eee;
+}
+.r-grid-head {
+    height: 37px;
+    line-height: 37px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+}
+.r-grid-head-name {
+    font-size: 16px;
+    text-indent: 20px;
+}
+.r-type-panel {
+    position: absolute;
+    top: -2px;
+    right: -6px;
+    line-height: 37px;
+}
+.r-type-panel a {
+    color: #777!important;
+    font-size: 13px;
+    width: 50px;
+    margin: 0 6px;
+    text-align: center;
+    display: inline-block;
+}
+.r-type-panel .now {
+    border-bottom: 2px solid #0091e4;
+}
+.r-grid ul {
+    padding: 12px 10px 10px 10px;
+    height: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.r-grid ul li{
+    margin-bottom: 12px;
+    line-height: 20px;
+}
+.r-grid a {
+    font-size: 13px;
+    color: #444;
+}
+.r-grid a:hover {
+    color: #de2c2c!important;
+}
+.r-grid .ico {
+    font-size: 14px;
+    margin-right: 8px;
+}
+.r-grid .n1,
+.r-grid .n2,
+.r-grid .n3 {
+    color: #de2c2c;
+    font-weight: bold;
+    font-style: normal;
+}

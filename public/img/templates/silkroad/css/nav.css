@@ -1,0 +1,25 @@
+/*左主栏*/
+.col{width: 960px; margin: 30px auto;}
+.col-l-main{width: 600px; float: left;overflow: hidden; _display: inline; height: 439px;}
+.col-r-main{width: 340px; background: #f3f3f3; float: right;  overflow: hidden; _display: inline;height: 439px;}
+/*搜索框*/
+.searchl{width: 320px; height: 38px; border: 1px solid #0079c6;margin: 40px auto;}
+.txt-input{*height: 38px; *line-height: 38px;_width: 211px;}
+.btn-s{width: 99px;font-family: "Arial";}
+.fdj {margin-left: 10px;}
+.sumarry-ul{width: 320px;margin: 0 auto;}
+.sumarry-ul ul{width: 350px; overflow: hidden;}
+.sumarry-ul li{float: left; margin: 0 10px 10px 0;}
+.sumarry-ul li a{display: block;height: 96px;line-height: 96px;text-align: center;font-size: 14px;font-family: "Times New Roman";}
+.sumarry-ul li a,.sumarry-ul li a:hover{ color: #fff;text-decoration: none}
+.sumarry-ul li a.bg01{background: #006bff;width: 157px;}
+.sumarry-ul li a.bg02{background: #ff8a00;width: 63px;}
+.sumarry-ul li a.bg03{background: #01c1f2;width: 80px;}
+.sumarry-ul li a.bg04{background: #ff3600;width: 171px;}
+.sumarry-ul li a.bg05{background: #5f3bb9;width: 139px;}
+.sumarry-ul li a.bg06{background: #ea3d9f;width: 117px;}
+.sumarry-ul li a.bg07{background: #a03bb9;width: 193px;}
+.b-h3{width: 224px;}
+.a-link{overflow: hidden;width: 970px;padding: 0 7px;*width: 932px;}
+.a-link a{display: block; float: left;font-size: 14px;font-family: "Times New Roman";height: 28px; line-height: 28px;margin-right: 17px;color: #0079c6;overflow: hidden}
+.a-link a:hover{text-decoration: none;color: #c81623;}

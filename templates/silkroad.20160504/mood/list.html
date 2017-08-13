@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}_心情排行_{$SYSTEM[sitename]}</title>
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-common.css" />
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-mood-rank.css" />
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/helper/modernizr.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<!-- 头部 -->
+	<header class="head-repeat-x">
+		<!--#网站头部静态部分#-->
+		<!--#include virtual="/include/head.shtml"-->
+		<!--#网站头部动态部分#-->
+		<!--{template "system/head_php.html"}-->
+	</header>
+	<!-- 头部 -->
+
+	<!--#include virtual="/section/1.html"-->
+
+	<!-- 导航 -->	
+	<div class="crumb-box">
+		<div class="crumb">
+			<a href="{WWW_URL}">首页</a><em>&gt;</em><span>{$name}</span><em>&gt;</em><span>心情</span>
+		</div>
+	</div>
+
+	<section class="column">
+		<!-- 左侧 -->
+		<aside class="column-aside left-menu">
+			<!-- 左侧边栏 -->
+			<aside class="column-aside left-menu">
+				<ul class="list list-point">
+					<li class="item"><em class="ico"></em><a href="{APP_URL}mood.php" class="title">全部</a></li>
+					<!--{loop channel() $key $m}--> 
+					<li class="item<!--{if ($m['alias'] == $alias) }--> now<!--{/if}-->"><em class="ico"></em><a href="{APP_URL}mood.php?catid={$m[catid]}" class="title">{$m[name]}</a></li>
+					<!--{/loop}-->
+				</ul>
+			</aside><!-- @end 左侧边栏 -->
+		</aside>
+		<!-- 左侧 -->
+		<!-- 右侧 -->
+		<section class="column-main">
+			<section class="mood-rank-list">
+				<dl>
+				<!--{loop $infos $m}-->
+					<dd>
+						<!-- 标题 -->
+						<div class="mod-grid">
+							<div class="inner">
+								<div class="m-head dashed-head">
+									<div class="title"><a class="words">{$m[name]}</a></div>
+								</div>
+							</div>
+							<!-- 标题 -->
+							<div class="m-main">
+								<ul class="list">
+								<!--{db sql="select * from #table_content c,#table_mood_data m where c.contentid=m.contentid AND catid in($childids) AND m.m$m[moodid]>=1 AND c.status=6 ORDER BY m.m$m[moodid] DESC LIMIT 0,10" }-->
+									<li class="item"><em class="ico<!--{if $i<=3}--> n{$i}<!--{/if}-->">{$i}</em><a href="{$r[url]}" target="_blank" class="title">{$r[title]}</a></li>
+								<!--{/content}-->
+								</ul>
+							</div>
+						</div>					
+					</dd>
+				<!--{/loop}-->
+				</dl>
+			</section>
+		</section>
+		<!-- 右侧 -->
+	</section>
+	<!--#include virtual="/section/2.html"--><!--网站底部-->
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>{$title}_{$SYSTEM[sitename]}</title>
+  <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+  <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+</head>
+<style type="text/css">
+body { margin: 0; padding: 0 20px 0 40px; background: #efefef; display: none;}
+a{ color: #06c; text-decoration: none;} a:hover{ color: #f00;} 
+.ui-title {  padding: 8px 0; width: 100%; margin: 0 auto; text-indent: 4px; position: fixed; background: #efefef; z-index: 100; margin-left: -40px; top: 0;}
+.ui-article-h1 { font-size: 30px; font-weight: bold; color: #333; margin-bottom: 10px; margin-left: 8px; margin-left: 46px;}
+.article-infos { font-size: 14px; padding: 0 0 10px 8px; margin: 0 38px; color: #999;}
+.ui-content-wrap  { overflow-y: hidden; padding: 10px 0;}
+.ui-contents {column-gap: 30px; -moz-column-gap: 30px; -webkit-column-gap: 30px; position: relative; left: 0; margin-top: 112px; padding: 0;}
+.ui-contents p { text-align: justify; text-indent: 2em; line-height: 160%; font-size: 20px;
+  margin: 0 0 5px; padding-bottom: 2%; padding-left: 10px; padding-right: 30px;
+  display: none;
+  color: #333;
+  letter-spacing: -1px;
+}
+.js-fontsize-small p {
+  display: block;
+  font-size: 16px!important;
+  line-height: 26px!important;
+}
+.js-fontsize-normal p {
+  display: block;
+  font-size: 18px!important;
+  line-height: 32px!important;
+}
+.js-fontsize-big p {
+  display: block;
+  font-size: 20px!important;
+  line-height: 32px!important;
+}
+.js-fontsize-large p {
+  display: block;
+  font-size: 22px!important;
+  line-height: 36px!important;
+}
+.rel-title, .rel-news .item a{
+  font-size: 18px;
+  color: #333;
+}
+.rel-news .hd {
+  padding: 10px 0 0 10px;
+}
+.rel-news .list{
+  padding-left: 30px;
+  margin: 3% 0;
+}
+.rel-news .item {
+  line-height: 200%;
+  padding-top: 1%;
+  list-style-type: square;
+  color: #333;
+}
+.rel-news .title {
+  color: #333;
+}
+/*addon-widget*/
+.addon-gallery {
+  margin-left: 6px;
+}
+.ui-addon-gallery, .ui-addon-video {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+.ui-addon-gallery .gallery-photo-items, .ui-addon-video .video-content-items {
+  text-align: center;
+  margin-left: -6px;
+}
+.ui-gallery-mark {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  background-color: #c00;
+  color: #fff;
+  min-width: 50px;
+  padding: 2px 10px;
+  text-align: center;
+}
+.ui-addon-video .ui-video-mark {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 120px;
+  top: 35%;
+
+  background: transparent url({IMG_URL}images/video_btn_2x.png) no-repeat;
+  -webkit-background-size: cover;
+}
+.ui-addon-type {
+  background-color: #60A3FC;
+  color: #fff;
+  margin-right: 8px;
+  padding: 2px 4px;
+}
+.ui-addon-video .ui-video-link {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+.mod-ad {
+    margin: 0 auto 10px;
+    text-align: center;
+}
+.addon-vote, .mod-list, .ui-addon-gallery {
+  column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+.addon-vote .vote-title {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin: 0 10px;
+  line-height: 250%;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.addon-vote .vote-main {
+  font-size: 18px;
+  color: #666;
+}
+
+.video-content-items p {text-align: center;}
+.gallery-photo-items p, .ui-gallery-mark p{text-align: center; padding: 0; margin: 0; text-indent: 0; color: #FFF}
+
+
+
+.widget-vote {
+    font-size: 18px!important;
+}
+.widget-vote .btn,
+.widget-vote .btn span {
+    color: #ffffff;
+}
+.widget-vote .btn {
+    cursor: pointer;
+}
+
+.widget-vote .btn-s-blue span {
+    font-size: 18px!important;
+}
+.widget-vote .nums {
+    font-size: 18px!important;
+}
+.widget-vote .vote-name,
+.widget-vote .progress,
+.widget-vote .nums {
+    padding: 5px 5px!important;
+}
+.widget-vote .progress {
+    padding: 0!important;
+    width: 60%!important;
+}
+.widget-vote .progress .per {
+    height: 18px!important;
+}
+.widget-vote .nums {
+    margin-top: -4px;
+}
+.widget-vote-normal .row {
+    padding: 0 10px!important;
+}
+
+.btnarea .btn-s-blue span {
+    font-size: 18px;
+}
+</style>
+<body>
+  <div class="ui-title">
+    <h1 class="ui-article-h1">{$title}</h1>
+    <div class="article-infos">
+       <span>{date('Y-m-d H:i', $published)}</span>
+      <!--{if $source}--><span>来源：{$source}</span><!--{/if}-->
+    </div>
+  </div>
+  <div id="content" class="ui-content">
+    <div class="ui-content-wrap">
+      <div id="content-show" class="ui-contents">
+        <!--{if $addon[A2]}-->
+          <?php foreach($addon['A2'] as $a){ echo $a; } ?>
+        <!--{/if}-->
+        {$content}
+        <!--{if $relateds}-->
+        <!-- 相关阅读 -->
+        <div class="mod-list rel-news topblank">
+          <div class="hd ov">
+            <strong class="rel-title">相关阅读</strong>
+          </div>
+          <div class="bd">
+            <ul class="list list-point">
+              <!--{loop $relateds $k $r}-->
+              <li class="item"><span class="ico"></span><a href="{MOBILE_PROTOCOL}://{$r[contentid]},{$r[modelid]}" class="title" target="_blank">{$r[title]}</a></li>
+              <!--{/loop}-->
+            </ul>
+          </div>  
+        </div><!-- @end 相关阅读 -->
+        <!--{/if}-->
+        <!--{if $addon[A5]}-->
+          <?php foreach($addon['A5'] as $a){ echo $a; } ?>
+        <!--{/if}-->
+        <div class="mod-ad">{mobile_content_ad('pad')}</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  /**
+   * author: xiaoqiang <samirtohope@gmail.com>
+   * description: 设置内容文字大小的三个函数
+   */
+  var contentShow = $('#content-show');
+  $.controlFontSize = {
+    small: function() {
+      contentShow.removeClass('js-fontsize-normal').removeClass('js-fontsize-big').removeClass('js-fontsize-large');
+      contentShow.addClass('js-fontsize-small');
+    },
+    normal: function() {
+      contentShow.removeClass('js-fontsize-small').removeClass('js-fontsize-big').removeClass('js-fontsize-large');
+      contentShow.addClass('js-fontsize-normal');
+    },
+    big: function() {
+      contentShow.removeClass('js-fontsize-small').removeClass('js-fontsize-normal').removeClass('js-fontsize-large');
+      contentShow.addClass('js-fontsize-big');
+    },
+    large: function() {
+      contentShow.removeClass('js-fontsize-small').removeClass('js-fontsize-normal').removeClass('js-fontsize-big');
+      contentShow.addClass('js-fontsize-large');
+    }
+  }
+  function nonwrap2p(container) {
+    var node, box = [], i, len, j, p, prev;
+    function render() {
+      if (!box.length) return;
+      p = document.createElement('p');
+      for (j = 0; j < box.length; j++) {
+        p.appendChild(box[j]);
+      }
+      box = [];
+      container.insertBefore(p, prev);
+    }
+    if (container) {
+      for (i = 0, len = container.childNodes.length; i < len; i++) {
+        node = container.childNodes[i];
+        if (!node || (node.parentNode && node.parentNode.nodeName.toLowerCase() == 'p')) continue;
+        if (node.nodeType == 3) {
+          node.nodeValue.match(/[^\s&nbsp;]+/g) && box.push(node);
+        } else if (window.getComputedStyle(node).display.substr(0, 6) == 'inline') {
+          box.push(node);
+        } else {
+          prev = node;
+          render();
+          node.childNodes && nonwrap2p(node);
+        }
+      }
+      render();
+    }
+  }
+  $(function(){
+    var paragraphs;
+    contentShow.find('a').each(function () {
+        if (this.href[5] !== 'link:') {
+          this.href = 'link:' + this.href;
+        }
+    });
+    try {
+      nonwrap2p($('#content-show')[0]);
+    } catch (exc) {}
+    paragraphs = $('#content-show').find('p').each(function() {
+      var paragraph = $(this), html = paragraph.html(), regex = /^(\s|&nbsp;)+/;
+      if (html.match(regex)) {
+        paragraph.html(html.replace(regex, ''));
+      }
+    });
+    $.each($('#content-show').find('img'), function(i, k) {
+      var p;
+
+      k = $(k);
+      p = k.parents('p');
+      if (p.length > 0) {
+        p.css('text-align', 'center');
+        p.css('text-indent', '0');
+        p.css('padding', '0');
+      }
+    });
+    setTimeout(function () {
+      $('body').fadeIn();
+    }, 300);
+  });
+</script>

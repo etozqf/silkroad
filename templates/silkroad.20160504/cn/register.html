@@ -1,0 +1,225 @@
+<form action="http://app.silkroad.news.cn/?app=member&controller=index&action=register_cn" method="POST"  name="registerForm" id="member_registerForm">
+<!--next-->
+<input type="hidden" name="site_type" value="2"></input>
+<div class="pop_boxl">
+    <div class="box-con ov">
+        <div class="tit">
+            <h3 class="f-l">Registration-Apply for Invitation Code</h3>
+            <span class="close ie6_png32"><a href="javascript:;" onclick="popclose('.pop_boxl')"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/close.png" class="ie6_png32"></a></span>
+        </div>
+        <div class="box_logmain mar-t-10">
+            <ul>
+                <li>
+                    <span class="f-l w-137"><em>*</em>E-mail</span>
+
+                    <div class=" f-l mar-l-10">
+                        <input type="email" name="email" class="w-310"/>
+                        <p>Press APPLY button to get an Invitation </p>
+                    </div>
+                </li>
+                <li>
+                    <span class="f-l w-137"><em>*</em>Invitation Code</span>
+
+                    <div class=" f-l mar-l-10 w-195">
+                        <input type="text" name="code" class="w-195"/>
+
+                        <p>Input Your Invitation Code</p>
+                    </div>
+                    <span class="apply f-l mar-l-10 ie6_png32 " style="text-align:center;border-radius:2px;cursor: pointer;">Apply</span>
+                    
+                </li>
+                <li class="ov">
+                    <span class="f-l w-137"><em>*</em>Verification Code</span>
+
+                    <div class=" f-l mar-l-10 w-195">
+                        <input type="text" name="reseccode" class="w-195"/>
+                    </div>
+                    <div class="yzm f-l mar-t-3">
+                        <img id="seccode_img" onclick="this.src='http://app.silkroad.news.cn/?app=system&controller=seccode&action=image&id='+Math.random()*5;" src="http://app.silkroad.news.cn/?app=system&controller=seccode&action=image" class="fl-l" alt="" style="cursor: pointer;height:30px;">
+                    </div>
+                    <div class="f-l not-clear mar-l-10"><a href="javascript:;">Not Clear?</a></div>
+                </li>
+                <li>
+                    <span class="f-l w-137"></span>
+
+                    <div class=" mar-l-10 f-l mar-t-15">
+                       
+                       <input type="button" style="background:#ddd;height:46px;line-height:46px;border: medium none;border-radius: 2px;color: #fff;cursor: pointer;font-size: 20px;" disabled="disabled" class="f-l dl next-button ie6_png32" value="Next"> 
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--用户注册-->
+<div class="pop_box ie6_png32">
+    <div class="box-con ov">
+        <div class="tit">
+            <h3 class="f-l">Sign Up Now</h3>
+            <span class="close"><a href="javascript:;" onclick="popclose('.pop_box')"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/close.png" class="ie6_png32"></a></span>
+        </div>
+       
+            <div class="box_logmain mar-t-10">
+                <ul>
+                    <li>
+                        <span class="f-l w-160"><em>*</em>Choose your  User ID</span>
+
+                        <div class=" f-l mar-l-10">
+                            <input type="text" name="username" id="reg_username" value="{$login_info['username']}" class="w-310"/>
+
+                            <p>You can use letters, numbers and periods</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="f-l w-160"><em>*</em>Password</span>
+
+                        <div class="f-l mar-l-10">
+                            <input type="password" name="password" id="reg_password" class="w-310"/>
+
+                            <p>Use at least 8 characters</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="f-l w-160"><em>*</em>Confirm your password</span>
+
+                        <div class=" f-l mar-l-10">
+                            <input type="password" id="reg_password_check"  name="password_check" class="w-310"/>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="f-l w-160"></span>
+
+                        <div class=" mar-l-10 f-l mar-t-15">
+                            <a href="javascript:;" id="register" class="f-l dl ie6_png32">Sign Up </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+       
+    </div>
+</div>
+</form>
+<script type="text/javascript">
+
+$(function(){
+        $("input[name=email]").blur(function(){
+            var email = $(this).val();
+                if (!email)
+                {
+                    $(this).next("p").text("Mailbox cannot be empty");
+                    $(this).next("p").css("color","red");return false;
+                }else if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)) {
+                    $(this).next("p").text("Mailbox format is not correct");
+                    $(this).next("p").css("color","red");return false;               
+                }else{
+                    $(this).next("p").text("Press APPLY button to get an Invitation");
+                    $(this).next("p").css("color","green");return true;
+                }
+         })
+
+        //next按钮下一步判断
+         var email=$("input[name=email]");  //email
+         var apply=$(".apply"); //获取邀请码按钮
+         var invitation_code=$("input[name=code]");  //邀请码输入框
+         var next=$(".next-button");    //下一步按钮
+
+        /*邀请码触发失去焦点事件*/
+        invitation_code.blur(function(){
+           if(email.val()!="" && invitation_code.val()!="")
+           {
+              //改变下一步按钮状态，允许点击
+              next.attr("disabled",false);
+              next.css("background","#ff6c00");
+           }else{
+              invitation_code.next("p").text('Please enter your invitation code');
+           }
+        })
+        $("input[type=button]").click(function(){
+            popbox('.pop_box');
+        })
+
+        /*点击发送邮件验证码*/
+        apply.click(function(){
+              var yang=email.val();
+              $.getJSON(APP_URL+"?app=system&controller=invitation&action=getcode_cn&jsoncallback=?&email="+yang,function(json){
+                  if(json.status=='success'){
+                    var info=json['info'];
+                    invitation_code.next("p").text(info);
+                  }else{
+                    info=json['info'];
+                    invitation_code.next("p").text(info);
+                  }
+                 
+              })
+
+
+        });
+    //用户注册判断失焦
+      
+        $('#member_registerForm input').blur(function(){
+            if ($(this).attr('name') == 'username') {
+                if (!$(this).val())
+                {
+                    alert("Username can not be empty");
+                } else if ($(this).val().length < 3) {
+                    alert("User name can not be less than 3");
+                } else if ($(this).val().length > 16) {
+                    alert("User name can not be greater than 16");
+                }
+            }
+            if ($(this).attr('name') == 'password') {
+                if (!$(this).val())
+                {
+                    alert("Password can not be empty");
+                } else if ($(this).val().length < 8) {
+                    alert("Password can not be less than 8");
+                } else if ($(this).val().length > 16) {
+                    alert("Password can not be greater than 16");
+                }
+            }
+            if ($(this).attr('name') == 'password_check') {
+                if (!$(this).val())
+                {   
+                    alert("Confirm password cannot be empty");
+                } else if ($(this).val() != $('#member_registerForm input[name=password]').val()) {
+                    alert("Passwords are not consistent");
+                }
+            }
+        });
+
+//用户注册提交事件
+        $('#register').click(function(){
+            if (!$('#member_registerForm input[name=username]').val())
+            {   
+                alert("User name cannot be empty");
+                return false;
+            } else if ($('#member_registerForm input[name=username]').val().length < 3) {
+                    alert("User name can not be less than 3");
+                    return false;
+            } else if ($('#member_registerForm input[name=username]').val().length > 16) {
+                alert("User name can not be greater than 16");
+                return false;
+            }
+            if (!$('#member_registerForm input[name=password]').val())
+            {   
+                alert("Password can not be empty");
+                return false;
+            } else if ($('#member_registerForm input[name=password]').val().length < 8) {
+                alert("Password can not be less than 8");
+                return false;
+            } else if ($('#member_registerForm input[name=password]').val().length > 16) {
+                alert("Password can not be greater than 16");
+                return false;
+            }
+            if (!$('#member_registerForm input[name=password_check]').val())
+            {   
+                alert("Confirm password cannot be empty");
+                return false;
+            } else if($('#member_registerForm input[name=password]').val() != $('#member_registerForm input[name=password_check]').val()){
+                alert("Inconsistent with the password");
+                return false;
+            }
+            $('#member_registerForm').submit();
+        });
+    });
+</script>

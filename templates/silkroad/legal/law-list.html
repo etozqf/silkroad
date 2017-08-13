@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <title>新华丝路数据库_法律法规</title>
+
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/ipr/css/base.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/legal/style/normalize.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/legal/style/newcommon.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/legal/style/law.css">
+</head>
+<body class="f16">
+<!--头部-->
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+    <div class="law-container">
+        <div class="w1000">
+            <div class="menu f-l">
+                <ul class="f22">
+                    <li>
+                        <a href="javascript:;" target="_self">法律法规<i class="icon f-r"></i><i class="clear"></i></a>
+                        <dl class="f14">
+                            <!--{loop $country $k $v}-->
+                            <dd class="{$v[class]}"><a href="{$v[url]}" target="_self">{$v[country]}</a></dd>
+                            <!--{/loop}-->
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="con f-r">
+                <div class="con-top">
+                    <p class="nowtit f26"><span>{$countryname}<i class="hr"></i></span></p>
+                    <!--<div class="contop-list">-->
+                        <!--<span class="tit f-l">国家</span>-->
+                        <!--<div class="f-r list">-->
+                            <!--<a href="" target="_self">蒙古</a>-->
+                            <!--<a href="" target="_self">新加坡</a>-->
+                            <!--<a href="" target="_self">马来西亚</a>-->
+                            <!--<a href="" target="_self">蒙古</a>-->
+                            <!--<a href="" target="_self">新加坡</a>-->
+                            <!--<a href="" target="_self">马来西亚</a>-->
+                            <!--<a href="" target="_self">蒙古</a>-->
+                            <!--<a href="" target="_self">新加坡</a>-->
+                            <!--<a href="" target="_self">马来西亚</a>-->
+                            <!--<a href="" target="_self">蒙古</a>-->
+                            <!--<a href="" target="_self">新加坡</a>-->
+                            <!--<a href="" target="_self">马来西亚</a>-->
+                            <!--<a href="" target="_self">蒙古</a>-->
+                            <!--<a href="" target="_self">新加坡</a>-->
+                            <!--<a href="" target="_self">马来西亚</a>-->
+                        <!--</div>-->
+                        <!--<i class="clear"></i>-->
+                    <!--</div>-->
+                    <div class="contop-list">
+                        <span class="tit f-l">分类</span>
+                        <div class="f-r list">
+                            <!--{loop $legal $k $v}-->
+                            <a href="{$v[url]}" target="_self" class="{$v[class]}">{$v[legal]}</a>
+
+                            <!--{/loop}-->
+                        </div>
+                        <i class="clear"></i>
+                    </div>
+                </div>
+                <div class="con-list">
+                    <ul>
+                        <!--{loop $list $k $v}-->
+                        <li>
+                            <h1 class="f20 text-overflow"><a target="_blank" href="{$v[url]}">{$v[title]}</a></h1>
+                            <p class="dec">{$v[description]}</p>
+                            <!--<div class="data">-->
+                                <!--<div class="f-l">状态：有效</div>-->
+                                <!--<div class="f-r">-->
+                                    <!--生效日期：1990/09/01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;失效日期：1990/09/01-->
+                                <!--</div>-->
+                                <!--<i class="clear"></i>-->
+                            <!--</div>-->
+                        </li>
+                        <!--{/loop}-->
+
+                    </ul>
+                    <div class="pagination ov">
+                        <!--{space_pages($total, $page, $pagesize, 2, null, false, 'td', 'current', '&lt;', '&gt;')}-->
+                        <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+                    </div>
+                </div>
+            </div>
+            <i class="clear"></i>
+        </div>
+    </div>
+<!--{template 'system/foot_zn.html'}-->
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/legal/js/lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/legal/js/newcommon.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/legal/js/law.js"></script>
+</body>
+</html>

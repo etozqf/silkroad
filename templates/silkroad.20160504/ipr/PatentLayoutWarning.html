@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>专利布局预警</title>
+	<!--{template 'ipr/system/header_jscss.html'}-->
+</head>
+<body>
+<!--头部-->
+	<!--{template 'ipr/system/header_channel.html'}-->
+	<!--{template 'ipr/system/header_search.html'}-->
+
+<div class="column ov mar-t-20">
+	<div class="left_menu">
+		<ul class="mar-t-10">
+			<!--{template 'ipr/system/list1.html'}-->
+			<!--{template 'ipr/system/list2.html'}-->
+			<!--{template 'ipr/system/list3.html'}-->
+			<!--{template 'ipr/system/list4.html'}-->
+			<!--{template 'ipr/system/list5.html'}-->
+			<!--{template 'ipr/system/list6.html'}-->
+			<!--{template 'ipr/system/list7.html'}-->
+			<li class="on"><a target="_blank">专利布局/预警<em class="icon-jl"></em></a></li>
+			<!--{template 'ipr/system/list9.html'}-->
+		</ul>
+	</div>
+	<div class="right_data">
+		<div class="yuj_list">
+			<div class="list_box mar-t-20">
+				<ul>
+					<!--{content catid="301" orderby="published desc" size="8" page="$page"}-->
+					<li>
+					    <a href="{$r[url]}" class="f-l">
+					    <img src="{$r[thumb]}" width="78" height="74" alt=""/>
+					    </a>
+					    <div class="txt-box">
+					        <h3><a href="{$r[url]}" target="_blank">{$r[title]}</a></h3>
+					        <h2>2016-08-20</h2>
+					        <p class="mar-t-5">
+					        {str_cut(description($r[contentid]),50,'...')}
+					        </p>
+					    </div>
+					</li>
+					<!--{/content}-->
+					
+
+				</ul>
+			</div>
+			<!--分页-->
+			<div class="page">
+				<a href="">1</a>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a href="" class="on">4</a>
+				<a href="">...</a>
+				<a href="">8</a>
+				<a href="">9</a>
+				<a href="">10</a>
+				<a href="">11</a>
+				<a href="">12</a>
+				<span>共<i>1/136</i>页 , <i>680</i>记录</span></div>
+		</div>
+	</div>
+</div>
+<!--尾部-->
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

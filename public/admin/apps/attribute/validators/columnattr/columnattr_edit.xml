@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name tips="分类名称">
+		<required event="submit">必填</required>
+	</name>
+	<alias tips="英文名">
+		<required event="submit">必填</required>
+	</alias>
+	<sort tips="排序">
+	    <number event="submit">必须是整数</number>
+	</sort>
+</root>

@@ -1,0 +1,332 @@
+/*专栏列表*/
+.abc-index {
+    border: 1px solid #eee;
+    background-color: #f6f8f8;
+    padding: 10px 20px;
+}
+.abc-index a {
+    font-size: 14px;
+    color: #444;
+    padding-right: 10px;
+}
+.abc-index a strong {
+    color: #06c;
+}
+.special-abc-list ul {
+    margin-left: 20px;
+}
+.special-abc-list li {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.ie6 .special-abc-list li, .ie7 .special-abc-list li {
+    width: 120px;
+}
+.special-abc-list li a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    zoom:1;
+}
+.ie6 .special-abc-list li a {
+    display: inline;
+}
+.special-abc-list li p {
+    position: absolute;
+    left: 0;
+    top: 90px;
+    background-color: rgba(0,0,0,0.6);
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.special-abc-list li a .commend {
+    display: block;
+    width: 22px;
+    height: 28px;
+    background: transparent url(images/commend.png) no-repeat center center;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.special-abc-list li p span {
+    padding-left: 10px;
+}
+.ie6 .special-abc-list li {
+    display: inline;
+}
+.button-unfold {
+    font-size: 16px;
+    color: #777;
+    display: inline-block;
+    border: 1px solid #eee;
+    background-color: #f7f7f7;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+.abc-s-title .m-title-h2 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.special-article {
+    width: 679px;
+    border-right:1px solid #eee;
+    padding-right: 20px;
+}
+.special-user-info {
+    width: 300px;
+}
+
+.special-user-info .special-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    border:5px solid #eee;
+}
+.special-user-info .name {
+    font-size: 20px;
+    color: #333;
+}
+.special-nums p {
+    width: 50px;
+    font-size: 14px;
+    border-right: 1px solid #ddd;
+    margin-left: 20px;
+    line-height: 20px;
+}
+.special-nums p.one {
+    margin-left: 50px;
+}
+.special-nums p.last {
+    border-right-width: 0;
+}
+
+.special-nums p a {
+    color: #999;
+}
+.special-nums p b {
+    font-weight: normal;
+    font-size: 12px;
+    color: #999;
+    padding-top: 6px;
+    display: inline-block;
+}
+.special-nums p .num {
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+}
+.special-user-info .des {
+    padding-left: 20px;
+}
+.special-user-info .des p {
+    font-size: 14px;
+    color: #777;
+    line-height: 26px;
+}
+.special-user-info .button1 {
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+}
+/*专栏频道页*/
+.special-chanel-left {
+    width: 660px;
+}
+.special-chanel-left .video-headimages ._overlay {
+    height: 330px;
+}
+.special-chanel-left .video-headimages .bigimage {
+    width: 440px;
+    height: 330px;
+}
+.special-chanel-left .video-headimages .second {
+    width: 220px;
+    height: 165px;
+}
+.special-chanel-left .video-headimages .second .titlepanel .title {
+    height: 50px;
+    line-height: 20px;
+}
+.special-chanel-left .video-headimages .second .titlepanel .title a {
+    display: inline-block;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.special-chanel-right {
+    width: 300px;
+}
+.special-list-shoveler .video-imagetitle .item {
+    margin-right: 0;
+    width: 300px;
+}
+.special-list-shoveler .video-imagetitle .item .title {
+    height: 30px;
+}
+.special-list-shoveler .video-imagetitle .item .name {
+    font-size: 18px;
+    color: #333;
+}
+.special-list-shoveler .video-imagetitle {
+    width: 300px;
+}
+.special-list-shoveler .video-imagetitle .photo img {
+    margin-right: 20px;
+}
+.special-list-shoveler .m-title-h2 a {
+    color: #444;
+}
+
+
+.marklist li a {
+    font-size: 16px;
+    color: #444;
+}
+
+.ie6 .video-interview-inner {
+    width: 300px;
+}
+
+
+/*专题频道页*/
+.ct-special-header .focus-images {
+    width: 760px;
+    height: 450px;
+    background-color: #eee;
+}
+.ad234x284 {
+    background-color: #eee;
+    width: 234px;
+    height: 284px;
+}
+.ad234x160 {
+    background-color: #eee;
+    width: 234px;
+    height: 160px;
+    margin-top: 7px;
+}
+/*焦点图*/
+.imagetab{ position:relative; width:760px; height:450px; background-color: #000; float: left;}  
+.imagetab img{ width: 760px; height: 450px;} 
+.imagetab .shadow .title{width: 260px; height: 65px;padding-left: 30px;padding-top: 20px;}
+.imagetab .shadow .title a{ text-decoration:none; color:#fff; font-size:14px; font-weight:bolder; overflow:hidden; }
+.imagetab .btn{ position:absolute; bottom:34px; left:510px; overflow:hidden; zoom:1;} 
+.imagetab .btn a{position:relative; display:inline; width:13px; height:13px; border-radius:7px; margin:0 5px;color:#B0B0B0;font:12px/15px "\5B8B\4F53"; text-decoration:none; text-align:center; outline:0; float:left; background:#D9D9D9; }  
+.imagetab .btn a:hover,.imagetab .btn a.current{  cursor:pointer;background:#00a2e5;}  
+.imagetab .fPic{ position:absolute; left:0px; top:0px;width:100%; }  
+.imagetab .pointes{ overflow:hidden; zoom:1;  height:16px; z-index:10;  }  
+.imagetab .shadow{ width:100%; position:absolute; bottom:0; left:0px; z-index:10; height:60px; line-height: 60px; background:rgba(0,0,0,0.6);    
+filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#80000000',endColorstr = '#80000000')\9;   text-align:left; }  
+.imagetab .shadow a{ text-decoration:none; color:#fff; font-size:20px; overflow:hidden; margin-left:20px; font-family: "\5FAE\8F6F\96C5\9ED1";}  
+.imagetab .fcon{ position:relative; width:100%; float:left;  background:#000;z-index: 8; }  
+.imagetab .fcon img{ display:block; }  
+.imagetab .fbg{bottom:25px; left:640px; position:absolute; height:21px; text-align:center; z-index: 200; }  
+.imagetab .fbg div{margin:12px auto 4px 0;overflow:hidden;zoom:1;height:14px}    
+.imagetab .pointes a{position:relative; display:inline; width:10px; height:10px; border-radius:7px; margin:0 5px;color:#B0B0B0;font:12px/15px "\5B8B\4F53"; text-decoration:none; text-align:center; outline:0; float:left; background:#D9D9D9; }    
+.imagetab .pointes .current,.imagetab .pointes a:hover{background-color:#00a2e5;}    
+.imagetab .pointes img{display:none}    
+.imagetab .pointes i{display:none; font-style:normal; }    
+.imagetab .prev,.imagetab .next{position:absolute; z-index:10;width:40px;height:74px;background: url(images/focus_btn.png) no-repeat;}
+.imagetab .prev{top: 50%;margin-top: -37px; left: 0;background-position:0 -74px; cursor:pointer; }  
+.imagetab .next{top: 50%;margin-top: -37px; right: 0;  background-position:-40px -74px;  cursor:pointer;}  
+.imagetab .prev:hover{  background-position:0 0; }  
+.imagetab .next:hover{  background-position:-40px 0;}  
+
+.speciales .video-imagetitle .item .title {
+    font-size: 16px;
+    color: #444;
+    height: 30px;
+    padding-left: 10px;
+}
+.speciales .video-imagetitle .item .border1 {
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.speciales .video-imagetitle .item .time {
+    font-size: 14px;
+}
+.ie6 .speciales .video-imagetitle .item {
+    margin-left: -3px;
+}
+
+.ie6 .special-abc-list li p,
+.ie7 .special-abc-list li p,
+.ie8 .special-abc-list li p {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+
+.speciales .video-imagetitle .item {
+    width: 236px;
+    margin-right: 18px;
+}
+.speciales .video-imagetitle .right {
+    margin-right: 0;
+}
+.speciales .video-imagetitle .item .thumb-link {
+    width: 235px;
+    height: 140px;
+}
+.speciales .video-imagetitle .item .time {
+    top:115px;
+    height: 26px;
+    line-height: 26px;
+}
+.speciales .video-imagetitle .item .title {
+    line-height: 30px;
+    padding-top: 0;
+}
+
+.special-c .article-picture-item .title a {
+    font-size: 20px;
+}
+.special-c .article-picture-item .photo {
+    padding-top: 6px;
+}
+.special-c .article-picture-item .photo a {
+    font-size: 12px;
+    color: #777;
+}
+.special-c .article-picture-item .photo img {
+    margin-right: 4px;
+}
+.special-c .article-picture-item {
+    padding-bottom: 17px;
+}
+.ie6 .m-imagetitle .item .time,
+.ie7 .m-imagetitle .item .time,
+.ie8 .m-imagetitle .item .time {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+
+#pagination span, #pagination a {
+    padding: 6px 10px;
+    margin-right: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

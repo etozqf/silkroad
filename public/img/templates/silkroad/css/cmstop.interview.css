@@ -1,0 +1,342 @@
+.interview-header {
+    height: 420px;
+    background-color: #333333;
+}
+.interview-header .aside {
+    width: 440px;
+    height: 420px;
+    background-color: #f6f6f6;
+}
+.interview-header .aside .fz14.fl-l {
+    background: transparent url(images/fantan.png) no-repeat 0 center;
+    width: 90px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    padding-left: 10px;
+}
+.interview-header .title a {
+    font-size: 20px;
+    color: #333;    
+}
+.interview-header .summary p {
+    font-size: 14px;
+    line-height: 26px;
+    color: #333;
+}
+.interview-header .herald-list .head {
+    height: 25px;
+}
+.interview-header .herald-list .line {
+    height: 1px;
+    overflow: hidden;
+    zoom: 1;
+    background: #d5dce0;
+    width: 100%;
+    bottom: -1px;
+    z-index: 0;
+}
+.interview-header .herald-list .tit {
+    border: 1px solid #d5dce0;
+    display: block;
+    width: 78px;
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 12px;
+    z-index: 1;
+    height: 24px;
+    line-height: 24px;
+    color: #333;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.herald-list .h2 a {
+    font-size: 16px;
+    color: #444;
+}
+
+.herald-list .m-imagetitle .item {
+    width: 360px;
+}
+.herald-list .shoveler-point {
+    top: 5px;
+}
+.ie6 .video-interview-inner,.ie7 .video-interview-inner {
+    position: relative;
+    left: 0;
+    top:0;
+}
+.interview-words .left {
+    width: 660px;
+}
+.interview-words .aside {
+    width: 300px;
+}
+.ie6 .interview-words .aside {
+    margin-right: -3px;
+}
+.interview-words .talks p {
+    border: 1px solid #eee;
+    background-color: #f4f7f9;
+    font-size: 14px;
+    color: #333;
+    padding: 20px 10px 20px 20px;
+    text-indent:2em;
+}
+
+.memoir .notice  p {
+    font-size: 12px;
+    color: #444;
+    padding-top: 8px;
+}   
+.memoir .notice  .checkbox {
+    color: #777;
+    margin-left: 10px;
+}
+.memoir .item .content {
+    margin-left: 60px;
+}
+.memoir .item .content .h3 a {
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
+}
+.memoir .item .content .text {
+    font-size: 14px;
+    line-height: 26px;
+    color: #444;
+}
+.interview-comment .m-comment .comment-infos {
+    margin-left: 0;
+}
+.interview-comment .m-comment .comment-address-date .fl-r {
+    color: #999;
+    font-family: Arial;
+}
+.interview-comment .m-comment .comment-address-date .user {
+    color: #06c;
+}
+.interview-comment .m-comment:hover .comment-address-date .user:hover {
+    color: #0042a4!important;
+}
+.interview-comment .m-comment .comment-infos p {
+    color: #666;
+}
+/*评论框*/
+.userpost {
+    background-color: #f4f6f9;
+    padding: 10px;
+}
+.userpost .m-input-text {
+    width: 266px;
+    border-color: #ddd;
+    height: 80px;
+}
+.userpost .info {
+    padding: 10px 0;
+    padding-bottom: 0;
+}
+.userpost .info a {
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 5px;
+    color: #777;
+}
+.userpost .info .name {
+    color: #444;
+    margin-right: 10px;
+}
+.userpost .info .button1 {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+.userpost .login {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 14px 0;
+    text-align: center;
+}
+.userpost .login p {
+    font-size: 14px;
+    color: #777;
+}
+.userpost .login p a {
+    color: #06c;
+}
+/*模拟滚动条*/
+.scrollbarCls {
+    width: 300px;
+    margin: 20px 0 10px;
+    margin-bottom: 0;
+}
+.scrollbarCls .viewport {
+    width: 300px;
+    height: 600px;
+    overflow: auto;
+    position: relative;
+}
+.scrollbarCls .overview {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+.scrollbarCls .scrollbar {
+    background-color: #999;
+    position: relative;
+    background-position: 0 0;
+    float: right;
+    width: 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.scrollbarCls .track {
+    background-color: #999;
+    height: 100%;
+    width: 10px;
+    position: relative;
+    padding: 0 1px;
+    overflow: hidden;
+    zoom: 1;
+}
+.scrollbarCls .thumb {
+    background-color: #e5e5e5;
+    height: 20px;
+    width: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.scrollbarCls .thumb .end {
+    background-color: #e5e5e5;
+    overflow: hidden;
+    height: 5px;
+    width: 25px;
+}
+.scrollbarCls .disable {
+    display: none;
+}
+.noSelect {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+.loginform-user-info {
+    line-height: 30px;
+}
+
+.userpost .info label {
+    color: #777;
+    font-size: 12px;
+    margin-left:5px;
+    line-height: 20px;
+}
+
+.comment-panel {
+    width: 275px;
+}
+.ie6 .video-interview-inner,.ie7 .video-interview-inner {
+    position: relative;
+    left: 0;
+    top:0;
+}
+.video-interview-inner .video-imagetitle {
+    width: 360px;
+}
+#chat {
+    height: 835px;
+    overflow: auto;
+}
+.stoptext {
+    font-size: 14px;
+}
+.stopinput {
+    margin-top: 3px;
+}
+.nums .bgstate {
+    width: 45px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #0091e4;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 14px;
+}
+.nums .disable {
+    background-color: #bababa;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

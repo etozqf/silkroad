@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>{$content[title]}</title>
+	<link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+
+    <script src="{IMG_URL}js/config.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.cookie.js"></script>
+</head>
+<body>
+    <!--{if value($content, 'thumb')}-->
+    <img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+    <!--{/if}-->
+	<div class="ui-container">
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">{$content['survey']['catname']} · 调查</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+        <!--{template 'mobile/touch/_blocks/nav.html'}-->
+		<section>
+			<div class="ui-survey-container">
+				<div>
+					<h1 class="ui-activity-title">{$content[title]}</h1>
+					<p class="ui-article-infos">
+                        <?php $endtime = $content['survey']['endtime'] ? strtotime($content['survey']['endtime']) : 0; ?>
+                        <!--{if $endtime}-->
+                        <!--{if $endtime > TIME}-->
+						<time>{date('Y-m-d H:i', $endtime)}  结束</time>
+                        <!--{else}-->
+                        <time>已结束</time>
+                        <!--{/if}-->
+                        <!--{else}-->
+                        <time>进行中</time>
+                        <!--{/if}-->
+
+                        <!--{if $content[survey][answers]}-->
+						<span>已有 <em>{$content[survey][answers]}</em> 人参与调查</span>
+                        <!--{/if}-->
+					</p>
+				</div>
+				<div class="ui-survey-summary">
+					<p>{$content[description]}</p>
+				</div>
+				<div class="ui-survey-form ui-vote-form">
+					<form method="post" action="{MOBILE_URL}{if $content_source}{$content_source}{else}survey{/if}/{if $content_source}pcanswer{else}answer{/if}" id="form-survey">
+                        <input type="hidden" name="contentid" value="{$content[survey][contentid]}" />
+                        <!--{loop $content[survey][question] $i $question}-->
+                        <?php $questionid = $question[questionid]; ?>
+                        <div class="ui-survey-item"{if $question[allowfill]} data-role="allowfill"{/if} data-type="{$question['type']}">
+                            <p>{$question[subject]}{if $question['required']}<em>*</em>{/if}</p>
+                        <!--{if $question['type'] == 'radio'}-->
+                            <!--{loop $question[option] $k $option}-->
+							<div class="ui-vote-item">
+                                <a class="ui-voteitem">{$option[name]}</a>
+                                <input type="hidden" name="data[{$questionid}][optionid]" value="{$option[optionid]}" disabled >
+                            </div>
+                            <!--{/loop}-->
+                        <!--{elseif $question['type'] == 'checkbox'}-->
+                            <!--{if $question['minoptions'] || $question['maxoptions']}-->
+                            <small>
+                                <!--{if $question[minoptions]}-->
+                                最少可选{$question[minoptions]}项 &nbsp;
+                                <!--{/if}-->
+                                <!--{if $question[maxoptions]}-->
+                                最多可选{$question[maxoptions]}项
+                                <!--{/if}-->
+                            </small>
+                            <!--{/if}-->
+                            <!--{loop $question[option] $k $option}-->
+							<div class="ui-vote-type-checkbox ui-vote-item">
+                                <a class="ui-voteitem">{$option[name]}</a>
+                                <input type="hidden" name="data[{$questionid}][optionid][]" value="{$option[optionid]}" disabled>
+                            </div>
+                            <!--{/loop}-->
+                        <!--{elseif $question['type'] == 'select'}-->
+							<div class="ui-survey-text-container">
+                                <select name="data[{$questionid}][optionid]">
+                                    <!--{loop $question[option] $k $option}-->
+                                    <option value="{$option[optionid]}">{$option[name]}</option>
+                                    <!--{/loop}-->
+							    </select>
+                            </div>
+                        <!--{elseif $question['type'] == 'text'}-->
+							<div class="ui-survey-text-container">
+                                <input type="text" name="data[{$questionid}]" >
+                                <!--{if $question[maxlength]}-->
+                                <em style="float:right;font-size: 12px;">你可以输入<i style="color:#f00;">{$question[maxlength]}</i>字</em>
+                                <!--{/if}-->
+                            </div>
+                        <!--{elseif $question['type'] == 'textarea'}-->
+							<div class="ui-survey-text-container">
+                                <textarea name="data[{$questionid}]" cols="30" rows="3"></textarea>
+                                <!--{if $question[maxlength]}-->
+                                <em style="float:right;font-size: 12px;">您可以输入<i style="color:#f00;">{$question[maxlength]}</i>字</em>
+                                <!--{/if}-->
+                            </div>
+                        <!--{elseif $question['type'] == 'file'}-->
+                            <div class="ui-survey-text-container">
+                                <input type="file" name="data[{$questionid}]"{if $question[validator]} accept="{$question[validator]}"{/if} >
+                            </div>
+                        <!--{/if}-->
+                        <!--{if $question[allowfill]}-->
+                            <section class="allowfill" style="display:none;"><input type="text" name="data[{$questionid}][content]"></section>
+                        <!--{/if}-->
+                        </div>
+                        <!--{/loop}-->
+						<div class="ui-survey-item">
+                            <div class="ui-survey-text-container">
+							     <input type="submit" value="提交">
+                            </div>
+						</div>
+					</form>
+				</div>
+			</div>	
+		</section>
+	</div>
+    <script id="selectTemplate" type="text/template">
+        <div class="ui-select-container">
+            <div class="text"></div>
+            <div class="drop-button"></div>
+        </div>
+    </script>
+    <!-- 底部栏目面板 -->
+    <div class="js-category-bottom-container">
+        <!-- 栏目导航 -->
+        <menu class="ui-categorys js-category-panel js-categorys-bottom js-hidden">
+            <ul>
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{MOBILE_URL}">首页</a></li>
+                <!--{loop mobile_category() $category}-->
+                <!--{if !$category[headline]}-->
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{$category[url]}">{$category[catname]}</a></li>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </ul>
+        </menu>
+        <!-- @end 栏目导航 -->
+    </div>
+    <!-- 底部 -->
+    <footer class="ui-bottom-bar">
+        <!--{template 'mobile/touch/_blocks/footer.html'}-->
+    </footer>
+	<script>
+	$(function() {
+		// 底部栏目选择
+		var bb = $('.js-menubtn-bottom');
+		bb.click(function() {
+			$('.js-categorys-bottom').toggleClass('js-hidden');
+			setTimeout(function() {
+				document.body.scrollTop = document.body.clientHeight;
+			}, 50);
+		});
+
+        var checklogined = parseInt('{$content[survey][checklogined]}');
+        $('[data-role="allowfill"]').each(function() {
+            var fill = $(this).find('[type=text]').parent();
+            $(this).find('[type=radio]').change(function() {
+                if (this.checked && $(this).parent().text() == '其他') {
+                    fill.show();
+                } else {
+                    fill.hide();
+                }
+            });
+            $(this).find('[type=checkbox]').click(function() {
+                if (this.checked && $(this).parent().text() == '其他') {
+                    fill.show();
+                }
+            });
+            var select = $(this).find('select').change(function() {
+                if ($(select[0].options[select[0].selectedIndex]).text() == '其他') {
+                    fill.show();
+                } else {
+                    fill.hide();
+                }
+            });
+        });
+
+        var btnLogin = $('#btn-login');
+        $(window).bind('login', function() {
+            btnLogin.hide();
+        });
+        if (cookie.get(COOKIE_PRE + 'auth')) {
+            btnLogin.hide();
+        }
+        var form = $('#form-survey').submit(function() {
+            if (checklogined && !cookie.get(COOKIE_PRE + 'auth')) {
+                window.scrollTo(0, 1);
+                $('.ui-form-warn').text('该调查需要登录后才能参与');
+                btnLogin.click();
+                return false;
+            }
+
+            $.post(form.attr('action'), form.serialize(), function(json) {
+                if (json && json.state) {
+                    alert('提交成功，感谢您的参与');
+                    form[0].reset();
+                    history.back();
+                } else {
+                    alert(json.error || '提交失败，请重试');
+                }
+            }, 'json');
+            return false;
+        });
+        form.find('.ui-voteitem').click(function () {
+            var _this = $(this), size,
+                parent = _this.parents('.ui-survey-item');
+                type = parent.attr('data-type'),
+                role = parent.attr('data-role');
+            if (type === 'radio') {
+                    parent.find('.ui-voteitem').each(function () {
+                        var elm = $(this);
+                        elm.removeClass('ui-voteok');
+                        elm.next().attr('disabled', 'disabled');
+                    });
+                    _this.addClass('ui-voteok');
+                    _this.next().attr('disabled', null);
+                    if (role === 'allowfill' && _this.html() === '其他') {
+                        parent.find('.allowfill').show();
+                    } else {
+                        parent.find('.allowfill').hide();
+                    }
+            } else if (type === 'checkbox') {
+                if (_this.hasClass('ui-voteok')) {
+                    _this.removeClass('ui-voteok');
+                    _this.next().attr('disabled', 'disabled');
+                    if (role === 'allowfill' && _this.html() === '其他') {
+                        parent.find('.allowfill').hide();
+                    }
+                } else {
+                    _this.addClass('ui-voteok');
+                    _this.next().attr('disabled', null);
+                    if (role === 'allowfill' && _this.html() === '其他') {
+                        parent.find('.allowfill').show();
+                    }
+                }
+            }
+        });
+
+        $('select').each(function () {
+            var element = $(this),
+                display = $($('#selectTemplate').html());
+            element.css({height: 0, border: 'none', opacity: 0, position: 'absolute', marginTop: '-22px'});
+            element.before(display);
+            display.on('click', function (event) {
+                element.trigger('click').trigger('mousedown');
+            });
+            element.on('change', function () {
+                display.children('.text').text(element.find('option').filter('[value="'+ element.val() +'"]').text());
+            }).trigger('change');
+        });
+	});
+	</script>
+</body>
+</html>

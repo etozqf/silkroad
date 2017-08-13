@@ -1,0 +1,47 @@
+.crumbs{line-height:1;padding:25px 0 10px;width:1000px;margin:0 auto;}
+.crumbs a{color:#0079c6;}
+.crumbs a:hover{color:#ff6c00;}
+.container{width:1000px;margin:0 auto 20px;}
+.left250{float: left; width: 250px;background: #fff;box-shadow:2px 3px 3px 0 #e8e8e8;}
+.left250 h1,.left250 .item .hd,.thead td{background: url(../images/ucenter-x.png) repeat-x;}
+.left250 h1 span,.left250 .item .hd h3,.left250 .item li{ background: url(../images/ico-ucenter.gif) no-repeat;}
+.left250 h1{ height: 51px; line-height: 51px; border-bottom: 1px solid #cccccc; font-size: 24px; color: #333; font-weight: normal; margin-bottom: 30px;}
+.left250 h1 span{display: block; padding-left: 55px; background-position: 20px 0;}
+.left250 .item{padding:0 20px;}
+.left250 .item .hd{background-position: 0 -51px; height: 30px; line-height: 30px; border: 1px solid #ccc;}
+.left250 .item .hd h3{font-size: 16px; color: #333; font-weight: normal; padding-left: 34px;}
+.left250 .i1 .hd h3{ background-position: 12px -51px;}
+.left250 .i2 .hd h3{ background-position: 12px -81px;}
+.left250 .item .bd{padding: 10px 0 10px 24px;}
+.left250 .item li{height: 30px; line-height: 30px; background-position: 0 -111px; padding-left: 12px;}
+.left250 .item li a{color: #333;}
+.left250 .item li a:hover,.left250 .item li.on a{color: #e4393c;}
+
+
+
+.right730{ float: right; width: 730px;background: #fff;box-shadow:2px 3px 3px 0 #e8e8e8;}
+.right730 .hd{margin:10px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.right730 .hd h3{left:0px;top:0px;display:inline-block;font-size:24px;font-weight:normal;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;padding:0 24px;position:absolute;z-index:3;} 
+.form{padding: 40px;}
+.form dl{ position: relative; padding-left: 120px;margin-bottom: 15px;}
+.form dt{width: 110px; text-align: right; color: #666; position: absolute; left:0; top:0;}
+.form dd{}
+.form textarea{height: 200px; border: 1px solid #e6e7ed; width:550px; padding: 10px; vertical-align: top;}
+.form .inp{ border: 1px solid #e6e7ed;height: 30px; width: 246px;padding: 0 10px;}
+.form .formtip{color: #666; margin-left: 10px; font-size: 12px;}
+.form .subbtn{ width: 138px; height: 46px; color: #fff; font-size: 20px; background: #ff6c00; border-radius: 2px; cursor: pointer; border: none;} 
+.form .cred{color: #e4393c; margin-right: 3px;}
+.favlist{padding: 25px;}
+.thead{border: 1px solid #cecece;}
+.thead td{height: 30px; background-position: 0 -51px;text-align: center;}
+.tbody{}
+.tbody td{height: 40px; border-bottom: 1px dashed #e8e8e8; text-align: center; color: #999;}
+.tbody td a{color: #0079c6;}
+.tbody .tit{text-align: left; padding-left: 5px;}
+.tbody .tit a{background: url(../images/dot_list.jpg) no-repeat left center; padding-left: 12px;}
+.tbody .time{line-height: 1.2;}
+.tbody tr:hover{background: #f3f3f3;}
+.page{padding:25px 0;text-align:center;}
+.page a{display:inline-block;height:28px;width:28px;text-align:center;line-height:28px;font-size:16px;border:1px solid #ddd;background:#fff;margin:0 5px;color:#666;}
+.page a:hover{background:#e4393c;border:1px solid #e4393c;color:#fff;text-decoration:none;}
+.page i{color:#e4393c;font-style:normal;}

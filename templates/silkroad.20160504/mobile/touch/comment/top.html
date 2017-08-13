@@ -1,0 +1,28 @@
+<!-- {if $SETTING[comment][open] && $content['allowcomment'] && $content[topicid]}-->
+ <!-- {if setting('cloud', 'sohu_changyan')} -->
+    <input type="hidden" name="topicid" value="{$content[topicid]}" />
+    <!--#include virtual="/section/cloud/mobilecomment.html"-->
+ <!-- {else} -->
+    <!-- 热门评论 -->
+    <div class="ui-hotcomment">
+        <div class="ui-hotcomment-header">
+            <h2>热门评论</h2>
+            <a href="{MOBILE_URL}comment/{$content[topicid]}">查看全部</a>
+        </div>
+        <?php $comments = loader::model('comment', 'comment')->ls_hot($content['topicid'], 1, 5); ?>
+        <div class="ui-comment-container">
+            <ul>
+                <!--{loop $comments $i $r}-->
+                <li>
+                    <div class="ui-comment-infos">
+                        <span class="ui-name">{$r[nickname]}</span><span class="ui-timer">{$r[date]}</span>
+                    </div>
+                    <div class="ui-comment-detail">{$r[content]}</div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+        </div>
+    </div>
+    <!-- @end热门评论 -->
+ <!-- {/if} -->
+<!--{/if}

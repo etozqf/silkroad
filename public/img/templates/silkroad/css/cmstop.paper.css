@@ -1,0 +1,254 @@
+/*报纸频道列表页面*/
+.paper-list {
+    padding-top: 10px;
+}
+.paper-list ul {
+    width: 1100px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.paper-list .item{
+    float: left;
+    margin-right: 40px;
+    text-align: center;
+    overflow: hidden;
+    display: inline;
+    width: 480px;
+}
+.paper-list .item .thumb {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 458px;
+    height: 638px;
+    overflow: hidden;
+    zoom:1;
+}
+.paper-list .title {
+    line-height: 60px;
+    font-size: 24px;
+    height: 60px;
+    color: #333;
+}
+.paper-list .title a{
+    font-size: 20px;
+    font-family: Microsoft YaHei;
+    color: #333;
+}
+.paper-list .title a:hover{
+    color: #c00;
+}
+/*报纸详情页*/
+.paper-header {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background-color: #c00;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+.paper-content-header {
+    top: 40px;  
+}
+.paper-nav {
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    _zoom:1;
+}
+.paper-nav a {
+    float: left;
+    font-size: 14px;
+    background: transparent url(images/paper-nav-bar.png) repeat-x;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+    padding: 0 8px;
+    margin-right: 8px;
+    color: #fff;
+    font-weight: bold;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+}
+.paper-nav a:hover{
+    color: #ff0!important;
+}
+.paper-nav .now{
+    background-color: #fff;
+    background-image: none;
+    color: #666;
+    height: 40px;
+    border-bottom-width: 0;
+}
+.paper-nav .now:hover{
+    color: #666!important;
+}
+.paper-timer{
+    position: relative;
+    background-color: #f4f4f4;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+    color: #777;
+    font-size: 13px;
+    padding: 0 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.paper-timer .time {
+    float: left;
+}
+.paper-timer .period{
+    float: right;
+    margin-right: 98px;
+}
+.paper-timer .period span{
+    margin-left: 10px;
+}
+.paper-timer .period a {
+    color: #0066cc;
+}
+.paper-timer .period a:hover {
+    color: #0066cc;
+}
+.paper-timer .period .history{
+    position: absolute;
+    width: 60px;
+    padding-left: 26px;
+    top: 0px;
+    right: 0px;
+    background-position: -10px -127px;
+    background-image: url(images/ico16x16.png);
+}
+.paper-read-wrap {
+    margin-top: 10px;
+    overflow: hidden;
+    _zoom:1;
+}
+.paper-cover {
+    width: 420px;
+    float: left;
+}
+.paper-content {
+    float: right;
+    width: 540px;
+    background-color: #FFF;
+    min-height: 1500px;
+    height: auto!important;
+    height: 1500px;
+}
+.paper-cover-inner {
+    padding: 0;
+}
+.paper-screenshot {
+    background-color: #f4f4f4;
+    width: 400px;
+    margin: 10px;
+    position: relative;
+}
+.paper-screenshot .map {
+    position: absolute;
+    background-color: #fff;
+    opacity: 0;
+    filter:Alpha(Opacity=0);
+}
+
+.paper-screenshot .current, .paper-screenshot a.map:hover {
+    background-color: #ff0;
+    opacity: .3;
+    filter:Alpha(Opacity=30);
+}
+.edition-article-list {
+    background-color: #FFF;
+}
+.edition-article-list .nav {
+    float: right;
+    margin: 8px 0 0 0;
+}
+.edition-article-list .nav a {
+    margin-right: 10px;
+    color: #0066cc;
+    font-size: 12px;
+}
+.all-pages {
+    padding: 10px 5px 0 10px;
+}
+.all-pages .item {
+    line-height: 32px;
+    padding-bottom: 8px;
+    float: left;
+    min-width: 100px;
+    width: 33%;
+    height: 32px;
+}
+.all-pages .item a {
+    font-size: 13px;
+    color: #333;
+}
+.all-pages .item a:hover {
+    color: #c00!important;
+}
+.all-pages .item img {
+    margin-left: 4px;
+}
+
+.paper-article {
+    padding: 20px 15px 10px 15px;
+}
+.paper-article .title {
+    font-family: "Microsoft YaHei";
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+.paper-article .info {
+    padding-bottom: 20px;
+    color: #777;
+    font-size: 13px;
+}
+.paper-article .info a {
+    color: #0066cc!important;
+}
+.paper-article .article {
+    text-align: center;
+}
+.paper-article .article p{
+    text-align: left;
+    text-indent: 2em;
+    font-size: 14px;
+    line-height: 26px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #333;
+}
+.paper-article .nav {
+    line-height: 26px;
+    border-top: 1px dotted #d9d9d9;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #444;
+}
+.paper-article .nav a {
+    color: #0066cc;
+}
+.paper-article .nav a:hover {
+    color: #c00;
+}
+#eBack {display: none;}
+.edition-article-list .list-point a {
+    color: #0066cc;
+    font-size: 14px;
+    line-height: 2;
+    padding-left: 10px;
+}
+.paper-article .share {
+    max-width: 290px;
+    *width: 290;
+}
+.interaction .interaction-btn  {
+    margin-right: 40px;
+}
+.comment-form .loginform-user-info {
+    width: 100%;
+}

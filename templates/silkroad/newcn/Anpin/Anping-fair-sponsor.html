@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Anping County, China</title>
+	<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+	<meta name="description" content="{$SYSTEM[seodescription]}" />
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/Anping-fair-sponsor.css">
+</head>
+<body>
+<div class="topbox">
+	<div class="logo">中国.安平</div>
+	<ul class="nav clearfix">
+		<li class="first"><a href="{WWW_URL}english/Anping/" target="_blank">Home</a></li>
+		<li class="second"><a href="{WWW_URL}english/Anping/industry.shtml" target="_blank">Industry Overview</a></li>
+		<li class="third"><a href="{WWW_URL}english/Anping/fair.shtml" class="active" target="_blank">Fair</a></li>
+		<li class="fourth"><a href="{WWW_URL}english/Anping/companies.shtml" target="_blank">Companies</a></li>
+		<li class="last"><a href="{WWW_URL}english/Anping/about.shtml" target="_blank">About</a></li>
+
+	</ul>
+</div>
+<div class="middlebox">
+	<div class="container">
+		<div class="header">
+			<div class="kong" style="width:100%; height: 13px; "></div>
+			<div class="headimg"></div>
+			<div class="focus"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/fair_head.png"></div>
+		</div>
+		<div class="middle clearfix">
+			<ul class="menu">
+				<li><a href="{WWW_URL}english/Anping/fair.shtml" target="_blank">About Fair</a> </li>
+				<li class="active"><a href="{WWW_URL}english/Anping/fair-sponsor.shtml" target="_blank">Sponsors & Organizers</a> </li>
+				<li><a href="{WWW_URL}english/Anping/fair-program.shtml" target="_blank">Program</a> </li>
+			</ul>
+			<div class="content">
+				<span class="midtitle">Sponsors & Organizers</span><span class="midtitleimg"></span>
+				<p class="con-title">Sponsors</p>
+                <p class="en">China Council for the Promotion of International Trade (CCPIT)</p>
+                <p class="cn">中国国际贸易促进委员会</p>
+                <p class="en">China National Hardware Association</p>
+                <p class="cn">中国五金制品协会</p>
+                <p class="en"> China Chamber of Commerce of Metals, Minerals & Chemicals Importers & Exporters (CCCMC)</p>
+                <p class="cn">中国五矿化工进出口商会</p>
+                <p class="en">The People's Government of Hebei Province</p>
+                <p class="cn">河北省人民政府</p>
+                <p class="con-title">Organizers</p>
+                <p class="en">China Council for the Promotion of International Trade Hebei Sub-council</p>
+                <p class="cn">中国贸促会河北省委员会</p>
+                <p class="en">Commerce Department of Hebei Province</p>
+                <p class="cn">河北省商务厅</p>
+                <p class="en">The People's Government of Hengshui</p>
+                <p class="cn">衡水市人民政府</p>
+                <p class="en">The People's Government of Anping County</p>
+                <p class="cn">安平县人民政府</p>
+                <p class="con-title">Co-organizers</p>
+                <p class="en">CCPIT Hengshui Branch</p>
+                <p class="cn">中国贸促会衡水市支会</p>
+                <p class="en">Beijing New Building Material (Group) Co., Ltd</p>
+                <p class="cn">中国北新建材集团</p>
+                <p class="en">China Building Materials Federation Fence Branch</p>
+                <p class="cn">中国建材联合会栅栏分会</p>
+                <p class="en">China Nonwovens & Industrial Textiles Association</p>
+                <p class="cn">中国产业用纺织品行业协会</p>
+                <p class="en">China International Exhibition center Group Corporation</p>
+                <p class="cn">中国国际展览中心集团公司</p>
+			</div>
+		</div>
+		<div class="footer" id="to_top"><a href="javascript:void(0)">Back to Top<span style="margin-left:5px;"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/arrow.png"></span></a></div>
+	</div>
+</div>
+<div class="copyright">
+	<ul class="copy">
+		<li>Copyright © 2016 China Economic Information Service All Rights Reserved.</li>
+		<li>Sponsored by Anping County Government</li>
+	</ul>
+</div>
+<script>
+	window.onload = function(){
+		var oTop = document.getElementById("to_top");
+		var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+		var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+		oTop.style.left = screenw - oTop.offsetWidth +"px";
+		oTop.style.top = screenh - oTop.offsetHeight + "px";
+		window.onscroll = function(){
+			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+		}
+		oTop.onclick = function(){
+			document.documentElement.scrollTop = document.body.scrollTop =0;
+		}
+	}
+</script>
+</body>
+</html>

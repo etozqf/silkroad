@@ -1,0 +1,61 @@
+.picker-panel {
+    overflow: hidden;
+    background: #FFF;
+}
+.picker-panel-title {
+    background: url(/css/images/bg_x.gif) repeat-x scroll 0 -173px #FFFFFF;
+    color: #077AC7;
+    cursor: default;
+    font-weight: normal;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 5px;
+}
+.picker-panel-left {
+    width: 500px;
+    border-right: solid 1px #CEE1E8;
+}
+.picker-content-list {
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#message {
+    position: absolute;
+    width: 100%;
+    height: 380px;
+    line-height: 380px;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    display: none;
+}
+.picker-panel-item {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 5px;
+    clear: both;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 1px dotted #D7E3F2;
+}
+.picker-panel-item:hover {
+    background: #FFFDDD;
+}
+.picker-panel-item.selected {
+    background-color: #E7F2F5;
+    border-bottom-color: #FFFFFF;
+}
+.picker-panel .picker-panel-item input {
+    float: left;
+    margin: 9px 10px 0 0;
+}
+.picker-panel-item .time {
+    float: right;
+}
+.picker-panel-item .item-title {
+    display: inline-block;
+    zoom: 1;
+    max-width: 330px;
+    overflow: hidden;
+}

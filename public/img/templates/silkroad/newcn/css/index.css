@@ -1,0 +1,21 @@
+.top-tit{width: 100%; height: 40px; line-height: 40px; text-align: center; background: #64605f; overflow: hidden; color:#fff;font-size: 20px; font-weight: bold;}
+.cont{width: 100%; overflow: hidden; border-bottom: 1px dashed #d9d9d9; padding-bottom: 0px;}
+.big-h3{width: 100%; height: 48px; line-height: 24px; font-size: 22px;  font-weight: bold; overflow: hidden;}
+.big-h3 a{color: #006e97;}
+.cont p{width: 100%; height: 72px; line-height: 18px; font-size: 14px; color: #333; overflow: hidden;}
+.cont p.cont-p{width: 190px; float: right;}
+.cont span{color: #666; font-size: 12px;font-style: italic;}
+.small-h3{width: 100%; font-size: 18px; height: 44px; overflow: hidden; line-height: 22px; font-family:"Arial"; }
+.small-h3 a{color: #006e97;}
+
+/*project列表*/
+.txt-list1{width: 100%; overflow: hidden;}
+.txt-list1 li{width: 100%; overflow: hidden; float: left; margin-top: 12px;}
+.txt-list1 ul.Feat-ul li{margin-top: 16px;}
+.txt-list1 h3{width: 100%;font-size: 16px; line-height: 22px; overflow: hidden;}
+.txt-list1 h3 a{color: #006e97;}
+.txt-list1 span{color: #666; font-size: 12px; font-style: italic;}
+.press{width:100%; height: 80px; background: #e4343d; overflow: hidden; line-height: 80px; text-align: center;
+        font-size: 20px; font-family: "Times New Roman", Times, serif; font-weight: bold;}
+.press a{color: #fff;}
+.p-em{width: 12px; height: 22px; background: url("images/p-r.png") no-repeat; float: right; margin-top: 30px; margin-right: 20px;}

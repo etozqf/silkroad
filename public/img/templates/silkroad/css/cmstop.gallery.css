@@ -1,0 +1,586 @@
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:after {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    content: ".";
+}
+.gal_area {
+    margin: 0 auto;
+    width: 900px;
+    overflow: hidden;
+    text-align: left;
+}
+.gal_gallery {
+    text-align: left;
+    word-wrap: break-word;
+}
+.gal_gallery p {
+    margin: 0;
+    line-height: 21px;
+}
+.gal_cnt {
+}
+.gal_bg {
+    background-color: #fff;
+}
+.gal_set_info span {
+    display: inline-block;
+}
+.gal_set_info .hidden {
+    display: none;
+}
+.gal_set_info h1 {
+    display: inline;
+    font-size: 20px;
+    font-family: "微软雅黑", "黑体";
+    font-weight: normal;
+}
+.gal_set_title {
+    padding: 3px 0 2px;
+    line-height: 25px;
+}
+.gal_set_title span {
+    line-height: 22px;
+    font-size: 14px;
+    color: #fff;
+    font-style: italic!important;
+}
+.gal_set_title b {
+    font-size: 30px;
+    color: #80807f;
+}
+.gal_set_cur {
+    font-size: 14px;
+}
+.gal_set_cur span {
+    font-weight: bold;
+}
+.gal_set_info {
+    color: #C6C6C6;
+}
+.gal_set_info h1, .gal_set_info h1 a, .gal_set_info h1 a:visited {
+    color: #ECECEC;
+}
+.gal_set_info h1 a:hover {
+    color: #F9DF53;
+}
+.gal_set_info p, .gal_set_cur, .gal_set_size {
+    color: #767676;
+}
+.gal_set_info p a, .gal_set_info p a:visited {
+    color: #BA2636;
+}
+.gal_set {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+.gal_set_thumb {
+}
+.gal_photo_view {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+.gal_photo_view .gal_cnt {
+    height: 100%;
+}
+.ie7 .gal_photo_view .gal_cnt {
+    padding-left: 3px;
+}
+.gal_photo_view i {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.gal_photo_view img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+.ie6 .gal_photo_view img {
+    height: 500px;
+}
+.ie7 .gal_photo_view img {
+    height: 500px;
+    width:950px;
+}
+.gal_photo_view .gal_layout_bg {
+    background: url(images/bg18.png);
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src=images/bg18.png);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    _background: #1C1C1D;
+}
+.gal_photo_prev, .gal_photo_next {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    margin-top: -40px;
+    top: 50%;
+}
+.gal_photo_prev {
+    left:0;
+}
+.gal_photo_next {
+    right: 0;
+    margin-left: 5px;
+}
+.gal_photo_loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -19px 0 0 -19px;
+    width: 37px;
+    height: 37px;
+    background: url(images/loading.gif) no-repeat 0 0;
+}
+.gal_photo_desc h2 {
+    padding-top: 8px;
+    min-height: 25px;
+    _height: 25px;
+    font: 18px/1.4 simHei;
+}
+.gal_photo_desc h2, .gal_photo_desc h2 a, .gal_photo_desc h2 a:visited {
+    color: #ECECEC;
+}
+.gal_photo_desc h2 a:hover {
+    color: #F9DF53;
+}
+.gal_photo_desc p {
+    color: #C6C6C6;
+}
+.gal_photo_desc p a, .gal_photo_desc p a:visited {
+    color: #BA2636;
+}
+.gal_photo_thumb {
+    margin: auto;
+}
+.gal_photo {
+    width: 100%;
+}
+.gal_stream_view {
+    overflow: hidden;
+    padding-top: 12px;
+    width: 100%;
+}
+.gal_scrl {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+.gal_scrl_thumb {
+    margin: 0 0;
+}
+.gal_scrl_main {
+    overflow: hidden;
+    width: 100%;
+}
+.gal_scrl_prev {
+    float: left;
+    margin-left: -100%;
+    padding-top: 6px;
+}
+.gal_scrl_next {
+    float: left;
+    margin-left: -20px;
+    padding-top: 6px;
+}
+.gal_scrl_lt {
+    float: left;
+    margin-right: -3px;
+    width: 3px;
+    height: 20px;
+    background: url(images/scroll_bg_line.png) repeat-x 0 0;
+}
+.gal_scrl_rt {
+    float: right;
+    margin-left: -3px;
+    width: 3px;
+    height: 20px;
+    background: url(images/scroll_bg_line.png) repeat-x 0 0;
+}
+.gal_scrl_bd {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+.gal_scrl_ct {
+    position: relative;
+    padding-top: 4px;
+    height: 20px;
+    background: url(images/scroll_bg_line.png) repeat-x 0 0;
+}
+.gal_list_thumb {
+    overflow: hidden;
+    height: 77px;
+}
+.gal_list_thumb li {
+    float: left;
+    width: 94px;
+    padding: 5px 0 0 0;
+    text-align: center;
+}
+.gal_list_thumb h2, .gal_list_thumb p, .gal_list_thumb i {
+    display: none;
+}
+.gal_list_thumb a, .gal_list_thumb img {
+    display: block;
+    margin: auto;
+    width: 80px;
+    height: 60px;
+}
+.gal_list_thumb a {
+    outline: none;
+    border: 2px solid #fff;
+}
+.gal_list_thumb a:hover {
+    border: 2px solid #ffba00;
+}
+.gal_list_thumb .gal_list_active {
+    background: transparent url(images/arrow_top.png) no-repeat center top;
+}
+.gal_list_thumb .gal_list_active a {
+    border-color: #ffba00;
+}
+.gal_btn_pscrl, .gal_btn_nscrl {
+    display: block;
+    width: 20px;
+    height: 65px;
+    outline: none;
+    cursor: pointer;
+}
+.gal_btn_pscrl, .gal_btn_nscrl {
+    background: url(images/bg05.png) no-repeat;
+}
+.gal_btn_pscrl {
+    background-position: 0 0;
+}
+.gal_btn_pscrl:hover {
+    background-position: -21px 0;
+}
+.gal_btn_nscrl {
+    background-position: -42px 0;
+}
+.gal_btn_nscrl:hover {
+    background-position: -63px 0;
+}
+.gal_btn_scrl {
+    position: absolute;
+    display: block;
+    width: 120px;
+    outline: none;
+    cursor: default;
+}
+.gal_btn_scrl .gal_btn_lt {
+    float: left;
+    margin-right: -10px;
+    width: 10px;
+    height: 15px;
+}
+.gal_btn_scrl .gal_btn_rt {
+    float: right;
+    margin-left: -10px;
+    width: 10px;
+    height: 15px;
+}
+.gal_btn_scrl .gal_btn_bd {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+.gal_btn_scrl .gal_btn_bd span {
+    display: block;
+    height: 15px;
+    margin: 0 10px;
+}
+.gal_btn_scrl .gal_btn_ct {
+    display: block;
+    margin: auto;
+    width: 14px;
+    height: 15px;
+}
+.gal_btn_scrl .gal_btn_lt, .gal_btn_scrl .gal_btn_rt, .gal_btn_scrl .gal_btn_bd span, .gal_btn_scrl .gal_btn_ct {
+    background: url(images/scroll_handle.png) no-repeat;
+}
+.gal_btn_scrl .gal_btn_lt {
+    background-position: 0 0;
+}
+.gal_btn_scrl .gal_btn_rt {
+    background-position: -110px 0;
+}
+.gal_btn_scrl .gal_btn_ct {
+    background-position: -55px 0;
+}
+
+/* .gal_btn_scrl:hover .gal_btn_lt {
+    background-position: 0 -16px;
+}
+.gal_btn_scrl:hover .gal_btn_rt {
+    background-position: -26px -16px;
+}
+.gal_btn_scrl:hover .gal_btn_ct {
+    background-position: -11px -16px;
+}
+*/
+.gal_btn_scrl .gal_btn_bd span {
+    background: url(images/scroll_handle.png) repeat-x 0 -24px;
+}
+
+/* .gal_btn_scrl:hover .gal_btn_bd span {
+    background-position: 0 -48px;
+}
+*/
+.gal_btn_pphoto, .gal_btn_nphoto {
+    display: block;
+    width: 50px;
+    height: 80px;
+    outline: none;
+    filter: alpha(Opacity=40);
+    opacity: .4;
+    background-color: #000;
+}
+.gal_btn_pphoto {
+    background-position: -16px -1712px;
+}
+.gal_btn_pphoto:hover {
+    background-position: -13px -1630px;
+    filter: alpha(Opacity=100);
+    opacity: 1;
+}
+.gal_btn_nphoto {
+    background-position: -18px -1556px;
+}
+.gal_btn_nphoto:hover {
+    background-position: -16px -1473px;
+    filter: alpha(Opacity=100);
+    opacity: 1;
+}
+.gal_gallery .gal_c_lh {
+    color: #db1b1c;
+    font-size: 30px;
+    font-style: italic!important;
+}
+.gal_photo_view {
+    height: 640px;
+}
+.gallery .gallery_infos {
+    top: 560px;
+    left: 0;
+    width: 100%;
+}
+.gallery .gallery_infos .gallery_overlay {
+    background-color: #000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    filter: alpha(Opacity=60);
+    opacity: .6;
+    z-index: 1;
+    margin-top:-30px;
+}
+.gallery .gallery_infos .title_panel {
+    margin-top: 20px;
+}
+.gallery .gallery_infos .title_panel,.gallery .gallery_infos .desc_panel {
+    z-index: 5;
+    margin-left: 80px;
+}
+.gallery .gallery_infos .desc_panel {
+    margin-left: 170px;
+    margin-right: 74px;
+    margin-top: -15px;
+    font-size: 14px;
+}
+.ie6 .gallery .gallery_infos .desc_panel,.ie7 .gallery .gallery_infos .desc_panel {
+    width: 616px;
+}
+.gallery .gallery_infos .desc_panel p {
+    line-height: 26px;
+    color: #fff;
+    height: 104px;
+    overflow: hidden;
+}
+.gallery .gallery_infos .autobtn {
+    left: 19px;
+    top: 19px;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+}
+.gallery .gallery_infos .stop {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-position: -19px -1052px;
+}
+.gallery .gallery_infos .stop:hover {
+    background-position: -19px -1132px;
+}
+.gallery .gallery_infos .play {
+    background-position: -19px -452px;
+}
+.gallery .gallery_infos .play:hover {
+    background-position: -19px -527px;
+}
+.gallery .gallery_infos .viewallbtn {
+    right: 20px;
+    top: 19px;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+}
+.gallery .gallery_infos .view {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-position: -19px -302px;
+}
+.gallery .gallery_infos .view:hover {
+    background-position: -19px -374px;
+}
+
+.gallery_wrap {
+    padding: 20px;
+    padding-bottom: 0;
+}
+.gallery_wrap .gallery_warp_border {
+    border:1px solid #ddd;
+    width: 998px;
+    height: 755px;
+    left: 0;
+    top: 0;
+}
+.gallery_wrap .allpictures {
+    width: 100%;
+    background-color: #fff;
+}
+.gallery_wrap .waterfull {
+    margin-left: 0;
+}
+.gallery_wrap .goback {
+    z-index: 6;
+    bottom: 10px;
+}
+.gallery_wrap .goback .button1 {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+.gallery_wrap .goback .button1:hover {
+    color: #fff!important;
+}
+
+/*推荐组图*/
+.gallery_rec .rec_list {
+    width: 480px;
+    margin-left: 10px;
+}
+.gallery_rec .rec_list .item {
+    margin-right: 18px;
+}
+.gallery_rec .ngal_list .rev,.gallery_rec .ngal_list .goc {
+    margin-left: 80px;
+}
+.gallery_rec .ngal_list .rev a ,.gallery_rec .ngal_list .goc a {
+    font-size: 14px;
+    color: #444;
+    display: block;
+    padding-left: 25px;
+}
+.gallery_rec .ngal_list .rev a {
+    background-position: -12px -775px; 
+}
+.gallery_rec .ngal_list .rev a:hover {
+    background-position: -11px -736px; 
+}
+.gallery_rec .ngal_list .goc a {
+    background-position: -12px -267px; 
+}
+.gallery_rec .ngal_list .goc a:hover {
+    background-position: -12px -221px; 
+}
+.gallery_rec .ngal_list .ngal_inner {
+    padding-left: 20px;
+}
+.gallery_rec .ngal_list .ngal_inner h2 {
+    width: 20px;
+    line-height: 22px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.gallery_rec .ngal_list .ngal_inner .ngal_img {
+    width: 140px;
+    margin-left: 20px;
+}
+.gallery_rec .ngal_list .ngal_inner .ngal_ar {
+    width: 40px;
+    height: 40px;
+    background-position: -35px -1815px;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+/*全屏页*/
+.gal-full-aside {
+    min-height: 760px;
+}
+.gal-full-aside .article-describe {
+    border-left:none;
+}
+.gal-full-aside .article-describe p {
+    margin-left: 0;
+}
+.gal-full-aside .gal-full-info {
+    bottom: 0;
+    right: 0;
+}
+.gal-full-aside .gal-full-info .article-content-disilicide {
+    top:auto;
+    bottom: 140px;
+    left: 0;
+    right: auto;
+}
+.gallery-full {
+    border: 1px solid #eee;
+    position: absolute;
+}
+.gallery-full .gallery-full-div{
+    margin: 0 25px;
+}
+.gallery-full .gallery_wrap {
+    padding: 0;
+}
+
+
+/*dialog 样式*/
+.ui-popup .ui-gallery {
+    border:none;
+}
+
+/*更多图片样式*/
+.waterfull .item {
+    border: 1px solid #eee;
+}
+.waterfull .item p {
+    color: #444;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 6px 8px;
+}
+
+
+
+
+
+
+

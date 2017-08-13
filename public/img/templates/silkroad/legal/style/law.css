@@ -1,0 +1,56 @@
+﻿/*丝路法律法规样式*/
+
+html { background-color: #666666;}
+
+.index-header { height: 465px;}
+
+.law-container { background: none; padding-top: 20px;}
+.law-container .menu { width: 247px; background: #FFFFFF; padding-bottom: 100px;}
+.law-container .menu ul li { line-height: 52px; border-bottom: 1px solid #E7E6E3;}
+.law-container .menu ul li i.icon { display: inline-block; width: 20px; height: 20px; background: url("../images/law-icon.png") 4px 0 no-repeat; position: relative; top: 17px; margin-right: 10px;}
+.law-container .menu ul li dl { display: none;}
+.law-container .menu ul li.on dl { display: block;}
+.law-container .menu ul li.on i.icon { background-position: -40px 0;}
+.law-container .menu ul li a { color: #545450; display: block; padding-left: 10px;}
+.law-container .menu ul li dl { line-height: 30px; background: #F4F4F2;}
+.law-container .menu ul li dl dd a:hover , .law-container .menu ul li dl dd.on a { background: #338DCC; color: #FFFFFF;}
+
+.law-container .con { width: 730px;}
+.law-container .con .con-top { padding-top: 10px; background: #FFFFFF;}
+.law-container .con .con-top .nowtit { color: #666460; height: 50px; line-height: 50px; border-bottom: 2px solid #E0DDD9; margin-bottom: 20px;}
+.law-container .con .con-top .nowtit span { position: relative; padding: 0 30px;}
+.law-container .con .con-top .nowtit span .hr { position: absolute; width: 100%; height: 2px; background: #E20000; left: 0; bottom: -9px;}
+.law-container .con .con-top .list { width: 626px;}
+.law-container .con .con-top .contop-list { margin-bottom: 30px;}
+.law-container .con .con-top .contop-list .tit { width:100px; text-align: center; color: #65635F;}
+.law-container .con .con-top .list a { display: inline-block; color: #0086C7; margin-right: 10px; margin-bottom: 15px;}
+.law-container .con .con-top .list a.on{ color: #E20000;}
+.law-container .con .con-list { padding: 10px 20px; margin-top: 10px; background: #FFFFFF;}
+.law-container .con .con-list h1 { font-weight: normal; color: #0078C1; margin: 15px 0 10px;}
+.law-container .con .con-list h1 a { color: #0078C1;}
+.law-container .con .con-list ul li { border-bottom: 1px dashed #DFDCD8; padding-bottom: 20px;}
+.law-container .con .con-list .dec { margin: 5px 0; color: #A39F99; word-break: break-all; margin-bottom: 10px; line-height: 1.4; margin-top: 0;}
+.law-container .con .con-list .data { color: #6D6B66;}
+
+.pagination { text-align: center; margin: 50px 0;}
+.pagination a { background-color: #eee; color: #666;}
+.pagination a[href]:hover { background-color: #5e5e5e; color: #fff !important;}
+.pagination a.current , .pagination a.now { color: #fff; background-color: #4e4e4e;}
+.pagination span.current , .pagination span.now { color: #fff; background-color: #4e4e4e;}
+.pagination .disable { color: #c0c0c0;}
+.pagination a.disable:hover { background-color: #eee; color: #c0c0c0;}
+.pagination a { font-size: 14px; height: 30px; line-height: 30px; padding: 7px 10px; margin-right: 2px;}
+.pagination a { margin: 0 3px;}
+.pagination span { font-size: 14px; height: 30px; line-height: 30px; padding: 10px 10px; margin-right: 2px;}
+
+.index-footer { background: none; margin: 0; padding: 100px 0 50px;}
+
+.law-detail-container { background: #EBE9E7; padding-top: 20px;}
+.law-detail-container .detailcon { padding: 0 100px; background: #FFFFFF; padding-bottom: 80px;}
+.law-detail-container .detailcon h1 { font-weight: normal; color: #0078C1; line-height: 1.5; padding-top: 40px; margin-top: 0;}
+.law-detail-container .detailcon .data { color: #666460; margin: 5px 0 10px;}
+.law-detail-container .detailcon .dec { color: #9A9690; line-height: 1.3;}
+.law-detail-container .detailcon .opt { margin-bottom: 10px;}
+.law-detail-container .detailcon .opt a { color: #666460;}
+.law-detail-container .opt i.icon { background: url("../images/law-icon.png") 0 -44px no-repeat; width: 14px; height: 16px; display: inline-block;}
+.law-detail-container .detailcon .detail { line-height: 1.4; margin-top: 20px;}

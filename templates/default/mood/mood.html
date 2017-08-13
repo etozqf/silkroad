@@ -1,0 +1,14 @@
+<ul class="ov">
+<!--{db sql="select * from #table_mood where 1 order by sort"}-->
+	<li class="item" id="m_{$r['moodid']}">
+		<div class="progress" title="0"><div class="per bdper" style="height:0%;"></div></div>
+		<span>{$r['name']}</span>
+		<div class="mood-ico">
+			<a href="javascript:mood.set({$r['moodid']});">
+				<img src="{IMG_URL}apps/mood/{$r['image']}" class="imgnumber" alt="{$r['name']}" width="40" height="40" >
+			</a>
+		</div>
+	</li>
+<!--{/db}-->
+</ul>
+

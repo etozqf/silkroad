@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$sitename[0]} _ 专栏j</title>
+
+<meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zk-common.css">
+<style type="text/css">
+    .news p{height:42px;}
+    body {background:none !important;}
+</style>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script>
+	catname_top = '咨询';	// 顶级栏目名称
+	catname = '{$space['name']}';
+</script>
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<div class="column ov">
+    <!--左侧-->
+    <div class="bor-rb col-l-main ov m_t20 ">
+        <div class="bor-trbl ov h-1280">
+            <div class="b-tit-box m_t10">
+                <h3 class="b-h3"><a href="" style="font-size: 24px;">{$space['name']}</a></h3>
+            </div>
+            <div class="n_ind_contmain">
+                <div class="news" style="display:block">
+                    <ul>
+                        <!--{loop $result $k $r}-->
+                        <li>
+                        <!--{if $r['thumb']}-->
+                        <img src="{thumb($r[thumb],133,100,1,null,0)}" alt="">
+                        <!--{/if}-->
+                            <h2><a href="{$r[url]}">{$r[title]}</a></h2>
+                            <p>{str_natcut(description($r['contentid']),66,'...')}</p>
+                            <div class="info"><i><!--{if $r[sourceid]}--><a href="javascript:;">{table('source',$r[sourceid],'name')}</a><!--{/if}--></i><span class="time">{date('Y-m-d',$r[published])}<b>{date('H:i',$r[published])}</b></span><span class="fav" contentid="{$r[contentid]}">收藏</span></div>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                    <div class="page">
+                        <tr>
+                        <!--{space_pages($total, $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                        </tr>
+                        <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧-->
+    <div class="bor-rb col-r-main ov m_t20">
+        <div class="bor-trbl ov h-1280">
+            <!--智库简介-->
+            <div class="zkjj">
+                <div class="b-tit-box m_t10">
+                    <h3 class="b-h3"><a href="javascript:;">智库简介</a></h3>
+                </div>
+                <div class="pad-10">
+                    <div class="news01">
+                        <h3><a href="javascript:;">{$space[name]}</a></h3>
+                    </div>
+                    <a href="" target="_blank"><img src="{thumb($space[photo],230,230,1,null,0)}"width="230" height="230" alt=""/></a>
+                    {$space['description']}
+                </div>
+            </div>
+            <!--智库活动-->
+            <!--#include virtual="/section/368.html"--><!--# 智库频道 智库活动 #-->
+        </div>
+    </div>
+</div>
+<!--{template 'system/foot_zn.html'}-->
+<script type="text/javascript">
+    $(function(){
+
+        var memberid = $.cookie(COOKIE_PRE+'userid');
+        $.getJSON(
+                '{APP_URL}?app=member&controller=index&action=ajax_article_collect&jsoncallback=?&memberid='+memberid+'&typeid=0',
+                    function(data){
+                        $('.fav').each(function(){
+                        var contentid = $(this).attr('contentid');
+                            for(var i in data){ 
+                                    if(parseInt(data[i])==contentid){
+                                         $(this).attr('class','fav on');
+                                         $(this).text("取消收藏");
+                                    }
+                                }
+                            })
+                        }
+        );
+    $(".news li .fav").click(function(){
+        var fav = $(this).attr('class');
+        var contentid = $(this).attr('contentid');
+        $(this).toggleClass("on");
+        var res = $(this).hasClass("on");
+        if(!res){
+            //ajax请求服务器取消收藏
+            $.getJSON(
+                APP_URL+'?app=member&controller=index&action=ajax_not_collect&jsoncallback=?&contentid='+contentid+'&memberid='+memberid+'&typeid=0',
+                    function(data){
+                               if(data.status!='success')
+                               {
+                                      alert('取消失败');
+                                      return false;
+                               }
+                        }
+                    );
+            $(this).text("收藏");
+            }else{
+            //ajax请求服务器完成收藏
+            $.getJSON(
+                    APP_URL+'?app=member&controller=index&action=ajax_collect&jsoncallback=?&contentid='+contentid+'&memberid='+memberid+'&status=0',
+                    function(data){
+                        console.log(data);
+                               if(data.status!='success')
+                               {
+                                      alert('收藏失败');
+                                      return false;
+                               }
+                        }
+                    );
+            $(this).text("取消收藏");
+        }
+    });
+});
+</script>
+</body>
+</html>

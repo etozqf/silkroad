@@ -1,0 +1,35 @@
+.weibo-search-condition {margin: 0 10px;}
+.weibo-search-container {width: 736px; height: 410px;}
+.weibo-search-box {margin-bottom: 4px;}
+.weibo-search-list {margin:10px; width: 340px; height: 390px; overflow-y:scroll; overflow-x:hidden; border: 1px #CCC solid; float: right;}
+.weibo-search-list tr:hover {background:#EFEFFF;}
+.weibo-search-list td {padding: 2px;}
+.weibo-search-head {width: 40px; height: 40px; margin: 8px; border: 1px #ccc solid; float: left;}
+.weibo-search-panel {float: left; width: 232px;}
+.weibo-search-info {height: 20px; line-height: 20px;}
+.weibo-search-name {color: #006A92; display: inline-block; font-weight: bold; float: left;}
+.weibo-search-time {color: #ccc; float: right;}
+.weibo-search-image {border: 1px #EAEAEA solid;}
+.weibo-search-ico-tencent {background: url('images/weibo/tencent.png'); display: none; float: left;}
+.weibo-search-ico-sina {background: url('images/weibo/sina.png'); display: inline-block; float: left;}
+.weibo-search-tencent-vip-0 {width: 16px; height: 16px; background-position: -36px -126px; display: inline-block; vertical-align: middle;}
+.weibo-search-tencent-vip-1 {width: 16px; height: 16px; background-position: 0 -126px; display: inline-block; vertical-align: middle;}
+.weibo-search-sina-vip-0 {width: 14px; height: 12px; background-position: -75px -125px; display: inline-block; vertical-align: -1px;}
+.weibo-search-sina-vip-1 {width: 14px; height: 12px; background-position: -75px -150px; display: inline-block; vertical-align: -1px;}
+.weibo-search-right-arrow {width: 12px; height: 16px; background: url('images/right_arrow.png'); float: right; position: relative; top: 180px;}
+.weibo-search-submit {margin-left:10px; float: right;}
+.weibo-search-bg {background: #F3F8FB; padding: 6px 12px; width: 714px; height: 20px;}
+.weibo-search-prev_user, .weibo-search-next_user {padding: 0px 8px 4px; float: right;}
+.weibo-search-keyword {position: relative; top: 1px; *margin-top: 4px; *top: 4px;}
+.weibo-getuser {position: absolute; left: 60px; top: 44px; border: 1px solid #ADADAD; color: #333333; background: #FFFFFF; min-width: 212px; +width: 212px;}
+.weibo-getuser p {padding: 3px 7px;}
+.weibo-getuser-info {padding-top: 10px; white-space: nowrap;}
+.weibo-getuser-keyword {color: #609ADB; padding: 3px 7px;}
+.weibo-getuser-name {color: #999999; display: block; overflow: hidden;}
+.weibo-getuser-name .weibo-getuser-namestring {color: #000000;}
+.weibo-getuser-list li {cursor: pointer; padding: 2px 8px 2px 15px; line-height: 20px; overflow: hidden;}
+.weibo-getuser-list li:hover { background: #609ADB; color: #FFFFFF;}
+.weibo-getuser-list li:hover .weibo-getuser-name {color: #FFF;}
+
+.button_style_1 {*margin-top: -1px;}
+.selectlist {*margin-top: -1px;}

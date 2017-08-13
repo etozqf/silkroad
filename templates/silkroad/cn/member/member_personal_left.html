@@ -1,0 +1,22 @@
+<div class="member-left w160 fl-l">
+    <div class="inner border1">
+        <ul class="member-aside">
+            <li rel="profile"><a href="{url('member/panelcn/profile')}" title="personal profile" class="align-c" style="padding-left:10px">Personal Info</a></li>
+            <li rel="avatar"><a href="{url('member/panelcn/avatar')}" title="Modify Avatar" class="align-c">Change Photo</a></li>
+            <li rel="password"><a href="{url('member/panelcn/password')}" title="Modify password" class="align-c">Change Password</a></li>
+            <li rel="email"><a href="{url('member/panelcn/email')}" title="Modify Email" class="align-c">Change Email</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'profile';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

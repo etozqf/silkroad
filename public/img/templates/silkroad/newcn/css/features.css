@@ -1,0 +1,24 @@
+.tit-box,.data-box{width: 100%; overflow: hidden;}
+.mar-t-2{margin-top: 2px;}
+.tit-box li{float: left;_display: inline; font-size: 18px; border-bottom: 2px solid #fff;
+        line-height: 36px;cursor: pointer;color: #333;font-weight: bold; }
+.tit-box li.active a{border-bottom: 2px solid #c81623;color: #006e97}
+.txt-box{float: left; width:525px;height: 80px; overflow: hidden; margin-left: 17px;}
+.data-box .data-ul li h3{width: 100%; height: 30px; line-height: 30px; font-size: 16px; overflow: hidden;}
+.data-box .data-ul li h3 a{color: #333;}
+.data-box .data-ul li span{ font-size: 14px; color: #666;}
+.data-box .data-ul li{float: left; width: 100%; margin-top: 12px; border-bottom: 1px solid #e5e5e5; padding-bottom: 12px;}
+.tit-box span{float: left; line-height: 32px; font-size: 20px; font-weight: normal;  margin-left:15px; margin-right: 15px; _display: inline;}
+.tit-box li.shu{margin-left:13px; margin-right: 13px; color: #B4B4B4; }
+.tit-box li a{color:#333; text-decoration: none;}
+.pagemod{width: 650px;height: 32px;line-height: 32px;font-family: "Arial"; overflow: hidden; margin:30px auto 10px; text-align: center;}
+.pagemod ul{height: 32px; display: inline-block}
+.pagemod ul li{float: left;font-size: 14px;margin-right: 5px;color:#0079c6;}
+.pagemod ul li a{color:#006e97;display: block;text-align: center;}
+.pagemod ul li a.prev, .pagemod ul li a.pre{padding: 0 10px;text-decoration: none; width:auto;}
+.pagemod ul li a, .pagemod ul li a.first, .pagemod ul li a.end{border: 1px solid #ebebeb;width: 30px; height: 30px;text-decoration: none}
+.pagemod ul li a.on,.pagemod ul li a.red{background: #c81623;color: #fff;width: 32px; height: 32px;border: none;}
+.pagemod ul li a.next{float: left; padding: 0;border: 1px solid #ebebeb;height: 30px;text-decoration: none}
+.pagemod ul li em{color: #c81623;margin-right: 3px;}
+.pagemod ul li a:hover, .pagemod ul li a.first:hover, .pagemod ul li a.end:hover{background: #c81623;color: #fff;}
+.data-ul{overflow:hidden;}

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>应用推荐</title>
+    <link rel="stylesheet" type="text/css" href="{MOBILE_URL}templates/{TEMPLATE}/app/css/about.css" />
+</head>
+<body class="ipad">
+<section class="ui-wrap">
+    <ul class="ui-list">
+        <!--{loop $list $k $r}-->
+        <li class="ui-item">
+            <div class="ui-ico"><img src="{thumb($r['iconurl'], 148, 148, 1)}" class="ui-recommend-icons" alt="{$r['name']}"></div>
+            <h2 class="ui-name">{str_natcut($r['name'], 20, '')}</h2>
+            <p class="ui-summary">{str_natcut($r['description'], 58, '')}</p>
+            <div class="ui-download"><a href="{$r['url']}" class="ui-linkappstore"></a></div>
+        </li>
+        <!--{/loop}-->
+    </ul>
+</section>
+</body>
+<script type="text/javascript">
+    var jumpFlag = false;
+    window.onload = function(){
+        var list = document.querySelectorAll('.ui-item');
+        for (var i=0,l=list.length,item; i<l; i++) {
+            item = list[i];
+            item.onmousedown = function(event) {
+                if (!jumpFlag) {
+                    event.stopPropagation()
+                }
+                jumpFlag = true;
+                var _this = this;
+                setTimeout(function(){
+                    _this.querySelector('a').click();
+                }, 10);
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,32 @@
+/*reports*/
+.w-275{width: 275px; }
+.w-535{width: 535px;}
+.jiao{width: 5px; height: 7px; float: left; background: url("images/jiao.png") no-repeat; margin-top: 8px; margin-right: 6px;}
+.reports .img-l{width: 110px; float: left;}
+.reports .a-h3{width:100%; height: 24px; line-height: 24px; font-size: 12px; }
+.reports .a-h3 a{color: #333;}
+.summary-r{float: left; margin-left: 12px;}
+.summary-r h3{width: 100%; font-size:16px; line-height: 24px; font-weight: bold; }
+.summary-r h3 a{color: #006e97;}
+.summary-r span{font-size: 14px; color: #666;}
+.summary-r p,.team li p{width: 100%; line-height: 21px; font-size: 14px; color: #333; }
+.team li p{color: #666}
+.summary-r p a{color: #333; font-size: 14px;}
+.reports li{width: 100%; overflow: hidden; float: left; padding-bottom: 18px; border-bottom: 1px dashed #e5e5e5; margin-top: 18px;}
+.reports .r-list li{padding-bottom: 13px;margin-top: 20px;}
+/*标题*/
+.mod-tit2{width: 100%; border-bottom: 1px solid #ccc;text-align: center; font-size: 18px; font-weight: bold; color: #333;line-height: 26px;}
+.mod-tit2 a{color: #333;}
+.mod-tit2 a:hover{text-decoration: none;}
+/*OUR RESEARCH TEAM*/
+.team li{width: 100%; overflow: hidden; float: left; margin-top: 22px; margin-bottom: 12px;}
+.team li h3{width: 100%; font-size: 16px;font-weight: bold}
+/*Customized Reports*/
+.blue-reports{width: 253px; height: 376px; border: 1px solid #006e97; overflow: hidden;text-align:justify;}
+.blue-reports h3{width: 100%; height:40px; font-size: 18px; line-height: 40px; color: #fff; background: #006e97; text-align: center;  font-weight: bold;}
+.blue-reports p.t-p{ padding-top: 0px;}
+.blue-reports p{padding: 12px 9px 0 6px; font-size: 14px; line-height: 21px;color: #333}
+.r-all{font-size: 14px; color: #006e97; text-align: center; float:right; line-height: 36px;}
+/*OUR PARTNERS*/
+.partner li{width: 100%; float: left; line-height: 28px; font-size: 18px; font-weight: bold; margin-top: 22px; margin-bottom: 8px;}
+.partner li a{color: #006e97;}

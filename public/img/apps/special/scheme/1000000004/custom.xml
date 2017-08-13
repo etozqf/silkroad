@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+  <define>
+    <page><![CDATA[yellow-a]]></page>
+    <title><![CDATA[yellow-a]]></title>
+    <widget><![CDATA[yellow-a]]></widget>
+    <content>
+      <code><![CDATA[chinese-wind-a]]></code>
+      <title><![CDATA[gray-c]]></title>
+      <menu><![CDATA[red-a]]></menu>
+    </content>
+  </define>
+  <name><![CDATA[自定义]]></name>
+</theme>

@@ -1,0 +1,14 @@
+/*
+ @name 浅蓝底
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-blue-b {
+	overflow: hidden;
+	background:#E1EEFF url("images/bg.png") no-repeat 0 0;
+	height:30px;
+	line-height:30px;	
+	padding-left:20px;
+}
+.title-blue-b,
+.title-blue-b span{color:#369;font-size:14px;
+	font-weight:bold;}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>{$content[title]}</title>
+
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-slider.css" />
+
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+<!--{if value($content, 'thumb')}-->
+<img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+<!--{/if}-->
+<div class="ui-container">
+    <section class="">
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">{$content[title]}</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+        <!--{template 'mobile/touch/_blocks/nav.html'}-->
+        <!--{if $content['activity']['bgimg']}-->
+        <div class="ui-activity-banner">
+            <?php $image_config = app_config('mobile', 'activity.image'); ?>
+            <img src="{thumb($content['activity']['bgimg'], $image_config[width], $image_config[height])}" alt="">
+        </div>
+        <!--{/if}-->
+
+        <div class="ui-activity-signup">
+            <?php $starttime = $content[activity][starttime] ? strtotime($content[activity][starttime]) : 0; ?>
+            <?php $endtime = $content[activity][endtime] ? strtotime($content[activity][endtime]) : 0; ?>
+            <?php $signstart = $content[activity][signstart] ? strtotime($content[activity][signstart]) : 0; ?>
+            <?php $signend = $content[activity][signend] ? strtotime($content[activity][signend]) : 0; ?>
+            <ul>
+            <!--{if $signstart && $signend}-->
+            <li>报名：{date('Y-m-d', $signstart)}~{date('Y-m-d', $signend)}</li>
+            <!--{elseif $signstart}-->
+            <li>报名：{date('Y-m-d', $signstart)}开始</li>
+            <!--{elseif $signend}-->
+            <li>报名：{date('Y-m-d', $signend)}截止</li>
+            <!--{/if}-->
+            <!--{if $starttime && $endtime}-->
+            <li>活动：{date('Y-m-d', $starttime)}~{date('Y-m-d', $endtime)}</li>
+            <!--{elseif $starttime}-->
+            <li>活动：{date('Y-m-d', $starttime)}开始</li>
+            <!--{elseif $endtime}-->
+            <li>活动：{date('Y-m-d', $endtime)}截止</li>
+            <!--{/if}-->
+            <!--{if $content[activity][type]}--><li>类型：{$content[activity][type]}</li><!--{/if}-->
+            <!--{if $content[activity][address]}-->
+                <li>地点：{$content[activity][address]} <!--{if $content[activity][point]}-->
+            <a href="{$content[url]}/map">查看地图</a>
+            <!--{/if}--></li>
+            <!--{/if}-->
+            <!--{if $content['activity']['maxpersons']}-->
+                <li>名额：{$content['activity']['maxpersons']}人 <!--{if $content['activity']['total']}-->(已有{$content['activity']['total']}人报名)<!--{/if}--></li><!--{/if}-->
+                <!--{if $content['activity']['gender']}-->
+                <li style="color:red;">仅限{if $content['activity']['gender']==1}男{else}女{/if}性</li>
+                <!--{/if}-->
+            </ul>
+            <!--{if !$endtime || $endtime > TIME}-->
+            <a href="{$content[url]}/signup" class="ui-signup-container">
+                <div>我要报名</div>
+            </a>
+            <!--{/if}-->
+        </div>
+        <section>
+            <div class="ui-activity-bar">
+                <h2>活动简介</h2>
+            </div>
+            <div class="ui-activity-intro">
+                {$content[activity][content]}
+            </div>
+        </section>
+    </section>
+</div>
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<script>
+    $(function() {
+        // 底部栏目选择
+        var bb = $('.js-menubtn-bottom');
+        bb.click(function() {
+            $('.js-categorys-bottom').toggleClass('js-hidden');
+            setTimeout(function() {
+                document.body.scrollTop = document.body.clientHeight;
+            }, 50);
+        });
+        limitMaxWidth($('.ui-activity-banner'), 640);
+    });
+</script>
+</body>
+</html>

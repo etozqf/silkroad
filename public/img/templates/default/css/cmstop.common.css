@@ -1,0 +1,809 @@
+/*reset.css*/
+html, 
+body, 
+div, 
+form, 
+p, 
+a, 
+h1, h2, h3, h4, h5, h6, 
+img, 
+table, td, th, 
+input, span, 
+section, header, footer, nav, article, aside, fieldset, 
+textarea, dl, dt, dd, blockquote, 
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover {
+    color: #06c!important;
+}
+img {
+    border: none;
+}
+body {
+    font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei";
+    font-size: 16px;
+}
+li,ol,ul {
+    list-style:none;
+}
+em {
+    font-style: normal;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+.hidden {
+    display: none;
+}
+.input{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border:1px solid #d2d2d2;
+    box-shadow: inset 0px 1px 5px #ddd;
+}
+
+.input-text {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 220px;
+}
+.ov {
+    overflow: hidden;
+    zoom:1;
+}
+.fl-r {
+    float: right;
+}
+
+.fl-l {
+    float: left;
+}
+.ie6 .fl-l {
+    float: left;
+    display: inline;
+}
+.pos-r {
+    position: relative;
+}
+.pos-a {
+    position: absolute;
+}
+.margin10 {
+    margin: 10px;
+}
+.margin-b-20 {
+    margin-bottom: 20px;
+}
+.margin-r-20 {
+    margin-right: 20px;
+}
+.margin-l-20 {
+    margin-left: 20px;
+}
+.hr10 {
+    height: 10px;
+}
+.hr15 {
+    height: 15px;
+}
+.hr20 {
+    height: 20px;
+}
+.hr30 {
+    height: 30px;
+}
+.hr40 {
+    height: 40px;
+}
+.clear {
+    clear: both;
+}
+
+.button1 {
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 16px;
+    display: inline-block;
+}
+.load-button {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+}
+.align-c {
+    text-align: center;
+}
+.align-r {
+    text-align: right;
+}
+.fz14 {
+    font-size: 14px;
+}
+.fz16 {
+    font-size: 16px;
+}
+.cor444 {
+    color: #444;
+}
+.b {
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+/*base*/
+.column {
+    width: 1000px;
+    margin: 0 auto;
+}
+.w650 {
+    width: 650px;
+}
+.w660 {
+    width: 660px;
+}
+.w300 {
+    width: 300px;
+}
+.ad1000x80 {
+    width: 1000px;
+    height: 80px;
+}
+.ad300x240 {
+    width: 300px;
+    height: 240px;
+}
+.ad660x80 {
+    width: 660px;
+    height: 80px;
+}
+.ad300x90 {
+    width: 300px;
+    height: 90px;
+}
+.ad300x80 {
+    width: 300px;
+    height: 80px;
+}
+.ad1 {
+    background-color: #eee;
+}
+.hline {
+    overflow: hidden;
+    zoom:1;
+    height: 1px;
+}
+.hlinedotted {
+    overflow: hidden;
+    zoom:1;
+    height: 0px;
+}
+/*面包屑*/
+.m-crumb {
+    overflow: hidden;
+    zoom:1;
+}
+.m-crumb a {
+    font-size: 12px;
+    float: left;
+    height: 20px;
+}
+.m-crumb em {
+    background-position: -10px -1054px;
+    float: left;
+    width: 25px;
+    height: 20px;
+}
+
+/*分页*/
+.pagination {
+    
+}
+.pagination a {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 10px 10px;
+    margin-right: 2px;
+}
+.pagination span {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 10px 10px;
+    margin-right: 2px;
+}
+
+/*标题*/
+.m-title-a {
+    height: 28px;
+    padding-bottom: 5px;
+    position: relative;
+}
+.m-title-a .m-title-h2 {
+    font-weight: normal;
+    font-size: 18px;
+    height: 33px;
+    position: absolute;
+    left: 0px;
+}
+.m-title-b {
+    height: 39px;
+}
+.m-title-b .name {
+    font-size: 18px;
+    margin: 10px 15px auto 10px;
+    padding-left: 8px;
+    font-weight: normal;
+    line-height: 20px;
+}
+.m-title-b .summary {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+/*手风琴*/
+.m-accordion {
+    padding-top: 10px;
+}
+.m-accordion-item {
+    margin-bottom: 4px;
+}
+.m-accordion .thumb {
+    margin-right: 10px;
+}
+.m-accordion-thumb {
+    padding-bottom: 8px;
+    padding-top: 10px;
+}
+.ie7 .m-accordion-thumb {
+    padding-top: 0px;
+}
+.m-accordion-item .title {
+    font-size: 14px;
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 10px;
+}
+.m-accordion-item p {
+    padding-top: 8px;
+}
+.m-accordion-item p a {
+    font-size: 14px;
+}
+
+/*模块：图片标题*/
+.m-imagetitle {
+    overflow: hidden;
+    zoom:1;
+}
+.m-imagetitle .item {
+    float: left;
+    width: 142px;
+    /*padding: 20px 0 0 0;*/
+    position: relative;
+}
+.m-imagetitle .item .title {
+    font-size: 12px;
+    height: 46px;
+    display: block;
+    padding-top: 4px;
+}
+
+.m-imagetitle .item.odd {
+    padding-right: 16px;
+}
+.m-imagetitle .item .time {
+    position: absolute;
+    right: 2px;
+    top: 75px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    z-index: 20;
+    font-size: 12px;
+}
+.m-imagetitle .item.odd .time {
+    right: 18px;
+}
+.m-imagetitle .item .thumb-link ,.m-imagetitle .item .thumbbox{
+    width: 140px;
+    height: 105px;
+    display: block;
+}
+.m-imagetitle .overlay {
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    display: none;
+}
+.m-imagetitle .overlay .overlay-play {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+/*模块：图片描述*/
+.m-imagetext {
+    position: relative;
+    height: 105px;
+}
+.notdes {
+    height: 25px;
+}
+.m-imagetext .thumblink {
+    float: left;
+    margin-right: 20px;
+}
+.m-imagetext .describe {
+    font-size: 14px;
+    line-height: 26px;
+}
+.m-imagetext .time {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+}
+
+/*头部 - 导航链接*/
+.m-header {
+    height: 39px;
+}
+.m-header .m-inner {
+    
+}
+.m-header-nav-list {
+    
+}
+.m-header-nav-list li {
+    display: inline;
+}
+.m-header-nav-list a {
+    font-size: 12px;
+    line-height: 39px;
+    margin-left: 20px;
+}
+
+/*头部 - 搜索、登陆等模块*/
+.m-header-smallmodle {
+    top: 0;
+    right: 10px;
+}
+.m-header-search,.m-header-history,.m-header-rss,.m-header-msg {
+    width:24px;
+    height: 25px;
+    margin-left: 7px;
+    margin-top: 10px;
+}
+.m-header-search {
+    
+}
+.m-header-history {
+    
+}
+.m-header-history:focus {
+    outline: none;
+}
+.m-header-rss {
+    
+}
+.m-header-user {
+    margin: 10px 10px 0 10px;
+}
+.m-header-user a {
+    font-size: 12px;
+}
+.m-header-user a:focus {
+    outline: none;
+}
+.m-header-user em {
+    font-size: 12px;
+}
+.header-search-input {
+    margin-top: 10px;
+    border: 1px solid #0091e5;
+    border-radius: 4px;
+    margin-left: 5px;
+    height:22px;
+}
+.header-search-input .divicon {
+    background-position: -10px -1003px;
+    width: 22px;
+    height: 22px;
+}
+.header-search-input .searinput {
+    border:1px solid #fff;
+    padding: 0 3px;
+    font-size: 12px;
+    color: #000;
+    height: 20px;
+    width: 108px;
+    -webkit-transition: width 0.35s linear;
+    -moz-transition: width 0.35s linear;
+   transition: width 0.35s linear;
+}
+.header-search-input .w260 {
+    width: 260px;
+}
+.ie6 .header-search-input {
+    width: 80px;
+    position: relative;
+}
+.ie6 .header-search-input .searinput {
+    width: 116px;
+    height: 22px;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.ie8 .header-search-input .searinput {
+    height: 16px;
+}
+.header-index .logotext{
+    color: #333;
+    font-size: 14px;
+    line-height: 40px;
+}
+.m-header-msg {
+    background-position: -7px -1669px;
+}
+/*首页顶部*/
+.header-index .m-header-history,.header-index .m-header-tweibo,.header-index .m-header-sinaweibo {
+    margin-top: 0;
+    margin-left: 0;
+    border-right: 1px solid #e5e5e5;
+    height: 40px;
+    width: 40px;
+    background-position: -2px -121px;
+}
+.header-index .m-header-history:hover {
+    background-color: #0091e5;
+    background-position: -2px -164px;
+}
+.header-index .m-header-tweibo {
+    background-position: 1px -1710px;
+}
+.header-index .m-header-sinaweibo {
+    background-position: 1px -1614px;
+    border-left: 1px solid #e5e5e5;
+}
+.header-index .m-header-tweibo:hover {
+    background-position: 1px -1814px;
+    background-color: #45b1cd;
+}
+.header-index .m-header-sinaweibo:hover {
+    background-position: 1px -1756px;
+    background-color: #e84f4f;
+}
+
+
+/*底部*/
+.m-footer {
+    height: 86px;
+}
+.m-footer-nav {
+    text-align: center;
+    padding-top: 16px;
+}
+.m-footer-nav a,.m-footer-nav em {
+    font-size: 12px;
+    padding-right: 5px;
+}
+.m-footer .copyright {
+    font-size: 12px;
+    text-align: center;
+    line-height: 3;
+}
+.m-footer .copyright a {
+    padding-right: 12px;
+}
+/*文本框*/
+.m-input-text ,.m-textarea {
+    padding: 6px 6px;
+    min-width: 150px;
+}
+.m-input-text:focus,.m-textarea:focus {
+    /*http://blog.sina.com.cn/s/blog_106f3d1401013y9f.html*/
+    /*outline: none;
+    border: 1px solid blue;
+    star:expression_r(this.onFocus=this.blur());*/
+}
+.m-textarea {
+    min-height: 100px;
+}
+
+
+
+/*以下内容是需要分离的，前期为了快速而直接丢在这里*/
+/*文章-文字列表页*/
+.article-list-column {
+    padding-bottom: 40px;
+}
+.article-list-wrap {
+    width:660px;
+    margin-right: 40px;
+}
+.article-list-wrap .article-list .item {
+    padding-left: 10px;
+    text-align: right;
+    overflow: hidden;
+    zoom:1;
+    padding-bottom: 7px;
+}
+.article-list-wrap .article-list ul {
+    padding-top: 10px;
+}
+.article-list-wrap .article-list .item a {
+    font-size: 14px;
+    float: left;
+}
+.article-list-wrap .article-list .item a:hover {
+    text-decoration: underline;
+}
+.article-list-wrap .article-list .item .date {
+    font-size: 12px;
+}
+.article-list-wrap .article-list .hr {
+    height: 0;
+    overflow: hidden;
+    zoom:1;
+    margin: 10px 0 15px 0;
+}
+.article-list-pagination {
+    margin-top: 40px;
+}
+.article-aside {
+    width: 300px;
+    padding-top: 10px;
+}
+/*文章图文列表页面*/
+.commend-picture-inner {
+
+}
+.article-picture-item {
+    overflow: hidden;
+    zoom:1;
+    padding-bottom: 14px;
+}
+.article-picture-item .title {
+    line-height: 50px;
+    padding-top: 5px;
+}
+.article-picture-item .title a {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/*滚动按钮：返回首页、顶部、相关新闻*/
+.scroll-btns {
+    /*position: fixed;
+    right: 30px;
+    top: 300px;*/
+
+    _display:none;
+    position:fixed;
+    _position: absolute;
+    bottom: -210px;
+    _bottom: auto;
+    overflow: hidden;
+    transition:bottom 0.9s;
+    -webkit-transition:bottom 0.9s;
+    -moz-transition:bottom 0.9s;
+    -o-transition:bottom 0.9s;
+}
+.scroll-btns .btn {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.scroll-btns .btn .text {
+    text-align: center;
+    font-size: 12px;
+    width: 30px;
+    margin-left: 15px;
+    padding-top: 15px;
+    height: 60px;
+    display: none;
+}
+
+
+.submit-bar {
+
+}
+.submit-bar .m-input-text {
+    min-width: 50px;
+    margin-left: 30px;
+    width: 30px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.submit-bar img {
+    margin-right: 4px;
+    margin-top: 12px;
+}
+input[type=submit] {
+    border:none;
+}
+.submit-bar input[type=submit] {
+    width: 100px;
+    height: 40px;
+}
+.submit-bar .reload {
+    width:20px;
+    height: 20px;
+    margin-top: 18px;
+    margin-right: 30px;
+}
+
+/**
+ * ie支持rgba()
+ * http://www.tuicool.com/articles/juiEFrb
+ * 用法：在使用rgba属性的标签上添加一个类名为ie-rgba
+ */
+.ie6 .ie-rgba,
+.ie7 .ie-rgba,
+.ie8 .ie-rgba {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+}
+/**
+ * IE6支持png24
+ * 路径相对于html文档，并非css文档
+ * 文档地址：http://www.twinhelix.com/css/iepngfix/demo/
+ */
+.ie6 .icon16x16,
+.ie6 .icon40x40,
+.ie6 .logo,
+.ie6 .news-a .list .ul li
+{
+    behavior: url(/ie6_png24/iepngfix.htc);
+}
+.ie6 .news-a .list .ul li {
+    background-position: -20px -1090px;
+}
+
+.memberseccode .m-input-text {
+    min-width: 50px;
+    width: 30px;
+    margin-right: 15px;
+}
+.memberseccode .loginform-img_mar {
+    margin-top: 4px;
+}
+.memberseccode .reload {
+    background-position: -10px -776px;
+    height: 20px;
+    margin-top: 9px;
+    margin-left:3px;
+    width: 20px;
+    overflow: hidden;
+}
+.article-infos .date, .article-infos .source, .article-infos .editor, .article-infos .comment {
+    margin-top: 5px;
+}
+
+.page-main {
+    border: 1px solid #ddd;
+    padding: 30px;
+ }
+.page-title-ui {
+    height: 34px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+ }
+.page-title-panel {
+    position: absolute;
+    bottom: -1px;
+}
+.page-title-panel > a {
+    color: #333;
+    float: left;
+    display: block;
+    width: 66px;
+    text-align: center;
+    margin: 0 18px;
+    height: 34px;   
+}
+.page-title-panel .first {
+    margin-left: 0;
+}
+.page-title-panel .cur {
+    border-bottom: 2px solid #0091e4;
+}
+.page-main .single-web p {
+    text-indent: 2em;
+    margin: 18px 0;
+    color: #444;
+    font-size: 16px;
+    line-height: 2;
+}
+.category-list {
+    padding: 0 54px 0 10px;
+    line-height: 40px;
+    background: #f7f7f7;
+    height: 41px;
+    border: 1px solid #eee;
+     overflow: hidden;
+ }
+.category-list .open {
+    position: absolute;
+    right: 10px;
+}
+.category-list .close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    border-radius: 4px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff!important;
+    display: none;
+    background: #0091e4;
+}
+.category-list > a {
+    color: #333;
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 8px;
+}
+.category-list > .now {
+    color: #1070cf!important;
+}
+.category-list > a:hover {
+    color: #2179d2;
+}
+.category-list.all {
+    height: auto;
+}
+.category-list.all .open {
+    display: none;
+}
+.category-list.all .close {
+    display: block;
+}
+.arrow-down {
+    background: url(images/arrow_down.png);
+    display: inline-block;
+    width: 9px;
+    height: 5px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.ie6 .commend-picture-inner .m-imagetitle .overlay,
+.ie7 .commend-picture-inner .m-imagetitle .overlay,
+.ie8 .commend-picture-inner .m-imagetitle .overlay {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+}

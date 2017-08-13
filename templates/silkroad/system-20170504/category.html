@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[name]}_{/loop}{$sitename[0]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <!-- <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" /> -->
+    <!-- <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" /> -->
+    <!-- <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.activity.css" /> -->
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.category.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+	<!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    <div class="hr20"></div>
+    <div class="column">
+        <!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #-->
+    </div>
+    <div class="hr20"></div>
+    <!-- 面包屑 -->
+    <div class="column m-crumb">
+        <a href="{WWW_URL}">首页</a>
+        <em class="icon16x16"></em>
+        <a>{table('category', $catid,'name')}</a>
+    </div>
+    <div class="hr10"></div>
+    <div class="column ov js-returntop">
+        <!-- 左侧图文列表 -->
+        <div class="newsleft w660 fl-l">
+            <!-- # 子栏目 # -->
+            <?php
+                $subcatgorys = $subcatgorys2 = subcategory($catid);
+                $subcatgorysCount = count($subcatgorys);
+                $subcatgoryIndex = 1;
+                $catids = $catid;
+                $frontsubcatgory = $subcatgorysCount === 5 ?
+                    array_splice($subcatgorys, 0, 5) :
+                    array_splice($subcatgorys, 0, 4);
+            ?>
+            <div id="programa" class="category-programa-nav">
+                <a href="{table('category',$catid,'url')}" data-cid="{$catid}" class="cur first">全部</a>
+                <!--{loop $frontsubcatgory $catidkey $cat}-->
+                <a href="{$cat['url']}" data-cid="{$cat['catid']}">{str_natcut($cat['name'],5)}</a>
+                <?php $subcatgoryIndex++;
+                      $catids .= ','.$cat['catid'];
+                ?>
+                <!--{/loop}-->
+                <!--{if !empty($subcatgorys)}-->
+                <a href="javascript:;" class="more">更多<i class="arrow-down"></i></a>
+                <div class="category-programa-more">
+                    <div class="category-programa-more-container">
+                        <!--{loop $subcatgorys $catidkey $cat}-->
+                        <a href="{$cat['url']}">{str_natcut($cat['name'])}</a>
+                        <!--{/loop}-->
+                    </div>
+                </div>
+                <!--{/if}-->
+            </div>
+            <div id="list" class="article-list article-picture-list">
+                <ul data-cid="{$catid}" style="display: none; padding-top:0">
+                    <!--{content catid="$catids" status="6" where="thumb <> '' AND thumb IS NOT NULL" orderby="`published` DESC" size="10"}-->
+                    <?php $description = description($r[contentid]);?>
+                    <li class="article-picture-item">
+                        <h3 class="title" style="padding-top:0"><a href="{$r['url']}" title="{$r['title']}">{str_natcut($r['title'], 22, '')}</a></h3>
+                        <!--{if $r[thumb] != '' && $r[thumb] != 'null' && $description}-->
+                        <div class="m-imagetext">
+                        <!--{else}-->
+                        <div class="m-imagetext notdes">
+                        <!--{/if}-->
+                            <!--{if $r[thumb]}-->
+                            <a href="{$r['url']}" class="thumblink"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                            <!--{/if}-->
+                            <div>
+                                <!--{if description($r[contentid])}-->
+                                <a href="{$r['url']}"><p class="describe">{str_natcut(description($r[contentid]), 80)}</p>
+                                    <!--{/if}-->
+                                    <span class="time">{date('Y-m-d H:i', $r['published'])}</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/content}-->
+                </ul>
+                <!--{loop $subcatgorys2 $subcat}-->
+                <ul data-cid="{$subcat['catid']}" style="display: none; padding-top:0">
+                    <!--{content catid="$subcat[catid]" status="6" where="thumb <> '' AND thumb IS NOT NULL" orderby="`published` DESC" size="10"}-->
+                    <?php $description = description($r[contentid]);?>
+                    <li class="article-picture-item">
+                        <h3 class="title" style="padding-top:0"><a href="{$r['url']}" title="{$r['title']}">{str_natcut($r['title'], 22, '')}</a></h3>
+                        <!--{if $r[thumb] != '' && $r[thumb] != 'null' && $description}-->
+                        <div class="m-imagetext">
+                        <!--{else}-->
+                        <div class="m-imagetext notdes">
+                        <!--{/if}-->
+                            <!--{if $r[thumb]}-->
+                            <a href="{$r['url']}" class="thumblink"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                            <!--{/if}-->
+                            <div>
+                                <!--{if description($r[contentid])}-->
+                                <a href="{$r['url']}"><p class="describe">{str_natcut(description($r[contentid]), 80)}</p>
+                                    <!--{/if}-->
+                                    <span class="time">{date('Y-m-d H:i', $r['published'])}</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/content}-->
+                    <a href="{$subcat['url']}" class="category-more">查看更多</a>
+                </ul>
+                <!--{/loop}-->
+            </div>
+        </div>
+        <!-- 右侧推荐 -->
+        <div class="newsaside w300 fl-r">
+            <!-- 今日推荐 -->
+            <div class="commend-article">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                </div>
+                <div class="commend-inner">
+                    <div class="m-accordion js-accordion">
+                        <ul>
+                            <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hr15"></div>
+            
+            <div class="">
+                <!--#include virtual="/section/21.html"--><!--# 列表页广告 右侧 300 x 240 #-->
+            </div>
+            
+            <div class="hr15"></div>
+
+            <!-- 推荐图片 -->
+            <div class="commend-picture">
+                <!--#include virtual="/section/11.html"--><!--# 公共区块 推荐图片 #-->
+            </div>
+
+            
+            <div class="">
+                <!--#include virtual="/section/23.html"--><!--# 列表页广告 右侧 300 x 90 #-->
+            </div>
+            
+            <div class="hr10"></div>
+
+            <!-- 推荐视频 -->
+            <div class="commend-video">
+                <!--#include virtual="/section/14.html"--><!--# 公共区块 推荐视频 #-->
+            </div>
+        </div>
+    </div>
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns" style="left: 1208px; bottom: 100px;">
+        <div class="btn home icon40x40">
+            <a href="/" class="text" style="display: none;">返回首页</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="" class="text">返回顶部</a>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+    <script>
+        $(function(){
+            var programa = $('#programa');
+            programa.on('mouseenter', 'a', function (event) {
+                    var a = $(event.target);
+                    if (a.hasClass('cur') || a.hasClass('more')) {
+                        return;
+                    }
+                    programa.find('.cur').removeClass('cur');
+                    if (a.parent('.category-programa-more-container').length) {
+                        $('#programa > .more').addClass('cur').html(a.html() + '<i class="arrow-down"></i>');
+                    }
+                    a.addClass('cur');
+                    $('#list').find('ul').hide().filter('[data-cid="' + a.attr('data-cid') + '"]').show();
+                })
+                .on('mouseenter', '.more', function (event) {
+                    $('.category-programa-more').show();
+                })
+                .on('mouseleave', '.category-programa-more', function (event) {
+                    $('.category-programa-more').hide();
+                });
+            $('#list').find('ul:first').show();
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > programa.parent().offset().top + programa.height()) {
+                    programa.css({position: "fixed", top: 0});
+                } else {
+                    programa.css({position: "relative"});
+                }
+            });
+        });
+    </script>
+</body>
+</html>

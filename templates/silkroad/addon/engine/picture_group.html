@@ -1,0 +1,85 @@
+<!-- 图组 -->
+<div class="hr20"></div>
+<div class="article-pictures border1">
+    <div class="hr10"></div>
+    <div class="go_all_gal"><a href="{$picture[url]}" target="_blank">查看完整组图</a></div>
+    <div class="gallery_wrap pos-r" style="padding-top:10px;">
+        <div class="hidden">
+            <div class="allpictures waterfull js-waterfull"></div>
+            <div class="goback align-c"><a href="javascript:void(0);" class="button1">返回图组</a></div>
+            <div class="hr30"></div>
+        </div>
+        <div class="gallery gal_gallery clearfix">
+            <div class="gal_bg">
+                <div class="gal_photo pos-r">
+                    <!-- 大图 -->
+                    <div class="gal_photo_view">
+                        <div id="photoView" class="gal_cnt">
+                            <i></i><img src="http://img1.cache.netease.com/cnews/img/gallery11/bg06.png" id="photo" />
+                        </div>
+                        <div class="gal_photo_prev hidden">
+                            <a id="photoPrev" class="gal_btn_pphoto icon40x40" target="_self" hidefocus="true" href="javascript:;"></a>
+                        </div>
+                        <div class="gal_photo_next hidden">
+                            <a id="photoNext" class="gal_btn_nphoto icon40x40" target="_self" hidefocus="true" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="photo_index pos-a"><span class="current">10</span>/ {count($picture['pictures'])}</div>
+                    <!--gal_photo_view end-->
+                    <div class="hr10"></div>
+                    <div class="photo_esc ov"><p>古生村依山傍水，有上千年历史。总书记来到村民李德昌家。房子雕梁画栋，院落干净整洁，植物生机勃勃，看到一家七口“四代同堂”，他十分高兴。总书记说：“这里环境整洁，又保持着古朴形态，这样的庭院比西式洋房好。</p></div>
+                    <div class="hr10"></div>
+                    <div class="gal_cnt">
+                        <div class="clearfix">
+                            <div class="gal_set">
+                                <div class="gal_set_thumb">
+                                    <div id="scrl" class="gal_photo_thumb clearfix">
+                                        <div class="clearfix">
+                                            <div class="gal_scrl">
+                                                <div class="gal_scrl_thumb">
+                                                    <div class="gal_scrl_main" id="gal_scrl_main">
+                                                        <ul id="thumb" class="gal_list_thumb clearfix">
+        <?php $max_width = intval($data['max_width']) ? intval($data['max_width']) : null; ?>
+        <?php $min_height = intval($data['min_height']) ? intval($data['min_height']) : null; ?>
+        <?php $thumb_width = intval($data['thumb_width']) ? intval($data['thumb_width']) : 80; ?>
+        <?php $thumb_height = intval($data['thumb_height']) ? intval($data['thumb_height']) : 60; ?>
+        {loop $picture['pictures'] $index $_picture}
+        <li>
+        <a href="javascript:;" hidefocus="true"><img src="{thumb($_picture["image"], $thumb_width, $thumb_height)}" alt="" /></a>
+        <p>{$_picture["note"]}</p>
+        <i title="img">{thumb($_picture["image"], $max_width, $min_height, true, null, null, 100)}</i>
+        <i title="timg"></i>
+        <i title="wimg">img/water1.png</i>
+        </li>
+        {/loop}
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="gal_scrl_bar clearfix">
+                                                        <span class="gal_scrl_lt"></span>
+                                                        <span class="gal_scrl_rt"></span>
+                                                        <div class="gal_scrl_bd">
+                                                            <div class="gal_scrl_ct" id="gal_scrl_ct">
+                                                                <a id="bar" class="gal_btn_scrl">
+                                                                    <b class="gal_btn_lt"></b>
+                                                                    <b class="gal_btn_rt"></b>
+                                                                    <span class="gal_btn_bd"><span><b class="gal_btn_ct"></b></span></span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hr20"></div>

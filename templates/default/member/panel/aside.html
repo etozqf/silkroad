@@ -1,0 +1,19 @@
+<aside class="column-aside left-menu">
+	<!-- 左侧菜单 -->
+	<ul id='aside' class="list list-point">
+		<li class="item" rel="profile"><em class="ico">></em><a href="{url('member/panel/profile')}" title="个人资料" class="title">个人资料</a></li>
+		<li class="item" rel="avatar"><em class="ico">></em><a href="{url('member/panel/avatar')}" title="修改头像" class="title">修改头像</a></li>
+		<li class="item" rel="password"><em class="ico">></em><a href="{url('member/panel/password')}" title="修改密码" class="title">修改密码</a></li>
+		<li class="item" rel="email"><em class="ico">></em><a href="{url('member/panel/email')}" title="修改邮箱" class="title">修改邮箱</a></li>
+		<li class="item" rel="otherlogin"><em class="ico">></em><a href="{url('member/index/otherlogin', 'arg=bindPage')}" title="外部绑定" class="title">外部绑定</a></li>
+	</ul><!-- @end 左侧菜单 -->
+</aside>
+<script type="text/javascript">
+$(function() {
+	var rel = "{$_GET[action]}";
+	if (!rel || rel == 'index') {
+		rel = 'profile';
+	}
+	$('#aside li[rel="'+rel+'"]').addClass('now');
+});
+</script>

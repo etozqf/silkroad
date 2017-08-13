@@ -1,0 +1,94 @@
+<div id="body-show" style="background: rgba(218, 218, 218, 0.8);height: 10000px;padding-top: 200px;position: absolute;text-align: center;width: 100%;z-index: 10000;display:none;">
+<span><number style="color:red;">3</number>秒钟后自动跳转!</span><br>
+<span style="color:red"></span>
+</div>
+<?php 
+    session_start();
+    $cookie = factory::cookie();
+    $userid = $cookie->get('userid');
+    $username = $cookie->get('username');
+    $db = & factory::db();
+    $sql = "select online_code from cmstop_member where username='$username'";
+    $a = $db->get($sql);
+    $b = $cookie->get($username);
+    if(empty($b) || $b==$a['online_code']){
+        $online = 'no';
+    }else{
+        $online = 'yes';
+        $cookie->set($username);
+        
+    }
+    
+    
+?>
+<div class="dh_headbar" online="{$online}" b="{$b}">
+    <div class="box1000">
+        <div class="dh_headbar_logo"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/dh_silkdb_logo.jpg"></div>
+        <div class="dh_headbar_nav">
+            <!--#include virtual="/section/290.html"--><!--# 公共区块 公共区块头部导航链接 #-->
+        </div>
+        <div class="dh_headbar_user">
+            <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/silkdb_tx32.jpg">
+            <div  id="{WWW_URL}"class="dh_hdbar_navdot"></div>
+            <div class="dh_headbar_navsub">
+                <dl>
+                <dd><a href="{APP_URL}{url('contribution/panel/index')}">用户中心</a></dd>
+                <dd><a href="http://wpa.qq.com/msgrd?v=3&uin=22050346&site=qq&menu=yes" target="_blank">联系客服</a></dd>
+                <dd><a href="{APP_URL}{url('guestbook/index/index')}">需求反馈</a></dd>
+                <dd style="border-bottom:0px;"><a href="{APP_URL}{url('member/index/logout')}">退出登录</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<script>
+$(function(){
+    var WWW_URL = "{WWW_URL}";
+    var USER_GROUPID = $.cookie(COOKIE_PRE+'groupid');
+    var SITE_TYPE = $.cookie(COOKIE_PRE+'site_type');
+    var USERID = $.cookie(COOKIE_PRE+'userid');
+ /*   if (!$.cookie(COOKIE_PRE+'auth')) {
+        $('#body-show span:eq(1)').html('您没有登录,请先<a href="{WWW_URL}" target="_self" style="color:#6E6EBF;">登录</a> !');
+        $('#body-show').show();
+        setInterval(function(){
+        var number = $('#body-show').find('number').text();
+        if(number==0) return window.location.href=WWW_URL;
+        $('#body-show').find('number').text(parseInt(number)-1);
+        },1000);
+    } */
+
+    // if(!USERID) return window.location.href=WWW_URL;
+    var ONLINE = $(".dh_headbar").attr("online");
+    if(ONLINE=='yes'){
+        $('#body-show span:eq(1)').html('该账号已在别处登录,您已被迫下线,请重新登录!');
+        $('#body-show').show();
+        setInterval(function(){
+        var number = $('#body-show').find('number').text();
+        if(number==0) return window.location.href=WWW_URL;
+        $('#body-show').find('number').text(parseInt(number)-1);
+        },1000);
+    }
+     
+    if(!USERID){
+        $('#body-show span:eq(1)').html('您未登陆,请先在中文站<a href="{WWW_URL}" target="_self" style="color:#6E6EBF;">登陆</a> !');
+        $('#body-show').show();
+        setInterval(function(){
+        var number = $('#body-show').find('number').text();
+        if(number==0) return window.location.href=WWW_URL;
+        $('#body-show').find('number').text(parseInt(number)-1);
+        },1000);
+    }
+    if(SITE_TYPE !='1' && USER_GROUPID !='1'){
+        $('#body-show span:eq(1)').html('您的账户不是中文站的注册用户,请先在中文站<a href="{WWW_URL}" target="_self" style="color:#6E6EBF;">注册</a> !');
+        $('#body-show').show();
+        setInterval(function(){
+        var number = $('#body-show').find('number').text();
+        if(number==0) return window.location.href=WWW_URL;
+        $('#body-show').find('number').text(parseInt(number)-1);
+        },1000);
+    }
+});
+</script>
+
+

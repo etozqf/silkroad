@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$name}{$thechannel}-{$SYSTEM[sitename]}</title>
+<link rel="shortcut icon" href="{IMG_URL}images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.crumbs { width:670px; overflow:hidden; height:33px; line-height:33px; margin-top:0; background-position:0 10px}
+.mainContent h1 { margin-bottom:40px; background:url({IMG_URL}templates/xinhua08/images/titlebg12345678.gif) no-repeat right center; font-size:20px; font-family:simhei}
+li { height:auto}
+.mainContent a { color:#333; text-decoration:none}
+.unilist a:hover { text-decoration:underline}
+.page_down { height:100%; overflow:hidden; width:395px}
+.page_down li { float:left; padding:0 2px}
+-->
+</style>
+<base target="_blank" />
+<script type="text/javascript" src="{IMG_URL}js/jquery.js"></script>
+</head>
+<body>
+<div class="container_25">	
+<a name="top" id="top"></a>    
+    <!--#include virtual="/section/249.html"--><!--头部小-->       
+    <!--#include virtual="/section/287.html"--><!--付费导航-->
+    <div class="grid_25 mb0">     
+        <div class="crumbs"><a href="{WWW_URL}">首页</a>{loop $pos $cat} > <a href="{$cat[url]}">{$cat[name]}</a>{/loop}</div>
+    	<!--#include virtual="/section/195.html"--><!--搜索-->
+    </div>
+  	<div class="grid_17 mb10">
+        <div class="Gborder"></div>
+        <div class="innercontent">
+			<div class="mainContent">
+    <h1>{$name}</h1>
+	<span>
+	<?php $categorys = cache_read('categorys.php', ROOT_PATH.'apps'.DS.'payview'.DS.'config'.DS); ?>
+	<!--{loop $categorys[$catid] $k $v}-->
+	[<a href="{APP_URL}{url('payview/order/add')}" target="_blank">{$v}</a>]
+	<!--{/loop}-->
+	</span>
+      <ul class="unilist"> 
+<!--{content catid="$catid" status="7" orderby="published desc" size="$pagesize" page="$page"}-->  
+      <!--{if ($i-1)%6==0 && $i>1}-->
+  <li class="unilistsep"><a href="{$r[url]}">{$r[title]}</a> <span>({date('n月j日 G:i', $r['published'])})</span></li>
+<!--{else}-->
+      	<li><a href="{$r[url]}">{$r[title]}</a> <span>({date('n月j日 G:i', $r['published'])})</span></li>
+<!--{/if}-->
+      <!--{/content}-->
+      </ul>
+    <ul class="page_down">
+    <!--{pages($mintotal, $page, $pagesize, 2, $urlrule)}--> 
+    </ul>
+    <div class="backtotop"><a href="#top">返回顶部</a></div> 
+  </div>
+  </div>
+  </div>
+    <div class="grid_8">
+<!--#include virtual="/section/271.html"-->       
+        <!--#include virtual="/section/270.html"--><!--金融词典-->
+        <!--#include virtual="/section/253.html"--><!--点击排行-->
+        <!--#include virtual="/section/264.html"--><!--周刊订阅-->
+    </div>
+    <!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+</body>
+</html>

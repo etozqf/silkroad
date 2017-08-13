@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+    <title>{$wd}_搜索结果_{$sitename[0]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.search.css" />
+    <style type="text/css">
+        .search-result .fmb .type-panel > a, .search-result .fmb .select-panel > div{width:74px;}
+        .export2 {background: #0079c6 none repeat scroll 0 0;border: 0 none;border-radius: 5px;color: #fff;cursor: pointer;display: none;font-size: 16px;height: 32px;line-height: 32px;padding: 0;text-align: center;width: 90px;
+				}
+				.export1 {background: #0079c6 none repeat scroll 0 0;border: 0 none;border-radius: 5px;color: #fff;cursor: pointer;display: none;font-size: 16px;height: 32px;line-height: 32px;padding: 0;text-align: center;width: 90px;margin-left:190px;
+				}
+				.export3 {background: #0079c6 none repeat scroll 0 0;border: 0 none;border-radius: 5px;color: #fff;cursor: pointer;display: none;font-size: 16px;height: 32px;line-height: 32px;padding: 0;text-align: center;width: 90px;
+				}
+				.db-r-list li{
+					margin-top: 0px;padding-left: 5px;padding-bottom:0px;
+				}
+				.db-li-close{
+					top:7px;margin-left:0px;
+				}
+				.search-r-btn{
+					background: #0079c6 none repeat scroll 0 0;color: white;cursor: pointer;display: inline-block;margin-left: 5px;padding: 3px;margin-top:10px;width:100px;
+				}
+    </style>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/theme/js/search.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body class="search-result">
+    <!--# 顶部 #-->
+    <!--# 顶部 #-->
+    <!--{template "system/head_zn.html"}-->
+ 
+    <div class="hr20"></div>
+    <div class="column">
+      <form id="search" name="search" action="" method="GET">
+      <div class="fmt">
+        <input type="hidden" name="app" value="search">
+        <input type="hidden" name="controller" value="index">
+        <input type="hidden" name="action" value="testsearch">
+        <div class="ov">
+          <div class="search-input-panel ov fl-l">
+            <input type="text" class="text fl-l" id="wd" name="wd" value="{$wd}" />
+            <input type="submit" class="btn fl-r" value="搜索" />
+          </div>
+          <div class="search-mode-panel fl-l">
+            <label><input type="radio" name="mode" value="0" {if $mode==0}checked="checked"{/if}>全文</label>
+            <label><input type="radio" name="mode" value="1" {if $mode==1}checked="checked"{/if}>标题</label>
+          </div>
+        </div>
+      </div>
+      <div class="fmb">
+       <?php $catUrl = preg_replace('/&page=\w+/','',preg_replace('#&catid=\w+#', '', $url['this'])).'&catid=';?>
+        <div class="type-panel">
+          <?php $typeUrl = preg_replace('#&type=\w+#', '', $url['this']).'&type=';?>
+          <a href="{$catUrl}all" class="first{if empty($catid)} cur{/if}">全部</a>
+          {loop $channel $v}
+          {if $v['catid']==4 or $v['catid']==24 or $v['catid']==215 or $v['catid']==134 or $v['catid']==214 or $v['catid']==232 or $v['catid']==280 or $v['catid']==293}
+          {elseif $v['catid']==233}
+          <a  href="{$catUrl}{233}" class="first{if $catid==233} cur{/if}">资讯</a>
+          {elseif $v['catid']==30}
+          <a  href="{$catUrl}{14}" class="first{if $catid==14} cur{/if}">国别报告</a>
+          {else}
+          <a href="{$catUrl}{$v['catid']}" class="first{if $catid==$v['catid']} cur{/if}">{$v['name']}</a>
+          {/if}
+          {/loop}
+          <a href="{$catUrl}{9999}" class="first{if $catid==9999} cur{/if}">数据</a>
+          <a href="{$catUrl}yckw" class="first{if empty($catid)} cur{/if}" style="display:none">原创刊物</a>
+         
+        </div>
+        <div class="select-panel" style="display:none">
+            <div id="category">{if $catid}{$channel[$catid]['name']}{else}频道{/if} <i class="arrow-down"></i>
+                <?php $catUrl = preg_replace('#&catid=\w+#', '', $url['this']).'&catid=';?>
+                    <ul class="select-box">
+                        {loop $channel $v}
+          		            <li {if $v['catid']==4 or $v['catid']==24 or $v['catid']==215 or $v['catid']==134 or $v['catid']==214 or $v['catid']==232 or $v['catid']==280} style="display:none" {/if}><a href="{$catUrl}{$v['catid']}">{$v['name']}</a></li>
+                        {/loop}
+                    </ul>
+            </div>
+        </div>
+        <div class="sort-panel" style="display:none">
+          <a href="{$url[rel]}">按相似度排序</a> | <a href="{$url[time]}">按更新时间排序</a>
+        </div>
+        <?php
+          $cookie = factory::cookie();
+          $username = $cookie->get('username');
+          $orderr = $_COOKIE['search_order'.$username];
+          
+        ?>
+        <select id="newsort" style="float: right; width: 130px; height: 30px;">
+          <option value="rel" url="<?php echo $url['this'].'&order=rel'?>" {if $orderr=='rel'}selected{/if} class="option">按相似度排序</option>
+          <option value="time" url="<?php echo $url['this'].'&order=time'?>" {if $orderr=='time' || $orderr==''}selected{/if} class="option">按更新时间排序</option>
+        </select>
+      </div>
+
+    </form>
+    </div>
+    <div class="hr20"></div>
+    <div class="column info">找到相关网页约{if $total}{$total}{else}0{/if}篇</div>
+    <div class="hr20">
+    	
+    </div>
+    <div class="column search-result-list">
+      <ul style="min-height:300px;padding-top:0">
+     		<?php
+     			$cookie = factory::cookie();
+     			$username = $cookie->get('username');
+     			$db_data = $_COOKIE['search_'.$username];
+     			if($db_data){
+     				$result = explode(',',$db_data);
+     			}
+     		?>
+        <!--{loop $data $r}-->
+            {if $r['originalId']}
+                <li class="article-picture-item">
+                    <h3 class="title" style="padding-top:0">
+                    {if table('content',$r[originalId],'modelid')==1}
+                    <input class="checkbox" name="checkbox" style="float: left; height: 22px;margin-right:10px" type="checkbox" title="{str_natcut(table('content',$r[originalId],'title'),12,'...')}" url="{$r['url']}" value="{$r[originalId]}" {if in_array($r[originalId],$result)}checked{/if}>
+                    {/if}
+                    <i class="icon-model icon16x16 model-{table('content',$r[originalId],'modelid')}"></i>
+                    {if $r[properties][fulltext_highLight_title]}
+                        <a href="{if ($catid==9999&&$r['columnId']==9998)}{APP_URL}?app=system&controller=honggdata&action=location&scid={$r['originalId']}{elseif ($catid==9999&&$r['columnId']==9999)}{APP_URL}?app=system&controller=ceicdata&action=location&lang=cn&scid={$r['originalId']}{else}{$r['url']}{/if}" title="">{$r[properties][fulltext_highLight_title]}</a>
+                    {else}
+                        <a href="{$r['url']}" title="">{table('content',$r[originalId],'title')}</a>
+                    {/if}
+                    </h3>
+                    <div class="m-imagetext">
+                        <!--{if table('content',$r[originalId],'thumb')}-->
+                            <a href="{$r['url']}" class="thumblink"><img src="{thumb(table('content',$r[originalId],'thumb'), 140, 105)}" width="140" height="105" alt=""></a>
+                        <!--{/if}-->
+                        <div>
+    
+                            <p class="describe">{strip_tags($r[properties][fulltext_highLight],'<em>')}</p>
+                            <span class="time">{date('Y-m-d H:i', table('content',$r[originalId],'published'))}<a href="{$r['caturl']}" target="_blank" class="catname" style="display:none;">{$r['catname']}</a></span>
+                        </div>
+                    </div>
+                </li>
+            {/if}
+        <!--{/loop}-->
+      </ul>
+      <div class="hr40"></div>
+      <div class="align-c">
+            <div class="pagination ov">
+                {$multipage}
+            </div>
+        </div>
+        <div class="hr40"></div>
+    </div>
+    <div class="db-right" style="margin-left:300px;height:300px;width:247px;top:230px;overflow: auto;">
+			<div class="db-r-top">
+				<h3 style="width:auto">[<?php echo count($result);?>/10]已选结果</h3>
+				<em class="db-close" onclick="$('.db-right').hide();"></em>
+			</div>
+			<div class="db-r-list">
+				<ul id="db">
+				<?php 
+					if($db_data){
+						$res = explode(',',$db_data);
+						foreach($res as $k=>$v){
+				?>
+					<li id="{$v}">
+						<em class="db-li-close" onclick="lost(this,{$v});"></em>
+						<a href="{table('content',$v,'url')}" target="_blank">{str_natcut(table('content',$v,'title'),12,'...')}</a>
+					</li>
+				<?php
+					}
+					}
+				?>
+				</ul>
+				<select name="daochutype" style="height:30px;margin-left:5px;margin-top:15px">
+					<option value="null">请选择导出类型</option>
+					<option value="TXT" class="option">TXT</option>
+					<option value="WORD" class="option">WORD</option>
+					<option value="PDF" class="option">PDF</option>
+				</select>
+				<br/>
+				<button id="download" class="search-r-btn">导出</button>
+				<button id="sendemail" class="search-r-btn">发送邮箱</button>
+				<p class="db-clear" onclick="lost_all();">清空所有结果</p>
+			</div>
+		</div>
+    <!--# 底部 #-->
+    <!--{template 'system/foot_zn.html'}-->
+    
+</body>
+</html>

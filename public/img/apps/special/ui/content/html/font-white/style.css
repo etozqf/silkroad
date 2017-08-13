@@ -1,0 +1,11 @@
+.content-html-font-white{
+	color: #fff;
+	padding:10px 15px;
+	
+}
+.content-html-font-white p{
+	text-indent: 2em;
+	margin:10px 10px 20px 20px;
+    font-size:14px;
+	line-height:1.8em;
+}

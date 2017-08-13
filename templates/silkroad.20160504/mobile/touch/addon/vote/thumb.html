@@ -1,0 +1,273 @@
+<!-- 挂件-投票 -->
+<style type="text/css">
+.addon-vote {
+    padding: 10px 0;
+}
+.widget-vote {
+    margin: 9px 0;
+    overflow: hidden;
+    _zoom: 1;
+    font-size: 14px;
+    line-height: 24px;
+}
+.widget-vote .btn,
+.widget-vote .btn span {
+    color: #ffffff;
+}
+.widget-vote .btn {
+    cursor: pointer;
+}
+
+.widget-vote .btn-s-blue span {
+    font-size: 12px;
+}
+.widget-vote .nums {
+    font-size: 10px;
+}
+.widget-vote .row,
+.widget-vote .btnarea {
+    clear: both;
+}
+.widget-vote .btnarea {
+    padding: 9px 0;
+    overflow: hidden;
+    _zoom: 1;
+}
+.widget-vote .row {
+    padding-bottom: 4px;
+    overflow: hidden;
+    _zoom: 1;
+}
+.widget-vote .vote-name,
+.widget-vote .progress,
+.widget-vote .nums {
+    float: left;
+    text-align: center;
+    _display: inline;
+    margin-right: 4px;
+}
+.widget-vote .vote-name {
+    float: none;
+}
+.widget-vote .vote-name a {
+    text-decoration: none;
+}
+.widget-vote .vote-result {
+    width: 140px;
+    margin: 0 auto;
+}
+.widget-vote .progress {
+    overflow: hidden;
+    _zoom: 1;
+    width: 100px;
+    height: 12px;
+    background-color: #eee;
+    margin-top: 6px;
+}
+.widget-vote .progress .per {
+    height: 12px;
+    background-color: #52a8e8;
+}
+.widget-vote .nums {
+    width: 30px;
+}
+.widget-vote .vote-message {
+    display: none;
+    float: left;
+    margin-left: 10px;
+    color: green;
+}
+.widget-vote .image {
+    text-align: center;
+}
+.widget-vote .image > img {
+    max-width: 60%;
+}
+
+.widget-vote-normal {
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+.widget-vote-normal .row {
+    padding: 5px 10px;
+}
+.btnarea .btn-s-blue {
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #52a8e8;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #52a8e8), color-stop(100%, #377ad0));
+    background-image: -webkit-linear-gradient(top, #52a8e8, #377ad0);
+    background-image: -moz-linear-gradient(top, #52a8e8, #377ad0);
+    background-image: -ms-linear-gradient(top, #52a8e8, #377ad0);
+    background-image: -o-linear-gradient(top, #52a8e8, #377ad0);
+    background-image: linear-gradient(top, #52a8e8, #377ad0);
+}
+.btnarea .btn-s-blue span {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+}
+</style>
+<div class="widget-vote widget-vote-normal">
+    <div class="vote-main">
+        <form method="get" action="{MOBILE_URL}vote/vote_content">
+            <input name="contentid" type="hidden" value="{$contentid}"/>
+            <input name="type" type="hidden" value="{$type}"/>
+            <input name="maxoptions" type="hidden" value="{$maxoptions}"/>
+            <ul style="margin:0;padding:0;">
+                <!--{loop $option $v}-->
+                <li class="row" data-optionid="{$v[optionid]}">
+                    <div class="image"><img src="{$v[thumb]}"></div>
+                    <div class="vote-name">
+                        <label>
+                            <input type="{$type}" name="optionid{if $type == 'checkbox'}[]{/if}" value="{$v[optionid]}">
+                            <!--{if $v[link]}-->
+                            <a href="{$v[link]}" target="_blank">{$v[name]}</a>
+                            <!--{else}-->
+                            {$v[name]}
+                            <!--{/if}-->
+                        </label>
+                    </div>
+                    <div class="vote-result">
+                        <div class="progress" title="{$v['votes']}">
+                            <div style="width:<?php echo (int)$v['percent'];?>%" class="per"></div>
+                        </div>
+                        <div class="nums"><?php echo (int)$v['percent'];?>%</div>
+                    </div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <div class="btnarea">
+                <a class="btn btn-s-blue" href="javascript:void(0);" data-role="submit"><span>投票</span></a>
+                <span class="vote-message">投票成功，感谢您的参与</span>
+            </div>
+            <!--{if $seccode_type === 'advanced'}-->
+            <div class="ui-seccode" style="display:none;">
+                <div class="ui-seccode-overlay"></div>
+                <div class="ui-seccode-container">
+                    <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image_pro&no_border=1&height=30" /><a class="change-img" href="javascript:;">换一个</a>
+                        <br/>请输入<span class="seccode-color"></span>字符
+                    </p>
+                    <p><input type="text" name="seccode" /></p>
+                    <div class="ok">确认</div>
+                    <div class="canel">取消</div>
+                </div>
+            </div>
+            <!--{else}-->
+            <div class="ui-seccode" style="display:none;">
+                <div class="ui-seccode-overlay"></div>
+                <div class="ui-seccode-container">
+                    <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30" /><a class="change-img" href="javascript:;">换一个</a></p>
+                    <p><input type="text" name="seccode" /></p>
+                    <div class="ok">确认</div>
+                    <div class="canel">取消</div>
+                </div>
+            </div>
+            <!--{/if}-->
+        </form>
+    </div>
+</div><!-- @end 挂件-投票 -->
+<script type="text/javascript">
+(function() {
+
+var seccode = $('.ui-seccode');
+function vote(url, form, callback, cancelback) {
+    if (seccode.length) {
+        seccode.find('img').trigger('click');
+        seccode.show();
+        seccode.find('.ok').unbind().bind('click', function () {
+            if (seccode.find('input').val()) {
+                seccode.hide();
+                $.post(url, decodeURIComponent(form.serialize()), function(json) {$.isFunction(callback) && callback(json);}, 'json');
+            }
+        });
+        seccode.find('.canel').unbind().bind('click', function () {
+            seccode.hide();
+            cancelback();
+        });
+    } else {
+        $.post(url, form.serialize(), function(json) {$.isFunction(callback) && callback(json);}, 'json');
+    }
+}
+function updateResult(form, data) {
+    $.each(data, function(index, item) {
+        var row = form.find('[data-optionid="' + item.optionid + '"]');
+        row.find('.per').css('width', parseInt(item.percent));
+        row.find('.progress').attr('title', item.votes+'票');
+        row.find('.nums').html(parseInt(item.percent)+'%');
+    });
+}
+function init() {
+    $('.widget-vote-normal').each(function(i, rows) {
+        rows = $(rows);
+        if (rows.data('vote-inited')) return;
+        var form = rows.find('form'),
+            url = form.attr('action'),
+            contentid = form.find('[name=contentid]').val(),
+            type = form.find('[name=type]').val(),
+            maxoptions = parseInt(form.find('[name=maxoptions]').val()),
+            button = form.find('[data-role=submit]'),
+            lock = false;
+        if (url && contentid) {
+            form.find('li.row').each(function(i, row) {
+                $(row).find('label a').click(function() {
+                    var input = $(this).prev(':input');
+                    if (!input.attr('checked')) input.attr('checked', true);
+                });
+            });
+            button.bind('click', function() {
+                if (lock) return false;
+                var checkedLength = form.find(':checked').length;
+                if (! checkedLength) {
+                    alert('请选择投票选项');
+                    return false;
+                }
+                if (type == 'checkbox' && maxoptions && maxoptions < checkedLength) {
+                    alert('最多可以选择 ' + maxoptions + ' 项');
+                    return false;
+                }
+                lock = true;
+                vote(url, form, function(json) {
+                    if (json && json.state) {
+                        updateResult(form, json.data);
+                        button.find('span').text('已投票');
+                        button.unbind();
+                        button.onclick = null;
+                        button.next('span').show();
+                    } else {
+                        lock = false;
+                        alert(json && json.message || '投票失败，请重新尝试');
+                    }
+                }, function () {
+                    lock = false;
+                });
+                return false;
+            });
+        }
+        rows.data('vote-inited', true);
+
+        seccode.length && seccode.find('.change-img').on('click', function (e) {
+            var img = $('.ui-seccode').find('img'),
+                src = img.attr('data-src');
+            img.on('load', function () {
+                $('.seccode-color').html(decodeURIComponent(document.cookie.match(new RegExp(COOKIE_PRE + 'seccode_color=(.*?)(?:;|$)'))[1]).replace(/\+/, ' '));    
+            });
+            img.attr('src', src + '&_=' + Date.now());
+            $('[name="seccode"]').val('');
+        });
+        seccode.find('input[type="text"]').on('keydown', function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        });
+    });
+}
+init();
+})();
+</script>

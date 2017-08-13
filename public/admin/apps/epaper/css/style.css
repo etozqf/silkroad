@@ -1,0 +1,23 @@
+.epaper-nav {padding-left: 1px; padding: 16px 0 16px 120px; width: 376px; overflow: hidden;}
+.epaper-nav-item {width: 124px; height: 34px; border: 1px solid #94C5E5; color: #006699; background: #FFFFFF; float: left; position: relative; margin-left: -1px; line-height: 34px; text-align: center; }
+.epaper-nav-item.cur {background: url("../images/nav-bg.jpg");}
+.epaper-close-btn {width: 24px; height: 24px; line-height: 24px; position: fixed; top: 16px; right: 16px; text-align: center; cursor: pointer;}
+.epaper-list {width:356px; }
+.epaper-cate {border: 1px solid #94C5E5; border-bottom: none; border-left: none;}
+.epaper-cate tr{height: 30px;}
+.epaper-cate thead th {text-align: center; border-bottom: 1px solid #94C5E5; border-left: 1px solid #94C5E5; background: #F2F9FB;}
+.epaper-cate tbody td {padding-left: 6px; border-bottom: 1px solid #94C5E5; border-left: 1px solid #94C5E5; }
+.epaper-cate td.t_c {text-align: center;}
+
+textarea {vertical-align: middle;}
+.table_form td a {text-decoration: none!important; color: #077AC7;}
+.table_list th, .table_list td.t_c {text-align: center;}
+a.button_style_2 {width: 40px; color: #FFF!important; display: inline-block; }
+a.button_style_2:hover {color: #FFF;}
+.w242 {width: 242px;}
+.w526 {width: 526px;}
+.pl28 {padding-left: 40px!important;}
+.dialog-close {top: 16px!important; right:16px!important;}
+.abtn {margin: 0 8px;}
+.ml8 {margin-left: 8px;}
+.hand { margin-right: 6px;}

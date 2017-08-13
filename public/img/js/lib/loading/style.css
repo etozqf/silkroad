@@ -1,0 +1,4 @@
+.ui-loading {
+    display: block;
+    background: #FFF url(images/loading-spinner.gif) no-repeat center center;
+}

@@ -1,0 +1,16 @@
+.mod-video {
+    background: #FFF;
+    border: 1px solid #EEEEEE;
+    margin: 10px auto;
+    padding: 8px;
+}
+.video-content .video-content-link {
+    font-size: 14px;
+    margin: 8px 0 4px;
+    text-align: left;
+}
+.video-content .video-content-desc {
+    font-size: 12px;
+    margin: 8px 0 4px;
+    text-align: left;
+}

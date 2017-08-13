@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/7.css" type="text/css">
+</head>
+<body>
+<!--{template "system/head.html"}-->
+<!--搜索-->
+<div class="columnA ov mar-t-15">
+</div>
+<!--@end 搜索-->
+<!--内容-->
+<div class="container bef">
+    <div class="con-left fl-l">
+
+        <div class="con-title">
+            <span>REPORTS</span>
+        </div>
+
+        <div class="content aft">
+
+ <span id="start-data-{$page}"></span>
+         <!--{content catid="$catid" orderby="published desc" page="$page" size="$pagesize"}-->
+         
+            <div class="conn aft">
+                <div class="conimg fl-l">
+                 <!--{if !empty($r['thumb'])}-->
+                 <img src="{thumb($r['thumb'],110,150,1,null,0)}" alt="{$r['title']}" width="110" height="150">
+                 <!--{/if}-->   
+                 
+                </div>
+                <div class="context fl-r" {if empty($r['thumb'])}style="width:654px;"{/if}>
+                    <p class="context-title f-16">{$r['title']}</p>
+                    <p class="time">{date('Y-m-d',$r['published'])}</p>
+                    <p class="con">{str_natcut(description($r['contentid']),100,'>>')}</p>
+                    <p class="tabofcon"><em></em><a href="{$r['url']}" >Table of Content</a> </p>
+                </div>
+            </div>
+            
+         <!--{/content}-->
+ <span id="stop-data-{$page}"></span>
+ 
+        </div>
+         {if $page == 1}<a class="more" id="more-data" href="javascript:;">更多最新内容>></a>{/if}
+  
+       <style>
+      #more-data {
+line-height: 28px;
+color: #208acd;
+font-size: 14px;
+text-align: center;
+background: #F3F3D9;
+display: block;
+       }
+       </style>
+    </div>
+    <div class="con-right fl-r">
+       <!--#include virtual="/section/444.html"--><!--# 英文公共区块 英文站列表页-我们的客户（OUR Clients） #-->
+        <div class="con-title">
+            <span>OUR RESEARCH TEAM</span>
+        </div>
+      <!--#include virtual="/section/445.html"--><!--# 英文公共区块 英文站新列表页-Headquarters #-->
+       <!--#include virtual="/section/446.html"--><!--# 英文公共区块 英文站新列表页右侧-Home #-->
+        <!--#include virtual="/section/447.html"--><!--# 英文公共区块 英文站新列表页右侧-Overseas #-->
+       <!--#include virtual="/section/448.html"--><!--# 英文公共区块 英文站新列表页右侧-Customized Reports #-->
+    </div>
+</div>
+<script>
+    $(function(){
+        //瀑布流加载数据
+        var page = "{$page}";
+        var pagetotal = "<?php echo ceil(min($total, $mintotal)/$pagesize);?>";
+        var url = "{$url}";
+        $('#more-data').click(function(){
+            if(page >= pagetotal){
+                alert('数据已经全部加载完毕!');
+                return false;
+            } 
+            page++;
+            $.get(url+page+'.shtml',function(res){
+                var start_data = res.indexOf('<span id="start-data-'+page+'"></span>');
+                var stop_data = res.indexOf('<span id="stop-data-'+page+'"></span>');
+                var LoadHtml = res.substring(start_data,stop_data)+'<span id="stop-data-'+page+'"></span>';
+                $('#data-list').append(LoadHtml);
+                 $(".news .info .fav").on('click',function()
+                 {
+                    clickCollect($(this));
+                 });
+                return false;
+            });
+        });
+
+
+        $(".n_ind_contitle li").bind("click",function(){
+            var index = $(this).index();
+            $(this).addClass("n_ind_contitle_on").siblings().removeClass("n_ind_contitle_on");
+            $(".n_ind_contmain .news").eq(index).show().siblings().hide();
+        });
+
+
+         //点击收藏与取消搜藏
+         $(".news .info .fav").on('click',function()
+         {
+            clickCollect($(this));
+         });
+         var clickCollect = function(t){
+            var text=t.text();
+                var that=t;
+                var contentid=t.attr("contentid");
+                var collectid=t.attr('collectid');
+                var mark=t.attr('mark');
+                $.getJSON(APP_URL+"?app=system&controller=property&action=collect&jsoncallback=?&contentid="+contentid+"&collectid="+collectid+"&mark="+mark,function(json){
+                    var content=json['collect'];
+                    var mark=json['mark'];  
+                    //代表由收藏转为取消收藏   
+                    if(json.status=="success")
+                    {
+                        that.text(content);
+                        that.attr("mark",mark);
+                    }else if(json.status=="success_q")
+                    {   //代表取消收藏转为收藏    
+                        var collectid=json['collectid'];
+                        that.text(content);
+                        that.attr("mark",mark);
+                        that.attr("collectid",collectid);
+                    }else if(json.status=="cunzai"){
+                        var collectid=json['collectid'];
+                        that.text(content);
+                        that.attr("mark",mark);
+                        that.attr("collectid",collectid);
+                    }
+                })
+         };
+    })
+</script>
+<script src="http://img.yanews.cn/templates/yanannews/js/jquery/jquery-1.11.2.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+</body>
+</html>

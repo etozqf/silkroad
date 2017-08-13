@@ -1,0 +1,60 @@
+<!--{if setting('cloud', 'sohu_changyan')}-->
+<div id="comment">
+	<!--#include virtual="/section/cloud/comment.html"-->
+</div>
+<!--{else}-->
+<!-- 评论 -->
+<div class="article-comment" id="comment">
+    <div class="m-title-a">
+        <h2 class="m-title-h2"><a href="{APP_URL}{url('comment/review/index', 'topicid=' . $topicid)}">网友评论</a></h2>
+    </div>
+    <div class="hr20"></div>
+    <div class="m-comment">
+        <div class="comment-panel ov" id="commentWrapper">
+            
+        </div>
+    </div>
+    <div class="hr20"></div>
+    <div class="userlogin-panel border1">
+        <!-- 评论框 -->
+        <!--{template 'comment/comment.html'}-->
+        <!-- @end 评论框 -->
+    </div>
+    <div class="hr40"></div>
+</div>
+<!--{if $islist}-->
+<script type="text/javascript">
+    var commentTpl = '<div class="comment-panel ov"><div class="hr20"></div><div class="usernamephoto fl-l"><div class="userphoto defaultphoto"></div><a href="" class="username">{username}</a></div><div class="comment-infos"><div class="comment-address-date ov"><span class="fl-l">{location}</span><span class="fl-r">{date}</span></div>{follow}<div class="comment-content"><p class="">{content}</p></div><div class="comment-interaction ov"><a href="javascript:;" onclick="comment.report({commentid}, this);" class="report fl-r">举报</a><a href="" class="share fl-r">分享</a><a href="javascript:;" onclick="comment.reply({commentid});" class="reply fl-r">回复</a><a href="javascript:;" onclick="comment.support({commentid}, this);" class="love fl-r icon16x16">{supports}</a></div></div></div><div class="hr10"></div><div class="hlinedotted"></div>';
+    var followTpl = '<div class="reply-box"><div class="reply-box-username ov"><span class="floornums fl-r"></span><span>{location}</span><a href="">{username}</a></div><div class="reply-content"><p>{content}</p></div><div class="comment-interaction ov hidden"><a href="javascript:;" onclick="comment.report({commentid}, this);" class="report fl-r">举报</a><a href="" class="share fl-r">分享</a><a href="javascript:;" onclick="comment.reply({commentid});" class="reply fl-r">回复</a><a href="javascript:;" onclick="comment.support({commentid}, this);" class="love fl-r icon16x16">{supports}</a></div></div>';
+    $(function(){
+        getCommemt(topicid,$('#commentWrapper'),function(json) {
+            $('.comments').html(json.total);
+            if(json.total >0 ) $('.view-comment').show();
+        });
+    });
+    //取评论函数
+    function getCommemt(topicid,wrapper,callback) {
+        if(!topicid) return ;
+        $.getJSON(APP_URL+'?app=comment&controller=review&action=page&pagesize=5&all=1&topicid='+topicid+'&jsoncallback=?', function(json){
+            if(typeof(json.data) == 'object') {
+                $.each(json.data, function (i, k) {
+                    var html = '';
+                    var follows = '';
+                    if (k.follow) {
+                        if (k.follow.supports == 0) k.follow.supports = ''; 
+                        follows = followTpl.replace('{username}', k.follow.username).replace('{content}', k.follow.content).replace('{date}', k.follow.date).replace('{location}', k.follow.location).replace('{commentid}', k.follow.commentid).replace('{commentid}', k.follow.commentid).replace('{commentid}', k.follow.commentid).replace('{supports}', k.follow.supports);
+                    }
+                    if (k.supports == 0) k.supports = ''; 
+                    html = commentTpl.replace('{username}', k.username).replace('{content}', k.content).replace('{date}', k.date).replace('{location}', k.location).replace('{commentid}', k.commentid).replace('{commentid}', k.commentid).replace('{commentid}', k.commentid).replace('{supports}', k.supports).replace('{follow}', follows);
+                    wrapper.append(html);
+                });
+            }
+            // 非评论页不能进行评论操作
+            $('.operate').remove();
+            typeof callback == 'function' && callback(json);
+        });
+    }
+</script>
+<!--{/if}-->
+<!--{/if}-->
+<!--{template "system/memberlogin.html"}-->

@@ -1,0 +1,11 @@
+.addon-vote {
+    font-size: 14px;
+    line-height: 24px;
+    clear: both;
+    margin: 15px auto;
+    overflow: hidden;
+    width: 500px;
+}
+.addon-vote .vote-title {
+    font-weight: bold;
+}

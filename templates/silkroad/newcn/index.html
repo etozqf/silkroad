@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>Xinhua Silk Road Homepage</title>
+<meta name="google-site-verification" content="wkXcZnR1Y1zifPFYhgsvs-sWTU9y-gtPessLyLKCnyw" />
+	<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+  <meta name="description" content="{$SYSTEM[seodescription]}" />
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/index.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+ 	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<body>
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+<img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/xinhua_logo.png" width='700'>
+</div>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<div class="column ov mar-t-20">
+	<!--View-->
+	<div class="w-320 f-l">
+		<div class="top-tit"><a style="color:#fff" href="{WWW_URL}english/views/">Views</a></div>
+		<!--#include virtual="/section/382.html"--><!--# 新英文站 左侧-Views-头条 #-->
+		
+		
+	</div>
+	<!--News-->
+	<div class="w-320 f-l mar-l-20">
+		<div class="top-tit"><a style="color:#fff" href="{WWW_URL}english/news/">News</a></div>
+		<!--#include virtual="/section/384.html"--><!--# 新英文站 左侧-News-头条 #-->
+		
+	</div>
+	<!--Projects-->
+	<div class="w-320 f-l mar-l-20">
+		<!--#include virtual="/section/378.html"--><!--# 新英文站 右侧-Projects #-->
+		<!--press-->
+		<div class="press mar-t-28">
+			<a href="http://db.silkroad.news.cn/magazine/en_gbbg/" target="_blank">To invest in China,Press here<em class="p-em ie6_png32"></em></a>
+		</div>
+                <!--Special-->
+                <!--#include virtual="/section/438.html"--><!--# 新英文站 右侧-Special #-->
+		<!--Features-->
+		<!--#include virtual="/section/381.html"--><!--# 新英文站 右侧-Features #-->
+		<!--Events-->
+		<!--#include virtual="/section/379.html"--><!--# 新英文站 右侧-Events #-->
+		<!--Most Read-->
+		<!--#include virtual="/section/380.html"--><!--# 新英文站 右侧-Most Read #-->
+	</div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    var url = window.location.href;
+    //存在参数则执行
+    if(url.indexOf("subscribe")!=-1){
+      $("#user-subscribe").trigger("click");
+    }
+    if(url.indexOf("login")!=-1){
+      $("#user-login").trigger("click");
+    }
+  })
+</script>
+<!--尾部-->
+<!--{template "newcn/system/footer.html"}-->
+
+</body>
+</html>

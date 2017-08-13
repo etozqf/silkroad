@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <title>{$SYSTEM[sitename]}_{$SYSTEM[seotitle]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.activity.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script>
+    $(function(){
+        $('.imagetab').imagetabs({
+            //图片切换时间
+            speed: 5000,  
+            //图片切换过渡时间
+            animate: 1000 
+        });
+
+        // 底部图片鼠标移动上去显示文字
+        $('.pices .item').each(function(i, o) {
+            var oItem = $(o), a = oItem.find('.text a');
+            a.css('marginTop', (oItem.height()-a.height())/2);
+        });
+        $('.pices .item').mouseenter(function(){
+            $('.text',this).animate({
+                'opacity': 1
+            },'fast')
+        });
+        $('.pices .item').mouseleave(function(){
+            $('.text',this).animate({
+                'opacity': 0
+            },'fast')
+        });
+
+        $('.shoveler-item').mouseenter(function(){
+            $(this).find('._overlay').fadeOut('fast');
+        }).mouseleave(function(){
+            $(this).find('._overlay').fadeIn('fast');
+        });
+        $('.js-history').click(function (){
+            $('#calenader').show();
+        });
+    });
+    </script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!-- 日历 -->
+    <!--#include virtual="/section/history/index/calendar.html"-->
+    <!-- @end 日历 -->
+    <!-- 顶部 -->
+    <header class="m-header">
+        <div class="m-inner pos-r ov column header-index">
+            <!-- 右侧搜索、日历、登陆等 -->
+            <aside class="m-header-smallmodle fl-r ov">
+                <a href="{setting('system', 'sina_weibo')}" class="m-header-sinaweibo fl-l icon16x16"></a>
+                <a href="{setting('system', 'tencent_weibo')}" class="m-header-tweibo fl-l icon16x16"></a>
+                <a href="javascript:;" id="history_index" class="m-header-history fl-l icon16x16"></a>
+                <!--#include virtual="/include/head_index.shtml"-->
+            </aside>
+            <div class="ov">
+                <a href="" class="fl-l logotext margin-r-20">CmsTop 网站内容管理系统</a>
+                <div class="weather fl-l" style="padding-top: 8px;"><iframe width="280" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe></div>
+            </div>
+        </div>
+    </header>
+    <div class="hr10"></div>
+    <div class="column ov">
+        <div class="fl-l logo">
+            
+        </div>
+        <nav class="nav-index">
+            <ul class="ov">
+                <!--#include virtual="/section/79.html"--><!--# 网站首页 首页导航 #-->
+            </ul>
+        </nav>
+    </div>
+    <div class="hr10"></div>
+    <div class="column">
+        <!--#include virtual="/section/13.html"--><!--# 首页广告 顶部广告 #-->
+    </div>
+    <div class="hr10"></div>
+    <div class="column newstopline js-returntop">
+    <!-- 头条 -->
+        <div class="topline">
+        <!--#include virtual="/section/4.html"--><!--# 网站首页 头条 #-->
+        <!--#include virtual="/section/257.html"--><!--# 网站首页 头条下标题 #-->
+        </div>
+        <div class="hr10"></div>
+        <div class="toplines ov">
+            <!--#include virtual="/section/15.html"--><!--# 网站首页 头屏幻灯片 #-->
+            <!--#include virtual="/section/6.html"--><!--# 网站首页 幻灯右侧列表 #-->
+        </div>
+    </div>
+    <div class="hr20"></div>
+    <div class="column"><!--#include virtual="/section/18.html"--><!--# 首页广告 中部广告 #--></div>
+    <div class="hr10"></div>
+    <div class="newscolumn column ov">
+        <div class="newsleft w660 fl-l">
+            <div class="news-a">
+                <div class="head pos-r ov">
+                    <h2 class="h2 fl-l">新闻频道</h2>
+                    <p class="fl-r subcategory"><a href="{table('category', 9, 'url')}">国内</a><a href="{table('category', 10, 'url')}">国际</a></p>
+                    <div class="hline pos-a"></div>
+                </div>
+                <div class="hr20"></div>
+                <div class="inner ov">
+                    <!--#include virtual="/section/22.html"--><!--# 网站首页 新闻频道左侧推荐 #-->
+                    <div class="list ov">
+                        <!--#include virtual="/section/25.html"--><!--# 网站首页 新闻频道列表 #-->
+                    </div>
+                </div>
+            </div>
+            <div class="hr10"></div>
+            <div class="news-a">
+                <div class="head pos-r ov">
+                    <h2 class="h2 fl-l">娱乐频道</h2>
+                    <p class="fl-r subcategory"><a href="{table('category', 11, 'url')}">娱乐动态</a><a href="{table('category', 12, 'url')}">热剧剧情</a><a href="{table('category', 13, 'url')}">片花欣赏</a></p>
+                    <div class="hline pos-a"></div>
+                </div>
+                <div class="hr20"></div>
+                <div class="inner ov">
+                    <!--#include virtual="/section/36.html"--><!--# 网站首页 娱乐频道推左侧图 #-->
+                    <div class="list ov">
+                        <!--#include virtual="/section/37.html"--><!--# 网站首页 娱乐频道列表 #-->
+                    </div>
+                </div>
+            </div>
+            <div class="hr10"></div>
+            <div class="news-a">
+                <div class="head pos-r ov">
+                    <h2 class="h2 fl-l">汽车频道</h2>
+                    <p class="fl-r subcategory"><a href="{table('category', 14, 'url')}">行业资讯</a><a href="{table('category', 15, 'url')}">导购试驾</a></p>
+                    <div class="hline pos-a"></div>
+                </div>
+                <div class="hr20"></div>
+                <div class="inner ov">
+                    <!--#include virtual="/section/40.html"--><!--# 网站首页 汽车频道左侧图 #-->
+                    <div class="list ov">
+                        <!--#include virtual="/section/42.html"--><!--# 网站首页 汽车频道列表 #-->
+                    </div>
+                </div>
+            </div>
+            <div class="hr10"></div>
+
+            <div class="news-a">
+                <div class="head pos-r ov">
+                    <h2 class="h2 fl-l">房产频道</h2>
+                    <p class="fl-r subcategory"><a href="{table('category', 16, 'url')}">房产动态</a><a href="{table('category', 17, 'url')}">创意家居</a></p>
+                    <div class="hline pos-a"></div>
+                </div>
+                <div class="hr20"></div>
+                <div class="inner ov">
+                    <!--#include virtual="/section/51.html"--><!--# 网站首页 房产频道左侧图 #-->
+                    <div class="list ov">
+                        <!--#include virtual="/section/52.html"--><!--# 网站首页 房产频道列表 #-->
+                    </div>
+                </div>
+            </div>
+            <div class="hr20"></div>
+        </div>
+        <!-- 右侧 -->
+        <div class="newsaside w300 fl-r">
+            <!-- 个人专栏 -->
+            <div class="aspecial">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a href="">个人专栏</a></h2>
+                </div>
+                <div class="inner">
+                    <!--#include virtual="/section/53.html"--><!--# 网站首页 个人专栏 #-->
+                </div>
+            </div>
+            <div class="hr15"></div>
+            <div><!--#include virtual="/section/24.html"--><!--# 首页广告 右侧广告 #--></div>
+            <div class="hr15"></div>
+            <!-- 推荐文章 -->
+            <div class="recnews">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a href="">推荐文章</a></h2>
+                </div>
+                <div class="hr20"></div>
+                <div class="inner">
+                    <!--#include virtual="/section/56.html"--><!--# 网站首页 推荐文章 #-->
+                </div>
+            </div>
+            <div class="hr10"></div>
+            <!-- 活动中心 -->
+            <div class="activitycenter">
+                <div class="special-list-shoveler pos-r ov">
+                    <div class="m-title-a">
+                        <h2 class="m-title-h2"><a href="">活动中心</a></h2>
+                    </div>
+                    <div class="shoveler-point pos-a ov"></div>
+                    <div class="video-interview-inner js-shoveler  ov">
+                        <div class="shoveler-contains ov">
+                            <!--#include virtual="/section/76.html"--><!--# 网站首页 活动中心 #-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 图片组 -->
+    <div class="column pices pos-r">
+        <!--#include virtual="/section/78.html"--><!--# 网站首页 底部图片组 #-->
+    </div>
+    <div class="hr30"></div>
+
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns">
+        <div class="btn top icon40x40">
+            <a href="" class="text">返回顶部</a>
+        </div>
+    </div>
+
+    <!-- 微信公众号 -->
+    <div class="weixinpanel">
+        <div class="content fl-l">
+            <ul>
+                <li>
+                    <a href="javascript:void(0);" class="title">微信公众号</a>
+                    <div class="img prev" style="height:100px;"><a href=""><img src="{thumb(setting('system', 'wxqrcode'))}" width="78" height="78" alt=""></a></div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="title">客户端下载</a>
+                    <div class="img"><a href="javascript:;"><img src="{thumb(generate_qrcode(APP_URL.'mobile_redirect.php'))}" width="78" height="78" alt=""></a></div>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="title last">手机版访问</a>
+                    <div class="img"><a href="javascript:;"><img src="{thumb(generate_qrcode(MOBILE_URL))}" width="78" height="78" alt=""></a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="close fl-l"></div>
+    </div>
+    <!-- 底部 -->
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+</body>
+</html>

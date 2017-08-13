@@ -1,0 +1,35 @@
+<div class="right730"> 
+        <div class="hd"><h3>专家收藏</h3></div>
+        <div class="bd"> 
+            <div class="favlist">
+                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="thead">
+                    <tr>
+                        <td>名称（子名称）</td>
+                        <td width="120">分类</td>
+                        <td width="170">收藏时间</td>
+                        <td width="74">操作</td>
+                    </tr>
+                 </table>
+                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbody">
+                <!--{loop $result $k $r}--> 
+                    <tr>
+                        <td class="tit"><a href="{SPACE_URL}{table('space',$r[spaceid],'alias')}?typeid=2&spaceid={$r['spaceid']}" target="_blank">{str_natcut(table('space',$r[spaceid],'name'),15,'')}</a></td>
+                        <td width="120">专家</a></td>
+                        <td width="170" class="time">{date('Y-m-d H:i:s', $r[addtime])}</td>
+                        <td width="74">
+                            <a class="fl-l icon16x16 edit" href="{$r[url]}"target="_blank" title="查看"></a>
+                            <a class="fl-l icon16x16 remove delete" name="{$r[collectid]}" href="javascript:;" title="删除"></a>
+                        </td>
+                    </tr>
+                <!--{/loop}-->
+                 </table>
+                 <!-- 分页 -->
+                    <div class="page">
+                     <!--{pages($total, $page, $pagesize, 3, null, false, '', 'number red', '&lt;', '&gt;')}-->
+                    <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+                    </div>
+                <!-- @end 分页 -->
+             </div>
+        </div>
+    </div>
+    

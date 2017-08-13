@@ -1,0 +1,21 @@
+<div class="inner border1" style="height: 809px;">
+    <ul class="member-aside">
+        <li rel="contribute"><a href="{url('contribution/panel/contribute')}" title="投稿">投稿</a></li>
+        <li rel="published"><a href="{url('contribution/panel/published')}" title="已发表">已发表({$statistics[publish]})</a></li>
+        <li rel="submitted"><a href="{url('contribution/panel/submitted')}" title="审核中">审核中({$statistics[wait]})</a></li>
+        <li rel="rejected"><a href="{url('contribution/panel/rejected')}" title="已退稿">已退稿({$statistics[reject]})</a></li>
+        <li rel="drafted"><a class="last" href="{url('contribution/panel/drafted')}" title="草稿箱">草稿箱({$statistics[draft]})</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'published';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

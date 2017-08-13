@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+		<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+		<title>{loop $title_pos $_title_pos}{$_title_pos[alias]}_{/loop}{$alias}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/case-list.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/project.css"/>
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/project.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/DatePicker/WdatePicker.js"></script>
+	<!--[if lt IE 9]>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<body>
+<!--头部-->
+<header class="header ie6_png32">
+	<div class="header-box">
+		<div class="column">
+			<div class="logo-img mar-t-5">
+				<a href="" target="_blank">
+					<img src="{IMG_URL}templates/{TEMPLATE}/css/images/logo1.png" width="235" height="60" alt=""
+					     class="ie6_png32"/>
+				</a>
+			</div>
+			<div class="nav-box">
+				<ul>
+					<li><a href="" target="_blank">News</a></li>
+					<li>
+						<a href="" target="_blank">
+							Reports<em class="micon ie6_png32"></em>
+						</a>
+
+						<div class="second-menu-box">
+							<dl class="second-menu">
+								<div class="hr12 ov"></div>
+								<dd>
+									<a href="" target="_blank">Costomzied
+										Reports</a>
+								</dd>
+								<dd>
+									<a href="" target="_blank">Silk Road Weekly</a>
+								</dd>
+								<dd>
+									<a href="" target="_blank">B&R Risk Alert</a>
+								</dd>
+								<dd>
+									<a href="" target="_blank">B&R
+										InvestmentClues</a>
+								</dd>
+								<dd style="border: none;">
+									<a href="" target="_blank">Costomzied
+										Reports</a>
+								</dd>
+							</dl>
+							<div class="hr12 ov"></div>
+						</div>
+					</li>
+					<li><a href="" target="_blank">Projects</a></li>
+					<li><a href="" target="_blank">Case Study</a></li>
+					<li><a href="" target="_blank">Companies</a></li>
+					<li><a href="" target="_blank">Data</a></li>
+					<li><a href="" target="_blank">Visual Info</a></li>
+					<li><a href="" target="_blank">Home</a></li>
+				</ul>
+			</div>
+			<div class="luser" id="userLogin">
+				<div class="user-login">
+					<a href="">
+						<img src="{IMG_URL}templates/{TEMPLATE}/css/images/user-login.png" width="33"
+						     height="32" alt=""
+						     class="f-l ie6_png32"/>
+						<em class="micon ie6_png32"></em>
+					</a>
+
+					<div class="user-menu">
+						<dl>
+							<dd>
+								<a href="" target="_blank">
+									Account
+								</a>
+							</dd>
+							<dd>
+								<a href="" target="_blank">
+									Feedback
+								</a>
+							</dd>
+							<dd style="border: none;">
+								<a href="" target="_blank">
+									Quit
+								</a>
+							</dd>
+
+						</dl>
+						<div class="hr12 ov"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<!--搜索-->
+<div class="columnA ov mar-t-15">
+	<div class="bor-rb">
+		<div class="search-box bor-trbl">
+			<div class="searchs">
+				<div class="f-l">
+					<input type="text" class="txt-input txt-focus"
+					       value="Enter News,Companies,Projets,Areas or Experts"/>
+				</div>
+				<div class="btn-s">
+					<a href="" class="fdj">
+						<img src="{IMG_URL}templates/{TEMPLATE}/css/images/fdj.png" width="19"
+						     height="19" class="ie6_png32"
+						     alt=""/></a>
+					<a href="">Search</a>
+				</div>
+			</div>
+			<div class="adv-searchs">
+				<a href="" target="_blank">Advanced Search</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Project-->
+<div class="columnA ov bg-fff pos-r mar-t-15">
+	<div class="bor-rb">
+		<div class="bor-trbl ov">
+			<!--标题-->
+			<div class="b-tit-box mar-t-25">
+				<h3 class="b-h3"><a href="" style="font-size: 20px;">Project</a>
+				</h3>
+			</div>
+			<a href="" target="_blank" class="Release">
+				+ Release
+			</a>
+			<!------  搜索选项开始  ---->
+			<div class="proje_seachblock">
+				<div class="bd">
+					<dl>
+						<dt>Industry</dt>
+						<dd class="all"><span class="on">All</span></dd>
+						<dd id="checkhlimit1" class="option">
+							<div style="width: 800px; overflow: hidden;">
+								<ul>
+									<li><label>Agriculture</label></li>
+									<li><label>Mining</label></li>
+									<li><label>Manufacturing</label></li>
+									<li><label>Power</label></li>
+									<li><label>Public Utility</label></li>
+									<li><label>Transport & Warehousing</label></li>
+									<li><label>Construction</label></li>
+									<li><label>Infrastructure</label></li>
+									<li><label>Wholesale & Retail</label></li>
+									<li><label>Finance & Insurance</label></li>
+									<li><label>Real Estate</label></li>
+									<li><label>Social Services</label></li>
+									<li><label>Media & Culture</label></li>
+									<li><label>IT</label></li>
+									<li><label>Other</label></li>
+								</ul>
+							</div>
+							<span class="morebtn">+More</span>
+						</dd>
+						<dd class="line"></dd>
+					</dl>
+					<dl>
+						<dt>Area</dt>
+						<dd class="all"><span class="on">All</span></dd>
+						<dd id="checkhlimit2" class="option">
+							<div style="width: 800px; overflow: hidden;">
+								<ul>
+									<li><label>China</label></li>
+									<li><label>Asia</label></li>
+									<li><label>Europe</label></li>
+									<li><label>Africa</label></li>
+									<li><label>America & Oceania</label></li>
+									<li><label>Other</label></li>
+								</ul>
+							</div>
+							<span class="morebtn">+More</span>
+						</dd>
+						<dd class="line"></dd>
+					</dl>
+					<dl>
+						<dt>nvestm.
+							Mode
+						</dt>
+						<dd class="all"><span class="on">All</span></dd>
+						<dd id="DdTzType" class="option">
+							<div style="width: 800px; overflow: hidden;">
+								<ul>
+									<li><label>Cooperative</label></li>
+									<li><label>Joint-venture</label></li>
+									<li><label>Solely-invested</label></li>
+									<li><label>Technology Transfer</label></li>
+									<li><label>BOT</label></li>
+									<li><label>Compensation Trade</label></li>
+									<li><label>M&A</label></li>
+									<li><label>Infrastructure</label></li>
+									<li><label>Wholesale & Retail</label></li>
+									<li><label>Finance & Insurance</label></li>
+									<li><label>Real Estate</label></li>
+									<li><label>Other</label></li>
+								</ul>
+							</div>
+							<span class="morebtn">+More</span>
+						</dd>
+						<dd class="line"></dd>
+					</dl>
+					<dl>
+						<dt>Release
+							Time
+						</dt>
+						<dd class="all"><span class="on">All</span></dd>
+						<dd id="DdDate" class="option">
+							<div style="width: 800px; overflow: hidden;">
+								<ul>
+									<li><label class="chooselabel">Time
+										Frame</label></li>
+								</ul>
+							</div>
+							<div class="choosedate">
+								<input name="ent" class="porj_diminput"
+								       type="text" required size="65"
+								       onclick="WdatePicker()"
+								       id="TextStartTime"> ~ <input
+								name="ent" class="porj_diminput" type="text" required
+								size="65" onclick="WdatePicker()" id="TextEndTime">
+								<input type="submit" value="OK" class="submitbtn"
+								       style="margin-left: 10px;">
+							</div>
+						</dd>
+						<dd class="line"></dd>
+					</dl>
+
+					<div class="moredl">More Options <span class="ico"></span></div>
+				</div>
+			</div>
+			<!------  搜索选项结束  ---->
+			<div class="hr12"></div>
+		</div>
+	</div>
+</div>
+<div class="columnA ov mar-t-15">
+	<div class="bor-rb col-l-main ov">
+		<div class="bor-trbl ov h-1520">
+			<div class="col-auto">
+				<div class="auto-box mar-t-5">
+					<ul>
+						<!--class="active"-->
+						<li>Recommendation<span class="down"></span></li>
+						<input type="hidden" id="li_0" value="0">
+						<li>Date<span class="down"></span></li>
+						<input type="hidden" id="li_1" value="0">
+						<li>Amount<span class="down"></span></li>
+						<input type="hidden" id="li_2" value="0">
+					</ul>
+					<div class="a-page">
+						<span>1/100</span>
+						<span class="a-prev">&lt;</span>
+						<span class="a-next">&gt;</span>
+					</div>
+				</div>
+				<div class="tab-data-box" style="margin-left: 0">
+					<div class="tab-data">
+						<ul>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial
+												Development Zone
+												Heat Treatment
+												Processing Center</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">100.00</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">100.00</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial
+												Development Zone
+												Heat Treatment
+												Processing Center</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">100.00</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial
+												Development Zone
+												Heat Treatment
+												Processing Center</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">Unknown</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial
+												Development Zone
+												Heat Treatment
+												Processing Center</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">100.00</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="ov bor-box">
+									<a href="" target="_blank" class="f-l">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="132"
+										     height="100" alt=""/>
+									</a>
+
+									<div class="del-box">
+										<h3>
+											<a href=""
+											   target="_blank">Ningxia
+												Shizuishan High & New
+												Tech Industrial
+												Development Zone
+												Heat Treatment
+												Processing Center</a>
+										</h3>
+
+										<div class="del-mid">
+											<p class="del-box-p">
+												Shizuishan High & New
+												Tech
+												Industrial Development
+												Zone in
+												Ningxia is a national
+												industrial
+												park,focusing on the
+												development
+												of
+											</p>
+
+											<div class="del-btn">
+												<div class="Amount">
+													<span>
+														<span class="fon-20 cor-e43">100.00</span>
+														mln Yuan
+													</span>
+													<span>Investment Amount</span>
+												</div>
+												<a class="btn"
+												   target="_blank"
+												   href=""></a>
+
+											</div>
+
+										</div>
+										<div class="del-bottom">
+											<p class="del-box-p">
+												<span><b>Country：</b>China</span><span><b>Industry：</b>Manufacturing</span>
+												<span><b>Valid
+													Until：</b>None</span>
+											</p>
+
+											<div class="info limit">
+												<span class="fav ie6_png32">Bookmark</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--分页-->
+					<div class="page mar-t-18">
+						<ul>
+							<li><a href="" target="_blank" class="pre">Previous Page</a>
+							</li>
+							<li><a href="" target="_blank" class="number red">1</a></li>
+							<li><a href="" target="_blank" class="number">2</a></li>
+							<li><a href="" target="_blank" class="number">3</a></li>
+							<li><a href="" target="_blank" class="number">4</a></li>
+							<li><a href="" target="_blank" class="number">5</a></li>
+							<li><a href="" target="_blank" class="number">6</a></li>
+							<li><a href="" target="_blank" class="number">7</a></li>
+							<li><a href="" target="_blank" class="number">8</a></li>
+							<li><a href="" target="_blank" class="number">9</a></li>
+							<li><a href="" target="_blank" class="number">10</a></li>
+							<li><a href="" target="_blank" class="next">Next Page</a></li>
+							<li style="color: #333;"><em>81</em>records</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bor-rb col-r-main ov">
+		<div class="bor-trbl ov h-1520">
+			<!--Key Projects-->
+			<div class="keyP mar-t-18">
+				<!--标题-->
+				<div class="b-tit-box">
+					<h3 class="b-h3"><a href="">Key Projects</a>
+					</h3>
+				</div>
+				<div class="tab-data">
+					<div class="data-mid">
+						<ul>
+							<li>
+								<div class="bor-box1">
+									<h3>
+										<a href="" target="_blank">
+											NingxiaShizuishan High & New
+										</a>
+									</h3>
+									<a href="" target="_blank" class="f-l mar-t-10">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="100"
+										     height="75" alt=""/>
+									</a>
+
+									<div class="del-btn mar-t-10">
+										<div class="Amount">
+										<span>
+											   <span class="fon-20 cor-e43">607.00</span>mln USD
+										</span>
+											<span>Investment Amount</span>
+										</div>
+										<a class="btn" target="_blank" href=""></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="bor-box1">
+									<h3>
+										<a href="" target="_blank">
+											NingxiaShizuishan High & New
+										</a>
+									</h3>
+									<a href="" target="_blank" class="f-l mar-t-10">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="100"
+										     height="75" alt=""/>
+									</a>
+
+									<div class="del-btn mar-t-10">
+										<div class="Amount">
+										<span>
+											   <span class="fon-20 cor-e43">607.00</span>mln USD
+										</span>
+											<span>Investment Amount</span>
+										</div>
+										<a class="btn" target="_blank" href=""></a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="bor-box1" style="border: none;">
+									<h3>
+										<a href="" target="_blank">
+											NingxiaShizuishan High & New
+										</a>
+									</h3>
+									<a href="" target="_blank" class="f-l mar-t-10">
+										<img src="{IMG_URL}templates/{TEMPLATE}/img/w545-h355.jpg"
+										     width="100"
+										     height="75" alt=""/>
+									</a>
+
+									<div class="del-btn mar-t-10">
+										<div class="Amount">
+										<span>
+											   <span class="fon-20 cor-e43">607.00</span>mln USD
+										</span>
+											<span>Investment Amount</span>
+										</div>
+										<a class="btn" target="_blank" href=""></a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--Project Tracking-->
+			<div class="proT mar-t-18">
+				<!--标题-->
+				<div class="b-tit-box">
+					<h3 class="b-h3"><a href="">Project Tracking</a>
+					</h3>
+				</div>
+				<div class="hr18"></div>
+				<div class="data-mid">
+				<div class="txt-list2">
+					<ul>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								China ODI posts strong growth in January
+							</a>
+						</li>
+						<li>
+							<em class="icon1">&bull;</em>
+							<a href="" target="_blank">
+								China is 'open' to TTIP if it is open: Official
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								Ukraine's central bank downgrades
+								2016 growth forecast
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								China ODI posts strong growth in January
+							</a>
+						</li>
+						<li>
+							<em class="icon1">&bull;</em>
+							<a href="" target="_blank">
+
+								Yuan 'safe-haven currency,' central bank
+								economist
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								Ukraine's central bank downgrades
+								2016 growth forecast
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								China ODI posts strong growth in January
+							</a>
+						</li>
+						<li>
+							<em class="icon1">&bull;</em>
+							<a href="" target="_blank">
+
+								Yuan 'safe-haven currency,' central bank
+								economist
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								Ukraine's central bank downgrades
+								2016 growth forecast
+							</a>
+						</li>
+						<li>
+							<span class="icon1">&bull;</span>
+							<a href="" target="_blank">
+
+								Ukraine's central bank downgrades
+								2016 growth forecast
+							</a>
+						</li>
+					</ul>
+					<a href="" class="more1" style="float: left; margin-left: 15px; font-size: 12px;">
+						<span class="f-l">More</span>
+						<em class="jiao ie6_png32" style="margin-top: 5px;"></em>
+					</a>
+				</div>
+				</div>
+			</div>
+			<!--Companies-->
+			<div class="proT mar-t-18">
+				<!--标题-->
+				<div class="b-tit-box">
+					<h3 class="b-h3"><a href="">Companies</a>
+					</h3>
+				</div>
+				<div class="hr18"></div>
+				<div class="data-mid">
+					<div class="txt-list2">
+						<ul>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									China ODI posts strong growth in January
+								</a>
+							</li>
+							<li>
+								<em class="icon1">&bull;</em>
+								<a href="" target="_blank">
+									China is 'open' to TTIP if it is open: Official
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									Ukraine's central bank downgrades
+									2016 growth forecast
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									China ODI posts strong growth in January
+								</a>
+							</li>
+							<li>
+								<em class="icon1">&bull;</em>
+								<a href="" target="_blank">
+
+									Yuan 'safe-haven currency,' central bank
+									economist
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									Ukraine's central bank downgrades
+									2016 growth forecast
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									China ODI posts strong growth in January
+								</a>
+							</li>
+							<li>
+								<em class="icon1">&bull;</em>
+								<a href="" target="_blank">
+
+									Yuan 'safe-haven currency,' central bank
+									economist
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									Ukraine's central bank downgrades
+									2016 growth forecast
+								</a>
+							</li>
+							<li>
+								<span class="icon1">&bull;</span>
+								<a href="" target="_blank">
+
+									Ukraine's central bank downgrades
+									2016 growth forecast
+								</a>
+							</li>
+						</ul>
+						<a href="" class="more1" style="float: left; margin-left: 15px;">
+							<span class="f-l">More</span>
+							<em class="jiao ie6_png32"></em>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--页脚-->
+<footer class="footer ov mar-t-22">
+	<div class="column">Sponsored by China Economic Information Service, Xinhua News Agency, Copyright © 2000-2015
+		silkroad.news.cn All Rights Reserved
+	</div>
+</footer>
+<!--@end页脚-->
+</body>
+</html>

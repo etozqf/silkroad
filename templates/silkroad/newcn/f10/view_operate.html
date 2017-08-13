@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_view_operate</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".zb-tab-menu li").hover ( function () {
+                $ ( this ).addClass ( "sel" ).siblings ().removeClass ();
+                $ ( ".zb-tab-data>div" ).hide ().eq ( $ ( '.zb-tab-menu li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--东华重机-->
+            <!--{template "newcn/f10/view_types.html"}-->
+            <div class="ov hdzj-tag">
+                <ul class="ov">
+                    <li><a href="#nav01">CA Summary</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav02">Performance Forecast</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav03">Dividend Payout</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav04">Special Tips of Trading</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav05">Suspension/Resumption Tips</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav06">Abnormal Stock Trading Information</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav07">Major Indicators</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav08">Change in the Number of Shareholders</a></li>
+                </ul>
+            </div>
+            <!--内容-->
+            <div class="w-960 ov">
+                <div class="zb ov" id="nav01">
+                    <div class="mod-title bgff9933">CA Summary</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>CA Type</th>
+                                <th>Summary</th>
+                            </tr>
+                            <!--{if !$data['A004']}-->
+                            <tr>
+                                <td colspan="3" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A004'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['gonggaoleixing']}</td>
+                                <td class="center">{$val['zhaiyao']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav02">
+                    <div class="mod-title bge51c2b">Performance Forecast</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Reporting Period</th>
+                                <th style="display: none;">Institution Name</th>
+                                <th>Performance Type</th>
+                            </tr>
+                            <!--{if !$data['A021']}-->
+                            <tr>
+                                <td colspan="3" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A021'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td class="center" style="display: none;">{$val['jigoumingcheng']}</td>
+                                <td class="center">{$val['yejileixing']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                    <div class="remarks">Reporting Period : 03-31-YYYY: 1st quarter; 06-30-YYYY: semi-annual; 09-30-YYYY: 3rd quarter; 12-31-YYYY: annual</div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav03">
+                    <div class="mod-title bg666">Dividend Payout</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Payment Date of Bonus Shares from profit</th>
+                                <th>Cash Dividend Per 10 Shares (RMB)</th>
+                                <th>Cash Dividend Payment Date</th>
+                                <th>Exchange Rate</th>
+                                <th>Payment Date of Share Capital <br/>from Capital Reserve</th>
+                                <th>Cash Dividend Per 10 Shares</th>
+                                <th>Last Trading Day of B-shares</th>
+                                <th>Securities Type</th>
+                                <th>Institution Name</th>
+                                <th>Bonus Issue from Capital <br/>Reserve Per 10 Shares</th>
+                                <th style="display: none;">Dividend Type</th>
+                                <th>Ex- Date</th>
+                                <th>Announcement Date of Dividend <br/>Plan Approved at General Meeting</th>
+                                <th>Date of the  Plan Announced <br/>to be Implemented</th>
+                                <th>Bonus Issue from Profit Per 10 Shares</th>
+                                <th>Bonus Share Listing Date</th>
+                                <th>Date of Dividend Plan Declared by<br/> the Board of Directors</th>
+                                <th>Equity Base for Dividend Implementation</th>
+                                <th>Record Date</th>
+                                <th>Reporting Period</th>
+                                <th>Currency</th>
+                                <th>Listing Bourse</th>
+                            </tr>
+                            <!--{if !$data['A022']}-->
+                            <tr>
+                                <td colspan="25" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A022'] $val}-->
+                            <tr class="center">
+                                <td>{$val['honggudaozhangri']}</td>
+                                <td class="right">{$val['meishigupaixibili(renminbi)']}</td>
+                                <td>{$val['paixiri']}</td>
+                                <td class="right">{$val['huilv']}</td>
+                                <td>{$val['zhuanzenggufendaozhangri']}</td>
+                                <td class="right">{$val['meishigupaixibili']}</td>
+                                <td>{$val['zuihoujiaoyiri']}</td>
+                                <td>{$val['zhengquanleixing']}</td>
+                                <td>{$val['jigoumingcheng']}</td>
+                                <td class="right">{$val['meishiguzhuanzengbili']}</td>
+                                <td style="display: none;">{$val['fenhongleixing']}</td>
+                                <td>{$val['chuquanri']}</td>
+                                <td>{$val['gudongdahuiyuangonggaoriqi']}</td>
+                                <td>{$val['gudongdahuishishifangangonggaoriqi']}</td>
+                                <td class="right">{$val['meishigusonggubili']}</td>
+                                <td>{$val['xinzenggufenshangshiri']}</td>
+                                <td>{$val['dongshihuiyuangongaoriqi']}</td>
+                                <td class="right">{$val['fenpeigubenjishu(shishi)']}</td>
+                                <td>{$val['guquandengjiri']}</td>
+                                <td>{$val['fenhongniandu']}</td>
+                                <td>{$val['bizhong']}</td>
+                                <td>{$val['shangshishichang']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                    <div class="remarks">Reporting Period : 03-31-YYYY: 1st quarter; 06-30-YYYY: semi-annual; 09-30-YYYY: 3rd quarter; 12-31-YYYY: annual</div>
+                </div>
+
+                <div class="mar-t-20" id="nav04">
+                    <div class="mod-title bgff9933">Special Tips of Trading</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Securities Abbreviation</th>
+                                <th>Securities Type</th>
+                                <th>Date of Event</th>
+                                <th>Event Type</th>
+                                <th>Event</th>
+                            </tr>
+                            <!--{if !$data['A023']}-->
+                            <tr>
+                                <td colspan="6" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A023'] $val}-->
+                            <tr class="center">
+                                <td>{$val['gonggaoriqi']}</td>
+                                <td>{$val['zhengquanjiancheng']}</td>
+                                <td>{$val['zhengquanleibie']}</td>
+                                <td>{$val['fashengriqi']}</td>
+                                <td>{$val['shijianzhonglei']}</td>
+                                <td>{$val['shijianneirong']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav05">
+                    <div class="mod-title bge51c2b">Suspension/Resumption Tips</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Securities Abbreviation</th>
+                                <th>Securities Type</th>
+                                <th>Suspension Time</th>
+                                <th>Suspension Period</th>
+                                <th>Suspension Reason</th>
+                                <th>Resumption Time</th>
+                            </tr>
+                            <!--{if !$data['A024']}-->
+                            <tr>
+                                <td colspan="6" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A024'] $val}-->
+                            <tr class="center">
+                                <td>{$val['zhengquanjiancheng']}</td>
+                                <td>{$val['zhengquanleibie']}</td>
+                                <td>{$val['tingpaishijian']}</td>
+                                <td>{$val['tingpaiqixian']}</td>
+                                <td>{$val['tingpaiyuanyin']}</td>
+                                <td>{$val['fupaishijian']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav06">
+                    <div class="mod-title bg666">Abnormal Stock Trading Information</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Securities Abbreviation</th>
+                                <th>Trading Date</th>
+                                <th>Percentage Change</th>
+                                <th>Turnover Rate</th>
+                                <th>Information Type</th>
+                            </tr>
+                            <!--{if !$data['A025']}-->
+                            <tr>
+                                <td colspan="5" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A025'] $val}-->
+                            <tr class="center">
+                                <td>{$val['zhengquanjiancheng']}</td>
+                                <td>{$val['jiaoyiriqi']}</td>
+                                <td>{$val['bofu']}</td>
+                                <td class="right">{$val['huanshoulv']}</td>
+                                <td>{$val['xinxileixing']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav07">
+                    <div class="mod-title bgff9933">Major Indicators</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th style="display: none;">Institution Name</th>
+                                <th>Return on Equity</th>
+                                <th>Debt-to-Asset Ratio</th>
+                                <th>NAV Per Share</th>
+                                <th>Earnings per Share</th>
+                                <th style="display: none;">Industry</th>
+                                <th style="display: none;">Industry Classification Standard</th>
+                                <th style="display: none;">Industry Code</th>
+                                <th style="display: none;">Industry Classification Standard Code</th>
+                            </tr>
+                            <!--{if !$data['A026']}-->
+                            <tr>
+                                <td colspan="12" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A026'] $val}-->
+                            <tr class="center">
+                                <td>{$val['kaishiriqi']}</td>
+                                <td>{$val['jiezhiriqi']}</td>
+                                <td style="display: none;">{$val['jigoumingcheng']}</td>
+                                <td class="right">{$val['jingzicanshouyilv']}</td>
+                                <td class="right">{$val['zicanfuzhailv']}</td>
+                                <td class="right">{$val['meigujingzican']}</td>
+                                <td class="right">{$val['meigushouyi']}</td>
+                                <td style="display: none;">{$val['suoshuhangye']}</td>
+                                <td style="display: none;">{$val['hangyefenleibiaozhun']}</td>
+                                <td style="display: none;">{$val['suoshuhangyebianma']}</td>
+                                <td style="display: none;">{$val['hangyefenleibiaozhunbianma']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav08">
+                    <div class="mod-title bge51c2b">Change in the Number of Shareholders</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>End Date</th>
+                                <th>Institution Name</th>
+                                <th>Total Number of Shareholders</th>
+                                <th>Number of A-share Shareholders</th>
+                                <th>Number of B-share Shareholders</th>
+                                <th>Number of H-share Shareholders</th>
+                            </tr>
+                            <!--{if !$data['A027']}-->
+                            <tr>
+                                <td colspan="7" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A027'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td class="center">{$val['yingwenmingcheng']}</td>
+                                <td>{$val['gudongzonghushu']}</td>
+                                <td>{$val['Aguhushu']}</td>
+                                <td>{$val['Bguhushu']}</td>
+                                <td>{$val['Hguhushu']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

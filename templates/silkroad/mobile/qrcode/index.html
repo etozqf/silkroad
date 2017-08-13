@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<script>
+    try {
+        window.location = "{$protocol}://{$contentid},{$modelid}";
+    } catch (ex) {
+        alert('qr error');
+    }
+    setTimeout( function(){ window.location="{$url}"; }, 600);
+</script>
+
+</body>
+</html>

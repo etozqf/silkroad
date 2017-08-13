@@ -1,0 +1,137 @@
+@import "content.css";
+
+textarea {
+    resize: vertical;
+}
+
+.btn-primary,
+.btn-secondary {
+    margin: 0;
+    padding: 0 0 4px;
+    border: 0;
+    display: inline-block;
+    zoom: 1;
+    width: 96px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.model-savebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 37px;
+    background: url(images/bg.png) repeat-x 0 0;
+    border-bottom: solid 1px #C9D4E5;
+    z-index: 500;
+}
+.model-savebar .btn-primary {
+    background: url(images/button.png) no-repeat 0 0;
+    color: #FFF;
+    margin: 5px 10px 0;
+}
+.model-savebar .btn-secondary {
+    background: url(images/button-gray.png) no-repeat 0 0;
+    color: #666;
+}
+
+.model-form {
+    padding: 50px 10px 10px;
+    min-width: 1070px;
+}
+.model-form-main {
+    float: left;
+    width: 740px;
+}
+.model-form-main img{
+    max-width: 700px;
+}
+.model-form-sidebar {
+    float: left;
+    width: 300px;
+    margin-left: 20px;
+}
+
+.form-row {
+    clear: both;
+    margin-bottom: 10px;
+    position: relative;
+}
+.form-row table {
+    border-collapse: collapse;
+}
+.form-row th,
+.form-row td {
+    padding: 5px;
+    font-weight: normal;
+    border: solid 1px #CCC;
+}
+.form-row .mceEditor th,
+.form-row .mceEditor td {
+    padding: 0;
+}
+.form-row p {
+    color: #333333;
+    font-size: 13px;
+    line-height: 175%;
+    margin-bottom: 5px;
+}
+
+.model-form dt {
+    margin-bottom: 3px;
+    font-size: 13px;
+    color: #2166BB;
+}
+.model-form dd {
+    margin-bottom: 10px;
+}
+.model-form dt .tips {
+    vertical-align: top;
+}
+
+#title {
+    width: 660px;
+}
+#btn-pick {
+    position: absolute;
+    right: 2px;
+    top: 3px;
+    margin-right: 0;
+}
+#row-related {
+
+}
+#row-related input {
+    width: 270px;
+}
+#btn-related  {
+    position: absolute;
+    right: 0;
+    top: 3px;
+}
+
+.picker-container {
+    min-height: 520px;
+    position: relative;
+    margin: 0 auto;
+}
+.picker-container .picker-result {
+}
+.picker-container .picker-overlay {
+    position: absolute;
+    width: 738px;
+    height: 518px;
+    line-height: 520px;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    background: #FFF;
+    color: #666;
+    font-size: 20px;
+    text-align: center;
+    border: solid 1px #CCC;
+}

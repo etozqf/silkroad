@@ -1,0 +1,332 @@
+
+ol, ul, li, dl, dt, dd {
+    list-style: none;
+}
+*{
+	margin:0;padding:0;
+}
+i, em {
+      font-style: normal;
+}
+a {
+    color: #333; text-decoration: none; outline: thin none;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+a:focus {
+    -moz-outline-style: none;
+}
+.fl-l {
+    float: left;
+}
+.fl-r {
+    float: right;
+}
+.clear {
+    font-size: 0; line-height: 0; clear: both;
+    overflow: hidden; zoom: 1;
+}
+.bef:before{ /* 外边距溢出 */
+    visibility: hidden; content: ""; display: table;
+    font-size: 0; width: 0; height: 0;
+}
+.aft:after{ /* 清除浮动 */
+    visibility: hidden; content: ""; display: block;
+    clear: both; font-size: 0; width: 0; height: 0;
+}
+.ov {
+    overflow: hidden;
+}
+.f-b {
+
+}
+.f-12 {
+    font-size: 12px;
+}
+.f-14 {
+    font-size: 14px;
+}
+.f-16 {
+    font-size: 16px;
+}
+.f-18 {
+    font-size: 18px;
+}
+.f-19 {
+    font-size: 19px;
+}body {
+    background: #f3f3f3;
+}
+
+.seach-add {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto 0;
+    background: #FFFFFF;
+}
+.search-addcon {
+    width: 658px;
+    height: 38px;
+    /*border: 1px solid #0079c6;*/
+    margin-left: 110px;
+    _margin-left: 60px;
+}
+ul.seach-add-menu {
+    float: right;
+    width: 260px;
+    height: 38px;
+    line-height: 38px;
+    /*background: red;*/
+}
+ul.seach-add-menu>li {
+    float: left;
+    margin-left: 20px;
+}
+ul.seach-add-menu>li>span {
+    position: relative;
+    font-size:16px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 38px;
+    display: inline-block;
+}
+ul.seach-add-menu>li>span>em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.seach-add-nav {
+    display: none;
+    position: absolute;
+    top: 37px;
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    text-align: center;
+    left: 50%;
+    z-index: 2;
+}
+ul.seach-add-menu>li>span:hover .seach-add-nav {
+    display: block;
+}
+.seach-add-nav li{
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.seach-add-nav a {
+    height: 43px;
+    width: 100%;
+    font-size: 16px;
+    display: inline-block;
+}
+.seach-add-nav a:hover {
+    background:#c81922;
+    color: #FFFFFF;
+}
+.container {
+    width: 1000px;
+    height: auto;
+    margin: 20px auto 0;
+
+}
+.container ul.menu {
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.container ul.menu li {
+    float: left;
+    padding: 0 15px;
+    font-size:18px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 47px;
+    line-height: 47px;
+}
+.container ul.menu li span {
+    display: inline-block;
+    height: 48px;
+    position: relative;
+}
+.container ul.menu li span em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.container ul.menu li.on {
+    border-bottom: 2px solid #c81922;
+}
+
+.container ul.menu ul.menu-nav {
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    position: absolute;
+    top: 48px;
+    text-align: center;
+    left: 50%;
+    display: none;
+    z-index: 2;
+}
+.container ul.menu li span ul.menu-nav li {
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.container ul.menu li span ul.menu-nav li a{
+    height:43px;
+    width: 100%;
+    display: inline-block;
+}
+.container ul.menu li span ul.menu-nav li:hover {
+    background:#ed6970;
+    height:43px;
+    color: #fff;
+}
+.container ul.menu li span:hover ul.menu-nav {
+    display: block;
+}
+.container ul.ttitle {
+    width: 725px;
+    /*margin-left:;*/
+    /*margin: 0 auto;*/
+    background: #FFFFFF;
+}
+.container ul.ttitle li {
+    width: 690px;
+    float: left;
+    margin-left: 27.5px;
+    border-bottom: 1px dashed #cccccc;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+}
+.container ul.ttitle li .ttitle-title a {
+    width: 525px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+}
+.container ul.ttitle li .ttitle-title a em {
+    width: 8px;
+    height: 9px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -21px no-repeat;
+    margin-right: 10px;
+}
+.container ul.ttitle li .ttitle-time {
+    width: 120px;
+    margin-right: 10px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+    text-align:right;
+}
+.container .cc {
+
+    display: none;
+}
+.container .paging {
+    width: 725px;
+    height: 35px;
+    line-height: 35px;
+    /*margin-left: 112px;*/
+    padding: 20px 0;
+    background: #FFFFFF;
+}
+.container .paging li {
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.container .paging li a {
+    display: block;
+    color: #0079c6;
+    /*background: red;*/
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    padding: 0 15px;
+}
+.container .paging li a.prev {
+    background: #ebebeb;
+    color: #f72200;
+}
+.container .paging li a.next {
+    color: #2479d8;
+}
+.container .paging li.on a {
+    color: #f72200;
+}
+.red {
+    color: #f72200;
+}
+.blue {
+    color: #2479d8;
+}
+.fw {
+    font-weight: bold;
+}
+.con-right {
+    width: 250px;
+    height: auto;
+    background: #FFFFFF;
+}
+.con-right-title {
+    width: 100%;
+    height: 56px;
+    border-bottom: 2px solid #dcdcdc;
+}
+.con-right-title>span {
+    display: inline-block;
+    height: 56px;
+    line-height: 56px;
+    font-weight: bold;
+    /*margin-left: 10px;*/
+    padding: 0 10px;
+    border-bottom: 2px solid #cb272f;
+}
+.right-con {
+    width: 227px;
+    height: auto;
+    margin: 10px auto 0;
+}
+.right-con a{
+    /*font-size: 14px;*/
+    color: #2479d8;
+    text-align: justify;
+    width: 227px;
+}
+.right-con em{
+    width: 5px;
+    height: 6px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -31px no-repeat;
+    margin-right: 10px;
+}
+.right-con .more>a {
+    color: #444444;
+}
+.right-con .more>a>em{
+    width: 5px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px 0px no-repeat;
+    margin-left: 5px;
+}

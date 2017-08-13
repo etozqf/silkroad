@@ -1,0 +1,10 @@
+﻿/*适合展示标题+简介的图文列表，确切的是去掉图片的图文列表*/
+ .content-palist-title li {padding:8px 6px 4px;	border-bottom:1px dotted #ccc;}
+ .content-palist-title img {margin:8px 8px 8px 0;}
+ .content-palist-title .summary {margin:0;	padding:0;}
+ .content-palist-title{background-color:#fff;}
+ .content-palist-title .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-title .imgtxtsummary-list a{color:#333;}
+ .content-palist-title .imgtxtsummary-list h3 a{ color:#c00; font-size:18px; font-family:"微软雅黑";}
+ .content-palist-title .imgtxtsummary-list p{color:#555;}
+ .content-palist-title .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}

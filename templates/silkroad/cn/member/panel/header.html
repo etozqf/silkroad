@@ -1,0 +1,29 @@
+<div class="column header pos-r">
+    <div class="hr40"></div>
+    <div class="hr10"></div>
+    <div class="photo">
+        <div class="align-c">
+            <a href="{url('member/panelcn/index')}"><img src="<?=element::member_photo($_userid,90,90)?>" alt="{$_username}"></a>
+        </div>
+    </div>
+    <div class="hr10"></div>
+    <div class="userinfo align-c">
+        <a href="{url('member/panel/index_cn')}" title="{$_username}" style="font-size:22px;">{$_username}</a><a href="{url('member/index/logout_cn')}" title="quit" style="color:red;">Quit</a>
+    </div>
+    <div class="titles pos-a ov" style="width:480px">
+        <a rel="space" style="width:120px" href="{url('contribution/panelcn/index')}" class="fl-l">Bookmarks</a>
+        <a rel="member" style="width:120px" href="{url('member/panelcn/index')}" class="fl-l">Settings</a>
+        <a href="#"  style="width:120px" class="fl-l">My Reports</a>
+        <a href="{url('member/index/successlogin_cn')}"  style="width:120px" class="fl-l">Home page</a>
+    
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	var rel = "{$_GET[app]}";
+	if (rel == 'contribution') {
+		rel = 'space';
+	}
+	$('#nav a[rel="'+rel+'"]').addClass('current');
+});
+</script>

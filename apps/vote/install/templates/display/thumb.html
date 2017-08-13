@@ -1,0 +1,314 @@
+<!-- 投票选项 -->
+<div class="vote-detail-list js-vote-panel vote-raido-list widget-vote-thumb-{$contentid}">
+    <form id="vote_<?php echo $identifier;?>" action="{APP_URL}{url('vote/vote/ajaxvote')}" method="GET">
+        <input name="contentid" type="hidden" value="{$contentid}"/>
+        <input name="type" type="hidden" value="{$type}"/>
+        <input name="maxoptions" type="hidden" value="{$maxoptions}"/>
+        <input name="seccode" type="hidden" />
+        <ul class="ov">
+            <?php $optionnum = 1;?>
+            <!--{loop $option $k $v}-->
+            <!--{if $optionnum%4 == 0}-->
+            <li class="item item-right fl-l" data-optionid="{$v[optionid]}">
+            <!--{else}-->
+            <li class="item fl-l" data-optionid="{$v[optionid]}">
+            <!--{/if}-->
+            <?php $optionnum++;?>
+                <div class="image">
+                    <div class="img">
+                        <img  class="vote-img-{$contentid}" src="{thumb($v[thumb], $thumb_width ? intval($thumb_width) : null,  $thumb_height ? intval($thumb_height) : null, true, null, null, 100)}" alt="">
+                    </div>
+                    <p>{$v[name]}</p>
+                </div>
+                <div class="bottom ov pos-r">
+                    <span class="fl-r nums hidden"><i data-role="count">{intval($v[votes])}</i>票</span>
+                    <!--{if $type == 'radio'}-->
+                    <span href="javascript:;" class="button1 check pos-a vote-btn">投票</span>
+                    <!--{else}-->
+                    <label for=""><input type="checkbox" name="optionid" value="{$v[optionid]}"> <span class="optionvalue">投一票</span></label>
+                    <!--{/if}-->
+                </div>
+                <!--{if $type == 'radio'}-->
+                <div class="vote-sigle-bottom hidden seccodePanel">
+                    <div class="vote-seccode">
+                        <div class="longseccodeimg ov"><img class="seccodeImage" src="" class="fl-l" alt="" style="cursor: pointer;"></div>
+                        <div class="submit-bar vote-submit ov">
+                            <input type="text" name="seccode" id="seccode" class="m-input-text fl-l" value="验证码" />
+                            <span class="explain">输入图中<span class="seccodeColor"></span>字符</span>
+                        </div>
+                    </div>
+                    <div class="hr10"></div>
+                    <div class="submit-bar vote-submit ov">
+                        <input type="submit" data-role="ok" value="确 定" class="button1 fl-l">
+                        <a href="" class="fl-l cancel">取消</a>
+                    </div>
+                </div>
+                <!--{/if}-->
+            </li>
+            <!--{/loop}-->
+            <?php unset($optionnum);?>
+        </ul>
+        <!--{if $type == 'checkbox'}-->
+        <div class="vote-submit align-c"><span class="button1 submit vote-btn" data-role=submit>投 票</span></div>
+        <div class="submit-bar vote-submit ov hidden seccodePanel">
+            <div class="vote-seccode">
+                <input type="text" name="seccode" id="seccode" class="m-input-text fl-l" value="验证码" />
+                <span class="fl-l seccodeSpan"><img class="seccodeImage" {if $seccode_type == 'normal'}src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&length=11&_={time()}"{else}src="{APP_URL}?app=system&controller=seccode&action=image_pro&no_border=1&length=11&_={time()}"{/if} class="fl-l" alt="" style="cursor: pointer;"></span>
+                <span class="explain fl-l">输入图中<span class="color"><span class="seccodeColor"></span><span>字符</span>
+            </div>
+            <input type="button" data-role="ok" value="确 定" class="button1 fl-l">
+            <a href="" class="fl-l cancel">取消</a>
+        </div>
+        <!--{/if}-->
+    </form>
+    <div class="hr10"></div>
+</div>
+<script type="text/javascript">
+var seccode_type = '{$seccode_type}';
+var image_action = 'image_pro';
+function fixSignleButton(elem) {
+    elem.addClass('pos-a').removeClass('hidden');
+    var _parent = elem.parent();
+    // if(_parent.hasClass('hidden')) _parent.removeClass('hidden');
+    var offset = _parent.offset();
+    elem.appendTo(document.body);
+    elem.css({
+        left:offset.left,
+        top: offset.top +181,
+        width: _parent.width()
+    })
+}
+$(function() {
+    $('.js-vote-panel .check').bind('click', function(e) {
+        var _target = $(e.target);
+        var next = _target.parent().next();
+        var parent = next.parent();
+        $('.seccodePanel:visible').find('.cancel').trigger('click');
+        fixSignleButton(next);
+        next.find('[name="seccode"]').val('验证码');
+        next.find('[name="seccode"]').focus(function(){
+            if($(this).val() == "验证码"){
+                $(this).val('');
+            }
+        }).blur(function(){
+            if($(this).val() == ""){
+                $(this).val('验证码');
+            }
+        });
+        next.data('parent', parent);
+        e.preventDefault();
+    });
+    $(document.body).find('.cancel').bind('click', function(e) { 
+        var _target = $(e.target);
+        var parent = _target.parents('.vote-sigle-bottom');
+        parent.appendTo(parent.data('parent'));
+        parent.addClass('hidden');
+        e.preventDefault();
+    });
+});
+(function() {
+$.ajaxSetup({
+    jsonp: 'jsoncallback'
+});
+function vote(url, data, callback) {
+    $.getJSON(url + (url.indexOf('?') > -1 ? '&' : '?') + 'jsoncallback=?', data, function(json) {
+        $.isFunction(callback) && callback(json);
+    });
+}
+function updateResult(rows, data) {
+    $.each(data, function(i, n) {
+        rows.filter('[data-optionid='+n.optionid+']').find('.nums').removeClass('hidden');
+        rows.filter('[data-optionid='+n.optionid+']').find('[data-role=count]').text(n.votes || 0);
+    });
+}
+function init() {
+    if (seccode_type == 'normal') {
+        $('.explain .seccodeColor').remove();
+        image_action = 'image';
+    }
+    var contentid;
+    $('.widget-vote-thumb-{$contentid}').each(function(i, rows) {
+        rows = $(rows);
+        if (rows.data('vote-inited')) return;
+        var form = rows.find('form'),
+                url = form.attr('action'),
+                type = form.find('[name=type]').val(),
+                maxoptions = parseInt(form.find('[name=maxoptions]').val());
+        contentid = form.find('[name=contentid]').val();
+        if (url && contentid) {
+            var allRows = rows.find('li.item');
+            if (type == 'radio') {
+                allRows.each(function(j, row) {
+                    row = $(row);
+                    var optionid = parseInt(row.attr('data-optionid'));
+                    if (!optionid) return;
+                    var button = row.find('.vote-btn');
+
+                    function submit() {
+                        button.attr('disabled', true);
+                        var params = {
+                            contentid:contentid,
+                            optionid:optionid
+                        };
+                        params['seccode'] = $('.seccodePanel:visible').find('[name=seccode]').val();
+                        vote(url, params, function(json) {
+                            if (json && json.state) {
+                                updateResult(allRows, json.data);
+                                button.text('已投票');
+                                button.addClass('disabled');
+                                $('.seccodePanel').eq(1).find('[name=seccode]').val('');
+                                $('.seccodePanel').addClass('hidden');
+                            } else {
+                                alert(json && json.error || '投票失败，请重试');
+                                $('.seccodePanel').eq(1).find('[name=seccode]').val('');
+                                $('.seccodePanel').addClass('hidden');
+                            }
+                        });
+                        return false;
+                    }
+                    button.bind('click', function(event) {
+                        // 加载验证码
+                            setTimeout(function() {
+                                var panel = $('.seccodePanel:visible');
+                                panel.find('.seccodeImage').bind('click', function() {
+                                    this.src = APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime();
+                                }).bind('load', function() {
+                                    panel.find('.seccodeColor').html(decodeURI($.cookie(COOKIE_PRE+'seccode_color')).replace('+', ' '));
+                                }).attr('src', APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime());
+                                panel.find('[data-role="ok"]').bind('click', {
+                                    panel: panel
+                                }, function(event) {
+                                    if (event.data.panel.find('[name="seccode"]').val()) {
+                                        submit();
+                                    }
+                                });
+                                panel.find('.seccodeRefresh').bind('click', function() {
+                                    panel.find('.seccodeImage').attr('src', APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime());
+                                });
+                            }, 1);
+                        return false;
+                    });
+
+                    button.hover(function() {
+                        button.addClass('vote-btn-over');
+                    }, function() {
+                        button.removeClass('vote-btn-over');
+                    });
+                });
+            } else {
+                var lock = false;
+                var button = form.find('[data-role=submit]');
+
+                function submit() {
+                    if (lock) return false;
+                    var checkedOptions = form.find('[name=optionid]:checked');
+                    if (!checkedOptions.length) {
+                        alert('请至少选择一项');
+                        return false;
+                    }
+                    if (maxoptions && checkedOptions.length > maxoptions) {
+                        alert('最多可以选择 ' + maxoptions + ' 项');
+                        return false;
+                    }
+                    lock = true;
+                    var params = 'contentid='+contentid;
+                    checkedOptions.each(function() {
+                        params += '&optionid[]=' + this.value;
+                    });
+                    params += '&seccode=' + $('.seccodePanel').find('[name=seccode]').val();
+                    vote(url, params, function(json) {
+                        lock = false;
+                        if (json && json.state) {
+                            updateResult(allRows, json.data);
+                            button.text('已投票');
+                            button.attr('disable', 'disable');
+                            $('.seccodePanel').addClass('hidden');
+                            button.parent().removeClass('hidden');
+                        } else {
+                            alert(json && json.error || '投票失败，请重试');
+                            $('.seccodePanel').addClass('hidden');
+                            button.parent().removeClass('hidden');
+                        }
+                    });
+                    return false;
+                }
+
+                button.bind('click', function(event) {
+                    if($(this).attr('disable')){
+                        return false;
+                    }
+                    // 加载验证码对话框
+                    var offset = $(this).offset();
+                    var seccode = function() {
+                        button.parent().addClass('hidden');
+                        $('.seccodePanel').removeClass('hidden');
+                        $('.seccodePanel').find('[name="seccode"]').val('验证码');
+                        $('.seccodePanel').find('[name="seccode"]').focus(function(){
+                            if($(this).val() == "验证码"){
+                                $(this).val('');
+                            }
+                        }).blur(function(){
+                            if($(this).val() == ""){
+                                $(this).val('验证码');
+                            }
+                        });
+                        $('.seccodePanel .cancel').bind('click', function(){
+                            $('.seccodePanel').addClass('hidden');
+                            button.parent().removeClass('hidden');
+                        });
+                        setTimeout(function() {
+                            var panel = $('.seccodePanel:visible');
+                            if (image_action == 'image') {
+                                panel.find('.seccodeSpan').css('border', '0px').css('width', '55px').css('margin-top','12px').css('margin-right', '10px');
+                                panel.find('.explain').remove();
+                            }
+                            panel.find('.seccodeImage').bind('click', function() {
+                                this.src = APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime();
+                            }).bind('load', function() {
+                                panel.find('.seccodeColor').html(decodeURI($.cookie(COOKIE_PRE+'seccode_color')).replace('+', ' '));
+                            }).attr('src', APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime());
+                            panel.find('[data-role="ok"]').bind('click', {
+                                panel: panel
+                            }, function(event) {
+                                if (event.data.panel.find('[name="seccode"]').val()) {
+                                    submit();
+                                }
+                            });
+                            panel.find('.seccodeRefresh').bind('click', function() {
+                                panel.find('.seccodeImage').attr('src', APP_URL + '?app=system&controller=seccode&action='+image_action+'&no_border=1&length=11&_=' + (new Date()).getTime());
+                            });
+                        }, 1);
+                    }
+
+                    seccode();
+                    return false;
+                });
+            }
+            rows.find('.vote-text').each(function() {
+                var text = $(this), thumb = text.prev('img');
+                text.width(Math.max(1, Math.max(100, thumb.width()) - 18));
+            });
+        }
+        rows.data('vote-inited', true);
+    });
+
+}
+if ('fet' in window) {
+    fet({
+        assets:'{IMG_URL}js/lib/cmstop.seccode.js',
+        test:'jQuery.fn.seccode',
+        depends:'lib.jQuery'
+    }, function() {
+        fet({
+            assets:'{IMG_URL}js/lib/jquery.cookie.js',
+            test:'jQuery.cookie',
+            depends:'lib.jQuery'
+        }, init);
+    });
+} else if ('jQuery' in window) {
+    $(function() {
+        init();
+    });
+}
+})();
+</script>

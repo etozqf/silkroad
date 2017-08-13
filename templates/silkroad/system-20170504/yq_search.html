@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+  <title>{$sitename[0]}_{$SYSTEM[seotitle]}_园区搜索</title>
+  <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+  <meta name="description" content="{$SYSTEM[seodescription]}" />
+  <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+	
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/search.js"></script>
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<div class="dh_mainbox">
+	<div class="hd">
+		<h3 yangya="{$yangya}" wangya="{$wangya}">园区搜索</h3>
+	</div>
+
+	<div class="search-box">
+		<div class="w-730">
+			<div class="select-box">
+			<form method="POST" action="{APP_URL}?app=system&controller=yuanqu&action=yq_search" id="yq_search">
+				<div class="sel-li">
+					<h3 class="f-l">地区：</h3>
+					<select class="f-l" name="province">
+					<option value="0">请选择</option>
+					<option value="all">全部</option>
+					<?php 
+						foreach($provinces as $k=>$v){
+					?>
+						<option value="{$v}">{$v}</option>
+						<?php 
+						}
+						?>
+					</select>
+				</div>
+				<div class="sel-li">
+					<h3 class="f-l">园区类别：</h3>
+					<select class="f-l" name="cate">
+						<option value="0">请选择</option>
+						<option value="all">全部</option>
+					<?php 
+						foreach($cate as $k=>$v){
+					?>
+						<option value="{$k}">{$v}</option>
+						<?php 
+						}
+						?>
+					</select>
+				</div>
+				<div class="sel-li">
+					<h3 class="f-l">相关产业：</h3>
+					<select class="f-l" name="property">
+						<option value="0">请选择</option>
+						<option value="all">全部</option>
+					<?php 
+						foreach($pro as $k=>$v){
+					?>
+						<option value="{$k}">{$v}</option>
+						<?php 
+						}
+						?>
+					</select>
+				</div>
+				
+			</form>
+			</div>
+		</div>
+	</div>
+	<div data="" class="box960">
+	<!--{if $data}-->
+		<p class="total-num mar-t-16">新华丝路数据库为您找到相关结果约{$total}个</p>
+		<ul class="park-ul">
+
+			<!--{loop $data $k $r}-->
+				<li data="{$r}">
+					<div class="park-box">
+						<h3><a href="{table('content',$r,'url')}" target="_blank">{table('content',$r,'title')}</a></h3>
+
+						<div class="img-box mar-t-9">
+							<a href="{table('content',$r,'url')}" target="_blank">
+								<img src="{thumb(table('content',$r,'thumb'),200,150,1,null,0)}" width="200" height="150" alt=""/>
+							</a>
+						</div>
+						<div class="cont-r mar-t-3">
+							{str_cut(table('article',$r,'content'),400,'...')}
+
+							<div class="mar-t-10">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_news&contentid={$r}" target="_blank">园区动态</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_touzi&contentid={$r}" target="_blank">投资环境</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_views&contentid={$r}" target="_blank">观点 • 参考</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_company&contentid={$r}" target="_blank">入住企业</a>
+								<div class="db"><em class="db-em" contentid="{$r}" thumb="{thumb(table('content',$r,'thumb'),90,68,1,null,0)}" url="{table('content',$r,'url')}" title="{table('content',$r,'title')}"></em>对比</div>
+
+								<div class="info">
+									<span class="fav ie6_png32">收藏</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			<!--{/loop}-->
+		</ul>
+		<div class="page">
+			
+		</div>
+	<!--{else}-->
+		<ul class="park-ul">
+			<!--{content catid="219" modelid="1" orderby="published desc" page="$page" offset="($page-1)*$pagesize" size="$pagesize"}-->
+				<li data="{$r[contentid]}">
+					<div class="park-box">
+						<h3><a href="{$r[url]}" target="_blank">{$r[title]}</a></h3>
+
+						<div class="img-box mar-t-9">
+							<a href="{$r[url]}" target="_blank">
+								<img src="{thumb($r[thumb],200,150,1,null,0)}" width="200" height="150" alt=""/>
+							</a>
+						</div>
+						<div class="cont-r mar-t-3">
+							{str_cut(table('article',$r['contentid'],'content'),400,'...')}
+
+							<div class="mar-t-10">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_news&contentid={$r['contentid']}" target="_blank">园区动态</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_touzi&contentid={$r['contentid']}" target="_blank">投资环境</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_views&contentid={$r['contentid']}" target="_blank">观点 • 参考</a>
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_company&contentid={$r['contentid']}" target="_blank">入住企业</a>
+								<div class="db"><em class="db-em" contentid="{$r[contentid]}" thumb="{thumb($r[thumb],90,68,1,null,0)}" url="{$r[url]}" title="{$r[title]}"></em>对比</div>
+
+								<div class="info">
+									<span class="fav ie6_png32">收藏</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			<!--{/content}-->
+		</ul>
+		<div class="page" total="{$total}">
+			<tr>
+      <!--{space_pages($total, $page, $pagesize, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+      </tr>
+      <span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+		</div>
+	<!--{/if}-->
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</div>
+		<?php 
+		 $cookie = factory::cookie();
+     $userid = $cookie->get('userid');
+     $db_data = $_COOKIE['db'.$userid];
+     $res = explode(',',$db_data);
+     $db_data ? $i = count($res) : $i=0 ;
+    ?>
+
+<div class="db-right">
+	<div class="db-r-top">
+		<h3>[{$i}/2]对比框</h3>
+		<em class="db-close" onclick="$('.db-right').hide();"></em>
+	</div>
+
+	<div class="db-r-list">
+		<ul id="db">
+		<?php 
+			$db_data = $_COOKIE['db'.$userid];
+			if(!$db_data){
+
+			}else{
+			$res = explode(',',$db_data);
+			foreach($res as $k=>$v){
+		?>
+			<li id="{$v}">
+				<em class="db-li-close" onclick="lost(this,{$v});"></em>
+				<a href="{table('content',$v,'url')}" target="_blank" class="r-img">
+					<img src="{thumb(table('content',$v,'thumb'),90,68,1,null,0)}" width="90" height="68" alt=""/>
+				</a>
+
+				<h3 class="mar-t-6"><a href="{table('content',$v,'url')}" target="_blank">{table('content',$v,'title')}</a></h3>
+			</li>
+		<?php
+			}
+			}
+		?>
+		</ul>
+		<a href="javascript:;"class="db-r-btn" onclick="go_db();">
+			对比
+		</a>
+		<p class="db-clear" onclick="lost_all();">清空对比栏</p>
+	</div>
+</div>
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

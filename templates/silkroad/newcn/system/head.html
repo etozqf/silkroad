@@ -1,0 +1,84 @@
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<header class="en-hearder">
+	<div class="column mar-t-10">                
+		<!--头部广告-->
+		<div class="head-ad">
+			<!--#include virtual="/section/373.html"--><!--# 新英文站 顶部广告-左侧 #-->
+			<!--#include virtual="/section/374.html"--><!--# 新英文站 顶部广告-右侧 #-->
+		</div>
+		<!--HeadLine-->
+		<div class="head-line">
+			<h3>Latest Headlines:</h3>
+			<!--#include virtual="/section/375.html"--><!--# 新英文站 顶部走马灯 #-->
+		</div>
+		<div class="head-menu mar-t-10">
+			<!--#include virtual="/section/376.html"--><!--# 新英文站 头部logo #-->
+
+			<h3 class="tit f-l" style="margin-left: 50px">
+			
+			<span id="login_status" style="display:none">
+				<a href="javascript:;" class="member"></a>
+				<span>|</span>
+				<a href="{APP_URL}{url('member/index/logout_newcn')}">Logout</a>
+			</span>
+			<span id="logout_status" style="display:none">
+				<a id="user-login" href="javascript:;" onclick="popbox('.login-box')">Log in</a>
+				<span>|</span>
+				<a id="user-subscribe" href="javascript:;" onclick="popbox('.subscribe-box')">Subscribe</a>
+			</span>
+			</h3>
+
+			<div class="select ie6_png32" id="select">
+				<h3 class="s-h3">Chinese</h3><em class="sel-em s-down ie6_png32"></em>
+
+				<div class="option" id="option">
+					<ul>
+						<li tip="English" style="display:none">Engish</li>
+						<li tip="中文" value="新华丝路网">Chinese</li>
+						<li tip="新华丝路网" value="新华丝路网"style="display:none">新华丝路网</li>
+						<li tip="西文" value="西文"style="display:none">西文</li>
+						<li tip="俄文" value="俄文"style="display:none">俄文</li>
+					</ul>
+				</div>
+			</div>
+			<!--搜索框-->
+			<div class="search-box ie6_png32">
+				<form action="{APP_URL}" method="GET" target="_blank">
+					<input type="hidden" name="app" value="search" />
+					<input type="hidden" name="controller" value="indexcn" />
+					<input type="hidden" name="action" value="search" />
+					<input type="hidden" name="type" value="all" />
+					<input type="text" name="wd" class="txt-input f-l" placeholder="Please input the key words"/>
+					<button type="submit" class="txt-button f-r"></button>
+				</form>
+			</div>
+			<div class="sel-span">
+				<a href="" class="">Advanced Search</a>
+			</div>
+		</div>
+	</div>
+	<!--#include virtual="/section/377.html"--><!--# 新英文站 顶部导航 #-->
+</header>
+<script type="text/javascript">
+				
+        $(function(){
+        	//if($.cookie(COOKIE_PRE+'auth')) {
+            //$('#login_status').css('display','block');
+            //var username = $.cookie(COOKIE_PRE+'username');
+            //$("#login_status .member").html(username);
+        	//}else{
+            $('#logout_status').css('display','block');
+        	//}
+        	//导航高亮
+          var url = window.location.href;
+          if(url.indexOf('politics_economy')!=-1){
+            $('nav div ul li:eq(1)').attr('style','background:#2d87a9');
+          }else if(url.indexOf('sectors')!=-1){
+            $('nav div ul li:eq(2)').attr('style','background:#2d87a9');
+          }else if(url.indexOf('companies')!=-1){
+            $('nav div ul li:eq(3)').attr('style','background:#2d87a9');
+          }else if(url=='http://db.silkroad.news.cn/newcn/'){
+            $('nav div ul li:eq(0)').attr('style','background:#2d87a9');
+          }
+        })
+</script>

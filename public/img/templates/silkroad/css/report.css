@@ -1,0 +1,86 @@
+/*报告列表页*/
+/*Silk Road Weekly*/
+.silk-show{width: 100%; overflow: hidden;}
+.homebanner1 {width: 242px; height: 342px; overflow: hidden; float: left; position: relative;}
+.silk-show .homebanner1 li{width: 242px; height: 342px; overflow: hidden;}
+.p-left,.p-right{width: 20px; height: 28px; background: url("images/icons.png") -8px -112px no-repeat; position: absolute; top: 146px;}
+.p-left{left: 0;}
+.p-right{right: 0; background-position: -48px -112px;}
+/*小幻灯*/
+.homebanner1 .nums{width: 90px; height: 5px; position: absolute; left: 86px; bottom: 15px;}
+.homebanner1 .nums li{width: 25px; height: 5px; float: left; margin-right: 5px; background: #011d51; text-indent: -9999px;}
+.homebanner1 .nums li.curr{background: #ff6c00;}
+.silk-cont{width: 410px; float: left;margin-left: 28px; font-size: 14px; overflow: hidden; line-height: 21px;  font-family: "Arial";
+        color: #333;}
+.silk-cont p,.lastest-show ul li  p{font-size: 14px;  line-height: 21px;  font-family: "Arial";color: #333;}
+/*Latest Issues*/
+.lastest-show ul li{width: 100%; border-bottom: 1px dashed #e5e5e5; float: left; padding-bottom: 18px; margin-top:21px; }
+.lastest-show ul li h3{width: 100%;  line-height: 28px; font-size: 20px; font-family: "Times New Roman"; }
+.lastest-show ul li h3 a{color: #208acd;}
+.lastest-show ul li h3 a:hover,.lastest-show ul li  p a:hover{text-decoration: none; color: #E4393C;}
+.lastest-show ul li  p a{color: #208acd;}
+/*Your Reports*/
+.pic-list2{width: 100%; height: 788px; overflow: hidden;}
+.pic-list2 ul{width: 705px; overflow: hidden;}
+.pic-list2 li{width: 210px; float: left; margin-right: 25px; margin-bottom: 25px;}
+.pic-list2 h3{width: 100%; height: 60px; line-height: 20px; font-size: 16px; overflow: hidden;font-family: "Arial"; margin-top: 6px;}
+.pic-list2 h3 a{color: #208acd;}
+.pic-list2 h3 a:hover{text-decoration: none;color: #c81623;}
+.more-box{width: 100%; height: 28px; line-height: 28px; text-align: center; background: #f3f3f3; font-size: 14px; overflow: hidden;}
+.more-box a{color: #208acd;}
+/*报告生成页*/
+/*面包屑*/
+.crumbs{width: 100%;height: 28px; overflow: hidden; font-size: 14px;font-family: "Arial"; line-height: 28px; color: #555;}
+.crumbs a{color: #0079c6;}
+.crumbs a:hover,.countrys dl dd a:hover{text-decoration: none; color: #E4393C;}
+/*China Factbook*/
+.countrys{width: 100%; overflow: hidden; font-family: "Arial"; }
+.countrys dl{width: 100%;  line-height: 28px;border-bottom: 1px solid #e8e8e8; padding-bottom: 5px; padding-top: 6px; overflow: hidden;}
+.countrys dl dt{width: 166px; height: 28px; float: left; background: url("images/countrys-bg.png") no-repeat; color: #666;
+        text-align: center;  font-size: 14px;overflow: hidden; }
+.countrys dl dd{float: left;width: 775px; margin-left: 15px; font-size: 14px;  }
+.countrys dl dd a{color:#0079c6;float: left;margin-right: 20px; }
+/*Hainan*/
+.reports-950{width: 950px; margin: 0 auto; overflow: hidden; margin-top: 20px;}
+.ad02{width: 100%; overflow: hidden;}
+.left-cont{width: 240px; background: #f3f3f3; float: left; _display: inline;}
+.right-cont{width: 680px;  float: left; margin-left: 30px; _display: inline; height: 800px;}
+.mar-t-28{margin-top: 28px;}
+.contp{width: 215px; overflow: hidden; float: left; margin-left: 12px;font-size: 14px;  line-height: 21px;  font-family: "Arial";color: #666;}
+.rc-list{width: 100%; overflow: hidden;font-family: "Arial";}
+.rc-list dl dt,.rc-list dl dd{width: 100%; height: 40px;  line-height: 40px;  position: relative;}
+.checkbox{width: 16px; height: 16px; float: left; border: 1px solid #cccccc; margin-top: 11px; margin-right: 7px; _display: inline;}
+.check-icon{height: 40px; line-height: 40px;position: absolute; left: 0; top: 0; z-index: 10; background: #fff; }
+.check-icon label{font-size: 16px; color: #0079c6; font-weight: normal;}
+.line{width:100%;border-top:1px dotted #d9d9d9;position: absolute; left: 0; top: 19px; z-index: 5}
+.b-close,.b-close1{width: 22px; height: 22px; display: block; text-align: center; line-height: 22px; font-size: 16px; color: #0b8bd6;
+        border:1px solid #a8d4ed; position: absolute; right: 0;top: 8px;background: #fff; cursor: pointer; z-index: 10; overflow: hidden; }
+.b-close.curr,.b-close1.curr{background: #098BDF; color: #fff;}
+/*二级隐藏菜单*/
+.hidden-box{width: 655px;   overflow: hidden; position: absolute; top: 40px; left: 25px;}
+.hidden-box li{width: 100%; height: 36px;  line-height: 36px;  position: relative;}
+.gjml_tagsub{width: 600px;  height: auto;  padding: 10px; position: absolute; top: 40px; left: 25px; line-height: 21px;font-size: 14px; color: #666;
+        background-color: #fafafa;border: solid 1px #eeeeee;  overflow: auto;}
+/*弹出*/
+.pop-box{width: 730px; height: 720px; position: absolute;z-index: 99;background: url("images/pop-box02.png") no-repeat;left: 50%; top: 75px;margin-left: -369px;display: none}
+.con{width: 640px; height: 634px; margin: 43px auto;background: #f3f3f3;font-family: "Arial"}
+.tit h3{ color:#0079c6;}
+.con-ul{width: 592px;margin: 0 auto}
+.con-ul li{overflow: hidden;line-height: 32px;margin-top: 15px;_margin-top: 5px;_height: 70px; overflow: hidden}
+.con-ul li p{ color:#0079c6;line-height: 24px;font-size: 14px;}
+.con-ul li h4{height: 44px; line-height: 44px;font-size: 14px;margin-bottom: 10px;}
+.con-ul li h4 em{font-size: 20px;}
+.con-ul li span{display: block;width: 150px; float: left; text-align: right;font-size: 16px;color: #666;}
+.con-ul li input{ border: 1px solid #ccc; height: 30px; line-height: 30px;padding: 0 5px;width: 427px;float: right;color: #666;overflow: hidden}
+.con-ul li i{font-style: normal; margin-left: 154px;display: block;color: #666;line-height: 30px;text-indent: 3px; clear: both;}
+.bor-b-ccc{border-bottom: 1px solid #ccc;}
+.textarea{height: 93px border: 1px solid #ccc; line-height: 20px;padding: 0 5px;width: 427px;float: right;color: #666;}
+.dl{display: block;margin-left: 154px;}
+/*----------------------------报告详细页---------------------------------*/
+
+.mod-tit-box{width: 677px; margin: 0 auto;}
+.pic-list3{width: 100%; height: 788px; overflow: hidden;}
+.pic-list3 ul{width: 705px; overflow: hidden;}
+.pic-list3 li{width: 150px; float: left; margin-right: 25px; margin-bottom: 25px;}
+.pic-list3 h3{width: 100%; height: 48px; line-height: 16px; font-size: 14px; overflow: hidden;font-family: "Arial"; margin-top: 5px;}
+.h-1515{height: 1515px;}

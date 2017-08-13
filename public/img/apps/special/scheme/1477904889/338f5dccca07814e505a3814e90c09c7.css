@@ -1,0 +1,30 @@
+.diy-area, .diy-frame, .diy-widget, .diy-inner { margin: 0; padding: 0; border:none; word-wrap: break-word; zoom: 1;}
+div.diy-area:after, .diy-frame:after,.diy-widget:after, .diy-content:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden;}
+.diy-frame .diy-area { float:left; overflow:hidden;}
+.diy-area, .diy-widget { min-height: 5px;}
+.diy-root { }
+.diy-frame { }
+.diy-widget {}
+.diy-title { overflow: hidden;}
+.diy-title img { vertical-align: middle;}
+.diy-frame .diy-title {}
+.diy-widget .diy-title {}
+.clear {height: 0;font-size: 0;clear: both;}
+.hr-dot {border-bottom:1px dashed #ccc;height:10px;clear:both;overflow:hidden;}
+a img { border: none;}
+.slider-player { position:relative;}
+.slider-player .slider-content { position:relative; overflow:hidden;}
+.slider-player .slider-content,.slider-content li { margin:0; padding:0; list-style:none;}
+.slider-content li { position:absolute; left:0; top:0; z-index:0; display:none;}
+.slider-content .pic {}
+.slider-player .title { font-size:14px; color:#000; font-weight:bold; padding-left:15px; margin-top:2px; text-decoration: none;}
+.slider-player .title:hover { text-decoration: underline; color:#f00;}
+.slider-player .slider-link { height:25px; line-height:22px; overflow:hidden;}
+.slider-content img { border:none;padding:0;margin:0;}
+.slider-player .slider-moon { height:100%; width:100%; display:none; position:absolute; left:0;top:0; background:transparent url(http://img.db.silkroad.news.cn/apps/special/widget/slider/loader.gif) no-repeat center; z-index:3;}
+.slider-player .slider-nav { position:absolute; padding:2px; right:0px; z-index:2; opacity:0.7; filter:Alpha(Opacity="70");}
+.slider-nav a { cursor:pointer; display:inline-block; height:15px; width:15px; text-align:center; margin:0 2px; background-color:#eee; border:1px solid #ccc;}
+.slider-nav a.active { background-color:#AD2D2D; border-color:#ccc; color:#fff;}
+.title-list, .title-list li { margin:0; padding:0; list-style:none;}
+.title-list a { font-size:14px; margin:0 4px; text-decoration: none;}
+.title-list a:hover { text-decoration: underline;}

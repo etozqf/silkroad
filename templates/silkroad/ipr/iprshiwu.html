@@ -1,0 +1,143 @@
+<style>
+        .fl-l {
+            float: left;
+        }
+        .fl-r {
+            float: right;
+        }
+        ul,ol,li,dl,dd {
+            list-style: none;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .clear {
+            font-size: 0; line-height: 0; clear: both;
+            overflow: hidden; zoom: 1;
+        }
+        .bef:before{ /* 外边距溢出 */
+            visibility: hidden; content: ""; display: table;
+            font-size: 0; width: 0; height: 0;
+        }
+        .aft:after{ /* 清除浮动 */
+            visibility: hidden; content: ""; display: block;
+            clear: both; font-size: 0; width: 0; height: 0;
+        }
+        .counrty {
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+        }
+        ul.countries {
+            width: 475px;
+
+            height: auto;
+            margin: 0 auto;
+        }
+        ul.countries li {
+            width: 183px;
+            margin-top: 30px;
+        }
+        ul.countries li .cname {
+            font-size: 16px;
+            color: #6e717a;
+            height: 30px;
+            text-indent: 3px;
+            line-height: 30px;
+        }
+        ul.countries li .ename {
+            font-size: 14px;
+            color: #6e717a;
+            height: 30px;
+            line-height: 35px;
+        }
+        ul.countries li img {
+            width: 183px;
+            box-shadow:0 0 6px 0 rgba(0,0,0,0.50);
+        }
+    </style>
+
+<div class="counrty">
+    <div class="hd"><h3 style="padding:0 15px 0 15px;">知识产权实务指引</h3></div>
+    <ul class="countries aft">
+        <li class="fl-l">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">白俄罗斯</div>
+                    <div class="ename fl-r">Belarus</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,450)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/baieluosi.jpg"></a></dd>
+            </dl>
+        </li>
+        <li class="fl-r">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">俄罗斯</div>
+                    <div class="ename fl-r">Russia</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,448)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/eluosi.jpg"></a> </dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="countries aft">
+        <li class="fl-l">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">马来西亚</div>
+                    <div class="ename fl-r">Malaysia</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,408)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/malaixiya.jpg"></a> </dd>
+            </dl>
+        </li>
+        <li class="fl-r">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">沙特阿拉伯</div>
+                    <div class="ename fl-r">Saudi Arabia</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,425)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/shatealabo.jpg"></a> </dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="countries aft">
+        <li class="fl-l">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">土耳其</div>
+                    <div class="ename fl-r">Turkey</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,419)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/tuerqi.jpg"></a> </dd>
+            </dl>
+        </li>
+        <li class="fl-r">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">新加坡</div>
+                    <div class="ename fl-r">Singapore</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,407)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/xinjiapo.jpg"></a> </dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="countries aft">
+        <li class="fl-l">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">匈牙利</div>
+                    <div class="ename fl-r">Hungary</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,461)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/xiongyali.png"></a> </dd>
+            </dl>
+        </li>
+        <li class="fl-r">
+            <dl>
+                <dd>
+                    <div class="cname fl-l">印度</div>
+                    <div class="ename fl-r">India</div>
+                </dd>
+                <dd><a href='javascript:void(0);' onclick='javascript:getarticle(5,299,435)'><img src="{IMG_URL}templates/{TEMPLATE}/ipr/img/yindu.jpg"></a> </dd>
+            </dl>
+        </li>
+    </ul>
+</div>

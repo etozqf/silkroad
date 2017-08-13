@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+    <resource>{IMG_URL}js/lib/cmstop.seccode.js</resource>
+	<resource>script.js</resource>
+	<depends>tree</depends>
+	<depends>datapicker</depends>
+</package>

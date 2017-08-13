@@ -1,0 +1,11 @@
+<div class="hero">
+    <form method="get" action="{APP_URL}" target="_blank" class="search-form">
+        <input type="hidden" name="app" value="baoliao">
+        <input type="hidden" name="controller" value="index">
+        <input type="hidden" name="action" value="search">
+        <input type="hidden" id="type" name="type" value="all">
+        <input type="text" placeholder="请输入关键字" name="search" />
+        <input type="submit" value="搜索" />
+    </form>
+    <a class="gotopost" href="{url('baoliao/index/post')}" target="_blank">我要报料</a>
+</div>

@@ -1,0 +1,16 @@
+/*
+ @name 图说专题方案专题标题
+ @notes 
+*/
+.title-special-pics{
+	overflow: hidden;
+	background:#000 url("images/tushuo.png") no-repeat 0 15px;
+	height:55px;
+	line-height:30px;
+	font-family:"微软雅黑";
+	font-size:24px;
+	padding:35px 0 0 130px;
+	color:#fff;
+}
+.title-special-pics,
+.title-special-pics span{}

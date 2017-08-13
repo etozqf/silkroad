@@ -1,0 +1,379 @@
+
+ol, ul, li, dl, dt, dd {
+    list-style: none;
+}
+*{
+	margin:0;padding:0;
+}
+i, em {
+    font-style: normal;
+}
+a {
+    color: #333; text-decoration: none; outline: thin none;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+}
+a:focus {
+    -moz-outline-style: none;
+}
+.fl-l {
+    float: left;
+}
+.fl-r {
+    float: right;
+}
+.clear {
+    font-size: 0; line-height: 0; clear: both;
+    overflow: hidden; zoom: 1;
+}
+.bef:before{ /* 外边距溢出 */
+    visibility: hidden; content: ""; display: table;
+    font-size: 0; width: 0; height: 0;
+}
+.aft:after{ /* 清除浮动 */
+    visibility: hidden; content: ""; display: block;
+    clear: both; font-size: 0; width: 0; height: 0;
+}
+.ov {
+    overflow: hidden;
+}
+.f-b {
+
+}
+.f-12 {
+    font-size: 12px;
+}
+.f-14 {
+    font-size: 14px;
+}
+.f-16 {
+    font-size: 16px;
+}
+.f-18 {
+    font-size: 18px;
+}
+.f-19 {
+    font-size: 19px;
+}body {
+    background: #f3f3f3;
+}
+.header {
+    width: 100%;
+    height: 110px;
+    background: #1b60ad;
+}
+.header .header-content {
+    width: 1000px;
+    height: 110px;
+    margin: 0 auto;
+}
+.header .header-content .logo {
+    width: 235px;
+    height: 57px;
+    margin-top: 26px;
+    color: #fff;
+    font-family: "Arial Black";
+}
+.header .header-content .logo img {
+    margin-left: -4px;
+}
+.header .header-content .logo span {
+    height: 57px;
+    line-height: 57px;
+    display: inline-block;
+}
+.header .header-content .nav {
+    width: 687px;
+    height: 60px;
+    margin: 20px 0 0 25px;
+}
+.header .header-content .nav .nav-top, .header .header-content .nav .nav-bottom {
+    height: 35px;
+    line-height: 35px;
+}
+.header .header-content .nav .nav-top {
+    /*background: green;*/
+}
+.header .header-content .nav .nav-top a {
+    color: #fff;
+    margin-left: 64px;
+    position: relative;
+    height: 35px;
+    display: inline-block;
+}
+.header .header-content .nav .nav-bottom a {
+    color: #fff;
+    margin-left: 30px;
+    position: relative;
+    height: 35px;
+    display: inline-block;
+}
+.header .header-content .nav .nav-top a em, .header .header-content .nav .nav-bottom a em {
+    width: 14px;
+    height: 8px;
+    display: inline-block;
+    background: url("../img/spirit.png") 0 0 no-repeat;
+    margin-left: 5px;
+}
+.header .header-content .nav ul.nav-menu {
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    left: 50%;
+    display: none;
+    z-index: 2;
+    line-height: 30px;
+    background:#ffffff;
+    border:1px solid #1b60ad;
+    box-shadow:0 0 6px 0 rgba(0,0,0,0.50);
+}
+.header .header-content .nav ul.nav-menu li {
+    height: 50px;
+    font-size: 19px;
+    color: #444;
+    letter-spacing:0;
+    line-height: 50px;
+    border-bottom: 1px solid #1b60ad;
+}
+.header .header-content .nav ul.nav-menu li:hover {
+    background: #729fd0;
+    color: #fff;
+    border-bottom: 1px solid #729fd0;
+}
+.header .header-content .nav ul.nav-menu li:last-child {
+    border-bottom: none;
+}
+.header .header-content .nav a:hover ul.nav-menu {
+    display: block;
+}
+.header .header-content .login {
+    width: 32px;
+    height: 32px;
+    margin-top: 40px;
+}
+.header .header-content .login a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url("../img/spirit.png") 0 -13px no-repeat;
+}
+.seach-add {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto 0;
+    background: #FFFFFF;
+}
+.search-addcon {
+    width: 658px;
+    height: 38px;
+    /*border: 1px solid #0079c6;*/
+    margin-left: 110px;
+    _margin-left: 60px;
+}
+ul.seach-add-menu {
+    float: right;
+    width: 260px;
+    height: 38px;
+    line-height: 38px;
+    /*background: red;*/
+}
+ul.seach-add-menu>li {
+    float: left;
+    margin-left: 20px;
+}
+ul.seach-add-menu>li>span {
+    position: relative;
+    font-size:16px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 38px;
+    display: inline-block;
+}
+ul.seach-add-menu>li>span>em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.seach-add-nav {
+    display: none;
+    position: absolute;
+    top: 37px;
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    text-align: center;
+    left: 50%;
+    z-index: 2;
+}
+ul.seach-add-menu>li>span:hover .seach-add-nav {
+    display: block;
+}
+.seach-add-nav li{
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.seach-add-nav a {
+    height: 43px;
+    width: 100%;
+    font-size: 16px;
+    display: inline-block;
+}
+.seach-add-nav a:hover {
+    background:#c81922;
+    color: #FFFFFF;
+}
+.container {
+    width: 1000px;
+    height: auto;
+    margin: 20px auto 0;
+    background: #FFFFFF;
+}
+.container ul.menu {
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.container ul.menu li {
+    float: left;
+    padding: 0 15px;
+    font-size:18px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 47px;
+    line-height: 47px;
+}
+.container ul.menu li span {
+    display: inline-block;
+    height: 48px;
+    position: relative;
+}
+.container ul.menu li span em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.container ul.menu li.on {
+    border-bottom: 2px solid #c81922;
+}
+
+.container ul.menu ul.menu-nav {
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    position: absolute;
+    top: 48px;
+    text-align: center;
+    left: 50%;
+    display: none;
+    z-index: 2;
+}
+.container ul.menu li span ul.menu-nav li {
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.container ul.menu li span ul.menu-nav li a{
+    height:43px;
+    width: 100%;
+    display: inline-block;
+}
+.container ul.menu li span ul.menu-nav li:hover {
+    background:#ed6970;
+    height:43px;
+    color: #fff;
+}
+.container ul.menu li span:hover ul.menu-nav {
+    display: block;
+}
+.container ul.ttitle {
+    width: 945px;
+    margin: 0 auto;
+}
+.container ul.ttitle li {
+    width: 945px;
+    float: left;
+    border-bottom: 1px dashed #cccccc;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+}
+.container ul.ttitle li .ttitle-title a {
+    width: 700px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+}
+.container ul.ttitle li .ttitle-title a em {
+    width: 8px;
+    height: 9px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -21px no-repeat;
+    margin-right: 10px;
+}
+.container ul.ttitle li .ttitle-time {
+    width: 200px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+    text-align:right;
+}
+.container .cc {
+
+    display: none;
+}
+.container .paging {
+    width: 720px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 112px;
+    padding: 20px 0;
+}
+.container .paging li {
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.container .paging li a {
+    display: block;
+    color: #0079c6;
+    /*background: red;*/
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    padding: 0 15px;
+}
+.container .paging li a.prev {
+    background: #ebebeb;
+    color: #f72200;
+}
+.container .paging li a.next {
+    color: #2479d8;
+}
+.container .paging li.on a {
+    color: #f72200;
+}
+.red {
+    color: #f72200;
+}
+.blue {
+    color: #2479d8;
+}
+.fw {
+    font-weight: bold;
+}

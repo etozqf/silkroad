@@ -1,0 +1,55 @@
+<div class="mod-activity">
+<p class="summary">{$content}</p>
+<p class="require">注：*为必填项</p>
+<?php $_uuid = uniqid('activity-'); ?>
+<script type="text/javascript">
+    function change() {
+        var input = $('#seccode'),
+        img = input.next('img');            
+        img.attr('src', '{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5);
+    }
+</script>
+<form id="signform_{$_uuid}" action="{APP_URL}?app=activity&controller=sign&action=add" id="signform_{$contentid}" name="signform_{$contentid}" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="contentid" value="{$contentid}"/>
+    <!--{if setting('activity', 'seccode')}-->
+<!--    <input type="hidden" name="seccode" />-->
+    <!--{/if}-->
+	<table cellpadding="0" cellspacing="10" border="0">
+        <!--{loop $fields $field}-->
+        <!--{activityField::render($field['type'], $field)}-->
+        <!--{/loop}-->
+
+        <!--{if setting('activity', 'seccode')}-->
+        <tr>
+            <th><em>*</em> <label>验证码：</label></th>
+            <td>
+                <input type="text" name="seccode" id="seccode" size="6" style="margin-right:2px" onfocus="change()" onclick="change()"/><img style="visibility:visible;cursor:pointer; margin-left:2px;" title="验证码,看不清楚?请点击刷新验证码" align="top" src="{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5"  onclick="change()"/>
+            </td>
+        </tr>
+        <!--{/if}-->        
+		<tr>
+			<th></th>
+			<td><span><input type="submit" value="提 交" class="input-submit" /></span></td>
+		</tr>
+	</table>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+var form = $('#signform_{$_uuid}'),
+    button = form.find('[type=submit]');
+activity.formReady('{$contentid}', form);
+function submit() {
+    form.submit();
+    return false;
+}
+<!--{if setting('activity', 'seccode')}-->
+button.seccode({
+    form:form,
+    validate:submit
+});
+<!--{else}-->
+button.click(submit);
+<!--{/if}-->
+});
+</script>

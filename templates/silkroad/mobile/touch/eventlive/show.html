@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN" data-closed="{$closed}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>{$title}_{$SYSTEM[sitename]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/eventlive.css?{TIME}" />
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}js/lib/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+
+    <!--{if value($eventlive, 'bgimg')}-->
+    <div class="section section-cover" data-image="{abs_uploadurl(value($eventlive, 'bgimg'))}">
+        <div class="content" style="background-image: url({abs_uploadurl(value($eventlive, 'bgimg'))});"></div>
+    </div>
+    <!--{/if}-->
+
+    <div class="section section-info">
+        <div class="content">
+            <div class="text">
+                <h1 class="title"><!--{$title}--></h1>
+                <!--{if value($eventlive, 'introduction')}-->
+                <p><!--{str_natcut(value($eventlive, 'introduction'), 140)}--></p>
+                <!--{/if}-->
+            </div>
+
+            <!--{if $qrcode}-->
+            <div class="qrcode">
+                <img src="{$qrcode}" width="115" height="120">
+                <p>手机扫码二维码访问</p>
+            </div>
+            <!--{/if}-->
+        </div>
+    </div>
+
+    <div class="section-helper">
+
+        <div class="section section-meta"{if $priv_post} style="display: block;"{/if}>
+            <div class="content">
+
+                <div class="number">
+                    <ul>
+                        <li class="read" data-read="{$pv}">
+                            <b>{if $pv}{($pv > 10000 ? round($pv / 10000, 1) . '万' : $pv)}{else}0{/if}</b>
+                            <i>阅读</i>
+                        </li>
+                        <li class="share" data-share="{$share}">
+                            <b>{if $share}{($share > 10000 ? round($share / 10000, 1) . '万' : $share)}{else}0{/if}</b>
+                            <i>分享</i>
+                        </li>
+                        <li class="support" data-support="{$support}">
+                            <b>{if $support}{($support > 10000 ? (round($support / 10000, 1) . '万') : $support)}{else}0{/if}</b>
+                            <i>点赞</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <a class="member"{if $priv_manage} href="{$url}/members"{/if}>
+                    <h3 class="title">直播成员</h3>
+                    <ul>
+                        <!--{loop $members $member}-->
+                        <li class="user-card" data-member-id="{$member['id']}">
+                            <span class="avatar"{if $member[avatar]} style="background-image: url({abs_uploadurl($member[avatar])})"{/if}></span>
+                            <span class="name">{$member[name]}</span>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </a>
+
+            </div>
+        </div>
+
+        <!--{if $priv_manage}-->
+        <div class="section section-actions">
+            <div class="content">
+                <a class="action edit" href="{$url}/edit">
+                    <i class="icon icon-edit"></i>
+                    <span>修改直播</span>
+                </a>
+                <a class="action close">
+                    <i class="icon icon-close"></i>
+                    <span>结束直播</span>
+                </a>
+            </div>
+        </div>
+        <!--{/if}-->
+
+        <div class="section section-content">
+
+            <div class="number">
+                <ul>
+                    <li class="read">
+                        <i class="icon icon-read"></i>
+                        <b>{if $pv}{($pv > 10000 ? round($pv / 10000, 1) . '万' : $pv)}{else}0{/if}</b>
+                    </li>
+                    <li class="share">
+                        <i class="icon icon-share"></i>
+                        <b>{if $share}{($share > 10000 ? round($share / 10000, 1) . '万' : $share)}{else}0{/if}</b>
+                    </li>
+                    <li class="support">
+                        <i class="icon icon-support"></i>
+                        <b>{if $support}{($support > 10000 ? (round($support / 10000, 1) . '万') : $support)}{else}0{/if}</b>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-title closed">直播已结束</div>
+            <div class="section-title open">直播中</div>
+
+            <div class="content">
+
+                <div class="item-notify loader" style="display: block;">
+                    <span>正在加载 ...</span>
+                </div>
+
+                <div class="item-notify new">
+                    <span>有新消息,点击查看</span>
+                </div>
+
+                <div class="item-notify refresh">
+                    <span>加载直播信息失败，请稍候刷新页面重试一下</span>
+                </div>
+
+                <div class="item-list"></div>
+
+                <a class="item-refresh">
+                    <span>显示更多</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--{if $priv_post && !$eventlive[status]}-->
+<div class="manage-toolbar">
+    <a href="{$url}/post"><i class="icon icon-add"></i></a>
+</div>
+<!--{/if}-->
+
+<div class="section section-wechat-share">
+    <a class="icon icon-wechat-pointer animated bounce infinite"></a>
+    <div class="content">
+        <p>请点击右上角，分享直播</p>
+        <a class="close">关闭</a>
+    </div>
+</div>
+
+<script type="text/template" id="item-template">
+    <div class="item" data-post-id="{%id%}">
+        <div class="item-timeline">
+            <i class="icon icon-circle-solid"></i>
+        </div>
+        <div class="item-user">
+            <div class="user-card">
+                <span class="avatar"{%if member.avatar%} style="background-image: url({%member.avatar%});"{%endif%}></span>
+                <span class="name"><b class="username">{%member.name%}</b>{%member.typename%}</span>
+            </div>
+        </div>
+        <div class="item-content">
+            <div class="item-username">{%member.name%}</div>
+            <div class="item-text">{%text%}</div>
+            {%if image%}
+            <a class="item-image" data-original="{%image%}">
+                <img src="{%image%}" alt="" />
+            </a>
+            {%endif%}
+
+            {%if video%}
+            <div class="item-video" data-video="{%video.file || video.video%}" data-vid="{%video.vid || ''%}" data-player="{%video_player%}">
+                {%if video_player == 'mp4'%}
+                <video webkit-playsinline controls="controls" preload="metadata" poster="{%video.thumb || ''%}">
+                    <source src="{%video.file || video.video%}" type="video/mp4" />
+                </video>
+                {%else%}
+                <div class="video-thumb"{%if video.thumb%} style="background-image: url({%video.thumb%});"{%endif%}>
+                    <i class="icon icon-video-play"></i>
+                    <div class="video-meta">
+                        <i class="icon icon-video"></i>
+                        {%if video.duration%}
+                        <i class="video-duration">{%video.duration%}</i>
+                        {%endif%}
+                    </div>
+                </div>
+                <div class="video-player"></div>
+                {%endif%}
+            </div>
+            {%endif%}
+
+            {%if audio%}
+            <div class="item-audio" data-player="{%audio_player%}" data-audio="{%audio && audio.audio || audio%}">
+                <i class="icon icon-audio-play"></i>
+                <i class="icon icon-audio-stop"></i>
+                <span class="audio-durartion">{%if audio_duration%}{%audio_duration%}{%endif%}</span>
+            </div>
+            {%endif%}
+
+            <div class="item-meta">
+                <span class="datetime">{%datetime%}</span>
+            </div>
+            <div class="item-action">
+                <a class="share" data-share="{%share%}"><i class="icon icon-share"></i><b>{%if parseInt(share, 10)%}{%share%}{%else%}分享{%endif%}</b></a>
+                <a class="support" data-support="{%support%}"><i class="icon icon-support"></i><b>{%if parseInt(support, 10)%}{%support%}{%else%}赞{%endif%}</b></a>
+            </div>
+        </div>
+        {if $priv_manage || $priv_post}
+        {%if parseInt(env.priv.manage, 10) || (parseInt(env.priv.post, 10) == member.id)%}
+        <a class="item-menu"
+           data-priv-manage="{$priv_manage}"
+           data-member-id="{%member.id%}"
+           data-member-type="{%member.type%}"
+           data-member-name="{%member.name%}"
+           data-member-removed="{%member.status == 3 ? 1 : 0%}"
+           data-post-id="{%id%}">
+            <span>管理<i class="icon icon-arrow-down"></i></span>
+        </a>
+        {%endif%}
+        {/if}
+    </div>
+</script>
+<script type="text/template" id="image-gallery-template">
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="关闭 (Esc)"></button>
+                    <button class="pswp__button pswp__button--fs" title="全屏切换"></button>
+                    <button class="pswp__button pswp__button--zoom" title="放大和缩小"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="video-cmsotp-template">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+        <param name="movie" value="{setting('video', 'player')}player.swf?v=1.0" />
+        <param name="flashvars" value="onPlay=onPlayJS&onPause=onPauseJS&onPlayed=onPlayedJS&onPlayerReady=onPlayerReadyJS&onEndFinish=onEndFinishJS&vid={%vid%}&autoStart=1" />
+        <param name="allowFullScreen" value="true" />
+        <param name="allowScriptAccess" value="always" />
+        <param name="wmode" value="Transparent" />
+        <embed src="{setting('video', 'player')}player.swf?v=1.0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="Transparent" flashvars="onPlay=onPlayJS&onPause=onPauseJS&onPlayed=onPlayedJS&onPlayerReady=onPlayerReadyJS&onEndFinish=onEndFinishJS&vid={%vid%}&autoStart=1"></embed>
+    </object>
+</script>
+<script type="text/template" id="video-flash-template">
+    <object type="application/x-shockwave-flash" data="{%video%}">
+        <param name="src" value="{%video%}" />
+        <param name="allowfullscreen" value="true" />
+        <param name="allowscriptaccess" value="true" />
+        <param name="wmode" value="Transparent" />
+        <embed src="{%video%}" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="Transparent"></embed>
+    </object>
+</script>
+<script>
+    var env = { contentid: '{$contentid}', liveid: '{$eventlive[id]}', closed: '{$closed}' };
+</script>
+<!--{if $priv_manage || $priv_post}-->
+<script>
+    env.priv = {};
+    env.priv.manage = parseInt('<?php echo $priv_manage ?>', 10);
+    env.priv.post = parseInt('<?php echo $priv_post ?>', 10);
+</script>
+<!--{/if}-->
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/sea.js"></script>
+<script>
+    seajs.timestamp = '';
+    seajs.config({
+        base: '{MOBILE_URL}templates/{TEMPLATE}/touch/js/',
+        paths: {},
+        alias: {
+            'jquery': '{IMG_URL}js/lib/jquery.1.11',
+            'jquery.mobile-events': '{IMG_URL}js/lib/jquery.mobile-events',
+            'jquery.jplayer': '{IMG_URL}js/lib/jquery.jplayer',
+            'cmstop.template': '{IMG_URL}js/lib/cmstop.template',
+            'cmstop.amrplayer': '{IMG_URL}js/lib/cmstop.amrplayer',
+            'photoswipe': '{IMG_URL}js/lib/photoswipe',
+            'photoswipe.ui-default': '{IMG_URL}js/lib/photoswipe/photoswipe-ui-default'
+        },
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?' + seajs.timestamp]
+        ]
+    });
+    seajs.use('eventlive');
+</script>
+</body>
+</html>

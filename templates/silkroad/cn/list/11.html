@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title> 
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/11.css" type="text/css">
+    
+</head>
+<body>
+<!--{template "system/head.html"}-->
+<!--搜索-->
+<style>
+    .proje_seachblock {
+        width: 1000px;     
+        margin: 0px auto;
+        background: white;
+        margin-top: 20px;
+        height: 157px;
+    }
+.proje_seachblock .bd {
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 32px;
+        position: relative;
+}
+.proje_seachblock dl dt {
+        float: left;
+        display: block;
+        width: 70px;
+        height: 40px;
+        font-size: 14px;
+        line-height: 16px;
+        color: #666;
+        margin-top: 6px;
+}
+.proje_seachblock dl dd.all {
+        float: left;
+        width: 40px;
+        color: red;
+        height: 32px;
+        line-height: 32px;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        margin:0px 0px;
+}
+.proje_seachblock dl dd.option {
+        float: left;
+        width: 800px;
+    
+        position: relative;
+        line-height: 32px;
+        z-index: 2;
+        margin-left: 0px;
+}
+dd {
+display: block;
+-webkit-margin-start: 40px;
+}
+.proje_seachblock dl dd.option label {
+        font-family: "Arial";
+        font-size: 14px;
+        display: block;
+        margin-right: 25px;
+        line-height: 32px;
+        color: #0079c6;
+        cursor: pointer;
+}
+.morebtn {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 4px;
+        border: 1px solid #ddd;
+        line-height: 22px;
+        padding: 0 3px;
+        color: #666;
+        font-size: 13px;
+}
+.proje_seachblock dl {
+        float: left;
+        margin: 0px 20px;
+        padding: 5px 0px;
+        border-bottom: 1px solid #e8e8e8;
+        position: relative;
+        font-family: "Arial";
+        overflow: hidden;
+
+}
+.proje_seachblock dl dd.option li {
+        float: left;
+}
+.bor-rb {
+        border-bottom: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+}
+.bor-trbl {
+        border-left: 1px solid #f1f1f1;
+        border-top: 1px solid #f1f1f1;
+        border-right: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+}
+.ov {
+        overflow: hidden;
+        zoom: 1;
+}
+.b-tit-box {
+        width: 1002px;
+        height: 20px;
+        border-bottom: 2px solid #dcdcdc;
+        position: relative;
+        padding-bottom: 8px;
+        margin: 0px auto;
+}
+.mar-t-25 {
+        margin-top: 25px;
+}
+.b-h3 {
+        position: absolute;
+        border-bottom: 2px solid #c81623;
+        left: 0;
+        bottom: -2px;
+        z-index: 10;
+        padding: 0 8px 8px 10px;
+}
+.b-h3 a {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: Arial;
+        color: #333;
+        font-size: 20px;
+}
+a {
+text-decoration: none;
+color: #333;
+}
+.bor-rb{
+        width: 1002px;
+        margin: 0px auto;
+        background: white;
+        margin-top: 20px;
+}
+.hd{
+    margin-top: -20px;
+}
+.right-con em {
+    width: 5px;
+    height: 6px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -31px no-repeat;
+    margin-right: 10px;
+}
+
+.onn {
+    color: red!important;
+}
+</style>
+<div class="columnA ov bg-fff pos-r mar-t-15">
+    <div class="bor-rb">
+        <div class="bor-trbl ov">
+            <!--标题-->
+            <div class="b-tit-box mar-t-25">
+                <h3 class="b-h3"><a href="" style="font-size: 20px;">China Overseas Project</a>
+                </h3>
+            </div>
+           
+            <!------  搜索选项开始  ---->
+            <div class="proje_seachblock">
+                <div class="bd">
+                    <dl>
+                        <dt>Industry</dt>
+                        <dd class="all"><span class="on">All</span></dd>
+                        <dd id="checkhlimit1" class="option">
+                            <div style="width: 800px; overflow: hidden;">
+                                <ul>
+                                    <li><label><a href="http://db.silkroad.news.cn/en/English/News/?catid=358">Agriculture</a></label></li>
+                                    <li><label><a href="http://db.silkroad.news.cn/en/English/News/?catid=234">Mining</a></label></li>
+                                    <li><label><a href="http://db.silkroad.news.cn/en/English/News/?catid=229">Manufacturing</a></label></li>
+                                    <li><label>Power</label></li>
+                                    <li><label>Public Utility</label></li>
+                                    <li><label>Transport & Warehousing</label></li>
+                                    <li><label>Construction</label></li>
+                                    <li><label>Infrastructure</label></li>
+                                    <li><label>Wholesale & Retail</label></li>
+                                    <li><label>Finance & Insurance</label></li>
+                                    <li><label>Real Estate</label></li>
+                                    <li><label>Social Services</label></li>
+                                    <li><label>Media & Culture</label></li>
+                                    <li><label>IT</label></li>
+                                    <li><label>Other</label></li>
+                                </ul>
+                            </div>
+                            <span class="morebtn">+More</span>
+                        </dd>
+                        <dd class="line"></dd>
+                    </dl>
+                    <dl>
+                        <dt>Area</dt>
+                        <dd class="all"><span class="on">All</span></dd>
+                        <dd id="checkhlimit2" class="option">
+                            <div style="width: 800px; overflow: hidden;">
+                                <ul>
+                                  
+                                    <li><label>Asia</label></li>
+                                    <li><label>Europe</label></li>
+                                    <li><label>Africa</label></li>
+                                    <li><label>America & Oceania</label></li>
+                                    <li><label>Other</label></li>
+                                </ul>
+                            </div>
+                            <span class="morebtn">+More</span>
+                        </dd>
+                        <dd class="line"></dd>
+                    </dl>
+                    
+                
+
+                </div>
+            </div>
+            <!------  搜索选项结束  ---->
+            <div class="hr12"></div>
+        </div>
+    </div>
+</div>
+<!--@end 搜索-->
+<!--内容-->
+<div class="container bef aft">
+
+    <div class="cc fl-l" style="display: block">
+
+        <ul class="ttitle aft">
+ <?php 
+ print_r($catid);
+ ?>
+    <!--{content catid="$catid" orderby="published desc" page="$page" size="$pagesize"}-->
+
+            <li>
+                <div class="ttitle-title fl-l">
+                    <a href="{$r['url']}"> <em></em>{str_cut($r[title],70,'...')}</a>
+                </div>
+                <div class="ttitle-time fl-r">{date('Y-m-d H:s', $r[published])}</div>
+            </li>
+    <!--{/content}-->        
+        </ul>
+    
+        <ul class="paging aft" id="page">
+            
+         
+        <!--{pages_infolist(min($total, $mintotal), $page, $pagesize, 2, $urlrule)}-->
+           
+           
+            <li>
+                <a class="next" href="">Next Page</a>
+            </li>
+        </ul>
+    </div>
+    <div class="con-right fl-r">
+        <div class="con-right-title">
+            <span class="f-16">Top News</span>
+        </div>
+        <ul class="right-con">
+            <li><a href=""><em></em>Chinese economy firming, recovery sustainable: official</a> </li>
+            <li><a href=""><em></em>China's central bank can promote wider use of SDR, central banker says</a> </li>
+            <li><a href=""><em></em>Chinese economy firming, recovery sustainable: official</a> </li>
+            <li><a href=""><em></em>China's central bank can promote wider use of SDR, central banker says</a> </li>
+            <li class="more"><a href="">more<em></em></a> </li>
+        </ul>
+        <div class="con-right-title">
+            <span class="f-16">Companies</span>
+        </div>
+        <ul class="right-con">
+            <li><a href=""><em></em>Chinese economy firming, recovery sustainable: official</a> </li>
+            <li><a href=""><em></em>China's central bank can promote wider use of SDR, central banker says</a> </li>
+            <li><a href=""><em></em>Chinese economy firming, recovery sustainable: official</a> </li>
+            <li><a href=""><em></em>China's central bank can promote wider use of SDR, central banker says</a> </li>
+            <li class="more"><a href="">more<em></em></a> </li>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.proje_seachblock li').on({
+        'click':function(){
+            $('.proje_seachblock li').children('label').removeClass('onn');
+
+            console.log($(this).children('label'))
+            $(this).children('label').addClass('onn');
+        }
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+/*选择框*/
+.selectree-sprite {
+	background-color: transparent;
+	background-image: url(selectree.png);
+}
+.selectree {
+	border: 1px solid #fff;
+	border-color: #888 #DDD #DDD #888;
+	cursor: pointer;
+	color: #666;
+	background-color: #fbfbfb;
+	padding: 0px 0px 0 4px;
+	line-height: 22px;
+	display: inline-block;
+	+display: inline;
+	*zoom: 1;
+}
+.selectree .text, 
+.selectree .arrow {
+	display: inline-block;
+	font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif!important;
+}
+.selectree .text {
+	min-width: 60px;
+	display: inline-block;
+	zoom:1;
+	line-height: 23px;
+	color: #06c;
+}
+.selectree .arrow {
+	+display: inline;
+	*zoom: 1;
+	width: 15px;
+	height: 20px;
+	padding-left: 7px;
+	background-position: -74px -82px;
+	vertical-align: bottom;
+}
+.selectree-hover {
+	border-color: #077AC7;
+}
+.selectree-hover .arrow {
+	background-position: -74px -103px;
+}
+.selectree-hover .text {
+	color: #077AC7;
+}
+.selectree .text em {
+	font-style: normal;
+}
+/*下拉内容*/
+.selectree-datalist{
+	width: 210px;
+	min-height: 200px;
+	border: 1px solid #A9C3D7;
+	background-color: #FFF;
+	-webkit-box-shadow: 2px 2px 4px #ddd;
+	-moz-box-shadow: 2px 2px 4px #ddd;
+	box-shadow: 2px 2px 4px #ddd;
+	font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif!important;
+	overflow-x: hidden;
+	overflow-y: auto;
+	zoom:1;
+	+width: 210px;
+	z-index: 2012;
+}
+.dropmenu-list {
+	border: 1px solid #A9C3D7;
+	background-color: #FFF;
+	-webkit-box-shadow: 2px 2px 4px #ddd;
+	-moz-box-shadow: 2px 2px 4px #ddd;
+	box-shadow: 2px 2px 4px #ddd;
+	font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif!important;
+	overflow: hidden;
+	zoom:1;
+	+width: 200px;
+}
+.dropmenu-list li {
+	line-height: 22px;
+	padding-left: 10px;
+	font-family: Microsoft YaHei;
+	cursor: pointer;
+	color: #666;
+}
+.dropmenu-list .checked,.dropmenu-list .hover {
+	background-color: #d3dae5;
+	color: #000;
+}
+.dropmenu-list .hover {
+	background-color: #e3e8ef;
+	color: #000;
+}
+.selectree-datalist.hidden,.hidden {
+	display: none;
+}
+.selectree-recently {
+	position: relative;
+}
+.selectree-recently .cookie-count {
+	width: 10px;
+	height: 16px;
+	color: #ff7272;
+	font-size: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	margin-left: 3px;
+}
+.selectree-recently .cookie-count:hover {
+	color: #c00;
+}
+.cookie-count-input {
+	border: 1px solid #A9C3D7;
+	color: #ff7272;
+	font-weight: bold;
+	padding-left: 2px;
+	width:15px;
+	position:absolute;
+	font-size:10px;
+	height: 8px;
+	overflow: hidden;
+	box-shadow: 1px 1px 3px #ccc;
+}
+.selectree-datalist .head {
+	height: 22px;
+	background-color: #F1f5fb;
+	font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif!important;
+	border-bottom: 1px solid #D6E1EE;
+	overflow: hidden;
+	zoom:1;
+}
+
+.selectree-overall .head {
+	border-top: 1px solid #D6E1EE;
+	position: relative;
+}
+.selectree-datalist .head .title {
+	color: #333;
+	line-height: 21px;
+	padding-left: 4px;
+	font-weight: bold;
+	background-color: transparent;
+	border-left: none;
+}
+.selectree-datalist .head .search-ico {
+	position: absolute;
+	right: 25px;
+	top: 5px;
+	width: 13px;
+	height: 13px;
+	background-position: -79px -4px;
+	cursor: pointer;
+}
+.selectree-datalist .head .search-ico.search-ico-hover {
+	background-position: -79px -22px;
+} 
+.selectree-datalist .head .arrow {
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	width: 8px;
+	height: 7px;
+	cursor: pointer;
+}
+.selectree-datalist .head .arrow.down {
+	background-position: -8px -4px;
+}
+.selectree-datalist .head .arrow.up {
+	background-position: -29px -4px;
+}
+.selectree-list {
+	overflow: hidden;
+	zoom:1;
+	padding: 3px 0;
+}
+
+.selectree-list .item {
+	line-height: 21px;
+	clear: both;
+	overflow: hidden;
+	margin-left: 5px;
+	margin-bottom: 1px;
+	font-size: 13px;
+}
+.selectree-list .item-block {
+	padding: 1px 6px 1px 17px;
+	display: inline-block;
+	+display:inline;
+	+zoom:1;
+	border-radius: 6px;
+}
+.selectree-list .list-type {
+	background: transparent url(point.png) no-repeat 6px 10px;
+	padding-left: 16px;
+}
+.selectree-list .checked {
+	overflow: hidden;
+}
+.selectree-list .checked .item-block {
+	background-color: #f3f5f8;
+}
+.selectree-list .checked .selectree-list .item-block {
+	opacity: .5;
+	fliter:alpha(opacity=50);
+}
+.selectree-list .checked .text {
+	font-weight: bold;
+}
+.selectree-list .input {
+	float: left;
+	width: 13px;
+	height: 13px;
+	margin: 3px 5px 0 -13px;
+	overflow: hidden;
+	zoom:1;
+}
+.selectree-list .input.radio {
+	background-position: -2px -54px;
+}
+.selectree-list .input.checkbox {
+	background-position: -22px -54px;
+}
+.selectree-list .checked .radio {
+	background-position: -2px -68px;
+}
+.selectree-list .checked .checkbox {
+	background-position: -22px -67px;
+}
+.selectree-list .hover {
+	background-color: #F3F5F8;
+}
+.selectree-list .hover .radio {
+	/*background-position: -2px -68px;*/
+}
+.selectree-list .hover .checkbox {
+	
+}
+.selectree-list .checked .text {
+	color: #3d91c7;
+}
+.selectree-list .checked .hover .text {
+	font-weight: normal;
+}
+.selectree-list .hover .text {
+	color: #3d91c7;
+}
+.selectree-list .text {
+	color: #000;
+	cursor: pointer;
+	+float: left;
+	font-family: Microsoft YaHei!important;
+}
+.selectree-list .arrow {
+	float: left;
+	width: 13px;
+	height: 10px;
+	cursor: pointer;
+	margin: 5px 3px 0 -13px;
+}
+.hasparent .selectree-list .arrow {
+	margin-right: 14px;
+}
+.selectree-list .fold {
+	background-position: -26px -38px;
+}
+.selectree-list .unfold {
+	background-position: -6px -20px;
+}
+.unfold-status .selectree-list {
+	margin-left: 15px;
+}
+.selectree-search {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 200px;
+	background-color: #FFF;
+	border-bottom: 1px solid #A9C3D7;
+}
+.selectree-search .search-close {
+	position: absolute;
+	top: 5px;
+	right: 8px;
+	width: 12px;
+	height: 12px;
+	background-position: -49px -3px;
+	cursor: pointer;
+}
+.selectree-search .search-close.close {
+	background-position: -49px -21px;
+}
+.search-trigger {
+	margin: 5px 5px 0 5px;
+	height: 24px;
+	line-height: 20px;
+	padding: 1px 60px 2px 2px;
+	+margin-left: 2px;
+}
+.search-trigger .search-input {
+	border-width: 0;
+	padding: 2px 20px 2px 4px;
+	width: 171px;
+	color: #ddd;
+	border: 1px solid #fff;
+	border-color: #888 #DDD #DDD #888;
+	background-color: #FbFbFb;
+	padding-left: 4px;
+	color: #ddd;
+	font: 12px/18px Microsoft YaHei;
+}
+.search-trigger .search-input-focus {
+	color: #333;
+}
+.search-trigger .search-submit {
+	position: absolute;
+	right: 13px;
+	top: 34px;
+	width: 13px;
+	height: 13px;
+	background-position: -79px -4px;
+	opacity: .3;
+	*fliter:alpha(opacity=30);
+	cursor: pointer;
+	display: none;
+}
+.search-trigger .search-submit-hover {
+	opacity: 1;
+	*fliter:alpha(opacity=100);
+}
+.autocomplete-result {
+	background-color: #fff;
+	border-top: none;
+	overflow: auto;
+	z-index: 2013;
+}
+.autocomplete-result a {
+	color: #000;
+	padding-left: 10px;
+	display: block;
+	font-family: Microsoft YaHei!important;
+	padding: 4px 4px 4px 10px;
+	cursor: pointer;
+	font-size: 13px;
+}
+.autocomplete-result .lose {
+	display: block;
+}
+div.autocomplete-result {
+	border: none;
+}
+div.autocomplete-result a strong {
+	/*color: #ff7272;*/
+	font-weight: bold;
+}
+div.autocomplete-result a.active {
+	background-color: #87a2fb; 
+	color: #fff;
+}
+div.autocomplete-result a.active strong {
+	font-weight: bold;
+	color: #ff0;
+}
+.category-datalist .category-datalist {
+	overflow: auto;
+}
+
+/*for ie6*/
+.ie6root .selectree-list .fold {
+	background: transparent url(ie6_fold.png) no-repeat 3px 0;
+	margin-left: -6px;
+}
+.ie6root .selectree-list .unfold {
+	background: transparent url(ie6_unfold.png) no-repeat 3px 0;
+	margin-left: -6px;
+}
+.ie6root .selectree-list .input.radio {
+	background: transparent url(ie6_radio.png) no-repeat 0 0;
+	margin-left: -6px;
+}
+.ie6root .selectree-list .input.checkbox {
+	background: transparent url(ie6_checkbox.png) no-repeat 0 0;
+	margin-left: -6px;
+}
+.ie6root .selectree-list .checked .input.radio {
+	background: transparent url(ie6_radioed.png) no-repeat 0 0;
+}
+.ie6root .selectree-list .checked .input.checkbox {
+	background: transparent url(ie6_checkboxed.png) no-repeat 0 0;
+}
+
+
+/* 让每个容器高度不超过100px */
+.selectree-recently, .selectree-overall, .selectree-selected {
+	max-height: 200px;
+	overflow-y: auto;
+}

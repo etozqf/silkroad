@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+	<resource>{IMG_URL}apps/member/js/logindialog.js</resource>
+	<resource>script.js</resource>
+	<resource>comment.js</resource>
+	<depends>cookie</depends>
+</package>

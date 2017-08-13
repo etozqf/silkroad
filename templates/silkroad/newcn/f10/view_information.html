@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_view_information</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".zb-tab-menu li").hover ( function () {
+                $ ( this ).addClass ( "sel" ).siblings ().removeClass ();
+                $ ( ".zb-tab-data>div" ).hide ().eq ( $ ( '.zb-tab-menu li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--{template "newcn/f10/view_types.html"}-->
+            <div class="ov hdzj-tag">
+                <ul class="ov">
+                    <li><a href="#nav01">Institution Basic Information Change</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav02">Securities Abbreviation Change</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav03">Periodic Reports Disclosure Schedule</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav04">Listing Status Change</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav05">Listed Company Basic Information</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav06">Change in the Number of Shareholders</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav07">Top Management Information</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav08">Securities Information</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav09">The Industry of the Company</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav10">Restricted Share Listing</a></li>
+                </ul>
+            </div>
+            <!--内容-->
+            <div class="w-960 ov">
+                <div class="zb ov" id="nav01">
+                    <div class="mod-title bgff9933">Institution Basic Information Change</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Content Before Change</th>
+                                <th>Content After Change</th>
+                                <th>Change Type</th>
+                            </tr>
+                            <!--{if !$data['A028']}-->
+                            <tr>
+                                <td colspan="4" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A028'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gongburiqi']}</td>
+                                <td class="center">{$val['biangengqianmingcheng']}</td>
+                                <td class="center">{$val['biangenghoumingcheng']}</td>
+                                <td class="center">{$val['biangengshixiang']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav02">
+                    <div class="mod-title bge51c2b">Securities Abbreviation Change</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Start Date</th>
+                                <th>New Abbreviation</th>
+                                <th>Original Abbreviation</th>
+                                <th>Securities Code</th>
+                            </tr>
+                            <!--{if !$data['A029']}-->
+                            <tr>
+                                <td colspan="5" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A029'] $val}-->
+                            <tr class="center">
+                                <td>{$val['gonggaoriqi']}</td>
+                                <td>{$val['kaishiriqi']}</td>
+                                <td>{$val['xinyingwenjiancheng']}</td>
+                                <td>{$val['yuanyingwenjiancheng']}</td>
+                                <td>{$val['zhengquandaima']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav03">
+                    <div class="mod-title bg666">Periodic Reports Disclosure Schedule</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 1300px;">
+                            <tr>
+                                <th>Reporting Period</th>
+                                <th>Disclosure Date</th>
+                                <th>Actual Disclosure Date</th>
+                                <th>Updated Disclosure Date 1</th>
+                                <th>Updated Disclosure Date 2</th>
+                                <th>Updated Disclosure Date 3</th>
+                                <th>Institution Name</th>
+                            </tr>
+                            <!--{if !$data['A030']}-->
+                            <tr>
+                                <td colspan="7" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A030'] $val}-->
+                            <tr class="center">
+                                <td>{$val['baogaoniandu']}</td>
+                                <td>{$val['yuyuepiluriqi']}</td>
+                                <td>{$val['shijipiluriqi']}</td>
+                                <td>{$val['biangengri1']}</td>
+                                <td>{$val['biangengri2']}</td>
+                                <td>{$val['biangengri3']}</td>
+                                <td>{$val['jigoumingcheng']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav04">
+                    <div class="mod-title bgff9933">Listing Status Change</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Listing Status</th>
+                                <th>Effective Date</th>
+                                <th>Reason for Change</th>
+                                <th>Change Type</th>
+                            </tr>
+                            <!--{if !$data['A031']}-->
+                            <tr>
+                                <td colspan="5" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A031'] $val}-->
+                            <tr class="center">
+                                <td>{$val['gonggaoriqi']}</td>
+                                <td>{$val['shangshizhuangtai']}</td>
+                                <td>{$val['biangengriqi']}</td>
+                                <td>{$val['biangengyuanyin']}</td>
+                                <td>{$val['biangengleixing']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav05">
+                    <div class="mod-title bge51c2b">Listed Company Basic Information</div>
+                    <div class="bor-e9e9e9 ov ds">
+                        <!--{if !$data['A032']}-->
+                        <span>No relevant information</span>
+                        <!--{else}-->
+                        <?php $val = array_pop($data['A032']); ?>
+                        <p> English Name： <span>{$val['yingwenmingcheng']}</span></p>
+                        <p> Institution Abbreviation： <span>{$val['yingwenjiancheng']}</span></p>
+                        <p> Website： <span>{$val['wangzhi']}</span></p>
+                        <p> Legal Representative： <span>{$val['farendaibiao']}</span></p>
+                        <p> General Manager： <span>{$val['zongjingli']}</span></p>
+                        <p> Main Business： <span>{$val['zhuyingyewu']}</span></p>
+                        <p> CSRC’s Industry Classification： <span>{$val['zhengjianhuihangyefenlei']}</span></p>
+                        <p> CNINFO’s Industry Classification： <span>{$val['juchaohangyefenlei']}</span></p>
+                        <p> Foundation Date： <span>{$val['chengliriqi']}</span></p>
+                        <p> Registered Capital： <span>{$val['zhucezhijin']}</span></p>
+                        <p> Province： <span>{$val['suosushengfen']}</span></p>
+                        <p> City： <span>{$val['suosuchengshi']}</span></p>
+                        <p> Registered Address： <span>{$val['zhucedizhi']}</span></p>
+                        <p> Office Address： <span>{$val['bangongdizhi']}</span></p>
+                        <p> Contact Person： <span>{$val['lianxiren']}</span></p>
+                        <p> Telephone： <span>{$val['dianhua']}</span></p>
+                        <p> Postal Code： <span>{$val['youbian']}</span></p>
+                        <p> Fax： <span>{$val['chuanzhen']}</span></p>
+                        <p> E-mail： <span>{$val['youxiang']}</span></p>
+                        <!--{/if}-->
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav06">
+                    <div class="mod-title bg666">Change in the Number of Shareholders</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 1200px;">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>End Date</th>
+                                <th>Total Number of Shareholders</th>
+                                <th>Number of A-share Shareholders</th>
+                                <th>Number of B-share Shareholders</th>
+                                <th>Number of H-share Shareholders</th>
+                                <th>English Name</th>
+                            </tr>
+                            <!--{if !$data['A033']}-->
+                            <tr>
+                                <td colspan="7" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A033'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['gudongzonghushu']}</td>
+                                <td>{$val['Aguhushu']}</td>
+                                <td>{$val['Bguhushu']}</td>
+                                <td>{$val['Hguhushu']}</td>
+                                <td class="center">{$val['yingwenmingcheng']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav07">
+                    <div class="mod-title bgff9933">Top Management Information</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 1200px;">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Name</th>
+                                <th>Individual ID</th>
+                                <th>Position</th>
+                                <th>Position Type</th>
+                                <th>Date of Appointment</th>
+                                <th>Date of Resignation</th>
+                                <th>In Position or Not</th>
+                            </tr>
+                            <!--{if !$data['A034']}-->
+                            <tr>
+                                <td colspan="8" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A034'] $val}-->
+                            <tr class="center">
+                                <td>{$val['gonggaoriqi']}</td>
+                                <td>{$val['xingming']}</td>
+                                <td>{$val['gerenID']}</td>
+                                <td>{$val['zhiwumingcheng']}</td>
+                                <td>{$val['zhiwuleibie']}</td>
+                                <td>{$val['renzhiriqi']}</td>
+                                <td>{$val['lizhiriqi']}</td>
+                                <td>{if $val['shifouzaizhi']}Yes{else}No{/if}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav08">
+                    <div class="mod-title bge51c2b">Securities Information</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Securities Abbreviation</th>
+                                <th>Securities Code</th>
+                                <th>Securities Type</th>
+                                <th>Listing Date</th>
+                                <th>Initial Listing Volume</th>
+                                <th>Delisted Date</th>
+                                <th>Place of Listing</th>
+                                <th>Issuer  Name</th>
+                                <th>ISIN Code</th>
+                                <th>Securities Code Attribute</th>
+                                <th>Par Value</th>
+                            </tr>
+                            <!--{if !$data['A035']}-->
+                            <tr>
+                                <td colspan="11" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A035'] $val}-->
+                            <tr class="center">
+                                <td>{$val['zhengquanjiancheng']}</td>
+                                <td>{$val['zhengquandaima']}</td>
+                                <td>{$val['zhengquanleibie']}</td>
+                                <td>{$val['shangshiriqi']}</td>
+                                <td class="right">{$val['chushishangshishuliang']}</td>
+                                <td>{$val['zhongzhishangshiriqi']}</td>
+                                <td>{$val['jiaoyishichang']}</td>
+                                <td>{$val['faxingjigoumingcheng']}</td>
+                                <td>{$val['ISINdaima']}</td>
+                                <td>{$val['daimashuxing']}</td>
+                                <td>{$val['mianzhi']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav09">
+                    <div class="mod-title bg666">The Industry of the Company</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 1500px;">
+                            <tr>
+                                <th>Effective Date</th>
+                                <th>Industry Main Categories</th>
+                                <th>Industry Intermediate Categories</th>
+                                <th>Industry Sub-categories</th>
+                                <th>Industry Categories</th>
+                                <th>Classification Standard</th>
+                            </tr>
+                            <!--{if !$data['A036']}-->
+                            <tr>
+                                <td colspan="6" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A036'] $val}-->
+                            <tr class="center">
+                                <td>{$val['biangengriqi']}</td>
+                                <td>{$val['hangyedalei']}</td>
+                                <td>{$val['hangyezhonglei']}</td>
+                                <td>{$val['hangyecilei']}</td>
+                                <td>{$val['hangyemenlei']}</td>
+                                <td>{$val['fenleibiaozhun']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="mar-t-20" id="nav10">
+                    <div class="mod-title bgff9933">Restricted Share Listing</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Tradable Date</th>
+                                <th>Proportion of Tradable Volume to<br/> Total Share Capital</th>
+                                <th>Tradable Volume</th>
+                                <th>Number of Restricted Shares due<br/> to Non-public Offering</th>
+                                <th>Number of Restricted Shares due<br/> to IPO or SPO Offline Placement</th>
+                            </tr>
+                            <!--{if !$data['A037']}-->
+                            <tr>
+                                <td colspan="6" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A037'] $val}-->
+                            <tr>
+                                <td class="center">{$val['shangshiliutongfangangongburiqi']}</td>
+                                <td class="center">{$val['shijijiechuxianshouriqi']}</td>
+                                <td>{$val['shijijiechuxianshoubili']}</td>
+                                <td>{$val['shijijiechuxianshoushuliang']}</td>
+                                <td>{$val['feigongkaizengfaxianshou']}</td>
+                                <td>{$val['shoufa,zengfawangxiaxianshoushuliang']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

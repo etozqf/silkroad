@@ -1,0 +1,27 @@
+ <div class="inner border1" style="height:547px;">
+    <ul class="member-aside">
+        <li rel="news"><a href='{url("contribution/panel/news")}' title="资讯收藏">资讯收藏(<span></span>)</a></li>
+        <li rel="journalist"><a href='{url("contribution/panel/journalist")}' title="记者收藏">记者收藏(<span></span>)</a></li>
+        <li rel="expert"><a href='{url("contribution/panel/expert")}' title="专家收藏">专家收藏(<span></span>)</a></li>
+        <li rel="mechanism"><a class="last" href='{url("contribution/panel/mechanism")}' title="机构收藏">机构收藏(<span></span>)</a></li>
+        <li rel="project"><a href='{url("contribution/panel/project")}' title="项目收藏">项目收藏(<span></span>)</a></li>
+        <li rel="voide"><a href="javascript:;" title="视频收藏">视频收藏(<span>0</span>)</a></li>
+        <li rel="media"><a href="javascript:;" title="外媒收藏">外媒收藏(<span>0</span>)</a></li>
+        <li rel="law"><a href="javascript:;" title="法律收藏">法律收藏(<span>0</span>)</a></li>
+        <li rel="case"><a href='{url("contribution/panel/cases")}' title="法律收藏">案例收藏(<span>0</span>)</a></li>
+       
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'news';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

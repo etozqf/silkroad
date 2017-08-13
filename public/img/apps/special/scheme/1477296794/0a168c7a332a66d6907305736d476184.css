@@ -1,0 +1,44 @@
+.widget-yellow-a .diy-inner { border:1px solid #fde0a6; background:#fff; padding-bottom:5px;}
+.frame-yellow-b { border:1px solid #fde0a6; background:#fff; padding-bottom:5px;}
+.title-red-b { overflow: hidden; background:#BC2421 url("http://img.xh08.cn/apps/special/ui/title/red-b/images/red-b.jpg") no-repeat 0 0; height:40px; line-height:40px; padding-left:80px; }
+.title-red-b a,.title-red-b span{color:#fc0;font-size:24px;font-family:"微软雅黑";}
+.content-html-font-black-a{ color:#333; padding:5px 9px;}
+.content-html-font-black-a p{ line-height:1.8em;}
+.title-yellow-a { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/yellow-a/images/yellow-a.png") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-yellow-a,.title-yellow-a span{color:#D7000F;}
+.title-newYear-a { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/newYear-a/images/newyar.png") no-repeat; height:26px; line-height:26px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-newYear-a a,.title-newYear-a span{color:#FFF;}
+ .content-palist-blue li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-blue img { margin:8px 8px 8px 0;}
+ .content-palist-blue .summary { margin:0; padding:0;}
+ .content-palist-blue{background-color:#fff;}
+ .content-palist-blue .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-blue .imgtxtsummary-list a{color:#333;}
+ .content-palist-blue .imgtxtsummary-list h3 a{ color:#06c; font-size:12px;font-weight:bold;}
+ .content-palist-blue .imgtxtsummary-list p{color:#333;}
+ .content-palist-blue .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.widget-yellow-b .diy-inner { background:#F1E6D4;}
+.title-gray-c { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/gray-c/images/gray-c.jpg") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; padding-left:20px;}
+.content-title-blue ul {padding:2px; font-size:12px; color:#666666;}
+.content-title-blue li { line-height:18px;}
+.content-title-blue a { color:#06c;}
+.content-title-blue a:hover { color:#c00; text-decoration:none;}
+.content-title-blue li.item-1 { padding:5px 2px; float:none;}
+.content-title-blue li.item-1 a { font-family: Microsoft YaHei; font-size:16px; font-weight:bold; color:#06c; text-decoration:none; line-height:20px;}
+.content-title-blue li.item-1 a:hover { color:#c00;}
+.frame-gray-a { border:1px solid #dadada; background:#fff;}
+.title-yellow-e { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/yellow-e/images/yellow-e.jpg"); height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-yellow-e,.title-yellow-e span{color:#990000;}
+.frame-wash-a { border:1px solid #d8cfb3; background:#fff;}
+.widget-wash-a .diy-inner { border:1px solid #d8cfb3; background:#fff;}
+.content-list-gray-b ul { padding:8px 10px 0;}
+.content-list-gray-b li { line-height:22px; padding-left:8px; background:url("http://img.xh08.cn/apps/special/ui/content/list/gray-b/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-b a { font-size:14px; color:#333;}
+.content-list-gray-b a:hover{ color:#da2c83;}
+.content-list-gray-b .date{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #999999;}
+.widget-gray-a .diy-inner { border:1px solid #dadada; background:#fff;}
+.title-gray-a { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/gray-a/images/gray_title1.png") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; padding-left: 12px;}
+.title-gray-a a,.title-gray-b span {}
+.title-gray-b { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/gray-b/images/gray_title2.png") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; padding-left:20px;}
+.title-pink-b { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/pink-b/images/pink-b.png") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-pink-b a,.title-pink-b span{color:#da2c83;}

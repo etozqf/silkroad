@@ -1,0 +1,8 @@
+﻿/*
+ @name 白底粉色边框
+ @notes 白底粉色边框
+*/
+.widget-pink-a .diy-inner {
+	border:1px solid #f0b0c5;
+	background:#fff;
+}

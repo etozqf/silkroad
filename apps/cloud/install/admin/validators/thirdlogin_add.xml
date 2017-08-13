@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<name>
+		<required>名称不得为空</required>
+		<max args="32">标题不得超过32个字节</max>
+	</name>
+	<interface>
+		<required>接口不得为空</required>
+	</interface>
+	<icon>
+		<required>图标不得为空</required>
+	</icon>
+</root>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>付费阅读-填写订单-{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}apps/pay/pay.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<link href="{IMG_URL}templates/xinhua08/css/store.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('li[rel="orderadd"]').addClass('now');
+	$("input[name='is_invoice']").change(function(){
+		invoice_check();
+	});
+	invoice_check();
+});
+function invoice_check(o){
+	var c = $("input[name='is_invoice']:checked").val();
+	var invoice_option = $("#invoice_option");
+	if(c==1){invoice_option.show();}
+	else{invoice_option.hide();}
+}
+</script>
+</head>
+<body class="person-theme">
+<div class="person-wrap">
+  <!--{template 'phonereader/header.html'}-->
+  <div class="clear"></div>
+  <div class="person-cont">
+    <!--{template 'payview/left.html'}-->
+    <div class="p-rightbar">
+<div class="steps s1"></div>
+			<ul class="formFormat">
+			<form id="pay" action="?app=payview&controller=order&action=confirm" method="post"> 
+				<li><span class="info f-l txt-r">订阅栏目组：</span>{$title}</li>
+				<li><span class="info f-l txt-r">包含栏目：</span>{$data[categorys_name]}</li>
+				<!--<li class="subTime"><span class="info f-l txt-r" style="height:40px">订阅期限：</span><em>订阅起始时间： {date("Y-m-d H:i:s",$data[starttime])}<br>订阅结束时间： {date("Y-m-d H:i:s",$data[endtime])}</em></li>-->
+				<li><span class="info f-l txt-r">订阅费用：</span><em>{$data[fee]} 元</em></li><!--{if $mount>50}-->
+				<li><span class="info f-l txt-r">是否开具发票：</span>
+					<label><input type="radio" name="is_invoice" value="1"> 是</label>
+					<label><input type="radio" name="is_invoice" value="0" checked="checked"> 否</label>
+				</li>
+				<span id="invoice_option" style="display:none;">
+				<li><span class="info f-l txt-r">发票抬头：</span><input type="text" name="invoice_title" size="40" value="" class="input-text"> 如果留空，则开个人发票</li>
+				<li><span class="info f-l txt-r">收件人：</span><input type="text" name="post_name" size="40" value="" class="input-text"></li>
+				<li><span class="info f-l txt-r">邮寄地址：</span><input type="text" name="post_address" size="40" value="" class="input-text"></li>
+				<li><span class="info f-l txt-r">邮寄费用：</span>{$setting[post_fees]} 元</li>
+				<li><span class="info f-l txt-r">联系电话：</span><input type="text" name="post_phone" size="40" value="" class="input-text"></li>
+				</span><!--{/if}-->
+				<li class="ok-wrap"><input class="zl-ok" type="submit" value="提交订单"></li>
+				<input type="hidden" name="pvcid" value="{$data[pvcid]}">
+			</form>
+			</ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

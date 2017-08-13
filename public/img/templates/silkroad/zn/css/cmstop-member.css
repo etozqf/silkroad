@@ -1,0 +1,344 @@
+
+/* 
+* 
+* 02-会员中心-登录.html页面
+* 
+*/
+/* 背景图 */
+.head-bg {
+  background: url(images/head-bg.jpg) repeat-x 0 0;
+}
+.head-bg-pic {
+  width: 1200px;
+  margin: 0 auto;
+  background: url(images/head-bg-pic.jpg) no-repeat 0 0;
+}
+/* 布局 */
+.column {
+  overflow: visible;
+  position: relative;
+}
+.column .column-aside {
+  width: 282px;
+  float: right;
+  _display: inline;
+}
+.column .column-main {
+  width: 676px;
+  float: left;
+  _display: inline;
+}
+.column .column-aside {
+  width: 282px;
+  float: right;
+  _display: inline;
+}
+.column .column-main {
+  width: 676px;
+  float: left;
+  _display: inline;
+}
+.content-column {
+  background-color: #F8F8F8;
+}
+.content-inner {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  _zoom: 1;
+  background-color: #f4f4f4;
+  position: relative;
+}
+.column-main .inner {
+  border-right: 1px solid #ddd;
+  background-color: #ffffff;
+  min-height: 400px;
+  height: auto!important;
+  _height: 400px;
+}
+/* 会员信息区 */
+.member-bar {
+  height: 110px;
+  overflow: hidden;
+  _zoom: 1;
+}
+/* 标题 */
+.star {
+  width: 28px;
+  height: 44px;
+  background: url(images/personal-manage-index-ico.png) no-repeat 0 -150px;
+  top: -5px;
+  left: 10px;
+  z-index: 100;
+}
+.h2 {
+  font-size: 22px;
+  font-family: Microsoft YaHei, SimHei, Arial;
+  color: #333;
+  border-bottom: 1px dashed #cccccc;
+  line-height: 50px;
+  height: 57px;
+  margin: 0 20px;
+  padding-left: 42px;
+}
+/* 表单样式 */
+.btn,
+.btn span {
+  background-image: url(../images/btn.png);
+  color: #ffffff;
+}
+.btn {
+  cursor: pointer;
+}
+.form-box {
+  float: left;
+  _display: inline;
+  width: 374px;
+  margin: 28px 20px 20px 0;
+}
+.form-box .ov {
+  margin-bottom: 20px;
+}
+.form-box .next {
+  line-height: 28px;
+}
+.form-box .btn-b-blue {
+  margin-top: 20px;
+  height: 32px;
+  background-position: -201px -501px;
+  padding-left: 4px;
+  display: block;
+  width: 60px;
+}
+.form-box .btn-b-blue span {
+  height: 32px;
+  line-height: 32px;
+  letter-spacing: 2px;
+  background-position: right -321px;
+  padding-right: 4px;
+  padding-left: 2px;
+  float: left;
+  _display: inline;
+}
+.form-box .btn-b-blue span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 14px 0 12px;
+}
+.user-name,
+.user-txt,
+.pwd-name,
+.pwd-box,
+.check-name,
+.check-login-box {
+  float: left;
+  _display: inline;
+  color: #333;
+}
+.user-name,
+.pwd-name,
+.check-name,
+.email {
+  width: 95px;
+  font-size: 14px;
+  line-height: 28px;
+  padding-right: 20px;
+  text-align: right;
+}
+.user-txt,
+.pwd-txt,
+.check-txt,
+.pwd-check-txt,
+.email-box {
+  border: 1px solid #bbb;
+  font-size: 14px;
+  color: #333;
+  height: 22px;
+}
+.user-txt,
+.pwd-txt,
+.pwd-check-txt {
+  width: 117px;
+}
+.check-txt {
+  width: 56px;
+}
+.check-box img {
+  margin: 4px 5px 0 5px;
+}
+.forget {
+  color: #333;
+}
+.other {
+  color: #FF4800;
+}
+/* 微博 */
+.blog {
+  float: left;
+  _display: inline;
+  width: 240px;
+  height: 90px;
+  margin-top: 26px;
+  background-color: #f4f4f4;
+}
+.blog .h3 {
+  font-weight: bold;
+  margin: 18px 15px 25px 15px;
+}
+.share {
+  margin-left: 15px;
+}
+.share img {
+  margin-right: 5px;
+}
+/* 右边栏 */
+.prompt {
+  font-size: 14px;
+  margin: 120px 0 20px 48px;
+}
+.btn-b-orange {
+  height: 32px;
+  background-position: -201px -601px;
+  padding-left: 4px;
+  float: left;
+  _display: inline;
+  margin-left: 48px;
+}
+.btn-b-orange span {
+  height: 32px;
+  line-height: 32px;
+  letter-spacing: 2px;
+  background-position: right -421px;
+  padding-right: 4px;
+  padding-left: 2px;
+  float: left;
+  _display: inline;
+}
+.btn-b-orange span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 14px 0 12px;
+}
+/* 
+* 
+* 02-会员中心-用户注册.html页面
+* 
+*/
+.user-txt-box,
+.pwd_check_txt,
+.pwd-check-box,
+.email,
+.email-box {
+  float: left;
+  _display: inline;
+  color: #333;
+}
+.form-box2 {
+  width: 650px;
+}
+.email-box {
+  width: 196px;
+}
+.agree {
+  color: #c30;
+  text-decoration: underline;
+}
+.pwd-prompt {
+  margin-left: 10px;
+  color: #666;
+  line-height: 28px;
+  margin-top: -10px;
+}
+.user-prompt {
+  margin-left: 15px;
+  color: #666;
+  line-height: 28px;
+}
+/* 
+* 
+* 02-会员中心-账号绑定.html页面
+* 
+*/
+.content-inner2 {
+  background-color: #FFF;
+}
+.form-box-bind-right {
+  float: right;
+  _display: inline;
+  width: 570px;
+  border-left: 1px dashed #ddd;
+}
+.form-box-bind-right .btn-b-blue {
+  width: 105px;
+}
+.form-box-bind-right .btn-b-blue span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 10px 0 8px;
+}
+.form-box-bind-right .h3,
+.form-box-bind-left .h3 {
+  color: #FF6600;
+  padding-left: 25px;
+  margin: 0 0 25px 40px;
+  background: url(images/personal-manage-index-ico.png) no-repeat -220px 5px;
+}
+.form-box-bind-left {
+  width: 340px;
+  height: 300px;
+}
+.form-box-bind-left .btn-b-blue {
+  margin-left: 116px;
+}
+.form-box-bind-left .btn-b-blue span {
+  font-size: 14px;
+}
+
+/* 用户绑定 */
+.bind-title {
+  width:748px; 
+  height:16px; 
+  padding:12px 16px;
+  background:#E9EDF4;
+  border:#C0C7D9 solid 1px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family:微软雅黑,宋体,Arial Narrow,arial,serif;
+  color:#6A6A6A;
+}
+.bind-title-stat0 {
+  font-size:14px;
+  font-weight:normal;
+}
+.bind-title-stat1 {
+  font-size:14px;
+}
+.bind-content {
+  width:764px; 
+  padding:26px 0 20px 16px;
+  border-left:#C0C7D9 solid 1px;
+  border-right:#C0C7D9 solid 1px;
+  border-bottom:#C0C7D9 solid 1px;
+}
+.bind-content-info {
+  font-size:12px;
+  height: 22px;
+  color:#7C7C7C;
+}
+.bind-content-btn {
+  border:#1C6D9A solid 1px; 
+  font-size: 12px;
+  width:60px; 
+  height:24px; 
+  line-height:24px; 
+  text-align:center;
+  background:url('images/bg-blue.png'); 
+  color: #FFF; 
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bind-expire {
+  color:#FF0000;
+  font-weight: normal;
+  font-size: 13px;
+}

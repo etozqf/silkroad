@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$tag}_标签云_{$sitename[0]}</title>
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script>
+    $(function(){
+        $('.js-overlay').mouseenter(function() {
+            overlayPlay($(this));
+        }).mouseleave(function(){
+            var timeSpan = $('.time',$(this));
+            timeSpan.css({'background-color':timeSpan.attr('data-bgc')});
+            $(this).find('.overlay').fadeOut('fast');
+        });
+    });
+    </script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_zn.html"}-->
+    
+    <div class="hr20"></div>
+
+    <!-- 广告位 -->
+    <div class="column ad1000x80">
+        <!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #-->
+    </div>
+    
+    <div class="hr20"></div>
+
+    <!-- 面包屑 -->
+    <div class="column m-crumb">
+        <a href="{WWW_URL}">首页</a>
+        <em class="icon16x16"></em>
+        <a href="{APP_URL}tags.php" title="Tags">标签云</a>
+    </div>
+    <div class="hr10"></div>
+    <div class="hline column"></div>
+
+    <!-- 文字列表 -->
+    <div class="column article-list-column ov">
+        <section class="article-list-wrap fl-l">
+            <div class="article-list">
+                <ul style="padding-top:6px;">
+                    <!--{loop $data $i $r}-->
+                    <li class="item"><a href="{$r[url]}" title="{$r[title]}" target="_blank">{$r[title]}</a><span class="date">{date('Y-m-d H:i', $r['published'])}</span></li>
+                    <!--{if $i>0 && $i%5==0 && $i != $size}--><li class="hr"></li><!--{/if}-->
+                   <!--{/loop}-->
+                </ul>
+                <!-- 分页 -->
+                <div class="align-c">
+                    <div class="article-list-pagination pagination ov">
+                        <!--{pages($total, $page, $size, 2, $urlrule, false, '', 'current', '&lt;', '&gt;')}-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+	<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

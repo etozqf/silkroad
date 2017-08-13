@@ -1,0 +1,83 @@
+/* region: 微信直播 */
+html,
+body {
+    height: 100%;
+}
+
+.wechat-subscribe {
+    text-align: center;
+    cursor: default;
+}
+
+.wechat-subscribe .qrcode {
+    position: absolute;
+    left: 50%;
+    width: 530px;
+    margin-left: -265px;
+    top: 50%;
+    height: 460px;
+    margin-top: -250px;
+
+    padding-top: 40px;
+
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+.wechat-subscribe .qrcode-title {
+    font-size: 20px;
+    visibility: hidden;
+    height: 30px;
+    line-height: 30px;
+}
+
+.wechat-subscribe .qrcode-title.show {
+    visibility: visible;
+}
+
+.wechat-subscribe .qrcode-description {
+    visibility: hidden;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.wechat-subscribe .qrcode-description.show {
+    visibility: visible;
+}
+
+.wechat-subscribe .qrcode-img {
+    margin: 20px auto 0;
+    width: 290px;
+    height: 290px;
+    background: #ffffff url(/css/images/loading.gif) no-repeat center;
+}
+
+.wechat-subscribe .qrcode-img img {
+    display: block;
+    width: 290px;
+    height: 290px;
+}
+
+.wechat-subscribe .qrcode-tips {
+    margin: 20px auto 0;
+    width: 270px;
+    height: 36px;
+    line-height: 36px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #f64f4f;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.wechat-subscribe .qrcode-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5px;
+    background: #ffffff url(../images/bg-sawtooth.png) repeat-x left bottom;
+}
+/* endregion: 微信直播 */

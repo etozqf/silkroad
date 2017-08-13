@@ -1,0 +1,42 @@
+.left {
+	width: 160px;
+	float: left;
+}
+
+.right {
+	width: 290px;
+	float: left;
+}
+
+#list {
+	overflow-y: auto;
+	height: 206px;
+	width: 150px;
+}
+
+#list li {
+	height: 26px;
+	line-height: 26px;
+	overflow: hidden;
+}
+
+#list .cur {
+	background: #E7F2F5;
+}
+
+#list li:hover {
+	background: #fffddd;
+}
+
+fieldset {
+	height: 206px;
+	overflow: auto;
+}
+
+.code {
+	padding: 4px;
+}
+
+.foot {
+	text-align: right;
+}

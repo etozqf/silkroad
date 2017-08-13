@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>{$content[title]}</title>
+	<link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <script src="{IMG_URL}js/config.js"></script>
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+	<script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+    <!--{if value($content, 'thumb')}-->
+    <img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+    <!--{/if}-->
+	<div class="ui-container">
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">投票</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+        <!--{template 'mobile/touch/_blocks/nav.html'}-->
+		<section>
+			<div class="ui-survey-container">
+				<div>
+					<h1 class="ui-article-title">{$content[title]}</h1>
+					<p class="ui-article-infos">
+                        <?php $endtime = $content['vote']['endtime'] ? $content['vote']['endtime'] : 0; ?>
+                        <!--{if $endtime}-->
+                        <!--{if $endtime > TIME}-->
+                        <time>{date('Y-m-d H:i', $endtime)}  结束</time>
+                        <!--{else}-->
+                        <time>已结束</time>
+                        <!--{/if}-->
+                        <!--{else}-->
+                        <time>投票进行中</time>
+                        <!--{/if}-->
+
+                        <!--{if $content[vote][total]}-->
+						<span>已有 <em>{$content[vote][total]}</em> 人参与投票</span>
+                        <!--{/if}-->
+					</p>
+				</div>
+				<div class="ui-survey-summary">
+					<p>{$content[description]}</p>
+                    <p class="ui-vote-type">
+                        <!-- {if $content[vote][type] === 'radio'} -->
+                        <small>以下选项为单选</small>
+                        <!-- {else} -->
+                        <small>以下选项为多选</small>
+                        <!-- {/if} -->
+                    </p>
+				</div>
+				<div class="ui-vote-form">
+                    <!--{template "mobile/touch/vote/display/".$content['vote']['display'].".html"}-->
+				</div>
+			</div>	
+		</section>
+	</div>
+    <!-- 底部栏目面板 -->
+    <div class="js-category-bottom-container">
+        <!-- 栏目导航 -->
+        <menu class="ui-categorys js-category-panel js-categorys-bottom js-hidden">
+            <ul>
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{MOBILE_URL}">首页</a></li>
+                <!--{loop mobile_category() $category}-->
+                <?php if(!$category['default_display']){continue;} ?>
+                <!--{if !$category[headline]}-->
+                <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{$category[url]}">{$category[catname]}</a></li>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </ul>
+        </menu>
+        <!-- @end 栏目导航 -->
+    </div>
+    <!-- 底部 -->
+    <footer class="ui-bottom-bar">
+        <!--{template 'mobile/touch/_blocks/footer.html'}-->
+    </footer>
+	<script>
+	$(function() {
+		// 底部栏目选择
+		var bb = $('.js-menubtn-bottom');
+		bb.click(function() {
+			$('.js-categorys-bottom').toggleClass('js-hidden');
+			setTimeout(function() {
+				document.body.scrollTop = document.body.clientHeight;
+			}, 50);
+		});
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>会员中心-账号绑定</title>
+
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/helper/modernizr.js"></script> 
+	<![endif]-->
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script type="text/javascript" src="{IMG_URL}js/lib/md5.js"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<!--{template "system/head_simple_php.html"}-->
+	<!-- 绑定&注册 -->
+    <div class="singup-box">
+        <div class="hr100"></div>
+        <div class="column singup-panel">
+            <div class="inner">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>绑定&注册</a></h2>
+                </div>
+                <div class="hr20"></div>
+                <!-- 登录内容 -->
+                <div class="singup-form ov">
+                    <div class="singup-w580 fl-l">
+                    	<p style="color: #777;font-size: 14px;">没有本站账号，请注册</p>
+                        <form action="{url('member/index/ajaxregister')}" method="POST"  name="member_registerForm" id="member_registerForm" onsubmit="return false;">
+                        	<input type="hidden" name="interface" value="{$data['type']}" />
+							<input type="hidden" name="authkey" value="{$data['authkey']}" />
+							<input type="hidden" name="access_token" value="{$data['access_token']}" />
+							<input type="hidden" name="expires" value="{$data['expires']}" />
+                            <div class="hr20"></div>
+                            <div class="ov">
+                                <label class="label singup-w70 fl-l margin-r-20">用户名</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <p class="pos-a tip">3-16字，可由中文,字母,数字及”_”组成</p>
+                                    <input type="text" name="username" id="reg_username" value="{$data['username']}" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr40"></div>
+                            <div class="ov">
+                                <label class="label fl-l singup-w70 margin-r-20">密码</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <p class="pos-a tip">字符长度在6到16个字符之间</p>
+                                    <input type="password" name="password" id="reg_password" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr40"></div>
+                            <div class="ov">
+                                <label class="label fl-l singup-w70 margin-r-20">确认密码</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <input type="password" id="reg_password_check" class="input-text username" name="password_check" />
+                                </div>
+                            </div>
+                            <div class="hr40"></div>
+                            <div class="ov">
+                                <label class="label singup-w70 fl-l margin-r-20">邮箱</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <input id="reg_email" type="text" class="input-text js-focus username" name="email" value="{$login_info['email']}" />
+                                </div>
+                            </div>
+                            <div class="hr30"></div>
+                            <div class="margin-l-70 ov">
+                                <input id="iagree" type="checkbox" class="fl-l" style="margin-top: 2px;margin-right: 10px;" name="" id="" /><span class="fz12 fl-l">我同意</span> <a href="" class="fz12 cor06c fl-l">《本站免责声明》</a>
+                            </div>
+                            <div class="hr10"></div>
+                            <div class="margin-l-70 submit-bar ov">
+                                <input style="margin-left:0;" id="login_seccode" type="text" name="seccode" class="m-input-text fl-l i-gray" value="验证码">
+                                <img id="seccode_img" src="{url('system/seccode/image')}" onclick="this.src='{url('system/seccode/image')}&id='+Math.random()*5;" class="fl-l" alt="" style="cursor: pointer;">
+                                <a href="javascript:;" onclick="$('#seccode_img').click()" class="reload fl-l icon16x16"></a>
+                            </div>
+                            <div class="hr20"></div>
+                            <div class="ov margin-l-70">
+                                <input type="submit" value="注册并绑定" disable="disable" class="fl-l submit disable button1 margin-r-20" /></div>
+                            <div class="hr40"></div>
+                        </form>
+                        <div class="hline"></div>
+                        <div class="hr10"></div>
+                        <p style="color: #777;font-size: 14px;">已有本站账号，请绑定</p>
+                        <div class="hr20"></div>
+                       <form action="{url('member/index/bind_account')}" method="POST" name="member_bindForm" id="member_bindForm" onsubmit="return false;">
+							<input type="hidden" name="interface" value="{$data['type']}" />
+							<input type="hidden" name="authkey" value="{$data['authkey']}" />
+							<input type="hidden" name="access_token" value="{$data['access_token']}" />
+							<input type="hidden" name="expires" value="{$data['expires']}" />
+                            <div class="hr20"></div>
+                            <div class="ov">
+                                <label class="label singup-w70 fl-l margin-r-20">用户名</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <input type="text" name="username" id="reg_username" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr40"></div>
+                            <div class="ov">
+                                <label class="label fl-l singup-w70 margin-r-20">密码</label>
+                                <div class="singup-line singup-item singup-w430 fl-l">
+                                    <input type="password" name="password" id="pwd_txt" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr30"></div>
+                            <div class="ov margin-l-70">
+                                <input type="submit" value="绑定" class="fl-l submit button1 margin-r-20" />
+                               </div>
+                            <div class="hr40"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hr100"></div>
+    </div>
+	<script type="text/javascript">
+		$('form#member_registerForm').submit(function() {
+			if ($('form#member_registerForm').find('p.warn').length > 0) {
+                return false;
+            }
+            if (!$('#member_registerForm input[name=username]').val())
+            {
+                $('#member_registerForm input[name=username]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=username]').parent().addClass('border-red').append('<p class="pos-a warn">用户名不能为空</p>');
+                return false;
+            } else if ($('#member_registerForm input[name=username]').val().length < 3) {
+                $('#member_registerForm input[name=username]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=username]').parent().addClass('border-red').append('<p class="pos-a warn">用户名不能小于3位</p>');
+                return false;
+            } else if ($('#member_registerForm input[name=username]').val().length > 16) {
+                $('#member_registerForm input[name=username]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=username]').parent().addClass('border-red').append('<p class="pos-a warn">用户名不能大于16位</p>');
+                return false;
+            }
+            if (!$('#member_registerForm input[name=password]').val())
+            {
+                $('#member_registerForm input[name=password]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=password]').parent().addClass('border-red').append('<p class="pos-a warn">密码不能为空</p>');
+                return false;
+            } else if ($('#member_registerForm input[name=password]').val().length < 6) {
+                $('#member_registerForm input[name=password]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=password]').parent().addClass('border-red').append('<p class="pos-a warn">密码不能小于6位</p>');
+                return false;
+            } else if ($('#member_registerForm input[name=password]').val().length > 16) {
+                $('#member_registerForm input[name=password]').parent().find('p').addClass('hidden');
+                $('#member_registerForm input[name=password]').parent().addClass('border-red').append('<p class="pos-a warn">密码不能大于16位</p>');
+                return false;
+            }
+            if (!$('#member_registerForm input[name=password_check]').val())
+            {
+                $('#member_registerForm input[name=password_check]').parent().addClass('border-red').append('<p class="pos-a warn">确认密码不能为空</p>');
+                return false;
+            } else if($('#member_registerForm input[name=password]').val() != $('#member_registerForm input[name=password_check]').val()){
+                $('#member_registerForm input[name=password_check]').parent().addClass('border-red').append('<p class="pos-a warn">与密码不一致</p>');
+                return false;
+            }
+            if (!$('#member_registerForm input[name=email]').val())
+            {
+                $('#member_registerForm input[name=email]').parent().addClass('border-red').append('<p class="pos-a warn">Email不能为空</p>');
+                return false;
+            }
+			$.post("{url('member/index/ajaxregister')}", $('form#member_registerForm').serialize(), function(json) {
+				if (json.state) {
+					alert('注册成功,可能需要审核后才能登录');
+					location.href = "{$ref}";
+				} else {
+					alert('注册失败');
+				}
+			}, 'json');
+			return false;
+		});
+		$('form#member_bindForm').submit(function() {
+			if (!$('#member_bindForm input[name=username]').val())
+            {
+                $('#member_bindForm input[name=username]').parent().addClass('border-red').append('<p class="pos-a warn">用户名不能为空</p>');
+                return false;
+            }
+            if (!$('#member_bindForm input[name=password]').val())
+            {
+                $('#member_bindForm input[name=password]').parent().addClass('border-red').append('<p class="pos-a warn">密码不能为空</p>');
+                return false;
+            }
+			$("#pwd_txt").val(hex_md5($('#pwd_txt').val()));
+			$.post("{url('member/index/bind_account')}", $('form#member_bindForm').serialize(), function(json) {
+				if (json.state) {
+					alert('绑定成功');
+					location.href = "{$ref}";
+				} else {
+					alert('绑定失败');
+				}
+			}, 'json');
+			return false;
+		});
+
+		$('#iagree').bind('click', function() {
+			if ($('#iagree').is(':checked')) {
+                $('#member_registerForm').find('input:submit').removeClass('disable').attr('alt', '').css('cursor','pointer').attr('disable', '');
+            } else {
+                $('#member_registerForm').find('input:submit').addClass('disable').attr('disable', 'disable').attr('alt', '必须先阅读并同意《本站免责声明》').css('cursor','default');
+            }
+		});
+        $('#member_bindForm input').blur(function(){
+            if ($(this).attr('name') == 'username' && !$(this).val()) {
+                 $(this).parent().addClass('border-red').append('<p class="pos-a warn">用户名不能为空</p>');
+            } 
+            if ($(this).attr('name') == 'password' && !$(this).val()) {
+                 $(this).parent().addClass('border-red').append('<p class="pos-a warn">密码不能为空</p>');
+            } 
+        });
+        $('#member_bindForm input').focus(function(){
+            $(this).parent().removeClass('border-red').find('p').remove();
+        });
+        $('#member_registerForm input').focus(function(){
+            $(this).parent().find('p.tip').addClass('hidden');
+            $(this).parent().removeClass('border-red').find('p.warn').remove();
+        });
+        $(function(){
+            if ($('#member_registerForm input[name=username]').val()) {
+                $('#member_registerForm input[name=username]').prev().addClass('hidden');
+            }
+            if ($('#member_registerForm input[name=password]').val()) {
+                $('#member_registerForm input[name=password]').prev().addClass('hidden');
+            }
+            $('#member_registerForm input').blur(function(){
+                if ($(this).attr('name') == 'username') {
+                    if (!$(this).val())
+                    {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">用户名不能为空</p>');
+                    } else if ($(this).val().length < 3) {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">用户名不能小于3位</p>');
+                    } else if ($(this).val().length > 16) {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">用户名不能大于16位</p>');
+                    }
+                }
+                if ($(this).attr('name') == 'password') {
+                    if (!$(this).val())
+                    {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">密码不能为空</p>');
+                    } else if ($(this).val().length < 6) {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">密码不能小于6位</p>');
+                    } else if ($(this).val().length > 16) {
+                        $(this).parent().find('p').addClass('hidden');
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">密码不能大于16位</p>');
+                    }
+                }
+                if ($(this).attr('name') == 'password_check') {
+                    if (!$(this).val())
+                    {
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">确认密码不能为空</p>');
+                    } else if ($(this).val() != $('#member_registerForm input[name=password]').val()) {
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">密码不一致</p>');
+                    }
+                }
+                if ($(this).attr('name') == 'email') {
+                    if (!$(this).val())
+                    {
+                        $(this).parent().addClass('border-red').append('<p class="pos-a warn">Email不能为空</p>');
+                    }
+                }
+            });
+        });
+	</script>
+
+	<!--#公共区块 网站底部#-->
+	<!--#include virtual="/section/2.html"-->
+</body>
+</html>

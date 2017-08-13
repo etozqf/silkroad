@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>内容展示页</title>
+   <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-content-show.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+
+
+    <script type="text/javascript">
+        var selectListShow = 0;
+        $ ( function () {
+            $ ( "#type,.searchselectbtn" ).click ( function () {
+                if ( selectListShow ) {
+                    $ ( "#selectTypeList" ).slideUp ( "fast" );
+                    selectListShow = 0;
+                } else {
+                    $ ( "#selectTypeList" ).slideDown ( "fast" );
+                    selectListShow = 1;
+                }
+                return false;
+            } );
+            $ ( "body" ).click ( function () {
+                if ( selectListShow ) {
+                    $ ( "#selectTypeList" ).slideUp ( "fast" );
+                    selectListShow = 0;
+                }
+            } );
+            $ ( ".searchselect li" ).click ( function () {
+                $ ( "#type" ).text ( $ ( this ).text () );
+                $ ( "#type" ).attr ( "typename" , $ ( this ).attr ( "typename" ) );
+                $ ( this ).parent ().hide ();
+            } );
+
+        } );
+
+    </script>
+</head>
+<body>
+<div class="yq-header">
+    <div class="box1000">
+        <div class="zd f-l">
+            <em class="f-l">站点：</em>
+
+            <div class="searchselect">
+                <span id=type typename="beijing">北京</span>
+                <a class=searchselectbtn href="javascript:;"></a>
+                <ul id=selectTypeList>
+                    <li typename="beijing"><a class=current href="javascript:;">北京</a></li>
+                    <li typename="tianjin"><a href="javascript:;">天津</a></li>
+                    <li typename="shanghai"><a href="javascript:;">上海</a></li>
+                    <li typename="xian"><a href="javascript:;">西安</a></li>
+                    <li typename="wulvmuqi"><a href="javascript:;">乌鲁木齐</a></li>
+                    <li typename="chongqing"><a href="javascript:;">重庆</a></li>
+                    <li typename="haerbin"><a href="javascript:;">哈尔滨</a></li>
+                    <li typename="wuhan"><a href="javascript:;">武汉</a></li>
+                    <li typename="changchun"><a href="javascript:;">长春</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="f-l ov">
+            <a href="" target="_blank">中文数据库</a>
+            <a href="" target="_blank"> 英文数据库</a>
+        </div>
+        <div class="f-r ov yq-header-r">
+            <a href="" target="_blank"><em class="f-l"></em>意见反馈</a>
+            <a href="" target="_blank"><em class="f-l em02"></em>订阅</a>
+            <a href="" target="_blank"><em class="f-l em03"></em>English</a>
+        </div>
+    </div>
+</div>
+<div class="yq-bg"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/yq-bg.jpg" alt="" height="300"/></div>
+<div class="box1000 ov tit-content">
+    <div class="t-c">
+        <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/tit.png" width="432" height="110" alt=""/>
+    </div>
+    <div class=" ov content ">
+        <div class="ov ">
+            <!--左侧-->
+            <div class="col-l ov">
+                <!--新闻动态-->
+                <div class="news">
+                    <div class="tit ov">
+                        <h3 class="f-l"><a href="" target="">新闻动态</a></h3>
+                        <a href="" target="_blank" class="f-r more">更多 >></a>
+                    </div>
+                    <ul class="summary-ul">
+                        <li><a href="" target="_blank" class="b">固安县大力实施“以城促产、以城带乡”</a></li>
+                        <li><a href="" target="_blank">固安加快构建大交通网络通车里程达1209公里</a></li>
+                        <li><a href="" target="_blank">河北固安县林城花海向阳开</a></li>
+                        <li><a href="" target="_blank">京东华北地区最大物流园区备战“618”</a></li>
+                        <li><a href="" target="_blank">河北固安：智能分拣中心提升京东物流效率</a></li>
+                        <li><a href="" target="_blank">固安：培树示范典型深化“两学一做”</a></li>
+                        <li><a href="" target="_blank">河北固安：高标准农田节水又增效</a></li>
+                        <li><a href="" target="_blank">固安：三个精准打好“京”字牌</a></li>
+                        <li><a href="" target="_blank">全民健身——风格独特的郭氏八卦</a></li>
+                        <li><a href="" target="_blank">固安国税提前一个月实现年税收任务“过半”</a></li>
+                    </ul>
+                </div>
+                <!--观点•参考-->
+                <div class="gd-ck m_t15">
+                    <div class="tit ov">
+                        <h3 class="f-l"><a href="" target="">观点•参考</a></h3>
+                        <a href="" target="_blank" class="f-r more">更多 >></a>
+                    </div>
+                    <ul class="summary-ul">
+                        <li><a href="" target="_blank" class="b">固安县大力实施“以城促产、以城带乡”</a></li>
+                        <li><a href="" target="_blank">固安加快构建大交通网络通车里程达1209公里</a></li>
+                        <li><a href="" target="_blank">河北固安县林城花海向阳开</a></li>
+                        <li><a href="" target="_blank">京东华北地区最大物流园区备战“618”</a></li>
+                        <li><a href="" target="_blank">河北固安：智能分拣中心提升京东物流效率</a></li>
+                        <li><a href="" target="_blank">固安：培树示范典型深化“两学一做”</a></li>
+                        <li><a href="" target="_blank">河北固安：高标准农田节水又增效</a></li>
+                        <li><a href="" target="_blank">固安：三个精准打好“京”字牌</a></li>
+                        <li><a href="" target="_blank">全民健身——风格独特的郭氏八卦</a></li>
+                        <li><a href="" target="_blank">固安国税提前一个月实现年税收任务“过半”</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--右侧-->
+            <div class="col-r ov">
+                <!--滚动图片-->
+                <div class="img-scroll" id="section-focus-pic">
+                    <div class="pages">
+                        <ul>
+                            <li class="item" style="left:0px;">
+                                <a href=""><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/2012092600423387.jpg" width="540" height="304"></a>
+
+                                <h3><a href="" target="_blank">天安门广场&quot;史上最大花果篮&quot;竣工</a></h3>
+
+                                <p></p>
+                            </li>
+                            <li class="item">
+                                <a href=""><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/2012092600451002.jpg" width="540" height="304"></a>
+
+                                <h3><a href="" target="_blank">广州:10万元得来一座&quot;圆大厦&quot;</a></h3>
+
+                                <p></p>
+                            </li>
+                            <li class="item">
+                                <a href=""><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/2012092600435337.jpg" width="540" height="304"></a>
+
+                                <h3><a href="" target="_blank">广州:10万元得来一座&quot;圆大厦&quot;</a></h3>
+
+                                <p></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="controler">
+                        <b class="down"></b>
+                        <b></b>
+                        <b></b>
+                    </div>
+                    <div class="controler2">
+                        <a href="javascript:;" class="prev"><i></i></a>
+                        <a href="javascript:;" class="next"><i></i></a>
+                    </div>
+                </div>
+                <!--图片列表-->
+                <div class="pic-list m_t20 ov">
+                    <ul>
+                        <li>
+                            <a href="" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w269-h151.jpg" width="269" height="151" alt=""/></a>
+                            <a class="open" href=""></a>
+
+                            <p class="bg"></p>
+
+                            <h3 class=" tit-h3"><a href="" target="_blank">温泉之</a></h3>
+                        </li>
+                        <li>
+                            <a href="" target="_blank"><img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w269-h151.jpg" width="269" height="151" alt=""/></a>
+                            <a class="open" href=""></a>
+
+                            <p class="bg"></p>
+
+                            <h3 class=" tit-h3"><a href="" target="_blank">温泉之</a></h3>
+                        </li>
+                    </ul>
+                </div>
+                <!--优势列表-->
+                <div class="ys-list m_t20 ov">
+                    <ul>
+                        <li>
+                            <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w160-h160.jpg" alt="" class="img"/>
+                            <a href="" target="_blank">区位优势</a>
+                        </li>
+                        <li>
+                            <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w160-h160.jpg" alt="" class="img"/>
+                            <a href="" target="_blank">交通优势</a>
+                        </li>
+                        <li>
+                            <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w160-h160.jpg" alt="" class="img"/>
+                            <a href="" target="_blank">资源优势</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--园区风光-->
+        <div class="pic-box  ov m_t20">
+            <ul class="pic-box-tit f-l t-c">
+                <li>园</li><li>区</li><li>风</li><li>光</li>
+            </ul>
+                <div class="thumb f-l"id="thumb">
+                        <ul>
+                            <li>
+                                <a href=""> <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w210-h140.jpg" alt=""
+                                                 width="210" height="140"></a>
+                            </li>
+                            <li>
+                                <a href=""> <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w210-h140.jpg" alt=""
+                                                 width="210" height="140"></a>
+                            </li>
+                            <li>
+                                <a href=""> <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w210-h140.jpg" alt=""
+                                                 width="210" height="140"></a>
+                            </li>
+                            <li>
+                                <a href=""> <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w210-h140.jpg" alt=""
+                                                 width="210" height="140"></a>
+                            </li>
+                            <li>
+                                <a href=""> <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w210-h140.jpg" alt=""
+                                                 width="210" height="140"></a>
+                            </li>
+
+                        </ul>
+
+                </div>
+        </div>
+        <div class="ov">
+            <!--入住企业-->
+            <div class="col-l ov">
+                <div class="tit ov">
+                    <h3 class="f-l"><a href="" target="">入住企业</a></h3>
+                </div>
+                <div class="m_t20">
+                    <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/qy.jpg"width="400" height="290" alt=""/>
+                </div>
+            </div>
+            <!--投资环境-->
+            <div class="col-r ov">
+                <div class="tit ov">
+                    <h3 class="f-l"><a href="" target="">投资环境</a></h3>
+                </div>
+                <div class="m_t20 ">
+                    <img src="{IMG_URL}templates/{TEMPLATE}/zn/images/w250-h280.jpg"width="250" height="280" alt="" class="f-l"/>
+                    <div class="tzhj-txt ov f-r">
+                        <p>固安是一座有着3000多年历史的古城，有文字记载始于西周，属燕国，先后名为“方城邑”、“方城池”和“方城县”，至隋朝开元九年始称“固安”。荆
+                            轲刺秦王“献督亢地图于秦”的“督亢”，即今固安一带，为著名的富庶之地。界河永定河系清朝康熙帝赐名，寓意永远安定，国泰民安。固安隶属河北省廊坊市，
+                            下辖12个乡镇、一个城区办事处、六个省级园区。全县幅员面积696平方公里，耕地67万亩，人口49万。县城北距北京天安门50公里，与北京市交错相连。</p>
+                        <p>近年来，固安县锐意进取、开拓创新，采取PPP模式建设产业新城，被列为国务院新兴城镇</p>
+                    </div>
+                    </div>
+            </div>
+
+        </div>
+        <div class="n_ind_cpy">
+            <div class="footer-link">
+                <ul>
+                    <li><a href="" target="_blank">关于我们</a></li>
+                   <li><span>|</span></li>
+                    <li><a href="" target="_blank">留言反馈 </a></li>
+                    <li><span>|</span></li>
+                    <li><a href="" target="_blank">联系我们 </a></li>
+                    <li><span>|</span></li>
+                    <li><a href="" target="_blank">网站地图 </a></li>
+                </ul>
+            </div>
+            <div class="box1000"><span>新华社主办</span> 版权所有：<span>新华社中国经济信息社</span> Copyright © 2000-2015 silkroad.news.cn All
+                Rights Reserved.<br>
+                <span>新华网</span> 京ICP证010042号
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/content-show.js"></script>
+</body>
+</html>

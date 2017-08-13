@@ -1,0 +1,68 @@
+#viewBox .table_info th, .table_info td,
+.ui-dialog-content .table_info th, .table_info td {
+    line-height: 22px;
+}
+.ui-dialog-content textarea {
+    line-height: 18px;
+}
+
+.section-handle {
+    background-color: #EEF5FC;
+    border: 1px solid #D0E6EC;
+    border-radius: 2px;
+    position: absolute;
+    text-align: center;
+    display:none;
+    line-height: normal !important;
+    white-space: nowrap;
+}
+.section-handle b,
+.section-handle-add {
+    display:inline-block;
+    cursor:pointer;
+    width:16px;
+    height:16px;
+    margin: 3px 1px;
+    background: url(images/section_handle_bg.png) no-repeat 0 0;
+}
+.section-handle .ml {
+    background-position: 3px 2px;
+}
+.section-handle .ml:hover {
+    background-position: 3px -21px;
+}
+.section-handle .mr {
+    background-position: -10px 2px;
+}
+.section-handle .mr:hover {
+    background-position: -10px -21px;
+}
+.section-handle .view {
+    background-position: -27px 2px;
+}
+.section-handle .view:hover {
+    background-position: -27px -21px;
+}
+.section-handle .edit {
+    background-position: -44px 2px;
+}
+.section-handle .edit:hover {
+    background-position: -44px -21px;
+}
+.section-handle .del {
+    background-position: -62px 2px;
+}
+.section-handle .del:hover {
+    background-position: -62px -21px;
+}
+
+.section-handle-add {
+    display: inline-block;
+    float: left;
+    margin-left: 5px;
+    margin-top: 4px;
+    background-position: -92px 0;
+}
+.section-handle-add:hover {
+    background-position: -92px -20px;
+}

@@ -1,0 +1,188 @@
+<?php
+/**
+ * 文章
+ *
+ * @aca 文章
+ */
+class controller_api_article extends api_controller_abstract
+{
+	private $article;
+
+	function __construct($app)
+	{
+		parent::__construct($app);
+		$this->article = loader::model('admin/article');
+	}
+
+    /**
+     * 读取文章内容
+     *
+     * @aca 读取文章内容
+     */
+    function get()
+    {
+        $contentid = intval(value($_GET, 'contentid', 0));
+        if(!$contentid)
+        {
+            $result = array(
+                'state'=>false,
+                'error'=>'内容编号错误'
+            );
+        }
+        else
+        {
+            $data = $this->article->get($contentid, '*', 'show');
+            if($data)
+            {
+                foreach(array(
+                            'status_old','unpublished','unpublishedby',
+                            'modified','modifiedby',
+                            'checked','checkedby',
+                            'locked','lockedby',
+                            'noted','notedby',
+                            'note','workflow_step','workflow_roleid',
+                            'placeid','saveremoteimage'
+                        ) as $field)
+                {
+                    unset($data[$field]);
+                }
+            }
+            $result = array(
+                'state'=>true,
+                'data'=>$data
+            );
+        }
+        echo json_encode($result);
+    }
+
+    /*得到全站的所有文章
+      +1、每次按位置读取500条
+      +@page:当前位置
+      +@pagesize:每次获取的最大条数,默认是400条
+    */
+    function getall()
+    {
+        $page=$_REQUEST['page'];
+        if(empty($page) && $page<1)
+        {
+            $page=1;
+        }
+	   else
+	   {
+            $page=intval($_REQUEST['page']);
+       }
+
+        $pagesize=1;
+        $db=factory::db();
+        $field="select c.*,a.*";
+        $table=" from cmstop_content as c inner join cmstop_article as a on c.contentid=a.contentid";
+        $where=" where c.modelid=1 and c.status=6";
+        $start=($page-1)*$pagesize;
+        $orderby=" order by published desc";
+        $limit=" limit $start,$pagesize";
+
+        $catid_arr=array(24,25,26,27,28,29,92,93,94,95,96,97,98,99,100,101,103,104,105,106,108,109,110,111,112,113,114,116,117,118,119,120,121,122,123,124,125,136,137,138,142,143,148);
+        $sql=$field.$table.$where.$orderby.$limit;   //拼装sql语句
+    
+        $data=$db->select($sql);
+
+
+        /*记录全文总数*/
+        $total=$db->select("select count(contentid) as count from cmstop_content where modelid=1 and status=6");
+        $totalpage=ceil($total[0]['count']/$pagesize);
+       
+
+ 
+        if(!empty($data))
+        {   
+            $fields = array('subtitle', 'color', 'thumb', 'tags', 'sourceid', 'source_title', 'source_link', 'url', 'weight', 'status', 'status_old', 'created', 'createdby', 'published', 'publishedby', 'unpublished', 'unpublishedby', 'modified', 'modifiedby', 'checked', 'checkedby', 'locked', 'lockedby', 'noted', 'notedby', 'note', 'workflow_step', 'workflow_roleid', 'iscontribute', 'allowcomment', 'comments', 'pv', 'spaceid', 'related','score', 'topicid', 'tweeted', 'ischarge','yuanquid','author', 'editor', 'description', 'content', 'pagecount', 'saveremoteimage');
+           
+            foreach($fields as $k=>$v){
+                $data[0]["$v"] = $data[0]["$v"] ? $data[0]["$v"] : '';
+            }
+            
+            $list=array();
+            foreach($data as $key=>&$value)
+            {   
+                 
+                $value['catname']=table('category',$value['catid'],'name');  //栏目名
+                $value['createdby']=table('member',$value['createdby'],'username');
+                $value['publishedby']=table('member',$value['publishedby'],'username');
+                
+                
+                //查询扩展字段
+                $value['meta_data']=table('content_meta',$value['contentid'],'data');
+                $value['meta_data'] = $value['meta_data'] ? $value['meta_data'] : '';
+                //查询自定义属性
+                $proids = $db->select("SELECT c.contentid,p.name FROM cmstop_content_property AS c LEFT JOIN cmstop_property AS p ON c.proid=p.proid WHERE c.contentid=$value[contentid]");
+                $value['proids']=$proids ? $proids : '';
+                //查询相关联文章
+                $relateds = $db->select("SELECT * FROM cmstop_related WHERE orign_contentid=$value[contentid]");
+                $value['relateds'] = $relateds ? $relateds : '';
+                if(in_array($value['catid'],$catid_arr))
+                {
+                    $value['mark']=1;   //代表文章是英文
+                }
+                else
+                {
+                    $value['mark']=2;   //代表文章是中文
+                }
+            }
+
+            $result = array('state'=>true,'page'=>$page,'totalpage'=>$totalpage,'list' =>$data);
+        }
+        else
+        {
+            $result=array('state'=>false,'error'=>'no data');
+        }
+
+        echo json_encode($result);
+
+    }
+
+    /**
+     * 添加文章内容
+     *
+     * @aca 添加文章内容
+     */
+    function add()
+    {
+        $_REQUEST['modelid'] = 1;
+        //$title = htmlspecialchars($_POST['title']);
+        $regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
+        //$title = preg_replace($regex,"",$title);
+       $title=$_REQUEST['title'];
+	$regex1 = '/["](.*?)["]/';
+        preg_match($regex1,$title,$arr);
+        if($arr[0])
+	{
+ 	       $title = addslashes($title);
+        }
+
+	 if ($list=factory::db()->get("select contentid from #table_content where title = '".$title."' and status
+=6 and modelid=1")) 
+		{
+			$contentid=$this->article->edit($list['contentid'],$_REQUEST);
+        }
+		else
+		{
+			$contentid = $this->article->add($_REQUEST);
+		}
+        
+        if ($contentid)
+        {
+            $result = array('state'=>true, 'contentid' => $contentid);
+            $article = $this->article->get($contentid, 'url, status');
+            $article['status'] == 6 && $result['url'] = $article['url'];
+        }
+        else
+        {
+            $result = array('state'=>false, 'error'=>$this->article->error());
+            if($this->article->filterword)
+            {
+                $result['filterword'] = $this->article->filterword;
+            }
+        }
+        echo json_encode($result);
+    }
+}

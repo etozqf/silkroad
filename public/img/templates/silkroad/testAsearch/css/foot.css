@@ -1,0 +1,7 @@
+.footer{width: 100%; border-top: 1px solid #d2d2d2; overflow: hidden;}
+.footer ul{width: 770px; margin: 0 auto; overflow: hidden; padding-bottom: 13px; padding-top: 20px; border-bottom: 1px dashed #d9d9d9;}
+.footer ul li{float: left;}
+.footer ul li a{color: #006e97;}
+.footer ul span{ color: #c6c6c6; margin-left: 18px; margin-right: 22px;}
+.footer p{ text-align: center; color: #666;  line-height: 28px;}
+.footer p a{color: #006e97;}

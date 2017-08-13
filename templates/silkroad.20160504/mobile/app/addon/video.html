@@ -1,0 +1,23 @@
+<!--{if $contentid}-->
+<div class="ui-addon-video">
+    <div class="addon-video mod-video">
+    	<?php if(in_array($_GET['type'], array('ipad', 'pad'))):?>
+        <div class="video-content">
+			<div class="video-content-items">
+				<a href="{MOBILE_PROTOCOL}://{$contentid},4"><img src="{thumb($thumbig,300,0)}" border="0" width="300" /></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="ui-video-mark"><a href="{MOBILE_PROTOCOL}://{$contentid},4" title="" class="ui-video-link"></a></div>
+    	<?php else:?>
+    	<div class="video-content">
+            <div class="video-content-items">
+                <a href="{$video}"><img src="{thumb($thumbig,300,0)}" border="0" width="300" /></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="ui-video-mark"><a href="{$video}" class="ui-video-link"></a></div>
+    	<?php endif;?>
+    </div>
+</div>
+<!--{/if}-->

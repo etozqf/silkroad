@@ -1,0 +1,67 @@
+/*左主栏*/
+.h-1890{height: 1890px;_height: 1950px;overflow: hidden}
+.w-90{}
+/*图组*/
+.clearfix { *zoom: 1;}
+.clearfix:after {clear: both; height: 0; overflow: hidden; display: block; visibility: hidden; content: ".";}
+.gal_area { margin: 0 auto;width: 900px;  overflow: hidden; text-align: left;}
+.gal_set_info span { display: inline-block;}
+.gal_set_info .hidden { display: none;}
+.gal_set { float: left;width: 100%;min-height: 1px;}
+.gal_photo_view { position: relative;overflow: hidden;width: 100%; text-align: center;height: 390px;}
+.gal_photo_view .gal_cnt { height: 100%;}
+.gal_photo_view i { display: inline-block;height: 100%;vertical-align: middle;}
+.gal_photo_view img {vertical-align: middle;max-width: 100%; max-height: 100%;}
+.ie6 .gal_photo_view img {height: 500px;}
+.ie7 .gal_photo_view img {height: 500px;width:700px;}
+.gallery-full{width:690px;margin: 20px  auto 0 auto}
+.gal_photo_prev, .gal_photo_next {position: absolute; width: 20px;height: 26px; bottom: 23px;}
+.gal_photo_prev { left:0;}
+.gal_photo_next { right: 0;}
+.gal_photo_thumb {margin: auto;}
+.gal_photo { width: 100%;}
+.gal_scrl { float: left; width: 100%; min-height: 1px;}
+.gal_scrl_thumb { margin: 0 0;}
+.gal_scrl_main { overflow: hidden;width: 647px;margin: 0 auto;}
+.gal_scrl_prev { float: left; margin-left: -100%;padding-top: 6px;}
+.gal_scrl_next {float: left; margin-left: -20px; padding-top: 6px;}
+.gal_list_thumb { overflow: hidden; height: 86px;}
+.gal_list_thumb li { float: left; width: 105px;text-align: center;height: 80px;margin-right: 3px;padding-top: 3px;}
+.gal_list_thumb h2, .gal_list_thumb p, .gal_list_thumb i { display: none;}
+.gal_list_thumb a, .gal_list_thumb img { display: block; margin: auto;width: 105px;height: 80px;}
+.gal_list_thumb a { outline: none; border: 1px solid #fff;}
+.gal_list_thumb a:hover {border: 1px solid #c81623;}
+.gal_list_thumb .gal_list_active {background: transparent url(images/arrow_top.jpg) no-repeat center top;}
+.gal_list_thumb .gal_list_active a { border-color: #c81623;}
+.gal_btn_pphoto, .gal_btn_nphoto { display: block;width: 20px; height: 26px;outline: none;}
+.gal_btn_pphoto { background: url("images/button.jpg") no-repeat  0 0px; }
+.gal_btn_nphoto {background: url("images/button.jpg") no-repeat -40px  0px;}
+.gal_gallery label{display: block;}
+.gal_gallery p {overflow: hidden;padding: 15px 0;}
+/*内容部分*/
+.tit-h4 {font-size: 20px;font-family: "Times New Roman";line-height: 22px; }
+.tit-h4 a{ color: #208acd;}
+.tit-h4 a:hover{ color: #c81623;text-decoration: none}
+.gallery em{color: #7f7f7f;font-size: 14px;line-height: 28px;font-family: "Arial";}
+.gallery span{font-family: "Arial";font-size: 14px;line-height: 16px;color: #555;display: block;height: 50px;overflow: hidden;}
+.b-h3 a{font-size: 20px;}
+
+/*视频图文列表*/
+.pic-summary ul{width: 720px; overflow: hidden;}
+.pic-summary ul li{float: left;width: 210px;margin-right: 25px;height: 200px;margin-bottom:20px; }
+.pic{width: 210px;height: 158px;}
+.min-k{font-size: 14px;}
+.min-k .minue{color: #fff;display: block;width: 75px;padding-left: 30px; background: url("images/video-icon.png") no-repeat 5px 4px;text-decoration: none;line-height: 28px;}
+.info span{display:inline-block;line-height:16px;width: 75px;color: #fff;margin-top: 6px;}
+.pic-summary ul li h3{font-size: 14px; line-height: 16px;height: 32px;margin: 8px 5px;overflow: hidden}
+.pic-summary ul li h3 a{text-decoration: none; color: #208acd;}
+.pic-summary ul li h3 a:hover,.pic-summary ul li h3.on a{color: #c81623;}
+
+/*------------------------视频播放页---------------------------------------*/
+.mod-tit-box{border-bottom: 0;}
+.h-772{height: 772px;}
+.mod-tit-box .tag,.mod-tit-box h3{width: 970px; margin: 0 auto}
+.open-video{height: 750px;}
+.dates{width: 140px;  line-height: 24px; font-family:"微软雅黑"; margin-top: 0px;height: 24px;}
+.tag.info span{color: #7f7f7f;font-family:"微软雅黑";line-height:15px;}
+.l-pic{width: 681px; margin: 0 auto;}

@@ -1,0 +1,38 @@
+﻿.content-vote-shuimo {
+	font-size:12px;
+}
+.content-vote-shuimo .mod-vote {
+	padding:0 10px 5px;
+	overflow:hidden;
+	zoom:1;
+}
+.content-vote-shuimo dl {
+	margin:3px 0;
+}
+.content-vote-shuimo dt {
+	line-height:18px;
+	padding:5px 0;
+	font-size:14px;
+	font-weight:bold;
+}
+.content-vote-shuimo dd {
+	padding:5px;
+	line-height:18px;
+}
+.content-vote-shuimo .input-radio {
+	margin:-3px 6px 0 0;
+}
+.content-vote-shuimo label {
+	cursor:pointer;
+}
+.content-vote-shuimo .content-vote-shuimo {
+	margin-top:10px 0;
+	float:left;
+}
+.content-vote-shuimo a.result {
+	margin-left:10px;
+	text-decoration:none;
+}
+.dd-submit {
+	margin-top:10px;
+}

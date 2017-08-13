@@ -1,0 +1,202 @@
+@import "base.css";
+
+.stat-container {
+    width: 750px;
+    margin: 5px 15px 15px;
+}
+.stat-row .proids {
+    margin-left: 0;
+}
+.stat-row .proids a {
+    cursor: pointer;
+}
+
+.stat-row input {
+    vertical-align: baseline;
+}
+#stat-diagram-date,
+#stat-diagram-category {
+    width: 750px;
+    display: none;
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* 客户端统计 */
+.stat-client-container {
+    padding: 10px 0 0;
+}
+.stat-client-container .tag_1 {
+    padding-left: 15px;
+}
+.stat-client {
+    width: 750px;
+    margin: 0 15px;
+}
+.client-row {
+    padding: 10px 0;
+}
+.client-row h2 {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+table.table-light {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+.table-light th,
+.table-light td {
+    border: solid 1px #91B8DA;
+    text-align: left;
+    padding: 8px 8px 8px 15px;
+    font-weight: normal;
+}
+.table-light th {
+    background: #F2F7F8;
+}
+
+table.table-sliver {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: separate;
+    border: solid #D2D2D2;
+    border-width: 1px 0 1px 1px;
+}
+.table-sliver tr {
+    background: #FFF;
+}
+.table-sliver tbody tr:nth-child(even),
+.table-sliver tbody tr.even {
+    background: #F0F0F0;
+}
+.table-sliver tbody tr:hover,
+.table-sliver tbody tr.hover {
+    background: #FFFCCC;
+}
+.table-sliver th,
+.table-sliver td {
+    border-right: 1px solid #D2D2D2;
+    color: #161616;
+    padding: 5px 4px 4px 15px;
+    text-align: left;
+}
+.table-sliver th {
+    font-size: 13px;
+    font-weight: normal;
+    background: url(images/bg-table.png) repeat-x 1px 1px;
+    border-left: 1px solid white;
+    border-bottom: 1px solid #B2B2B2;
+}
+
+table.table-percent {
+    width: 100%;
+}
+.table-percent tr:nth-child(odd),
+.table-percent tr.odd {
+    background: #F2F7F8;
+}
+.table-percent tr:hover,
+.table-percent tr.hover {
+    background: #FFFCCC;
+}
+.table-percent th,
+.table-percent td {
+    text-align: left;
+    padding: 5px 5px 5px 15px;
+}
+
+.ui-diagram {
+    border: solid 1px #91B8DA;
+}
+.ui-diagram-title h3 {
+    height: 35px;
+    line-height: 35px;
+    background: #F2F7F8;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: normal;
+    border-bottom: solid 1px #EDEDED;
+}
+.ui-diagram-title .export {
+    float: right;
+    margin: 10px 10px 0 0;
+}
+.ui-diagram-content {
+}
+.ui-diagram-content .tag_1 {
+    margin-top: 10px;
+}
+.ui-diagram-content .tag_1 a {
+    cursor: pointer;
+}
+
+.banner {
+    height: 35px;
+    line-height: 35px;
+    background: #E6EFF9;
+}
+.banner-content {
+    width: 750px;
+    margin: 0 15px;
+    text-align: right;
+}
+
+.ui-filter {
+    cursor: default;
+}
+.ui-filter a {
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 20px;
+    line-height: 20px;
+}
+.ui-filter .active {
+    background: #00CCFF;
+    color: #FFF;
+}
+
+.ui-label {
+    display: block;
+    cursor: default;
+    height: 20px;
+    line-height: 20px;
+}
+.ui-label dt {
+    float: left;
+    margin-right: 5px;
+}
+.ui-label dd {
+    overflow: hidden;
+    zoom: 1;
+}
+.ui-label dd a {
+    display: inline-block;
+    zoom: 1;
+    cursor: pointer;
+    padding: 0 5px;
+    margin-right: 5px;
+}
+.ui-label dd .active {
+    background: #00CCFF;
+    color: #FFF;
+}
+
+#table-user {
+    position: relative;
+}
+#table-user .export {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.ui-percent-bar-inner {
+    background: #91c6f3;
+}

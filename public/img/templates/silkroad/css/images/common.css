@@ -1,0 +1,79 @@
+section,header,footer,nav,article,aside {display: block;}
+/*********** CSS Reset **********/
+html, body, div, form, p, a, h1, h2, h3, h4, h5, h6, img, table, td, th, input, span, section, header, footer, nav, article, aside, fieldset, textarea, dl, dt, dd, blockquote, ul, ol,select,option{ margin: 0; padding: 0; }
+body{font-size: 12px;font-family: "微软雅黑","黑体";background:#f3f3f3;}
+a img{border:none;}
+ol,ul {list-style: none;}
+li{ list-style-type: none;}
+caption,th { text-align: left;}
+address,caption,cite,code,dfn,ins,em,th,var {font-style:normal;}
+h1,h2,h3,h4,h5,h6{ font-weight: normal;}
+textarea{overflow:auto;}
+a{text-decoration: none;color: #333;}
+a:hover{color: #333; text-decoration: underline;}
+.column{width:1000px;margin: 0 auto;}
+.columnA{width:1003px;margin: 0 auto; }
+.f-l{float: left; _display: inline;}
+.f-r{float: right;_display: inline;}
+.hide{display: none;}
+.ov{overflow: hidden;zoom:1;}
+.clear{clear: both;overflow: hidden;height: 0;}
+.t-c{text-align: center;}
+table{border-collapse: collapse;}
+.pos-a{position: absolute;}
+.pos-r{position: relative;}
+.mar-t-3{margin-top: 3px;}
+.mar-t-5{margin-top: 5px;}
+.mar-t-30{margin-top: 30px;}
+.mar-t-10{margin-top: 10px;}
+.mar-t-15{margin-top: 15px;}
+.mar-t-35{margin-top: 35px;}
+.pad-t-10{padding-top: 10px;}
+.hr12{width: 100%; height: 12px;}
+.hr15{width: 100%; height: 15px;}
+.mar-t-22{margin-top: 22px;}
+.mar-t-20{margin-top: 20px;}
+.mar-t-25{margin-top: 25px;}
+.mar-t-32{margin-top: 32px;}
+.mar-t-38{margin-top: 38px;}
+.mar-t-40{margin-top: 40px;}
+.mar-l-10{margin-left: 10px;}
+.mar-l-20{margin-left: 20px;}
+.mar-l-5{margin-left: 5px;}
+.mar-b-120{margin-bottom: 120px;}
+.mar-r-20{margin-right: 20px;}
+.lin-38{height: 38px; line-height: 38px;}
+.bg{ width:100%;  bottom:0px; background:#000; filter:alpha(opacity=50); opacity:0.5; position:absolute; z-index:2;left: 0; }
+.bor-b{border-bottom: 1px dashed #e5e5e5;}
+@font-face {
+        font-family: 'TNR';
+        src: url('TimesNewRoman.eot'); /* IE9 Compat Modes */
+        src: url('TimesNewRoman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('TimesNewRoman.woff') format('woff'), /* Modern Browsers */
+        url('TimesNewRoman.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('TimesNewRoman.svg#TimesNewRoman') format('svg'); /* Legacy iOS */
+}
+/*搜索框*/
+.search-box{width: 1000px; height: 90px; overflow: hidden; background: url("images/search-bg.png") no-repeat;}
+.searchs{width: 658px; height: 38px; border: 1px solid #0079c6; float: left; margin-top: 25px; margin-left: 110px;}
+.txt-input{width: 550px;height: 38px;  line-height: 38px;*width: 545px; *height: 34px;*line-height: 34px; border: none; float: left; font-size: 14px; font-family:Arial; color: #b9b9b9; text-indent: 9px;}
+.btn-s{width: 108px; height: 38px; background: #0079c6;float: right; font-size: 18px; color: #fff; line-height: 38px; text-align: center; font-family: "微软雅黑"}
+.fdj{float: left; margin-left:15px; margin-top: 3px; *margin-top: 8px; }
+.btn-s a{ font-size: 18px; color: #fff;}
+.adv-searchs{width: 190px; height: 38px; float: left; margin-top: 25px;  line-height: 38px;  margin-left: 20px;  overflow: hidden;}
+.adv-searchs a{font-family: TNR; color: #0079c6; font-size: 16px;}
+/*边框*/
+.bor-rb{border-bottom:1px solid #ededed;border-right:1px solid #ededed;}
+.bor-trbl{border-left: 1px solid #f1f1f1; border-top: 1px solid #f1f1f1; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;}
+.bor-rbs{border-bottom:1px solid #f8f8f8;border-right:1px solid #f8f8f8;}
+.bor-trbs{ border-right:1px solid #efeeef; border-bottom:1px solid #efeeef;}
+/*分页*/
+.page{width: 638px; margin: 20px auto 0 auto ;height: 31px;line-height: 31px;}
+.page ul{overflow: hidden;width: 650px;}
+.page ul li{float: left;font-size: 14px;margin-right: 5px;color:#0079c6;}
+.page ul li a{color:#0079c6;display: block;text-align: center;}
+.page ul li a.pre{background: #ebebeb;padding: 0 10px;}
+.page ul li a.number{border: 1px solid #ebebeb;width: 29px; height: 29px;text-decoration: none}
+.page ul li a.on,.page ul li a.red{background: #c81623;color: #fff;width: 31px; height: 31px;border: none;}
+.page ul li a.next{padding: 0 10px;border: 1px solid #ebebeb;height: 29px;}
+.page ul li em{color: #c81623;margin-right: 3px;}

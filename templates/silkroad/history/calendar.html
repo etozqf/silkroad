@@ -1,0 +1,61 @@
+<div id="calendarBox" style="position: absolute; outline: 0px none; left: 998px; top: 40px; z-index: 1028;display:none;width:350px;height:220px;" tabindex="-1" aria-labelledby="title:datepicker" aria-describedby="content:datepicker" class="ui-popup ui-popup-modal ui-popup-show ui-popup-bottom-left ui-popup-follow ui-popup-focus" role="alertdialog">
+	<div class="ui-dialog ui-datepicker" i="dialog">
+    <div class="ui-dialog-arrow-a"></div>
+    <div class="ui-dialog-arrow-b"></div>
+    <table class="ui-dialog-grid">
+     <tbody>
+      <tr>
+       <td class="ui-dialog-header" i="header" style="display: none;"><button class="ui-dialog-close" i="close" title="cancel">&times;</button>
+        <div class="ui-dialog-title" i="title" id="title:datepicker"></div></td>
+      </tr>
+      <tr>
+       <td class="ui-dialog-body" i="body">
+        <div class="ui-dialog-content" i="content" id="content:datepicker">
+         <div class="datepanel-wrapper">
+          <div class="datepanel-head">
+           <a class="datepanel-prev" target="_self" href="{$preMonth}" id="preMonth">&laquo;</a>
+           <a class="datepanel-up">{$year}年{$month}月</a>
+           <a class="datepanel-next" target="_self" href="{$nextMonth}" id="nextMonth">&raquo;</a>
+          </div>
+          <div class="datepanel-body">
+           <div class="datepanel-decade"></div>
+           <div class="datepanel-year"></div>
+           <div class="datepanel-month">
+            <div date="2015-2" class="datepanel-entry datepanel-focus">
+             <div class="datepanel-week">
+              <b class="datepanel-week-0">日</b>
+              <b class="datepanel-week-1">一</b>
+              <b class="datepanel-week-2">二</b>
+              <b class="datepanel-week-3">三</b>
+              <b class="datepanel-week-4">四</b>
+              <b class="datepanel-week-5">五</b>
+              <b class="datepanel-week-6">六</b>
+             </div>
+             <div class="datepanel-date" id="calendarList">
+             {loop $days $d}
+              <span class="datepanel-item datepanel-next" hidefocus="" href="">{$d}</span>
+              {/loop}
+             </div>
+			</div>
+           </div>
+          </div>
+          <div class="datepanel-foot"></div>
+         </div>
+        </div></td>
+      </tr>
+      <tr>
+       <td class="ui-dialog-footer" i="footer" style="display: none;">
+        <div class="ui-dialog-statusbar" i="statusbar" style="display: none;"></div>
+        <div class="ui-dialog-button" i="button"></div></td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+</div>
+<script>
+$(function (){
+	if(typeof history_init != 'function') {
+		$.getScript(IMG_URL+'apps/history/js/history.js');
+	}
+});
+</script>

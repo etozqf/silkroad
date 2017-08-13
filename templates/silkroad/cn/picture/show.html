@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $title_pos = array_reverse($pos); ?>
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$title}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$tags}" />
+    <meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.gallery.css" />
+    <!-- <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/ledivs.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gallery.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.jquery.grid-a-licious.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script type="text/javascript">
+        var contentid = '{$contentid}';// 文章ID
+        var title = {json_encode($title)};//文章标题
+        var topicid = '{$topicid}';// 评论主题
+        var context = '';//全文内容缓存
+        var content = '';//第一页内容缓存
+        var _IMG_URL = '{IMG_URL}templates/{TEMPLATE}';
+    </script>
+    <script>
+    $(function(){
+
+        $('.js-overlay').mouseenter(function() {
+            overlayPlay($(this));
+        }).mouseleave(function(){
+            var timeSpan = $('.time',$(this));
+            timeSpan.css({'background-color':timeSpan.attr('data-bgc')});
+            $(this).find('.overlay').fadeOut('fast');
+        });
+
+        var isIE  = !!window.ActiveXObject;
+        var isIE6 = isIE&&!window.XMLHttpRequest;
+        var isIE7 = isIE&&!isIE6;
+        var gutter = 25;
+        if (isIE6 || isIE7) {
+            gutter = 0;
+        }
+        // 图组调用
+        gallery({
+            icontainer : "gal_scrl_ct",
+            idrag : "bar",
+            panel : "thumb",
+            content : "gal_scrl_main",  
+            direction : "left",
+            acceleration : 5,
+            sliderAcc : 1,
+           <!--{if setting('picture', 'refresh')}-->
+           refresh: true,
+           startIndex: '{$page}',
+           <!--{else}-->
+           refresh: false,
+           startIndex: 1,
+           <!--{/if}-->
+            waterfull: {
+                width: 230,
+                gutter: gutter,
+                animate: true
+           }
+        });
+        $.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){});
+    });
+    </script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!--{template "system/head.html"}-->
+  <!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+<!--@end 搜索-->
+    
+    <div class="hr20"></div>
+
+    <!-- 面包屑 -->
+    <div class="column m-crumb" style="border-bottom:none;line-height:20px">
+        <a href="{WWW_URL}">home page</a>
+        <!--{loop $pos $cat}-->
+        <em class="icon16x16"></em>
+        <a href="{$cat[url]}">{$cat[alias]}</a>
+        <!--{/loop}-->
+    </div>
+
+    <div class="column article-content pos-r js-returntop">
+        <h1 class="article-content-title">{$title}</h1>
+        <div class="article-infos ov">
+            <span class="date fl-l">{$published}</span>
+            <!--{if $source_name}-->
+            <a class="source fl-l" <!--{if $source_url}-->href="{$source_url}" target="_blank"<!--{else}-->href="javascript:;"<!--{/if}-->>{$source_name}</a>
+            <!--{/if}-->
+            <!--{if $editor}-->
+            <span class="editor fl-l">{$editor}</span>
+            <!--{/if}-->
+            <!--{if $allowcomment}-->
+            <a href="#comment" class="comment icon16x16 fl-l"></a>
+            <!--{/if}-->
+        </div>
+        <!--{if $description}-->
+        <div class="hr30"></div>
+        <div class="article-describe"><p><strong>description：</strong>{$description}</p></div>
+        <!--{/if}-->
+        <div class="hr30"></div>
+
+        <!-- 图组 -->
+        <div class="gallery_wrap pos-r">
+            <div class="hidden">
+                <div class="allpictures waterfull js-waterfull"></div>
+                <div class="goback align-c"><a href="javascript:void(0);" class="button1">Full screen view</a></div>
+                <div class="hr30"></div>
+            </div>
+            <div class="gallery_warp_border pos-a"></div>
+            <div class="gallery gal_gallery clearfix">
+                <div class="gal_bg">
+                    <div class="gal_photo pos-r">
+                        <!-- 大图 -->
+                        <div class="gal_photo_view">
+                            <div id="photoView" class="gal_cnt">
+                                <i></i><img src="http://img1.cache.netease.com/cnews/img/gallery11/bg06.png" id="photo" />
+                            </div>
+                            <div class="gal_photo_prev hidden">
+                                <a id="photoPrev" class="gal_btn_pphoto icon40x40" target="_self" hidefocus="true" href="javascript:;"></a>
+                            </div>
+                            <div class="gal_photo_next hidden">
+                                <a id="photoNext" class="gal_btn_nphoto icon40x40" target="_self" hidefocus="true" <!--{if setting('picture', 'refresh')}-->href="javascript:;"<!--{else}-->href="#p={$contentid}_2"<!--{/if}-->></a>
+                            </div>
+                        </div>
+                        <!--gal_photo_view end-->
+                        
+                        <div class="gal_cnt gallery_infos pos-a">
+                            <!-- 透明层 -->
+                            <div class="gallery_overlay pos-a"></div>
+                            <!-- 标题层 -->
+                            <div class="gal_cnt title_panel pos-a clearfix">
+                                <div class="gal_set_info">
+                                    <div id="setInfo">
+                                        <div class="gal_set_title">
+                                            <span id="photoType" class="gal_set_cur"><em class="gal_c_lh" id="photoIndex">6</em> <span>/</span> <em class="gal_count">{$total}</em></span>
+                                            <h1 class="hidden">Property to set the background image</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 描述层 -->
+                            <div id="photoDesc" class="gal_photo_desc desc_panel pos-a">
+                                <p></p>
+                            </div>
+                            <!-- 自动播放按钮 -->
+                            <div class="pos-a autobtn">
+                                <!-- 停止时为.stop 播放时为.play -->
+                                <a href="javascript:void(0);" class="stop icon40x40"></a>
+                            </div>
+                            <!-- 全部按钮 -->
+                            <div class="pos-a viewallbtn">
+                                <a href="javascript:void(0);" class="view icon40x40"></a>
+                            </div>
+                        </div><!--gal_cnt end-->
+                            
+                        <div class="hr10"></div>
+            
+                        <div class="gal_cnt">
+                            <div class="clearfix">
+                                <div class="gal_set">
+                                    <div class="gal_set_thumb">
+                                        <div id="scrl" class="gal_photo_thumb clearfix">
+                                            <div class="clearfix">
+                                                <div class="gal_scrl">
+                                                    <div class="gal_scrl_thumb">
+                                                        <div class="gal_scrl_main" id="gal_scrl_main">
+                                                            <ul id="thumb" class="gal_list_thumb clearfix">
+            {loop $pictures $index $_picture}
+            <li>
+            <a {if setting('picture', 'refresh')}href="{$pages[$index + 1][url]}"{else}href="#p={$contentid}_{($index+1)}"{/if} hidefocus="true"><img src="{thumb($_picture["image"], 80, 60)}" alt="" /></a>
+            <p>{$_picture["note"]}</p>
+            <i title="img">{thumb($_picture["image"], 960, 640, true, null, null, 100)}</i>
+            <i title="timg">{$_picture["note"]}</i>
+            <i title="wimg">{thumb($_picture["image"], 228)}</i>
+            </li>
+            {/loop}
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                        <div class="gal_scrl_bar clearfix">
+                                                            <span class="gal_scrl_lt"></span>
+                                                            <span class="gal_scrl_rt"></span>
+                                                            <div class="gal_scrl_bd">
+                                                                <div class="gal_scrl_ct" id="gal_scrl_ct">
+                                                                    <a id="bar" class="gal_btn_scrl">
+                                                                        <b class="gal_btn_lt"></b>
+                                                                        <b class="gal_btn_rt"></b>
+                                                                        <span class="gal_btn_bd"><span><b class="gal_btn_ct"></b></span></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 推荐图组 -->
+            <div class="gallery_rec ov hidden">
+                <div class="fl-l">
+                    <ul class="rec_list m-imagetitle">
+                        <!--{if $related}-->
+                        <!--{loop $relateds $k $r}-->
+                        <li class="item">
+                            <a href="{$r[url]}"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                            <a href="{$r[url]}" class="title">
+                                <p>{str_natcut($r[title],20,'')}</p>
+                            </a>
+                        </li>
+                        <!--{/loop}-->
+                        <!--{else}-->
+                        <?php $istagcontent = false;?>
+                        <!--{content_related contentid="$contentid" modelid="2" tags="$tags" size="1"}-->
+                        <?php if ($r) $istagcontent = $r;?>
+                        <!--{/content_related}-->
+                        <!--{if $istagcontent}-->
+                        <!--{content_related contentid="$contentid" modelid="2" tags="$tags" size="6"}-->
+                        <li class="item">
+                            <a href="{$r[url]}"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                            <a href="{$r[url]}" class="title">
+                                <p>{str_natcut($r[title],20,'')}</p>
+                            </a>
+                        </li>
+                         <!--{/content_related}-->
+                         <!--{else}-->
+                         <!--{content modelid="2" orderby="published desc" size="6"}-->
+                            <li class="item">
+                                <a href="{$r[url]}"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                                <a href="{$r[url]}" class="title">
+                                    <p>{str_natcut($r[title],20,'')}</p>
+                                </a>
+                            </li>
+                         <!--{/content}-->
+                         <!--{/if}-->
+                        <!--{/if}-->
+                    </ul>
+                </div>
+                <div class="ngal_list fl-r">
+                    <div class="hr20"></div>
+                    <div class="rev"><a href="javascript:void(0);" class="icon16x16">Re browse</a></div>
+                    <div class="hr10"></div>
+                    <div class="goc"><a href="#comment" class="icon16x16">comment</a></div>
+                    <div class="hr20"></div>
+                    <div class="ngal_inner ov">
+                        <!--{db sql="select * from #table_content where modelid=2 and contentid > $contentid and catid=$catid order by contentid asc" size="1"}-->
+                        <h2 class="fl-l">The next</h2>
+                        <div class="fl-l ngal_img"><a href="{$r[url]}" title="{$r[title]}"><img src="{thumb($r[thumb], 140, 105)}" alt=""></a>
+                            <a href="{$r[url]}" title="{$r[title]}" style="display:block;font-size:12px;">{$r[title]}</a>
+                        </div>
+                        <a href="{$r[url]}" class="ngal_ar icon40x40 fl-l"></a>
+                        <!--{/db}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 图组结束 -->
+        <div class="hr20"></div>
+        <article class="article-detail ov">
+            <div class="w650 fl-l">
+                <div class="article-widget">
+                    <!-- 用户交互模块：点赞、分享、收藏等 -->
+                    <div class="article-interaction">
+                        <div class="share fl-r"><!--#include virtual="/include/share_baidu.shtml"--></div>
+                        <div class="interaction ov">
+                            <a href="javascript:digg.set({$contentid},'supports');" class="icon40x40 interaction-btn love fl-l js-ilove"><span class="hidden">10</span></a>
+                            <a href="#comment" class="icon40x40 interaction-btn comment fl-l"></a>
+                            <a href="javascript:;" rel="sidebar" onclick="addfavorite();return false;" class="icon40x40 interaction-btn collect fl-l"></a>
+                        </div>
+                    </div>
+                    <div class="hr40"></div>
+                    <div class="column ad660x80"><!--#include virtual="/section/31.html"--><!--# 图片频道页 内容页中部 #--></div>
+                    <div class="hr20"></div>
+                    <!--{if $allowcomment}-->
+                    <!--#内容评论#-->
+                    <!--{template 'comment/comments.html'}-->
+                    <!--#内容评论#-->
+                    <!--{/if}-->
+                </div>
+            </div>
+            <!-- 今日推荐 -->
+            <div class="w300 fl-r">
+                <div class="commend-article">
+                    <div class="m-title-a">
+                        <h2 class="m-title-h2"><a>Today recommended</a></h2>
+                    </div>
+                    <div class="commend-inner">
+                        <div class="m-accordion js-accordion">
+                            <ul>
+                                <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns">
+        <div class="btn home icon40x40">
+            <a href="{APP_URL}" class="text">Return to the home page</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="" class="text">Return to top</a>
+        </div>
+    </div>
+    <!--页脚-->
+    <!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+    <!--@end页脚-->
+</body>
+</html>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/article-show.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>

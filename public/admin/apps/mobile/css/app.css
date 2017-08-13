@@ -1,0 +1,77 @@
+.app-row {
+
+}
+.app-row-title {
+    float: left;
+    margin-right: 15px;
+    width: 80px;
+    line-height: 70px;
+    text-align: right;
+    color: #2166BB;
+}
+.app-row-list {
+    overflow: hidden;
+    zoom: 1;
+    min-height: 95px;
+    padding: 5px 0;
+    border-bottom: solid 1px #CCC;
+}
+.app-item,
+.app-item-empty {
+    float: left;
+    text-align: center;
+    margin: 5px 15px 5px 0;
+    cursor: pointer;
+}
+.app-item-empty {
+    width: 60px;
+    height: 85px;
+    background: url(../images/app-empty.png) no-repeat 0 0;
+}
+.app-item-thumb {
+    cursor: move;
+    background: #ccc;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.app-item-disabled .app-item-thumb {
+    cursor: pointer;
+}
+.app-item-thumb img {
+    max-width: 60px;
+    max-height: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.app-item-label {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin: 5px 5px 0;
+}
+.app-item-label:hover {
+    color: #FF3300;
+}
+.selected .app-item-label {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #429ffb;
+    color: #FFF;
+}
+
+.app-dialog-title {
+    margin-top: 0;
+}
+.app-dialog-actions {
+    float: right;
+}
+.app-dialog-action {
+    cursor: pointer;
+    margin: 0 5px;
+}

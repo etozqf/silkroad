@@ -1,0 +1,35 @@
+<div class="right730"> 
+        <div class="hd"><h3>Voide Bookmarks</h3></div>
+        <div class="bd"> 
+            <div class="favlist" style="padding: 0px;">
+                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="thead">
+                    <tr>
+                        <td>Title</td>
+                        <td width="120">Category</td>
+                        <td width="170">Bookmarks time</td>
+                        <td width="74">Operation</td>
+                    </tr>
+                 </table>
+                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbody">
+                <!--{loop $result $k $r}--> 
+                    <tr>
+                        <td class="tit"><a href="{$r[url]}" target="_blank">{str_natcut($r['title'],15,'')}</a></td>
+                        <td width="120">{table('category',$r[catid],'alias')}</a></td>
+                        <td width="170" class="time">{date('Y-m-d H:i:s', $r[addtime])}</td>
+                        <td width="74">
+                            <a class="fl-l icon16x16 edit" href="{$r[url]}"target="_blank" title="view"></a>
+                            <a class="fl-l icon16x16 remove delete" name="{$r[collectid]}" href="javascript:;" title="delete"></a>
+                        </td>
+                    </tr>
+                <!--{/loop}-->
+                 </table>
+                 <!-- 分页 -->
+                    <div class="page">
+                     <!--{space_pages($total, $page, $pagesize, 3, null, false, '', 'number red', '&lt;', '&gt;')}-->
+                    <span>total<i>{$page}/{ceil($total/$pagesize)}</i>page , <i>{$total}</i>records</span>
+                    </div>
+                <!-- @end 分页 -->
+             </div>
+        </div>
+    </div>
+    

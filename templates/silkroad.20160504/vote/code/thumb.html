@@ -1,0 +1,40 @@
+<form id="vote_{$contentid}" name="vote_{$contentid}" method="post" action="{APP_URL}?app=vote&controller=vote&action=vote">
+  <input name="seccode" type="hidden" />
+  <input name="contentid" type="hidden" class="hidden" value="{$contentid}" />
+  <dl>
+	<dt>{$title}</dt>
+  <dd>
+  <!--{loop $option $k $v}-->
+    <div>
+      <a href="javascript:;" target="_self"><img src="{thumb($v[thumb], $thumb_width ? intval($thumb_width) : null,  $thumb_height ? intval($thumb_height) : null)}" alt=""<?php if(!empty($thumb_width)):?> width=""<?php endif;?><?php if(!empty($thumb_height)):?> height=""<?php endif;?> /></a>
+      <span class="vote-text">{$v[name]}</span>
+      <!--{if $type == 'radio'}-->
+      <label><input type="{$type}" name="optionid" value="{$v[optionid]}"/>投一票</label>
+      <!--{else}-->
+      <label><input type="{$type}" name="optionid[]" value="{$v[optionid]}"/>投一票</label>
+      <!--{/if}-->
+    </div>
+  <!--{/loop}-->
+    <!--{if setting('vote', 'seccode')}-->
+    <input name="seccode" type="text" autocomplete="off" title="输入验证码" placeholder="验证码" class="">
+    <img title="看不清楚？点击换一张" alt="" src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30&_={TIME}" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30&_='+(new Date()).getTime()">
+  <!--{/if}-->
+  </dd>
+  <dd><input type="submit" name="submit" value="投票" class="submit"/>　<a href="{APP_URL}?app=vote&controller=vote&action=result&contentid={$contentid}">查看结果</a></dd>
+</form>
+<script language="javascript">
+//验证投票选项
+$('#vote_{$contentid}').submit(function(){
+	var checkeds = $('#vote_{$contentid} input:checked').length;
+	if(checkeds == 0){
+		alert('请选择投票选项');
+		return false;
+	}
+	<!--{if $type == 'checkbox'}-->
+	if({$maxoptions} && checkeds > {$maxoptions}){
+		alert('最多允许选{$maxoptions}项');
+		return false;
+	}
+	<!--{/if}-->
+});
+</script>

@@ -1,0 +1,81 @@
+.rss-intro {
+    padding: 26px 20px;
+    background: #f7f7f7;
+    color: #444;
+    font-size: 14px;
+    margin-top: 112px;
+}
+.rss-intro p {
+    line-height: 1.6;
+}
+.rss-list .words {
+    font-size: 17px;
+    color: #333!important;
+}
+.rss-list .title {
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+.rss-list .item { 
+    background: url(images/ico16x16.png) no-repeat -20px -1081px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 16px;
+}
+.rss-list .item .title { color: #444; font-size: 14px; border-bottom: none;}
+.rss-list .item .date { color: #ddd; font-size: 13px;}
+.subscribe-ico {
+  float: right;
+  _display: inline;
+  width: 108px;
+}
+.subscribe-port {
+  float: right;
+  _display: inline;
+  width: 85px;
+  overflow: hidden;
+  _zoom: 1;
+  font-size: 13px;
+}
+.subscribe-port .head-rss {
+    float: left;
+    _display: inline;
+    margin-top: 13px;
+    width: 14px;
+    height: 14px;
+    background: url(images/rss-g.png);
+    margin-right: 4px;
+    cursor: pointer;
+}
+.subscribe-port .head-rss:hover {
+    background: url(images/rss.png);
+}
+
+.subscribe-port .subscribe {
+  padding: 0 10px 0;
+  cursor: pointer;
+}
+
+/*弹出框*/
+.subscribe-list {
+  position: absolute;
+  border: 1px solid #D6D6D6;
+  text-align: center;
+  overflow: hidden;
+  _zoom: 1;
+  height: 230px;
+  width: 118px;
+  top: 38px;
+  right: 230px;
+  z-index: 10;
+}
+.subscribe-list ul {
+  overflow: hidden;
+  height: 230px;
+  background: #ffffff;
+  width: 118px;
+  display: block;
+}
+.subscribe-list li {
+  padding-top: 7px;
+}

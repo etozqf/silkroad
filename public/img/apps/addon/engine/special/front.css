@@ -1,0 +1,19 @@
+.addon-special {
+    clear: both;
+    margin: 15px auto;
+    font-size: 12px;
+}
+.addon-special .special-title {
+    background-color: #FFF;
+    border-bottom: 1px dotted #DADBD6;
+    border-top: 1px dotted #DADBD6;
+    color: #1C2C58;
+    font-size: 14px;
+    margin: 0 auto 5px;
+    overflow: hidden;
+    padding: 10px;
+}
+.addon-special iframe {
+    margin: 0;
+    padding: 0;
+}

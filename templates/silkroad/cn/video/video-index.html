@@ -1,0 +1,280 @@
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    
+    <title>{loop $title_pos $_title_pos}{$_title_pos[alias]}_{/loop}{$alias}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/video.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/gallery.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/video.js"></script>
+    <script>
+        $(function () {
+            $('.js-overlay').mouseenter(function () {
+                overlayPlay($(this));
+            }).mouseleave(function () {
+                var timeSpan = $('.time', $(this));
+                timeSpan.css({'background-color': timeSpan.attr('data-bgc')});
+                $(this).find('.overlay').fadeOut('fast');
+            });
+
+            // 图组调用
+            gallery({
+                icontainer: "gal_scrl_ct",
+                idrag: "bar",
+                panel: "thumb",
+                content: "gal_scrl_main",
+                direction: "left",
+                acceleration: 6,
+                sliderAcc: 1,
+                waterfull: {
+                    width: 230,
+                    gutter: 25,
+                    animate: true
+                }
+            });
+
+        });
+    </script>
+	<script>
+	$(function () {
+		catname_top = 'Visual Info';	// 顶级栏目名称
+	})
+	</script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+ <!--{template "system/head.html"}-->
+  <!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+<!--@end 搜索-->
+<div class="columnA ov mar-t-15">
+   <!--左侧-->
+    <div class="bor-rb col-l-main ov">
+        <div class="bor-trbl ov h-1890">
+            <div class="b-tit-box mar-t-15">
+                <h3 class="b-h3"><a href="" style="font-weight: normal">Editors’ Picks</a>
+                </h3>
+            </div>
+             <div class="gallery-full">
+                    <!-- 图组 -->
+                 <div class="gallery-full">
+                     <!-- 图组 -->
+                     <div class="gallery_wrap">
+                         <div class="gallery gal_gallery clearfix">
+                             <div class="gal_photo pos-r">
+                                 <!-- 大图 -->
+                                 <div class="gal_photo_view ov">
+                                     <div id="photoView" class="gal_cnt pos-r">
+                                         <i></i><a href="#"><img src="{IMG_URL}templates/{TEMPLATE}/img/w1000-h500.jpg" width="690" height="390" id="photo" class="pos-a" style="left: 0;"/></a>
+                                     </div>
+                                 </div>
+
+                                 <div class="gal_cnt mar-t-10">
+                                     <div class="clearfix">
+                                         <div class="gal_set">
+                                             <div class="gal_set_thumb">
+                                                 <div id="scrl"
+                                                      class="gal_photo_thumb clearfix">
+                                                     <div class="clearfix">
+                                                         <div class="gal_scrl">
+                                                             <div class="gal_scrl_thumb pos-r">
+                                                                 <div class="gal_photo_prev ">
+                                                                     <a id="photoPrev" class="gal_btn_pphoto  ie6_png32" target="_self" hidefocus="true" href="javascript:;"></a>
+                                                                 </div>
+                                                                 <div class="gal_photo_next">
+                                                                     <a id="photoNext" class="gal_btn_nphoto ie6_png32" target="_self" hidefocus="true" href="javascript:;"></a>
+                                                                 </div>
+                                                                 <div class="gal_scrl_main" id="gal_scrl_main">
+                                                                     <ul id="thumb" class="gal_list_thumb clearfix">
+                                                                    <!--#include virtual="/section/331.html"--><!--# 英文视频首页 英文视频首页-轮播图 #-->
+                                                                     </ul>
+                                                                 </div>
+                                                                 <div id="gal_scrl_ct"><a id="bar"> </a>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <!-- 标题，描述层 -->
+                                 <div class="gal_cnt gallery_infos">
+                                     <div id="photoDesc" class="gal_photo_desc desc_panel">
+                                         <p>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <!--@end  标题，描述层 -->
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                    <!--@end 图组 -->
+                    <!--内容部分-->
+
+                        <div class="share-box">
+                            <span class="f-l">share</span>
+                            <a href="" target="_blank" class="faceb"></a>
+                            <a href="" target="_blank" class="bird"></a>
+                            <a href="" target="_blank" class="xinlang"></a>
+                            <a href="" target="_blank" class="email"></a>
+                            <a href="" target="_blank" class="msg"></a>
+                        </div>
+
+                </div>
+             <!--遍历英文视频子栏目-->
+          <!--{loop subcategory(61) $cid $c}--> 
+               
+            <div class="b-tit-box mar-t-15">
+                <h3 class="b-h3 w-90"><a href="javascript:void(0);">{$c['alias']}</a></h3>
+                <a class="more1" href="{$c['url']}" target="_blank">
+                    <span class="f-l">more</span>
+                    <em class="jiao ie6_png32"></em>
+                </a>
+            </div>
+            <div class="pic-summary ov">
+                   <ul class="mar-t-20">
+            <?php
+                $catid=$c['catid'];
+                $table=" cmstop_content as c inner join cmstop_video as v on c.contentid=v.contentid";
+                $where=" and modelid=4 and status=6 order by published desc limit 3";
+                    
+                $list=factory::db()->select("select c.contentid as contentid,thumb,url,title,playtime from $table where catid=$catid $where");
+                
+                foreach($list as $key=>$v)
+                {
+             ?>
+            
+                    <li>
+                           <div class="pic pos-r">
+                               <a href="{$v['url']}" target="_blank"><img src="{thumb($v['thumb'],210,158,1,null,0)}" width="210" height="158" alt="{$v['title']}"/></a>
+                               <p class="bg lin-28 hide "></p>
+                               <div class="min-k h3-a lin-28 ov info hide">
+                                   <a href="" class="f-l ie6_png32 minue">{$v['playtime']}</a>
+                                   <span class="f-r ie6_png32 fav fav{$v['contentid']}" id="mark{$v['contentid']}" value="{$v['contentid']}" onclick="bookmark({$v['contentid']})">Bookmark</span>
+                               </div>
+                           </div>
+                           <h3 class="ov"><a href="{$v['url']}" target="_blank">{$v['title']}</a></h3>
+                    </li>
+           <?php 
+              }
+           ?>
+                   </ul>
+            </div>
+            <!--{/loop}-->
+            <!--@end new-->
+        </div>
+     </div>
+    <!--@end 左侧-->
+    <!--右侧-->
+    <div class="bor-rb col-r-main ov">
+        <div class="bor-trbl ov h-1890">
+                  
+            <!--#include virtual="/section/273.html"--><!--# 英文公共区块 英文版右侧-丝路刊物（Silk Road Weekly） #-->
+            
+            <!--#include virtual="/section/314.html"--><!--# 英文公共区块 英文版右侧-国别报告(China Factbook) #-->
+            
+            <div class="most mar-t-25">
+                <!--标题-->
+                <div class="b-tit-box">
+                    <h3 class="b-h3"><a href="" style="font-weight: normal">Most Popular</a>
+                    </h3>
+                </div>
+                <div class="most-box">
+                    <ul class="most-list">
+                <!--{content catid="61" modelid="4" orderby="published desc,pv desc" page="$page" size="10"}-->
+                        <!--{if $i<4}-->
+                        <li>
+                            <em class="icon2 tops">{$i}</em>
+                            <a href="{$r['url']}" target="_blank">
+                                {$r['title']}
+                            </a>
+                        </li>
+                        <!--{else}-->
+                        <li>
+                            <em class="icon2">{$i}</em>
+                            <a href="{$r['url']}" target="_blank">
+                                {$r['title']}
+                            </a>
+                        </li>
+                        <!--{/if}-->
+                 <!--{/content}-->     
+                    </ul>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+    <!--@end 右侧-->
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>
+
+<script>
+    $(function(){
+        var userid = $.cookie(COOKIE_PRE+'userid');
+           var contentids =$(".fav");
+           var contentid='';
+           $.each(contentids,function(i,j){
+                contentid += $(j).attr('value')+',';
+           })           
+            var url = "{APP_URL}?app=system&controller=property&action=videoselect&jsoncallback=?&contentid="+ contentid+'&userid='+userid+'&flush=1';
+            $.ajax({
+                type:"get",
+                url:url,
+                dataType:'jsonp',
+                success:function(data){
+                    if(data.status){
+                        $.each(data.status,function(i,j){
+                            $('#mark'+j).addClass("on");
+                            $('#mark'+j).text("Unfavorite");
+                        })
+
+                    }
+                }
+            })
+    })
+        function bookmark(contentid){
+            var userid = $.cookie(COOKIE_PRE+'userid');
+            var url = "{APP_URL}?app=system&controller=property&action=videoselect&jsoncallback=?&contentid=" + contentid+'&userid='+userid;
+            $.ajax({
+                type:"get",
+                url:url,
+                dataType:'jsonp',
+                success:function(data){
+                    if(data.status=='bookmar'){
+                        $('.fav'+contentid).text("Bookmark");
+                    }else{
+                        $('.fav'+contentid).addClass("on");
+                        $('.fav'+contentid).text("Unfavorite");
+                    }
+                }
+            })
+
+        }
+</script>

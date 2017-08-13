@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $title_pos = array_reverse($pos); ?>
+    <title>{$title}_{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="{$tags} {$title}" />
+    <meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>
+    <script type="text/javascript">
+        var contentid = '{$contentid}';// 文章ID
+        var title = {json_encode($title)};//文章标题
+        var topicid = '{$topicid}';// 评论主题
+        var context = '';//全文内容缓存
+        var content = '';//第一页内容缓存
+        var _IMG_URL = '{IMG_URL}templates/{TEMPLATE}';
+    </script>
+    
+    <script>
+    $(function(){
+        $('.js-overlay').mouseenter(function() {
+            overlayPlay($(this));
+        }).mouseleave(function(){
+            var timeSpan = $('.time',$(this));
+            timeSpan.css({'background-color':timeSpan.attr('data-bgc')});
+            $(this).find('.overlay').fadeOut('fast');
+        });
+    });
+    </script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/article-show.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    
+    <div class="hr20"></div>
+
+    <!-- 广告位 -->
+    <div class="column ad1000x80">
+        <!--#include virtual="/section/10.html"--><!--# 视频内容页 中通广告 #-->
+    </div>
+    
+    <div class="hr20"></div>
+
+    <!-- 面包屑 -->
+    <div class="column m-crumb" style="border-bottom:none;">
+        <a href="{WWW_URL}">首页</a>
+        <!--{loop $pos $cat}-->
+        <em class="icon16x16"></em>
+        <a href="">{$cat[name]}</a>
+        <!--{/loop}-->
+        
+    </div>
+
+    <div class="column article-content pos-r">
+        <h1 class="article-content-title">{$title}</h1>
+        <!-- <h2 class="article-content-level2title">副标题的自留地，此树是我栽，此路是我开</h2> -->
+        <div class="article-infos ov">
+            <span class="date fl-l">{date('Y-m-d H:i', $published)}</span>
+            <!--{if $source_name}-->
+            <!--{if $source_url}-->
+            <a class="source fl-l" href="{$source_url}" target="_blank">
+            <!--{else}-->
+            <a class="source fl-l">
+            <!--{/if}-->
+                {$source_name}</a>
+            <!--{/if}-->
+            <!--{if $editor}-->
+            <span class="editor fl-l">{$editor}</span>
+            <!--{/if}-->
+            <a href="#comment" class="comment icon16x16 fl-l"></a>
+        </div>
+        <div class="hr20"></div>
+        <!-- 视频窗口 -->
+        <div class="video-content">
+            <!-- 视频播放区 -->
+            <div class="video-content-window">
+                <?php
+                    $width = 1000;
+                    $height = 670;
+                    $this->assign('width', $width);
+                    $this->assign('height', $height);
+                ?>
+                <!-- 临时占位 -->
+                    <!--{template 'video/player/'.$player.'.html'}-->
+            </div>
+            <div class="hr40"></div>
+            <!-- 视频相关信息 -->
+            <div class="video-content-text ov">
+                <div class="video-text fl-l">
+                <!--{if $description}-->
+                    <p class="cor444 fz14" style="line-height:26px;">{$description}</p>
+                <!--{/if}-->
+                </div>
+                <div class="video-interaction fl-r">
+                    <div class="share">
+                        <!--#share分享#-->
+                        <!--#include virtual="/include/share_baidu.shtml"-->
+                    </div>
+                    <div class="hr10" style="clear:both"></div>
+                    <div class="interaction ov">
+                        <a id="supports" href="javascript:digg.set({$contentid},'supports')" class="icon40x40 interaction-btn love fl-l"></a>
+                        <a href="#comment" class="icon40x40 interaction-btn comment fl-l"></a>
+                        <a href="{$url}" title="{$title}" rel="sidebar" onclick="addfavorite();return false;" class="icon40x40 interaction-btn collect fl-l"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hr30"></div>
+        <!-- 相关视频、网友评论、今日推荐 -->
+        <div class="video-rel-comment ov">
+            <div class="video-rel-comment-inner fl-l ov">
+                <!-- 相关视频 -->
+                <!--{if $keywords || $related}-->
+                <?php $istagcontent = false;?>
+                <!--{content_related contentid="$contentid" tags="$tags" size="1"}-->
+                    <?php if ($r) $istagcontent = $r;?>
+                <!--{/content_related}-->
+                <div class="video-rel-list article-rel-list">
+                    <div class="m-title-a">
+                        <!--{if $istagcontent || $related}-->
+                        <h2 class="m-title-h2"><a name="related">相关视频</a></h2>
+                        <!--{else}-->
+                        <h2 class="m-title-h2"><a name="related">关键词</a></h2>
+                        <!--{/if}-->
+                        <div class="article-threesource">
+                            <!--{loop $keywords $k $r}-->
+                                <a href="{$r[url]}" target="_blank" class="c1">{$r[tag]}</a>
+                            <!--{/loop}-->
+                        </div>
+                    </div>
+                    <!--{if $istagcontent || $related}-->
+                    <div class="hr20"></div>
+                    <div class="video-rel-inner">                     
+                        <ul class="m-imagetitle video-imagetitle" style="height:200px;">
+                        <!--{if $related}-->
+                            <!--{loop $relateds $k $r}-->
+                            <!--{if $k<3}-->
+                            <li class="item js-overlay"><a href="{$r[url]}" target="_blank" class="thumb-link"><span class="time">{second_to_time(table('video', intval($r[contentid]), 'playtime'))}</span><img src="{thumb($r['thumb'],200,150)}" width="200" height="150" alt="{$r[title]}"></a><a class="title" href="{$r[url]}" target="_blank">{$r[title]}</a><a href="{$r[url]}" target="_blank" class="overlay"><b class="overlay-play icon40x40"></b></a></li>
+                            <!--{/if}-->
+                            <!--{/loop}-->
+                        <!--{else}-->
+                            <!--{content_related contentid="$contentid" tags="$tags" modelid="4" size="3"}-->
+                            <li class="item js-overlay"><a href="{$r[url]}" target="_blank" class="thumb-link"><span class="time">{second_to_time(table('video', intval($r[contentid]), 'playtime'))}</span><img src="{thumb($r['thumb'],200,150)}" width="200" height="150" alt="{$r[title]}"></a><a class="title" href="{$r[url]}" target="_blank">{$r[title]}</a><a href="{$r[url]}" target="_blank" class="overlay"><b class="overlay-play icon40x40"></b></a></li>
+                            <!--{/content_related}-->
+                        <!--{/if}-->
+                    	</ul>
+                    </div>
+                    <!--{/if}-->
+                </div>
+                <div class="hr30"></div>
+                <div class="hr10"></div>
+                <!--{/if}-->
+                <!--网友评论-->
+                <!--{if $allowcomment}-->
+                <!--{template 'comment/comments.html'}-->
+                <!--{/if}-->
+            </div>
+            <div class="video-hot fl-r ov">
+                <div class="commend-article">
+                    <div class="m-title-a">
+                        <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                    </div>
+                    <div class="commend-inner">
+                        <div class="m-accordion js-accordion">
+                            <ul>
+                                <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 返回顶部 -->
+    <!-- <div class="scroll-btns js-scrollbtns">
+        <div class="btn home icon40x40">
+            <a href="" class="text">返回首页</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn rel icon40x40">
+            <a href="" class="text">相关新闻</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="" class="text">返回顶部</a>
+        </div>
+    </div> -->
+    <!-- 底部 -->
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+</body>
+</html>

@@ -1,0 +1,27 @@
+.button_style_1 {
+    width: auto;
+    float: none;
+}
+.panel_wrapper .button_style_1 {
+    height: 17px;
+    line-height: 18px;
+    margin: 0 4px;
+    padding: 2px 5px;
+}
+.panel_wrapper {
+    margin-top: 0;
+}
+.panel-action {
+    padding-top: 5px;
+    line-height: 18px;
+}
+.panel-content {
+    margin-top: 10px;
+    padding: 0 4px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.mceActionPanel {
+    text-align: right;
+}

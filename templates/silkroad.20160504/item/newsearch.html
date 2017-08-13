@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <?php $title_pos = array_reverse($pos); ?>
+    <title>{$SYSTEM[sitename]}_项目</title>
+    <meta name="keywords" content="{$tags}" />
+    <meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/project.css">
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<!-- 时间选择器 -->
+	<script type="text/javascript" src="<?=IMG_URL?>js/lib/cmstop.datepicker.js"></script>
+	<link href="<?=IMG_URL?>js/lib/datepicker/style.css" rel="stylesheet" type="text/css" />
+	<!-- ajax 分页/ -->
+	<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.template.js"></script>
+	<script type="text/javascript" src="{IMG_URL}js/lib/jquery.pagination.js"></script>
+	<script type="text/javascript" src="{IMG_URL}apps/item/js/item.tablelist.js"></script>
+	<style>
+  	  .page *{  border: 1px solid #dedede;color: #0079c6;display: inline-block;height: 31px;margin: 0 5px;text-align: center;width: 31px;}
+	  .page .current{color:red;}
+	  .page .prev,.page .next{ border: 1px solid #ebebeb;}
+	  .page .prev.current,.page .next.current{ border: 1px solid #ebebeb;background: #ebebeb;}
+	</style>
+	<script type="text/javascript">
+	var itemcatid = "281";//此处是中文的项目数据所在的顶级栏目id值,目的是只查询此栏目id的数据值,更改后查询不到数据;
+	var itemUrl = "{APP_URL}?app=item&controller=item&action=pagesize&catid="+itemcatid;
+	</script>
+	<script>
+		catname_top = '项目';	// 顶级栏目名称
+	</script>
+</head>
+<body>
+ <!-- 顶部 -->
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<!------  搜索选项开始  ---->
+<div class="proje_seachblock">
+<?php $itemclass=app_config('item','item_fields');?>
+	<div class="hd">
+		<h3>项目</h3>
+		<a href="" class="fabu" style="display:none;">+项目发布</a>
+	</div>
+	<div class="bd">  
+		<dl>
+			<dt>所属行业</dt>
+			<dd class="all"><span class="on" dataid="0" dataname="trade">不限</span></dd>
+			<dd id="checkhlimit1" class="option">
+				{loop $itemclass['trade'] $i $r}
+				<label dataid="{$i}" dataname="trade">{$r['zh']}</label>
+				{/loop}
+				<span class="morebtn">+多选</span>
+			</dd>
+			<dd class="line"></dd>
+		</dl>
+		<dl>
+			<dt>项目属地</dt>     
+			<dd class="all"><span class="on" dataid="0" dataname="country">不限</span></dd>	                                      
+			<dd  id="checkhlimit2" class="option">
+				<!--{db sql="select columnattrid,name from #table_columnattr where parentid is null order by sort asc"}-->
+				<label dataid="{$r['columnattrid']}" dataname="country">{$r['name']}</label>
+				<!--{/db}-->
+				<span class="morebtn">+多选</span> 
+			</dd>
+			<dd class="line"></dd>
+		</dl>
+	    <dl>
+	        <dt>投资方式</dt>
+			<dd class="all"><span class="on" dataid="0" dataname="investmenttype">不限</span></dd>	
+	        <dd id="DdTzType" class="option">
+                {loop $itemclass['investmenttype'] $i $r}
+				<label dataid="{$i}" dataname="investmenttype">{$r['zh']}</label>
+				{/loop}
+				<span class="morebtn">+多选</span>
+	        </dd>
+			<dd class="line"></dd>
+	    </dl>
+	    <dl>
+	        <dt>项目类型</dt>
+			<dd class="all"><span class="on" dataid="0" dataname="itemtype">不限</span></dd>	
+	        <dd id="DdRzType" class="option">
+				{loop $itemclass['itemtype'] $i $r}
+				<label dataid="{$i}" dataname="itemtype">{$r['zh']}</label>
+				{/loop}
+				<span class="morebtn">+多选</span>
+	        </dd>
+			<dd class="line"></dd>
+	    </dl>
+	    <dl>
+			<dt>发布时间</dt>
+			<dd class="all"><span class="on" dataid="0" dataname="starttime">不限</span></dd>	
+			<dd id="DdDate" class="option">
+				<label dataid="2015" dataname="starttime">2015年</label>
+				<label dataid="2016" dataname="starttime">2016年</label>
+				<label class="liberty">自定义</label> 
+                <div class="choosedate">
+                	<input class="porj_diminput" id="pubtime_min" type="text" dataname="starttime" dataid=""> ~ 
+                	<input class="porj_diminput" id="pubtime_max" type="text" dataname="stoptime" dataid="">
+                </div>
+			</dd> 
+			<dd class="line"></dd>
+		</dl>
+	    <div class="moredl">更多选项（投资方式、融资方式）<span class="ico"></span></div>
+	</div>
+</div>
+<!------  搜索选项结束   ----> 
+
+<div class="container">
+	<!-- left -->
+	<div class="left730"> 
+		<div class="toolbar">
+			<ul class="sortbox">
+				<li class="active on" dataname="weight" dataid="desc">推荐度<span class="up"></span></li>
+				<li class="active on" dataname="starttime" dataid="desc">发布时间<span class="up"></span></li>
+			</ul>
+			<div class="pagebox">
+				<span class="num">1/100</span>
+			</div>
+		</div>
+		<div class="optionlist" >
+			<ul id="tablelist">
+			</ul>
+          <div class="page">
+          	
+          </div> 
+		</div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+		<div class="item">
+			<!--#include virtual="/section/427.html"--><!--# 新项目频道 新项目_重点项目 #-->
+		</div>
+		<div class="item" style="display:none;">
+			<!--#include virtual="/section/312.html"--><!--# 项目频道 项目_项目追踪 #-->
+		</div>
+		<div class="item" style="display:none;">
+			<!--#include virtual="/section/313.html"--><!--# 项目频道 项目_企业走出去 #-->
+		</div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+<!-- 尾部 -->
+<!--{template "system/foot_zn.html"}-->
+<!-- @end 尾部 -->
+<script type="text/javascript" src="{IMG_URL}apps/item/js/newitem.search.js"></script>
+<script>
+	$(function(){
+		//时间函数
+		$("#pubtime_min, #pubtime_max").DatePicker({'format':'yyyy-MM-dd H:m:s'});
+		var memberid = $.cookie(COOKIE_PRE+'userid');
+		var strr = 'memberid='+memberid+'&typeid=4'+'&status=0';
+		$.getJSON(
+		        '{APP_URL}?app=member&controller=index&action=ajax_project_collect&jsoncallback=?&'+strr,
+			        function(data){
+			        	$('.fav').each(function(){
+			        		var contentid = $(this).attr('contentid');
+			        		for(var i in data){ 
+								    if(parseInt(data[i])==contentid){
+								    	 $(this).attr('class','fav on');
+								    	 $(this).text('取消收藏');
+									}
+								}
+			        		})
+			              }
+			);
+		
+			$("#tablelist").delegate(".fav","click",function(){
+			var contentid = $(this).attr('contentid');
+			var catid = $(this).attr('catid');
+			var str = 'contentid='+contentid+'&catid='+catid+'&memberid='+memberid+'&typeid=4'+'&status=0';
+			$("#collect_"+contentid).toggleClass("on");
+			var res = $("#collect_"+contentid).hasClass("on");
+			if(!res){
+				//ajax请求服务器取消收藏
+				$.getJSON(
+	                    '{APP_URL}?app=member&controller=index&action=ajax_not_collect&jsoncallback=?&'+str,
+	                    function(data){
+	                               if(data.status!='success')
+	                               {
+	                                      alert('取消失败');
+	                                      return false;
+	                               }
+	                    	}
+	                    );
+	       
+
+				$("#collect_"+contentid).text("收藏");
+
+			}else{
+				
+				//ajax请求服务器完成收藏
+				$.getJSON(
+	                    '{APP_URL}?app=member&controller=index&action=ajax_collect&jsoncallback=?&'+str,
+	                    function(data){
+	                               if(data.status!='success')
+	                               {
+	                                      alert('收藏失败');
+	                                      return false;
+	                               }
+	                    	}
+	                    );
+	       
+
+				$("#collect_"+contentid).text("取消收藏");
+				
+			}
+		})
+        
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+/*图文*/
+.pic-box{width: 172px; height: 112px; overflow: hidden; float: left;}
+.summary-box{width: 470px; float: right; _display: inline;}
+.summary-box h3{width: 100%; line-height: 24px;  overflow: hidden; font-size: 24px; font-weight: bold;}
+.summary-box h3.sb-h3{font-size: 20px; line-height: 24px;}
+.summary-box h3 a{color: #006e97;}
+.summary-box p{width: 100%; height: 63px; overflow: hidden; line-height: 21px; font-size: 14px; color: #333;}
+/*View*/
+.view,.conts-box,.txt-list3{width: 100%; overflow: hidden;}
+.pic-box1{width: 270px; height: 180px; float: left; _display: inline; overflow: hidden;}
+.summary-box1{width: 368px; float: right; _display: inline; }
+.summary-box1 h3{width: 100%; line-height: 24px; overflow: hidden; font-size: 24px; font-weight: bold;}
+/*.summary-box1 h3.news-h3{font-size: 16px; line-height: 20px; }*/
+.summary-box1 h3 a{color: #006e97;}
+.summary-box1 p{width: 100%;  overflow: hidden; line-height: 21px; font-size: 14px; color: #333;}
+.summary-box1 span,.summary-box span{color: #666; display: block}
+.txt-list3 li{width: 100%; height: 24px; line-height: 24px; font-size: 16px; overflow: hidden;}
+/*.txt-list3 .news-ul li{font-size: 14px; line-height: 24px;}*/
+.txt-list3 li a{color: #006e97;}
+.txt-list3 li em{font-size: 12px; color: #1060ad; margin-left: 3px; margin-right: 6px; float: left;}
+/*人物头像*/
+.rw-img img{width: 50px; height: 50px; border-radius: 50%;overflow: hidden;margin-top: 3px;}
+.rw-img .w-310{width: 310px;}
+.rw-img .w-310 span{font-size: 14px;font-style: normal}
+.rw-img .w-310 p{font-size: 10px;line-height: 14px;font-style: italic;color: #666}
+.txt-list2 .nl-ul li h3{font-size: 16px;}

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Anping County, China</title>
+	<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+	<meta name="description" content="{$SYSTEM[seodescription]}" />
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/Anping-about.css"></link>
+</head>
+<body>
+	<div class="topbox">
+		<div class="logo">中国.安平</div>
+		<ul class="nav clearfix">
+			<li class="first"><a href="{WWW_URL}english/Anping/" target="_blank">Home</a></li>
+			<li class="second"><a href="{WWW_URL}english/Anping/industry.shtml" target="_blank">Industry Overview</a></li>
+			<li class="third"><a href="{WWW_URL}english/Anping/fair.shtml" target="_blank">Fair</a></li>
+			<li class="fourth"><a href="{WWW_URL}english/Anping/companies.shtml" target="_blank">Companies</a></li>
+			<li class="last"><a href="{WWW_URL}english/Anping/about.shtml" target="_blank" class="active">About</a></li>
+		</ul>
+	</div>
+	<div class="middlebox">
+		<div class="container">	
+			<div class="header">
+				<div class="kong" style="width:100%; height: 13px; "></div>
+				<div class="headimg"></div>
+				<div class="focus"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/about_head.png"></div>
+				<div class="headimga"></div>
+				<div class="headimgatitle">About Anping</div>
+			</div>
+			<div class="middle clearfix">
+				<div class="contenta">
+					<img class="con-img" src="{IMG_URL}templates/{TEMPLATE}/newcn/img/about_img.png">
+					<p>Anping County of Hebei Province has three towns and five townships consisting of 230 administrative villages, with a population of 330,000. It covers an area of 505 square km with 500,000 mu (15 mu equal one hectare) of cultivated land.</p>
+					<p>Located in the middle of Hebei Province, Anping County is about 100 km (about 62 mi) away from Shijiazhuang, the provincial capital. Anping enjoys convenient transportation: within a radius of 20 km around Anping there are Beijing-Kowloon Railway (north-south), Daqing-Guangzhou Highway (north-south) and Huanghua-Shijiazhuang Expressway (east-west). </p>
+					<p>Anping has over 13,000 enterprises and more than 210,000 people involved in producing and dealing in wire mesh. The products fall into six series comprising over 500 varieties and 6,000 specifications. They are widely used in industry, agriculture, business circles, and scientific research field, military and civilian areas. Anping’s wire mesh products account for more than 80 percent of China’s total production and exports. Anping sees export delivery value of wire mesh products exceed 1 billion U.S. dollars annually. </p>
+					<p>Now Anping has formed a complement industrial chain in the wire mesh production from wire drawing, knitmesh to filter production, and loom manufacturing. </p>
+					<p>Despite being a small inland county, Anping has fully opened up to the outside world. In the early 1990s, a large number of business people from Taiwan, Hong Kong and the United States invested in Anping. To seize the opportunities of the "Beijing-Tianjin-Hebei" coordinated development and the "Belt and Road" Initiative, Anping has set up more than 15,000 sales outlets nationwide and built economic and trade relations with more than 150 countries and regions. </p>
+				</div>
+			</div>
+			<div class="footer" id="to_top"><a href="javascript:void(0)">Back to Top<span style="margin-left:5px;"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/img/arrow.png"></span></a></div>
+		</div>
+	</div>
+	<div class="copyright">
+		<ul class="copy">
+			<li>Copyright © 2016 China Economic Information Service All Rights Reserved.</li>
+			<li>Sponsored by Anping County Government</li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function(){
+		  var oTop = document.getElementById("to_top");
+		  var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+		  var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+		  oTop.style.left = screenw - oTop.offsetWidth +"px";
+		  oTop.style.top = screenh - oTop.offsetHeight + "px";
+		  window.onscroll = function(){
+		    var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+		    oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+		  }
+		  oTop.onclick = function(){
+		    document.documentElement.scrollTop = document.body.scrollTop =0;
+		  }
+		}  
+	</script>
+</body>
+</html>

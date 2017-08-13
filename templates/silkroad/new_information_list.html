@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/8.css" type="text/css">
+	<script src="http://img.db.silkroad.news.cn/templates/silkroad/js/information-list.js"></script>
+	<script>
+	$(function () {
+		catname_top = 'CEI';	// 顶级栏目名称
+		/*$('.col-r-extra>ul>li').each(function(){
+			if($(this).hasClass('over')){
+				catname = $(this).find('a').html();
+			}
+		})*/
+		catname="All News";
+	})
+	</script>
+</head>
+
+<body>
+<!--{template "system/head.html"}-->
+<!--搜索-->
+<div style="width: 1000px; margin: 0 auto; border-top: 1px solid #eee; border-bottom: 2px solid #eee; height: 50px; line-height: 50px; font-size: 19px; background: #fff; text-indent: 10px; color: #444;">
+	Real-time Information
+</div>
+
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb">
+        <div class="search-box bor-trbl">
+
+            <div class="searchs">
+                <div class="f-l">
+                    <input type="text" class="txt-input txt-focus"
+                           value="Enter News,Companies,Projets,Areas or Experts"/>
+                </div>
+                <div class="btn-s">
+                    <a href="" class="fdj"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/fdj.png" width="19"
+                                                height="19"
+                                                alt="" class="ie6_png32"/></a>
+                    <a href="">Search</a>
+                </div>
+            </div>
+            <div class="adv-searchs">
+                <a href="" target="_blank">Advanced Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="seach-add">
+    <div class="search-addcon aft">
+        <ul class="seach-add-menu">
+            <li>
+                <span>
+                    China(Mainland)<em></em>
+                    <ul class="seach-add-nav" style="width: 188px; margin-left: -97px;">
+                        <li><a href="">aa</a></li>
+                        <li><a href="">aa</a></li>
+                    </ul>
+                </span>
+            </li>
+            <li>
+                <span>
+                    World<em></em>
+                    <ul class="seach-add-nav" style="width: 188px; margin-left: -97px;">
+                        <li><a href="">bb</a></li>
+                        <li><a href="">bb</a></li>
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--@end 搜索-->
+<!--内容-->
+<div class="container bef">
+
+    <ul class="menu aft">
+	<li class="on" style="margin-left: 30px">
+            <a data-index="0" href="javascript:;">All</a>
+	</li>
+<?php 
+  $db=factory::db();
+  /*获取英文资讯频道属性数组*/
+  $arr=config("en_information");
+?>
+   <!--{loop $arr $value}-->
+        <li>
+	 <!--{if $value['son']}-->
+		<span mark="father">{$value['alias']}<em></em>
+		 <ul class="menu-nav" style="width: 188px; margin-left: -97px;">
+		  <!--{loop $value['son'] $val}-->
+                    <li><a data-index="3" href="javascript:;  proid="{$val['proid']}" target='_blank'"> {$val['alias']}</a></li>
+		  <!--{/loop}-->
+		</ul>
+	 <!--{else}-->
+            <a data-index="1" href="javascript:;" href="javascript:;" proid="{$value['proid']}">{$value['alias']}</a>
+	 <!--{/if}-->
+        </li>
+	
+	 <!--{/loop}--> 
+       
+    </ul>
+    <div class="cc" style="display: block">
+        <ul class="ttitle aft">
+
+		 <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+            <li>			
+                <div class="ttitle-title fl-l">
+                    <a  href="{$r[url]}" title="{$r[title]}" target="_blank"> <em></em>{str_natcut($r[title], 36, '')}</a>
+                </div>
+                <div class="ttitle-time fl-r">{date('Y-m-d H:i', $r['published'])}</div>
+            </li>
+		<!--{/content}-->
+           
+        </ul>
+        <ul class="paging aft">
+	
+			
+          <!--{pages_infolist(min($total, $mintotal), $page, $pagesize, 2, $urlrule)}-->
+                    
+        </ul>
+    </div>
+    
+    
+    <!--上面的1000px为测试，必须要删除-->
+</div>
+
+<script src="http://img.yanews.cn/templates/yanannews/js/jquery/jquery-1.11.2.js"></script>
+<script>
+    $('.menu a').on({
+        'click':function () {
+            var index = $(this).attr('data-index');
+            $('.cc').hide();
+            $('.cc').eq(index).show();
+//            console.log(index)
+            if(index>=3&&index<=10){
+                $('.menu>li').removeClass('on');
+                $('.menu>li').eq(3).addClass('on');
+            } else if(index>=10&&index<=13) {
+                $('.menu>li').removeClass('on');
+                $('.menu>li').eq(4).addClass('on');
+            } else if(index>=14) {
+//                console.log(index)
+                $('.menu>li').removeClass('on');
+                $('.menu>li').eq(index-10).addClass('on');
+            } else {
+                $('.menu>li').removeClass('on');
+                $('.menu>li').eq(index).addClass('on');
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

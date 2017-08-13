@@ -1,0 +1,99 @@
+.related-panel {
+    overflow: hidden;
+    background: #FFF;
+}
+.related-panel-title {
+    background: url(/css/images/bg_x.gif) repeat-x scroll 0 -173px #FFFFFF;
+    color: #077AC7;
+    cursor: default;
+    font-weight: normal;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 5px;
+}
+.related-panel-left {
+    float: left;
+    width: 380px;
+    border-right: solid 1px #CEE1E8;
+    position: relative;
+}
+.related-content-list {
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#left-msg {
+    position: absolute;
+    width: 100%;
+    height: 380px;
+    line-height: 380px;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    display: none;
+}
+.related-panel-item,
+.related-panel-item-placeholder {
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding: 0 10px 0 5px;
+    clear: both;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 1px dotted #D7E3F2;
+}
+.related-panel-item:hover {
+    background: #FFFDDD;
+}
+.related-panel-item.selected {
+    background-color: #E7F2F5;
+    border-bottom-color: #FFFFFF;
+}
+.related-panel .related-panel-item input {
+    float: left;
+    margin: 8px 5px 0 0;
+}
+.related-panel-item .time {
+    float: right;
+}
+.related-panel-item .img {
+    float: left;
+    margin-right: 5px;
+    padding-top: 3px;
+}
+.related-panel-item .item-title {
+    float: left;
+    width: 230px;
+    overflow: hidden;
+}
+
+.related-panel-right {
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+}
+.related-selected-list {
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+#right-msg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 380px;
+    text-align: center;
+    right: 0;
+    top: 0;
+    display: none;
+}
+.related-selected-list .related-panel-item .item-title {
+    margin-left: 5px;
+    cursor: move;
+    width: 350px;
+}
+.related-selected-list .related-panel-item img {
+    margin-top: 7px;
+}

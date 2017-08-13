@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>Companies</title>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/companies.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/company.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            Company.init();
+        });
+    </script>
+</head>
+<body>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<!--内容-->
+<div class="column ov mar-t-20">
+    <div class="crumbs">Companies</div>
+</div>
+<div class="column ov">
+    <div class="w-270 f-l mar-t-20">
+        <ul class="menu-left" id="leftmenus">
+            <li data-type="all">All</li>
+            <li data-type="agriculture">Agriculture</li>
+            <li data-type="mining">Mining</li>
+            <li data-type="manufacutring">Manufacutring</li>
+            <li data-type="power">Power</li>
+            <li data-type="publicutility">Public Utility</li>
+            <li data-type="construction">Construction</li>
+            <li data-type="infrastructure">Infrastructure</li>
+            <li data-type="logistics">Logistics</li>
+            <li data-type="it">IT</li>
+            <li data-type="realestate">Real Estate</li>
+            <li data-type="mediaculture">Media & Culture</li>
+            <li data-type="finance">Finance</li>
+        </ul>
+    </div>
+    <div class="data-right mar-t-5" id="pro-list">
+        <div class="data-box mar-t-18">
+            <!--#include virtual="/section/411.html"--><!--# 公司频道 公司频道头条 #-->
+            <div class="txt-list2 mar-t-12">
+                <ul id="list"></ul>
+            </div>
+            <!--分页-->
+            <div class="pagemod mar-t-20"></div>
+        </div>
+    </div>
+</div>
+<!--{template "newcn/system/footer.html"}-->
+</body>
+</html>

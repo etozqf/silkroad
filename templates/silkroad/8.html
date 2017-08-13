@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[alias]}_{/loop}{$alias}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/new_information.css"/>
+    <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/information-list.js"></script>
+    <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+	<script>
+	$(function () {
+		catname_top = 'CEI';	// 顶级栏目名称
+		/*$('.col-r-extra>ul>li').each(function(){
+			if($(this).hasClass('over')){
+				catname = $(this).find('a').html();
+			}
+		})*/
+		catname="All News";
+	})
+	</script>
+<style>
+	.container {
+    width: 1000px;
+    height: auto;
+    margin: 20px auto 0;
+    background: #FFFFFF;
+}
+.container ul.menu {
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.container ul.menu li {
+    float: left;
+    padding: 0 15px;
+    font-size:18px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 47px;
+    line-height: 47px;
+}
+.container ul.menu li span {
+    display: inline-block;
+    height: 48px;
+    position: relative;
+}
+.container ul.menu li span em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.container ul.menu li.on {
+    border-bottom: 2px solid #c81922;
+}
+
+.container ul.menu ul.menu-nav {
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    position: absolute;
+    top: 48px;
+    text-align: center;
+    left: 50%;
+    display: none;
+    z-index: 2;
+}
+.container ul.menu li span ul.menu-nav li {
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.container ul.menu li span ul.menu-nav li a{
+    height:43px;
+    width: 100%;
+    display: inline-block;
+}
+.container ul.menu li span ul.menu-nav li:hover {
+    background:#ed6970;
+    height:43px;
+    color: #fff;
+}
+.container ul.menu li span:hover ul.menu-nav {
+    display: block;
+}
+.container ul.ttitle {
+    width: 945px;
+    margin: 0 auto;
+}
+.container ul.ttitle li {
+    width: 945px;
+    float: left;
+    border-bottom: 1px dashed #cccccc;
+    height: 55px;
+    line-height: 55px;
+    font-size: 14px;
+}
+.container ul.ttitle li .ttitle-title a {
+    width: 700px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+}
+.container ul.ttitle li .ttitle-title a em {
+    width: 8px;
+    height: 9px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -21px no-repeat;
+    margin-right: 10px;
+}
+.container ul.ttitle li .ttitle-time {
+    width: 200px;
+    font-size: 14px;
+    color:#2379c6;
+    letter-spacing:0;
+    text-align:right;
+}
+.container .cc {
+
+    display: none;
+}
+.container .paging {
+    width: 720px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 112px;
+    padding: 20px 0;
+}
+.container .paging li {
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.container .paging li a {
+    display: block;
+    color: #0079c6;
+    /*background: red;*/
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    padding: 0 15px;
+}
+.container .paging li a.prev {
+    background: #ebebeb;
+    color: #f72200;
+}
+.container .paging li a.next {
+    color: #2479d8;
+}
+.container .paging li.on a {
+    color: #f72200;
+}
+</style>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 顶部 -->
+<!--{template "system/head.html"}-->
+<div style="width: 1000px; margin: 0 auto; border-top: 1px solid #eee; border-bottom: 2px solid #eee; height: 50px; line-height: 50px; font-size: 19px; background: #fff; text-indent: 10px; color: #444;">
+	Real-time Information
+</div>
+
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb">
+        <div class="search-box bor-trbl">
+
+            <div class="searchs">
+                <div class="f-l">
+                    <input type="text" class="txt-input txt-focus"
+                           value="Enter News,Companies,Projets,Areas or Experts"/>
+                </div>
+                <div class="btn-s">
+                    <a href="" class="fdj"><img src="{IMG_URL}templates/{TEMPLATE}/css/images/fdj.png" width="19"
+                                                height="19"
+                                                alt="" class="ie6_png32"/></a>
+                    <a href="">Search</a>
+                </div>
+            </div>
+            <div class="adv-searchs">
+                <a href="" target="_blank">Advanced Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columnA mar-t-15 ov">
+    <div class="bor-rb">
+        <div class=" bor-trbl list-con">
+            <!--左侧-->
+			
+			
+			
+			
+<div class="container bef" id="bor-trbs">
+   <ul class="menu aft" id="list-ul">
+    <li id="allnews">
+		   <a href="javascript:;" proid="{$value['proid']}" mark="all">All News</a>
+	 </li>
+        <li class="on" style="margin-left: 30px">
+            <a data-index="0" href="javascript:;" proid="{$value['proid']}">Policy</a>
+        </li>
+        <li><a data-index="1" href="javascript:;" proid="{$value['proid']}">Economy</a></li>
+        <li>
+            <span>Industries<em></em>
+                <ul class="menu-nav" style="width: 188px; margin-left: -97px;">
+                    <li><a data-index="2" href="javascript:;" proid="{$value['proid']}"> Agriculture Mining</a></li>
+                    <li><a data-index="3" href="javascript:;" proid="{$value['proid']}"> Manufacturing</a></li>
+                    <li><a data-index="4" href="javascript:;" proid="{$value['proid']}"> Power</a></li>
+                    <li><a data-index="5" href="javascript:;" proid="{$value['proid']}"> Public Utility</a></li>
+                    <li><a data-index="6" href="javascript:;" proid="{$value['proid']}"> Construction</a></li>
+                    <li><a data-index="7" href="javascript:;" proid="{$value['proid']}"> Infrastructure</a></li>
+                    <li><a data-index="8" href="javascript:;" proid="{$value['proid']}"> Logistics</a></li>
+                    <li><a data-index="9" href="javascript:;" proid="{$value['proid']}"> IT</a></li>
+                </ul>
+            </span>
+        </li>
+        <li>
+            <span>Financial Market<em></em>
+                <ul class="menu-nav" style="width: 188px; margin-left: -99px;">
+                    <li><a data-index="10" href="javascript:;" proid="{$value['proid']}"> Stock Market</a></li>
+                    <li><a data-index="11" href="javascript:;" proid="{$value['proid']}"> Bond Market</a></li>
+                    <li><a data-index="12" href="javascript:;" proid="{$value['proid']}"> Forex Market</a></li>
+                    <li><a data-index="13" href="javascript:;" proid="{$value['proid']}"> Futures Market</a></li>
+                </ul>
+            </span>
+        </li>
+        <li><a data-index="14" href="javascript:;" proid="{$value['proid']}">Companies Alerts</a></li>
+        <li><a data-index="15" href="javascript:;" proid="{$value['proid']}">Views</a></li>
+    </ul>
+</div>
+
+
+
+
+            <!--右侧-->
+            <div class="col-r-main ov f-r mar-r-20 mar-t-20">
+                <ul class="summary-list" id="right_content">
+				
+            <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+                        <li class="bor-b">
+                        <em class="f-l"></em>
+                        <a href="{$r[url]}" target="_blank" class="f-l">{str_natcut($r[title], 70, '...')}</a>
+                        <div class="f-r txt mar-t-3">
+                            <span>{date('Y-m-d H:i', $r['published'])}</span>
+                            
+                        </div>
+                         </li>
+                    <!--{/content}-->
+                </ul>
+                <!--分页-->
+                 <div class="page mar-b-120 mar-t-20">
+                     <ul id="page">
+                             <!--{pages_infolist(min($total, $mintotal), $page, $pagesize, 2, $urlrule)}-->
+                             <li class="mar-l-5"><em>{$total}</em>records</li>
+                     </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" class="pagesize" value="{$pagesize}"/>
+<input type="hidden" class="url" value="{$url}"/>
+<input type="hidden" class="zixun_catid" value="{$catid}"/>
+<script type="text/javascript">
+  $(function(){
+      var summary=$("#right_content"); //右侧显示容器
+      var url=$(".url").val();
+      var page=$("#page");
+      var catid=$(".zixun_catid").val();
+      $("#bor-trbs #list-ul li a").each(function(i,ele){
+         $(ele).click(function(){
+			 catname=$(this).html();
+			 userBehavior();
+             $(ele).parents('li').addClass("over");
+             $(ele).parents('li').siblings().removeClass("over");
+            if($(ele).attr("mark")=="all")
+            {
+                  window.location.href=url;  
+            }
+            else if($(ele).attr("mark")!="father")
+            {  
+                var proid=$(ele).attr("proid");
+                var pagesize=$(".pagesize").val();  //每页显示条数
+                //将容器中的内容先清空
+                summary.empty();
+                
+                var url_server=APP_URL+"?app=system&controller=information&action=get_property_content&jsoncallback=?&proid="+proid+"&pagesize="+pagesize+"&url="+url+"&catid="+catid;
+                   
+                $.getJSON(url_server,function(json){
+
+                    if(json.status=="success"){
+                        var html=custom_template("success",json['content']);
+                        var total = json['total'];
+                        var pagesize=$(".pagesize").val();
+                        var pages = '<li onclick="Prepage()"><a class="pre disable" href="javascript:void(0);">Previous Page</a></li>';
+                            pages += '<li onclick="Ajaxpage(1)"><a class="number red" href="javascript:void(0);">1</a></li>';
+                         for(var i=0;i<Math.ceil((total/pagesize)-1);i++){
+                            pages += '<li onclick="Ajaxpage('+(i+2)+')"><a href="javascript:void(0);" class="number">'+(i+2)+'</a></li>';
+                         }
+                          pages += '<li onclick="Nextpage()"><a class="next" href="javascript:void(0);">Next Page</a></li>';
+                          pages += '<li class="mar-l-5"><em>'+total+'</em>records</li>';
+                        page.empty();
+                        page.append(pages);
+                    }
+                    else
+                    {
+                        
+                        html=custom_template("error",json['content']);
+                    }
+
+                    //将返回结果插入到容器中
+                    summary.append(html);
+                  });
+
+            }
+
+         })
+
+      })
+      
+      /*定义模板函数*/
+      function custom_template(type,json){
+            var html='';
+
+            if(type=="success"){
+                
+                for(var i=0;i<json.length;i++){
+                    var timestamp=parseInt(json['published']*1000);
+                    html+='<li class="bor-b"><em class="f-l">&bull;</em>';
+                    html+='<a href="'+json[i]['url']+'" target="_blank" class="f-l">'+json[i]['title']+'</a>';
+                    html+='<div class="f-r txt mar-t-3">';
+                    html+='<span>'+json[i]['published']+'</span>';
+                    html+='</div></li>';
+                }
+            }else{
+                html+="<li>"+json+"</li>";
+            }
+
+            return html;
+      }
+  })
+
+      /*ajax动态获取分页数据*/
+      function Ajaxpage(pages){
+          var proid=$(".over").children().attr("proid");
+          var pagesize=$(".pagesize").val();  //每页显示条数
+          var catid=$(".zixun_catid").val();
+          var url=$(".url").val();
+          var summary=$("#right_content"); //右侧显示容器
+
+          var url_server=APP_URL+"?app=system&controller=information&action=get_property_content&jsoncallback=?&proid="+proid+"&pagesize="+pagesize+"&url="+url+"&catid="+catid+"&page="+pages;
+                   
+                $.getJSON(url_server,function(json){
+                    if(json.status=="success"){
+                      var html=custom_template("success",json['content']);
+                      summary.empty();
+                      summary.append(html); 
+                    }
+                });
+              $("#page li:eq("+pages+")").children().addClass("red");
+              $("#page li:eq("+pages+")").siblings().children().removeClass("red");
+      }
+      /*定义模板函数*/
+      function custom_template(type,json){
+            var html='';
+
+            if(type=="success"){
+                
+                for(var i=0;i<json.length;i++){
+                    var timestamp=parseInt(json['published']*1000);
+                    html+='<li class="bor-b"><em class="f-l">&bull;</em>';
+                    html+='<a href="'+json[i]['url']+'" target="_blank" class="f-l">'+json[i]['title']+'</a>';
+                    html+='<div class="f-r txt mar-t-3">';
+                    html+='<span>'+json[i]['published']+'</span>';
+                    html+='</div></li>';
+                }
+            }else{
+                html+="<li>"+json+"</li>";
+            }
+
+            return html;
+      }
+      /*点击上一页函数*/
+      function Prepage(){
+        var curret = $("#page").find(".red").html();
+        var cur = parseInt(curret);
+        
+        if(cur==1){
+          Ajaxpage(1);
+        }else{
+          Ajaxpage(cur-1);
+        }
+      }
+      /*点击下一页函数*/
+      function Nextpage(){
+        var curret = $("#page").find(".red").html();
+        var cur = parseInt(curret);
+        var max = $("#page").find(".red").parent().next().children().html();
+        if(!isNaN(max)){
+          Ajaxpage(cur+1);
+        }else{
+          Ajaxpage(cur);
+
+        } 
+      }
+</script>
+<!--页脚-->
+<!-- 顶部 -->
+
+<!--@end页脚-->
+</body>
+</html>

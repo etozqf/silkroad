@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$sitename[1]}_{$SYSTEM[seotitle]}_map</title>
+<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+<meta name="description" content="{$SYSTEM[seodescription]}" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/nav.css"/>
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/ledivs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+<script>
+	catname_top = 'Home';	// 顶级栏目名称
+	catname = 'Home';	// 顶级栏目名称
+</script>
+</head>
+<body>
+<!--{template 'system/head.html'}-->
+<!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+<!--@end 搜索-->
+
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+                
+               <!--#include virtual="/section/329.html"--><!--# 英文公共区块 英文站 : 网站地图 #-->
+        </div>
+    </div>
+</div>
+
+
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+
+
+
+</body>
+</html>

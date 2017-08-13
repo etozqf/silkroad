@@ -1,0 +1,93 @@
+<errorentry>
+	<datetime>2017-06-18 22:27:32</datetime>
+	<errornum>1</errornum>
+	<errortype>Error</errortype>
+	<errormsg>Uncaught exception 'ct_exception' with message 'redis client require auth password' in C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage\redis.php:26
+Stack trace:
+#0 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage.php(32): cache_storage_redis->__construct(Array)
+#1 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(68): cache_storage::get_instance('redis', Array)
+#2 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(14): cache->get_storage()
+#3 C:\CmsTop\cmstop-server\www\silkroad\framework\factory.php(54): cache->__construct(Array)
+#4 C:\CmsTop\cmstop-server\www\silkroad\framework\core\function.php(759): factory::cache()
+#5 C:\CmsTop\cmstop-server\www\silkroad\framework\core\setting.php(55): table('app')
+#6 C:\CmsTop\cmstop-server\www\silkroad\cmstop.php(323): setting->cache()
+#7 C:\CmsTop\cmstop-server\www\silkroad\cmstop.php(21): cmstop->cache()
+#8 C:\CmsTop\cmstop-server\www\silkroad\public\admin\index.php(6): cmstop->__construct('admin')
+#9 {main}
+  thrown</errormsg>
+	<scriptname>C:/CmsTop/cmstop-server/www/silkroad/framework/cache/storage/redis.php</scriptname>
+	<scriptlinenum>26</scriptlinenum>
+</errorentry>
+
+<errorentry>
+	<datetime>2017-06-18 22:29:22</datetime>
+	<errornum>1</errornum>
+	<errortype>Error</errortype>
+	<errormsg>Uncaught exception 'ct_exception' with message 'redis client require auth password' in C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage\redis.php:26
+Stack trace:
+#0 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage.php(32): cache_storage_redis->__construct(Array)
+#1 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(68): cache_storage::get_instance('redis', Array)
+#2 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(14): cache->get_storage()
+#3 C:\CmsTop\cmstop-server\www\silkroad\framework\factory.php(69): cache->__construct(Array)
+#4 C:\CmsTop\cmstop-server\www\silkroad\apps\system\plugin\model_admin_content\pv.php(9): factory::datacache()
+#5 C:\CmsTop\cmstop-server\www\silkroad\framework\core\observer.php(37): plugin_pv->__construct(Object(model_admin_content))
+#6 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.php(1245): observer->update(Object(model_admin_content))
+#7 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.</errormsg>
+	<scriptname>C:/CmsTop/cmstop-server/www/silkroad/framework/cache/storage/redis.php</scriptname>
+	<scriptlinenum>26</scriptlinenum>
+</errorentry>
+
+<errorentry>
+	<datetime>2017-06-18 22:29:37</datetime>
+	<errornum>1</errornum>
+	<errortype>Error</errortype>
+	<errormsg>Uncaught exception 'ct_exception' with message 'redis client require auth password' in C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage\redis.php:26
+Stack trace:
+#0 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage.php(32): cache_storage_redis->__construct(Array)
+#1 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(68): cache_storage::get_instance('redis', Array)
+#2 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(14): cache->get_storage()
+#3 C:\CmsTop\cmstop-server\www\silkroad\framework\factory.php(69): cache->__construct(Array)
+#4 C:\CmsTop\cmstop-server\www\silkroad\apps\system\plugin\model_admin_content\pv.php(9): factory::datacache()
+#5 C:\CmsTop\cmstop-server\www\silkroad\framework\core\observer.php(37): plugin_pv->__construct(Object(model_admin_content))
+#6 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.php(1245): observer->update(Object(model_admin_content))
+#7 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.</errormsg>
+	<scriptname>C:/CmsTop/cmstop-server/www/silkroad/framework/cache/storage/redis.php</scriptname>
+	<scriptlinenum>26</scriptlinenum>
+</errorentry>
+
+<errorentry>
+	<datetime>2017-06-18 22:30:06</datetime>
+	<errornum>1</errornum>
+	<errortype>Error</errortype>
+	<errormsg>Uncaught exception 'ct_exception' with message 'redis client require auth password' in C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage\redis.php:26
+Stack trace:
+#0 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage.php(32): cache_storage_redis->__construct(Array)
+#1 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(68): cache_storage::get_instance('redis', Array)
+#2 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(14): cache->get_storage()
+#3 C:\CmsTop\cmstop-server\www\silkroad\framework\factory.php(69): cache->__construct(Array)
+#4 C:\CmsTop\cmstop-server\www\silkroad\apps\system\plugin\model_admin_content\pv.php(9): factory::datacache()
+#5 C:\CmsTop\cmstop-server\www\silkroad\framework\core\observer.php(37): plugin_pv->__construct(Object(model_admin_content))
+#6 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.php(1245): observer->update(Object(model_admin_content))
+#7 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.</errormsg>
+	<scriptname>C:/CmsTop/cmstop-server/www/silkroad/framework/cache/storage/redis.php</scriptname>
+	<scriptlinenum>26</scriptlinenum>
+</errorentry>
+
+<errorentry>
+	<datetime>2017-06-18 22:30:24</datetime>
+	<errornum>1</errornum>
+	<errortype>Error</errortype>
+	<errormsg>Uncaught exception 'ct_exception' with message 'redis client require auth password' in C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage\redis.php:26
+Stack trace:
+#0 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\storage.php(32): cache_storage_redis->__construct(Array)
+#1 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(68): cache_storage::get_instance('redis', Array)
+#2 C:\CmsTop\cmstop-server\www\silkroad\framework\cache\cache.php(14): cache->get_storage()
+#3 C:\CmsTop\cmstop-server\www\silkroad\framework\factory.php(69): cache->__construct(Array)
+#4 C:\CmsTop\cmstop-server\www\silkroad\apps\system\plugin\model_admin_content\pv.php(9): factory::datacache()
+#5 C:\CmsTop\cmstop-server\www\silkroad\framework\core\observer.php(37): plugin_pv->__construct(Object(model_admin_content))
+#6 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.php(1245): observer->update(Object(model_admin_content))
+#7 C:\CmsTop\cmstop-server\www\silkroad\apps\system\model\admin\content.</errormsg>
+	<scriptname>C:/CmsTop/cmstop-server/www/silkroad/framework/cache/storage/redis.php</scriptname>
+	<scriptlinenum>26</scriptlinenum>
+</errorentry>
+

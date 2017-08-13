@@ -1,0 +1,55 @@
+.dh_mainbox{border-bottom: 1px solid #e8e8e8; margin-bottom: 0;}
+.searchbox{ margin:0px auto; width:1000px; background: #fff;box-shadow:2px 3px 3px 0 #e8e8e8;}
+.checklist  { overflow:hidden; padding-top:20px; clear:both;border-bottom: 1px solid #e8e8e8;} 
+.checklist dl  { margin:0px auto; padding:0px; padding-bottom:10px; overflow:hidden; clear:both;} 
+.checklist dl dt { float:left; display:block; width:90px; color:#666; text-align: right;}
+.checklist dl dd { float:right; display:block; width:885px; color:#0079c6;}
+.checklist dl dd span { float:left; display:inline-block; padding:5px; line-height:18px;  margin-right:5px;}   
+.checklist dl dd span,.checklist dl dd span a {  color:#0079c6;}  
+.checklist dl dd span a:hover {  color:#ffffff;}
+.checklist dl dd span.select_on , .checklist dl dd span:hover { background-color:#0079c6; border-radius: 2px; color:#FFFFFF;}
+.checkent_input{height: 26px; border: 1px solid #e6e7ed; border-radius: 2px; width: 114px; padding: 0 30px 0 10px; background: url(../images/ico-calendar.png) no-repeat 133px center;}
+.result{padding: 15px 30px 15px 40px;overflow: hidden;}
+.resultnum{font-size: 12px; line-height: 1; color: #bdbdbd;}
+.result-list{ float: left; width:660px;}
+.result-list .box{display: none;}
+.result-list ul{padding-top: 15px;}
+.result-list li{margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed #e5e5e5;}
+.result-list li h2{color:#208acd;font-weight:normal;font-size:20px;line-height:1;margin-bottom:10px;}
+.result-list h2 a{color:#208acd;}
+.result-list h2 a:hover{color:#e4393c;} 
+.result-list li .keyword{color: #e4393c;}
+.result-list p{font-size:14px;color:#555;line-height:21px;height:42px;overflow:hidden;margin-bottom:10px;}
+.result-list .info{color:#b9b9b9;font-size:14px;line-height:1;}
+.result-list .info span{background:url(../images/dot_news.png) no-repeat;padding-left:20px;display:inline-block;line-height:15px;}
+.result-list .info .time{margin-right:30px;}
+.result-list .info .time b{font-weight:normal;margin-left:10px;}
+.result-list .info .fav{background-position:0 -15px; cursor: pointer;}
+.result-list .info .fav:hover{background-position: 0 -30px; color: #e4393c;}
+.result-list .info .fav.on{background-position: 0 -45px;}
+.result-list .info .fav.on:hover{background-position: 0 -60px; color: #e4393c;}
+.result-list img{height:100px;width:133px;margin-right:10px;float:left;} 
+.page{padding:0 0 20px 0;text-align:center;}
+.page a{display:inline-block;height:28px;width:28px;text-align:center;line-height:28px;font-size:16px;border:1px solid #ddd;background:#fff;margin:0 5px;color:#666;}
+.page a:hover{background:#e4393c;border:1px solid #e4393c;color:#fff;text-decoration:none;}
+.page i{color:#e4393c;font-style:normal;}
+
+.slideright{ float: right; width:220px; padding-left: 20px; border-left: 1px solid #e8e8e8; }
+.item{margin-bottom: 10px;}
+.item .hd{margin:0px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.item .hd h3{left:0px;top:0px;display:inline-block;font-size:18px;font-weight:normal;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;padding:0 10px;position:absolute;z-index:3;}
+.item .hd  a.more{position:absolute;right:12px;background:url(../images/dh_dot3j.png) no-repeat right center;padding-right:6px;display:block;line-height:40px;color:#666;}
+.item .bd{padding:12px 0;}
+.list-zj{}
+.list-zj li{float:left;width:50%;}
+.list-zj img{width:100px;height:100px;display:block;margin:0 auto;}
+.list-zj p{text-align:center;color:#208acd;}
+.list-zj li a:hover p{color:#e4393c;}
+.news01{}
+.news01 li{height:24px;background:url(../images/dot_list.jpg) no-repeat 0 14px;padding-left:11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.news01 li a,.tops li a{color: #0079c6;}
+.news01 li a:hover,.tops li a:hover{color: #e4393c;}
+.tops{}
+.tops li{height:30px;line-height:30px;border-bottom:1px dashed #e5e5e5;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.tops .num{display:inline-block;width:18px;line-height:18px;text-align:center;background:#989898;color:#fff;font-size:12px;margin-right:8px;}
+.tops .t3{background:#c60000;} 

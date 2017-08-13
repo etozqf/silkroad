@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+  <reserved>1</reserved>
+  <name><![CDATA[深绿]]></name>
+  <define>
+    <page><![CDATA[green-a]]></page>
+    <title><![CDATA[green-b]]></title>
+    <widget><![CDATA[green-a]]></widget>
+    <content>
+      <code><![CDATA[green-a]]></code>
+      <title><![CDATA[gray-c]]></title>
+      <piclist><![CDATA[gray-a]]></piclist>
+      <palist><![CDATA[gray-a]]></palist>
+      <slider><![CDATA[gray-a]]></slider>
+      <menu><![CDATA[green-a]]></menu>
+      <comment><![CDATA[gray-d]]></comment>
+      <activity><![CDATA[gray-a]]></activity>
+      <survey><![CDATA[gray-e]]></survey>
+      <vote><![CDATA[gray-e]]></vote>
+    </content>
+  </define>
+</theme>

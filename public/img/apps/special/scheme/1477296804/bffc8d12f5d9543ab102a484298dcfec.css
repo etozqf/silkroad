@@ -1,0 +1,22 @@
+ .content-palist-blue li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-blue img { margin:8px 8px 8px 0;}
+ .content-palist-blue .summary { margin:0; padding:0;}
+ .content-palist-blue{background-color:#fff;}
+ .content-palist-blue .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-blue .imgtxtsummary-list a{color:#333;}
+ .content-palist-blue .imgtxtsummary-list h3 a{ color:#06c; font-size:12px;font-weight:bold;}
+ .content-palist-blue .imgtxtsummary-list p{color:#333;}
+ .content-palist-blue .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.title-blue-c { overflow: hidden; background:#0078B6; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:9px;}
+.title-blue-c,.title-blue-c span{color:#fff;}
+.content-list-gray-a ul { padding:5px 8px;}
+.content-list-gray-a li { line-height:25px; padding-left:8px; background:url("http://img.xh08.cn/apps/special/ui/content/list/gray-a/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-a a { font-size:14px; color:#333;}
+.content-list-gray-a a:hover{ color:#c00;}
+.content-list-gray-a .date{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #bbb;}
+.frame-blue-a { border:1px solid #BAD6F1; background:#fff;}
+.content-list-gray-b ul { padding:8px 10px 0;}
+.content-list-gray-b li { line-height:22px; padding-left:8px; background:url("http://img.xh08.cn/apps/special/ui/content/list/gray-b/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-b a { font-size:14px; color:#333;}
+.content-list-gray-b a:hover{ color:#da2c83;}
+.content-list-gray-b .date{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #999999;}

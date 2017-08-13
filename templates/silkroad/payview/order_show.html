@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>付费阅读-订单详情-{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<link href="{IMG_URL}templates/{TEMPLATE}/css/dialog.css" rel="stylesheet" type="text/css" />
+<link href="{IMG_URL}templates/xinhua08/css/store.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/cmstop.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.validator.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input[name='is_invoice']").change(function(){
+		invoice_check();
+	});
+	invoice_check();
+});
+function invoice_check(){
+	var c = $("input[name='is_invoice']:checked").val();
+	var invoice_option = $("#invoice_option");
+	if(c==1){invoice_option.show();}
+	else{invoice_option.hide();}
+}
+</script>
+</head>
+<body class="person-theme">
+<div class="person-wrap">
+  <!--{template 'phonereader/header.html'}-->
+  <div class="clear"></div>
+  <div class="person-cont">
+    <!--{template 'payview/left.html'}-->
+    <div class="p-rightbar">
+      <div class="hr-h10"></div>
+      <form action="{url('payview/order/repay')}" method="POST" name="order_add" id="order_add">
+			<input type="hidden" id="orderno" name="orderno" value="{$orderno}" />
+			<ul class="formFormat">
+				<li><span class="info f-l txt-r">订单号：</span>{$orderno}</li>
+				<li><span class="info f-l txt-r">订阅栏目组：</span><img src="{UPLOAD_URL}{$category_data[logo]}" style="width:200px;" />{$category_data[title]}({$category_data[timetype]}个月)</li>
+				<li><span class="info f-l txt-r">阅读栏目：</span>{$category_data[categorys_name]}</li>
+				<li class="subTime"><span class="info f-l txt-r" style="height:40px">订阅期限：</span><em>订阅起始时间： {$data['starttime']}<br>订阅结束时间： {$data['endtime']}</em></li>
+				<li><span class="info f-l txt-r">订阅费用：</span><em>{$data['payfee']} 元</em></li>
+				<li><span class="info f-l txt-r">支付类型：</span>{$data['type_text']}</li>
+				<li><span class="info f-l txt-r">支付状态：</span>{$data['status_text']}</li>
+			<!--{if $mount>50}-->{if $data['status']}
+				<li><span class="info f-l txt-r">是否开具发票：</span>{if $data[is_invoice]}是{else}否{/if}</li>
+				{if $data[is_invoice]}
+				<li><span class="info f-l txt-r">发票抬头：</span>{$data[invoice_title]}</li>
+				<li><span class="info f-l txt-r">收件人：</span>{$data[post_name]}</li>
+				<li><span class="info f-l txt-r">邮寄地址：</span>{$data[post_address]}</li>
+				<li><span class="info f-l txt-r">邮寄费用：</span>{$data[post_fees]} 元</li>
+				<li><span class="info f-l txt-r">联系电话：</span>{$data[post_phone]}</li>
+				{/if}
+			{else}
+				<li><span class="info f-l txt-r">是否开具发票：</span>
+					<label><input type="radio" name="is_invoice" value="1" {if  $data[is_invoice]}checked="checked"{/if}> 是</label>
+					<label><input type="radio" name="is_invoice" value="0" {if !$data[is_invoice]}checked="checked"{/if}> 否</label>
+				</li>
+				<span id="invoice_option" {if !$data[is_invoice]}style="display:none;"{/if}>
+				<li><span class="info f-l txt-r">发票抬头：</span><input class="input-text" type="text" name="invoice_title" size="60" value="{$data[invoice_title]}"></li>
+				<li><span class="info f-l txt-r">收件人：</span><input class="input-text" type="text" name="post_name" size="60" value="{$data[post_name]}"></li>
+				<li><span class="info f-l txt-r">邮寄地址：</span><input class="input-text" type="text" name="post_address" size="60" value="{$data[post_address]}"></li>
+				<li><span class="info f-l txt-r">邮寄费用：</span>{$setting[post_fees]} 元</li>
+				<li><span class="info f-l txt-r">联系电话：</span><input class="input-text" type="text" name="post_phone" size="40" value="{$data[post_phone]}"></li>
+				</span>
+			{/if}<!--{/if}-->
+				<li><span class="info f-l txt-r">下单时间：</span>{$data[created]}</li>
+				<li class="ok-wrap">
+				{if $data['status']==0}
+				<input type="submit" id="zhifu" value="马上支付" class="zl-btn zl-ok" style="cursor:pointer" />
+				{/if}
+				</li>
+			</ul>
+		</form>
+    </div>
+  </div>
+<!--#include virtual="/section/193.html"-->
+</div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$sitename[0]} _ 资讯</title>
+<meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css"> 
+
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script>
+$(function () {
+	catname_top = '资讯';	// 顶级栏目名称
+	$('.n_ind_contitle>ul>li').each(function(){
+		if($(this).hasClass('n_ind_contitle_on')){
+			catname = $(this).find('span').html();
+		}
+	})
+})
+</script>
+</head>
+<body>
+
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+
+<div class="container">
+	<!-- left -->
+	<div class="left730">
+		<div class="n_ind_contitle">
+		    <ul class="information_proid">
+		    <?php 
+				$db=factory::db();
+				//首先得到栏目ID，包含资讯频道及其子栏目,返回字符串，以逗号分隔
+				$catid=table('category',4,'childids');
+				//根据栏目catid得到前10个属性，如果显示的数量超出样式宽度，将被隐藏。
+				$field=" distinct(p.proid) as proid,p.name as name ";
+				$table=" #table_property_category as pc inner join #table_property as p on pc.proid=p.proid";
+				$where=" where catid in($catid) order by p.sort asc limit 10";
+				$list=$db->select("select $field from $table $where");
+				
+				//根据cookie得到会员ID
+				$cookie=$_COOKIE['_xauthTK'];
+				preg_match('/uid\":\"([0-9]+)\",/',$_COOKIE['_xauthTK'],$matches);
+				$memberid=intval($matches[1]);
+		    ?>
+
+			<li class="n_ind_contitle_on" proid="0">最新</li>	
+			<!--{loop $list $n $val}-->
+			<li proid="{$val['proid']}">{$val['name']}</li>
+		    <!--{/loop}-->
+		    </ul>
+		  </div>
+		  <div class="n_ind_contmain">
+
+			<!--此处容器内拼装ajax动态请求的数据-->
+		  <div class="news" style="display:block"> 
+	        	<ul>
+				<!--{content catid="4" modelid="1" orderby="published desc" size="10"}-->
+					<?php 
+						$contentid=intval($r['contentid']);
+						$result=$db->select("select collectid from cmstop_collect where memberid=$memberid and contentid=$contentid");				
+
+						$mark=empty($result)?1:2; //数值1时，显示收藏，2时显示取消收藏
+						$collectid=empty($result)?'null':$result[0]['collectid'];
+						$collect=empty($result)?"收藏":"取消收藏";
+					?> 
+						<!--{if empty($r['thumb'])}-->
+					<li>
+                      <h2><a href="{$r['url']}" target="_blank">{$r['title']}</a></h2>
+                      <p>{description($r['contentid'])} &nbsp;&nbsp;&nbsp;&nbsp; [<a href="{$r['url']}" target="_blank">详细</a>]</p>
+                      <div class="info"><span class="time">{date("Y-m-d H:i:s",$r['published'])}</span><span class="fav" mark="{$mark}" collectid="{$collectid}" contentid="{$r['contentid']}">{$collect}</span></div> 
+                    </li>									
+				<!--{else}-->
+					<li>
+                    <img src="{thumb($r['thumb'],310,220,1,null,0)}" alt="" width="310" height="220">
+                      <h2><a href="{$r['url']}" target="_blank">{$r['title']}</a></h2>
+                      <p>{description($r['contentid'])}&nbsp;&nbsp;&nbsp;&nbsp;[<a href="{$r['url']}" target="_blank">详细</a>]</p>
+                      <div class="info"><span class="time">{date("Y-m-d H:i:s",$r['published'])}</span><span class="fav" mark="{$mark}" collectid="{$collectid}" contentid="{$r['contentid']}">{$collect}</span></div> 
+                    </li>
+				<!--{/if}-->		
+				 
+				<!--{/content}-->
+	        	</ul> 
+	          <a class="more" mark="more" href="#">更多最新内容>></a>
+      	  </div>
+      		
+
+
+		  </div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+		
+			<!--#include virtual="/section/301.html"--><!--# 资讯频道 丝路情报 #-->
+			<!--#include virtual="/section/372.html"--><!--# 报告 右侧-智讯参考区块 #-->
+			
+			<!--#include virtual="/section/304.html"--><!--# 资讯频道 国别报告 #-->
+		
+		<div class="item">
+			<div class="hd"><a >阅读排行</a></div>
+			<div class="bd">
+				<ul class="tops">
+				<!--{content catid="4" modelid="1" orderby="published desc, pv desc" page="$page" size="10"}-->
+					<!--{if $i<=3}-->
+								<li><a href="{$r['url']}"><span class="num t3">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+						<!--{else}-->
+								<li><a href="{$r['url']}"><span class="num">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+					<!--{/if}-->	
+				<!--{/content}-->
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+
+
+<!--{template 'system/foot_zn.html'}-->
+
+<script>
+	$(function(){
+		$(".n_ind_contitle li").bind("click",function(){
+			var index = $(this).index();
+			$(this).addClass("n_ind_contitle_on").siblings().removeClass("n_ind_contitle_on");
+			$(".n_ind_contmain .news").eq(index).show().siblings().hide();
+		})
+
+		var page=1; //默认当前页为1
+		var catid=4; //资讯频道栏目ID
+ 
+		/*属性栏点击效果*/
+		$(".information_proid li").click(function(){
+			var page=1;
+			proid=$(this).attr("proid");
+			if(proid==0){
+				var url=window.location.href;
+				window.location.href=url;
+			}
+			var pattern=/([0-9]+\.jpg$)/;
+			//删除之前已经存在的div显示区
+			$(".news ul li").remove();	
+
+			$.getJSON(APP_URL+"?app=system&controller=property&action=get_proid_article&jsoncallback=?&catid="+catid+"&proid="+proid+"&page="+page,function(json){
+				 if(json.status=="success")
+				 {
+
+				 	$(".more").css("display","block");
+				 	var length=json['content'].length;
+				 	var div="";
+					for(var i=0;i<length;i++)
+				 	{
+
+				 		var title=json['content'][i]['title'];
+
+				 		var thumb=json['content'][i]['thumb'];				 		 			
+				 		div+='<li>';
+				 		if(thumb){
+				 			div+='<img src="'+thumb+'" width="310" height="220">';
+				 		}
+						div+='<h2><a href="'+json['content'][i]['url']+'" class="jiemowudi" target="_blank">'+json['content'][i]['title']+'</a></h2>';  
+						div+=' <p>'+json['content'][i]['description']+'&nbsp;&nbsp;&nbsp;&nbsp;[<a href="'+json['content'][i]['url']+'">详细]</a></p>';
+						div+='<div class="info"><span class="time">'+json['content'][i]['published']+'</span><span class="fav" mark="'+json['content'][i]['mark']+'" collectid="'+json['content'][i]['collectid']+'" contentid='+json['content'][i]['contentid']+'>'+json['content'][i]['collect']+'</span></div>';	 
+						div+='</li>'; 
+            		}
+
+				 }
+				 else
+				 {
+				 	div="<li style='text-align:center'>"+json['content']+"</li>";
+				 	$(".more").css("display","none");
+				 }
+
+				//将拼装数据写入		 
+				 $(".news ul").append(div);
+
+			});
+			//getJSON END
+		});
+
+		/*点击加载更多内容*/
+		$(".more").click(function(){
+			//
+			var pattern=/([0-9]+\.jpg$)/;
+			if(typeof(proid)=="undefined"){
+				proid=0;
+			}
+
+			page++;
+			var count=page-1;
+
+			$.getJSON(APP_URL+"?app=system&controller=property&action=get_proid_article&jsoncallback=?&catid="+catid+"&proid="+proid+"&page="+page,function(json){
+				
+				 if(json.status=="success")
+				 {
+				 	$(".more").css("display","block");
+				 	var length=json['content'].length;
+				 	var div="";
+					for(var i=0;i<length;i++)
+				 	{
+				 		var title=json['content'][i]['title'];
+				 		var thumb=json['content'][i]['thumb'];	
+				 		div+='<li>';
+				 		if(thumb){
+				 			div+='<img src="'+thumb+'" width="310" height="220">';
+				 		}
+
+						div+='<h2><a href="'+json['content'][i]['url']+'" class="jiemowudi" target="_blank">'+json['content'][i]['title']+'</a></h2>';  
+						div+=' <p>'+json['content'][i]['description']+'&nbsp;&nbsp;&nbsp;&nbsp;[<a href="'+json['content'][i]['url']+'">详细]</a></p>';
+						div+='<div class="info"><span class="time">'+json['content'][i]['published']+'</span><span class="fav" mark="'+json['content'][i]['mark']+'" collectid="'+json['content'][i]['collectid']+'" contentid='+json['content'][i]['contentid']+'>'+json['content'][i]['collect']+'</span></div>';	 
+						div+='</li>';   
+            		}
+
+				 }
+				 else
+				 {
+				 	div="<li style='text-align:center'>"+json['content']+"</li>";
+				 	$(".more").css("display","none");
+				 }
+
+				//将拼装数据写入		 
+				 $(".news ul").append(div);
+
+				 //增加新的li后，滚动条每次滚动指定像素位置。	 
+				 window.scrollBy(0,count*140*10);
+				
+				
+			});
+			
+			//getJSON END
+		});
+
+
+
+
+		 //点击收藏与取消搜藏
+		 $(".news").delegate(".info .fav","click",function()
+		 {
+		 		var text=$(this).text();
+		 		var that=$(this);
+		 		var contentid=$(this).attr("contentid");
+		 		var collectid=$(this).attr('collectid');
+		 		var mark=$(this).attr('mark');
+				$.getJSON(APP_URL+"?app=system&controller=property&action=collect&jsoncallback=?&contentid="+contentid+"&collectid="+collectid+"&mark="+mark,function(json){
+					
+					var content=json['collect'];
+					var mark=json['mark'];	
+					//代表由收藏转为取消收藏	
+					if(json.status=="success")
+					{
+						that.text(content);
+						that.attr("mark",mark);
+					}
+
+					//代表取消收藏转为收藏	
+					if(json.status=="success_q")
+					{
+						var collectid=json['collectid'];
+						that.text(content);
+						that.attr("mark",mark);
+						that.attr("collectid",collectid);
+					}	
+				
+					
+				})
+			
+		 }) 
+           
+
+	})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+.title-blue { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/blue/images/bg.jpg") repeat-x 0 0; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#06c;}
+.title-blue a,.title-blue span { padding-left:9px;}
+.content-slider-white-a {background:#000;}
+.content-slider-white-a .slider-nav a,.content-slider-white-a .slider-nav a:hover { color:#333; text-decoration: none; font-size:12px;}
+.content-slider-white-a .slider-nav a.active{ color:#fff; background:#333;}
+.content-slider-white-a a.title{color:#fff; font-weight:normal;}
+.content-slider-white-a a:hover.title{color:#999;}
+.title-gray-b { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/gray-b/images/gray_title2.png") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; padding-left:20px;}
+.title-red-c { overflow: hidden; background:url("http://img.xh08.cn/apps/special/ui/title/red-c/images/red-c.jpg") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-red-c a,.title-red-c span{color:#900;font-weight:bold;font-size:14px;}
+.frame-gray-b { border:1px solid #B6BBC0; background:#fff;}

@@ -1,0 +1,8 @@
+/*
+ @name 今日话题
+ @notes 今日话题红色背景，可替换
+*/
+.frame-huati{
+	background:url(images/bg.jpg) repeat-x 0 0;
+	height:274px;
+}

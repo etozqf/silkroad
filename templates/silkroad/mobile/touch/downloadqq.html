@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-placeholder-focus="false">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>{$SYSTEM[sitename]}</title>
+    <script>
+        var isWeixin,platform={},ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) !== null){
+            isWeixin = true;
+            isQQ = false;
+        }else if(ua.match(/qq/i)){
+            isQQ = true;
+            isWeixin = false;
+        }else{
+            isWeixin = false;
+            isQQ = false;
+        }
+        if (ua.indexOf('android') > -1 || ua.indexOf('linux') > -1) {//安卓手机
+            platform.isAndroid = true;
+        }else if(ua.indexOf('iphone')>-1){
+            platform.isIos = true;
+        }else{
+            platform.isUnknown = true;
+        }
+        if (!isWeixin && !isQQ) {
+            if (platform.isIos) {
+                window.location.href = '{setting('mobile', 'iphone_version_url')}';
+            } else {
+                window.location.href = '{setting('mobile', 'android_version_url')}';
+            }
+        }
+    </script>
+    <style>
+        html,body{height: 100%;}
+        body{margin:0;padding:0;padding:40px 0 0 0;font-size:17px;position: relative;min-height: 520px;box-sizing: border-box;}
+        h2{margin:0;margin-bottom:15px;padding:0;line-height:1;}
+        .outer{position: absolute;left: 50%;margin-left: -130px;}
+        .icon{background-image:url('{MOBILE_URL}templates/{TEMPLATE}/touch/imgs/downloadqq.png');overflow:hidden;}
+        .step{vertical-align:top;position:relative;top:12px;font-size:17px;}
+        .f .step{margin-right:20px;}
+        .s{overflow:hidden;margin-top:15px;height:121px;line-height:121px;}
+        .hide{display:none;}
+        .f .icon{display:inline-block;width:40px;height:40px;background-position:-114px -129px;}
+        .f .icon.rotate{transform: rotate(90deg);-webkit-transform: rotate(90deg);margin-top: 3px;}
+        .f .icon.qq{background-position:-74px -132px;width:40px;height:40px;border-radius:20px;}
+        .s .icon{float:left;display:inline-block;width:121px;height:121px;border-radius:60px;margin-right:20px;}
+        .s .icon.android{background-position:-13px -12px;}
+        .s .icon.ios{background-position:-147px -16px;}
+        .s .des{display:inline-block;height:auto;line-height:initial;}
+        .sitelogo{width:88px;height:88px;background-position:-330px 0px;margin:auto;position:absolute;bottom:80px;left:50%;margin-left:-44px;}
+        .copyright{margin:auto;text-align:center;width:152px;height:30px;background-position:-266px -145px;position:absolute;bottom:40px;left:50%;margin-left:-76px;}
+        .des .msg{text-indent:1em;font-size:14px;}
+        .animate{position:fixed;height:44px;width:40px;top:30px;right:15px;background-position:-152px -129px;animation:move 1s infinite ease-out;-webkit-animation:move 1s infinite ease-out; /* Safari 和 Chrome */}
+        .graybg{position:absolute;height:50px;bottom:0;background-color:#f5f5f5;width:100%;z-index:-1;}
+        .graybg > p {font-size: 10px;left: 10px;position: absolute;right: 10px;text-align: center;}
+        @keyframes move{
+            from{top:30px;}
+            80%{top:10px;}
+            to{top:30px;}
+        }
+        @-webkit-keyframes move /* Safari 和 Chrome */{
+            from{top:30px;}
+            80%{top:10px;}
+            to{top:30px;}
+        }
+    </style>
+</head>
+<body>
+<div class="animate icon"></div>
+<div class="outer">
+    <h2>安装步骤</h2>
+    <div class="f">
+        <span class='step'>1.点击右上角的</span>
+        <div class="icon"></div>
+    </div>
+    <div class="s">
+        <div class="icon"></div>
+        <div class="des">
+            <div class='step'>2.在菜单中选择</div><br/>
+            <div class="msg android hide">在浏览器中打开</div><div class="msg ios hide">在Safari中打开</div>
+        </div>
+    </div>
+</div>
+<div class="graybg"><p>Copyright © 2015 CmsTop. All Rights Reserved</p></div>
+</body>
+<script>
+    (function (global) {
+        var sDom = document.body.getElementsByClassName('s')[0];
+        var fDom = document.body.getElementsByClassName('f')[0];
+        var iconDom = sDom.getElementsByClassName('icon')[0];
+        if(platform.isIos){
+            iconDom.setAttribute('class','icon ios');
+            sDom.getElementsByClassName('ios')[1].setAttribute('class','msg');
+            !isQQ && fDom.getElementsByClassName('icon')[0].setAttribute('class','icon rotate');
+            isQQ && fDom.getElementsByClassName('icon')[0].setAttribute('class','icon qq');
+        }else if(platform.isAndroid){
+            iconDom.setAttribute('class','icon android');
+            sDom.getElementsByClassName('android')[1].setAttribute('class','msg');
+        }else{
+            document.write('请在浏览器中打开此链接');
+        }
+    }(window));
+</script>
+</html>

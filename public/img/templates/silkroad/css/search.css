@@ -1,0 +1,59 @@
+﻿/*丝路搜索样式*/
+
+html , body { background: #FAFAF9;}
+.search-input { margin-top: 35px; position: relative; padding-left: 0;}
+.search-header { background: url("../images/search_bg.jpg") center top no-repeat; height: 228px;}
+.search-input .type label { margin-left: 10px;}
+.search-input .type label i.icon { background: url("../images/search-icon.png") 0 -64px no-repeat; width: 14px; height: 14px; position: relative; top: 2px; margin-right: 5px;}
+.search-input .type { margin-top: 12px; color: #FFFFFF;}
+.search-input .type label i.icon.on { background-position: -19px -64px;}
+
+/*图标区*/
+.sea-con-canv { width: 200px; padding-top: 14px;}
+.sea-con-canv i.icon { background: url("../images/search-icon.png") 0 -33px no-repeat; display: inline-block; width: 8px; height: 4px; position: relative; top: -3px; margin-left: 5px;}
+.sea-con-canv li { margin-bottom: 50px;}
+#charDate { width: 190px; height: 300px;}
+#charSource , #charAddr { width: 190px; height: 300px;}
+
+/*列表区*/
+.sea-con-list { width: 600px;}
+.sea-con-list .filter { background: #F2F1EF; padding: 15px 0;}
+.sea-con-list .filter a { color: #454544; margin-left: 15px;}
+.sea-con-list .filter a.on { color: red;}
+.sea-con-list i.icon { width: 14px; height: 14px; display: inline-block; background: url("../images/search-icon.png") 0 -43px no-repeat;}
+.sea-con-list i.icon.on { background-position: -19px -43px;}
+.sea-con-list .filter i.icon { margin-left: 10px;}
+.sea-con-list .con li { padding: 5px 0; padding-left: 10px; margin-bottom: 20px; margin-top: 10px;}
+.sea-con-list .con li em { color: red; font-style: normal;}
+.sea-con-list .con li .txt { width: 565px; margin-left: 10px;}
+.sea-con-list .con li .txt .source { margin: 5px 0; color: #A7A39E;}
+.sea-con-list .con li .txt .title { color: #595853;}
+.sea-con-list .con li .txt .title a { color: #0066AC;}
+.pagination { text-align: center; margin: 50px 0;}
+.pagination a { background-color: #eee; color: #666;}
+.pagination a[href]:hover { background-color: #5e5e5e; color: #fff !important;}
+.pagination a.current , .pagination a.now { color: #fff; background-color: #4e4e4e;}
+.pagination span.current , .pagination span.now { color: #fff; background-color: #4e4e4e;}
+.pagination .disable { color: #c0c0c0;}
+.pagination a.disable:hover { background-color: #eee; color: #c0c0c0;}
+.pagination a { font-size: 14px; height: 30px; line-height: 30px; padding: 7px 10px; margin-right: 2px;}
+.pagination a { margin: 0 3px;}
+.pagination span { font-size: 14px; height: 30px; line-height: 30px; padding: 10px 10px; margin-right: 2px;}
+
+
+
+/*已选区*/
+.sea-con-pre { width: 180px; padding-left: 20px;}
+.sea-con-pre .tit { color: #454544; padding-top: 14px;}
+.sea-con-pre i.icon { background: url("../images/search-icon.png") 0 -33px no-repeat; display: inline-block; width: 8px; height: 4px; position: relative; top: -3px; margin-left: 5px;}
+.sea-con-pre .list { margin-top: 10px;}
+.sea-con-pre .list li { margin-bottom: 3px; height: 20px; line-height: 20px;}
+.sea-con-pre .list li a { width: 160px;}
+.sea-con-pre .list li i.icon2 { background: url("../images/search-icon.png") -19px 0 no-repeat; width: 14px; height: 14px; position: relative; top: 3px; cursor: pointer;}
+.sea-con-pre .list li a { color: #454544; display: block;}
+.sea-con-pre select { outline: none; width: 100%; height: 30px;}
+.sea-con-pre .hr { width: 100%; border-top: 1px solid #DEDEDE; display: block; margin: 20px 0; margin-top: 40px;}
+.sea-con-pre .send { margin: 10px 0;}
+.sea-con-pre .send a { background: #0079C6; width: 45%; height: 30px; line-height: 30px; text-align: center; color: #FFFFFF;}
+.sea-con-pre .setnull { text-align: center;}
+.sea-con-pre .setnull a { color: #0079C6;}

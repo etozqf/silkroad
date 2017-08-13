@@ -1,0 +1,40 @@
+.weibo-box {margin:8px 40px; width:720px;}
+.weibo-banner {background:url('images/banner-bg.png');padding:0 1px;width:100%;height:38px; border:1px #DDD solid; position: relative;border-bottom:1px #f8f8f8 solid;}
+.weibo-banner h3 {color:#666; display:inline;line-height: 38px; padding-left: 30px; font-size:14px;}
+.weibo-panel {background:#FFFFFF;width:100%;padding:12px 1px 24px 1px;border:1px #DDD solid;position: relative;}
+.weibo-panel table {margin: 0 auto;text-align: center; }
+.weibo-panel table thead th {height:40px; color:#666; font-weight:bold; border-bottom: 1px solid #DDD;}
+.weibo-panel table td {height:40px;line-height:40px; border-bottom: 1px dashed #DDD; padding:0px; color:#666;}
+.weibo_add {padding:16px 0 0 16px;}
+.weibo_add_btn {cursor: pointer;}
+.weibo-disable {background-position: -48px -450px;}
+.weibo-content {width:666px; padding:10px 20px; font-size: 14px;}
+.weibo-line {width:666px; clear: both;}
+.weibo-content h2 {color:#666; display:inline; font-size:14px;}
+.weibo-content h3 {color:#666; display:inline; font-size:14px; font-weight: normal;}
+.weibo-red {color: #ff0000;}
+.weibo-checkbox {background: #DDD; color: #666; font-size: 12px; cursor: pointer; display: inline-block; line-height: 20px; padding: 0 6px; border-radius: 4px; margin: 0 4px;}
+.weibo-checked {background: #C0E6FE;}
+
+.weibo-switch {position: relative; top: -13px; left: 0;}
+.weibo-delete {cursor: pointer;}
+
+.weibo-leftfloat { float:left;}
+.weibo-rightfloat { float:right;}
+.weibo-textarea { width: 660px; height: 110px; border: 1px solid #DDD;}
+.weibo-postpic {float:left; margin-top: 6px; padding-left: 18px; color: #077AC7; background: url('images/add-pic.gif') no-repeat;}
+.weibo-letter-count {margin-top: -4px; float: right; color: #2F84A1; font-size: 26px; font-family: Georgia,Tahoma,Arial; font-style: italic;padding-right: 20px;}
+.weibo-list {line-height:24px; line-height: 24px;}
+
+/* slider */
+.weibo-picture-list {width: 666px; height: 90px; position: relative; border: 1px solid #DDD; overflow: hidden;}
+.weibo-pic-arrow {width: 15px; height: 90px; top: 0px; display: block; position: absolute; z-index: 100; cursor: pointer;}
+.weibo-pic-left {left: 0px; background: url('images/pic-left.png'); border-right: 1px solid #DDD;}
+.weibo-pic-right {right: 0px; background: url('images/pic-right.png'); border-left: 1px solid #DDD;}
+.weibo-pic-box {width: 80px; height: 80px; top: 50%; margin-top: -41px; margin-bottom: 100px; border: 1px solid #CCC; position: relative; background: #EEE; overflow: hidden; cursor: pointer;}
+.weibo-upload {left:24px; z-index: 100; position: absolute; background: url('images/uploader.png');}
+.weibo-pic-panel {width:9999px; line-height: 90px; height: 90px; vertical-align: middle; margin-left: 112px; position: relative; left: 2px;}
+.weibo-pic-panel .weibo-pic { margin-right: 8px; float: left; height: 60px; padding: 10px 0;}
+.weibo-pic-panel .weibo-choose {border: 3px solid #058205; margin-top: -43px; margin-left: -2px; margin-right: 6px;}
+
+.thumb {margin-right: 4px;}

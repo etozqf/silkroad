@@ -1,0 +1,248 @@
+.hero {
+    background: url(images/baoliao.png);
+    width: 1000px;
+    height: 400px;
+    position: relative;
+}
+.search-form {
+    position: absolute;
+    left: 584px;
+    top: 42px;
+    font-size: 0;
+}
+.search-form input[type="text"] {
+    width: 192px;
+    background: none;
+    height: 24px;
+    line-height: 24px;
+    border: none;
+    margin-top: 2px;
+    text-indent: 6px;
+    font-size: 14px;
+}
+.search-form input:focus {
+    outline: 0;
+}
+.search-form input[type="submit"] {
+    text-indent: 22px;
+    color: #fff;
+    background: none;
+    font-size: 16px;
+    width: 68px;
+    height: 24px;
+    cursor: pointer;
+}
+.gotopost,.gotopost:hover {
+    position: absolute;
+    left: 610px;
+    top: 290px;
+    width: 160px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff!important;
+    font-size: 22px;
+}
+.baoliao-hot {
+    margin-top: 8px;
+}
+.baoliao-hot li {
+    line-height: 34px;
+    white-space: nowrap;
+}
+.baoliao-hot li > a {
+    font-size: 14px;
+    color: #444;
+}
+.baoliao-notice {
+    margin-top: 8px;
+}
+.baoliao-notice p {
+    line-height: 1.8;
+    margin-bottom: 10px;
+    text-indent: 2em;
+    font-size: 13px;
+}
+.baoliao-list li {
+    height: 60px;
+    padding: 20px 0 0 0;
+    border-bottom: 1px solid #eee;
+}
+.baoliao-list li .title {
+    background: url(images/ico16x16.png) no-repeat -20px -1090px;
+    padding-left: 12px;
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.baoliao-list li .title:hover {
+    color: #444!important;
+}
+.baoliao-list li span {
+    color: #777;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 6px;
+    padding-left: 12px;
+}
+.pagination a {
+    margin: 0 4px;
+}
+
+/* 表单 */
+.title-name, .title-txt, .article-name, .content-txt, .summay-name, .summay-txt, .key-name, .key-box, .select-name, .type-box, .original-name, .original-txt, .src-name, .src-txt, .src-add-name, .src-add-txt, .author-name, .author-txt, .check-name, .check-login-box {float: left; _display: inline; font-size: 14px; }
+.title-name, .article-name, .summay-name, .key-name, .select-name, .src-name, .src-add-name, .author-name, .check-name {width: 78px; text-align: right; padding-right: 20px; font-size: 14px; color: #333; line-height: 28px; }
+.original-name {
+  line-height: 28px;
+}
+.content-txt {
+    border: 1px solid #BBBBBB;
+    height: 370px;
+  width: 550px;
+}
+.title-txt, .key-txt, .src-txt, .src-add-txt, .author-txt, .check-txt {border: 1px solid #bbb; font-size: 14px; color: #333; height: 22px; float: left;}
+.title-txt,
+.key-txt,
+.src-add-txt {
+  width: 296px;
+}
+.src-txt, .author-txt {width: 196px; }
+
+.other {margin-left: 4px; height: 22px; line-height: 22px;}
+.baoliao-form-table { margin-top: 20px;}
+.baoliao-form-table .ov {
+    margin-top: 12px;
+}
+.baoliao-form-table .submit {
+  margin: 0 0 0 34px;
+}
+.baoliao-form-table .info {
+  margin-left: 8px;
+  height: 22px;
+  line-height: 22px;
+  float: left;
+}
+.must,.info {color: #ff0000;}
+
+.baoliao-upload-div {
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+.baoliao-upload-div a,.baoliao-upload {
+    font-size: 13px;
+    color: #0066cc;
+}
+.baoliao-upload {
+    position: static;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.editor-box { margin-left: 98px;}
+.attachment-panel {
+    margin-left: 100px;
+}
+.attachment-img,.attachment-video {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    padding: 0;
+    float: left;
+}
+.attachment-img .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background: #666666;
+    opacity:0.6;
+    filter: alpha(opacity=60);
+}
+.attachment-img .delete {
+    width: 16px;
+    height: 16px;
+    background-image: url(images/del.gif);
+    position: absolute;
+    top: 1px;
+    right: 0;
+    cursor: pointer;
+}
+.attachment-video .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background: #666666;
+    opacity:0.6;
+    filter: alpha(opacity=60);
+}
+.attachment-video .ico {
+    width: 16px;
+    height: 16px;
+    background-image: url(images/video.png);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+.attachment-video .delete {
+    width: 16px;
+    height: 16px;
+    background-image: url(images/del.gif);
+    position: absolute;
+    top: 1px;
+    right: 0;
+    cursor: pointer;
+}
+/* end 表单 */
+
+.baoliao-content .title h1 {
+    color: #333;
+    font-size: 22px;
+    font-weight: normal;
+}
+.baoliao-content .date {
+    color: #777;
+    font-size: 13px;
+    float: left;
+}
+.baoliao-infos .related {
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    background: #0091e4;
+    color: #fff!important;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 20px;
+  }
+  .cmstopVideo { margin-bottom: 8px;}
+  .baoliao-context p {
+    margin-bottom: 8px;
+  }
+  .baoliao-context img {
+    max-width: 100%;
+    *width: 100%;
+  }
+  .baoliao-text {
+    line-height: 2;
+  }
+  .baoliao-reply {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+  }
+  .baoliao-reply-info {
+    color: #0076c8;
+    font-size: 16px;
+    margin-bottom: 18px;
+  }

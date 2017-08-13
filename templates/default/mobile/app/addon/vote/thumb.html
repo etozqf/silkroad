@@ -1,0 +1,383 @@
+<!-- 挂件-投票 -->
+<style type="text/css">
+.widget-vote-thumb .btn,
+.widget-vote-thumb .btn span {
+    background-image: url({IMG_URL}templates/{TEMPLATE}/css/images/btn.png);
+    color: #ffffff;
+}
+.widget-vote-thumb .btn {
+    cursor: pointer;
+}
+.widget-vote-thumb .btn-s-blue {
+    height: 22px;
+    background-position: -201px -165px;
+    padding-left: 4px;
+    float: left;
+    _display: inline;
+}
+.widget-vote-thumb .btn-s-blue span {
+    height: 22px;
+    line-height: 22px;
+    letter-spacing: 2px;
+    background-position: right -5px;
+    padding-right: 4px;
+    padding-left: 2px;
+    float: left;
+    _display: inline;
+}
+.widget-vote-thumb .btn-s-blue span {
+    font-size: 12px;
+}
+.widget-vote-thumb .btnarea {
+    clear: both;
+}
+.widget-vote-thumb .btnarea {
+    padding: 9px 0;
+    overflow: hidden;
+    _zoom: 1;
+}
+.vote-thumb {
+    color: #333;
+    overflow: hidden;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+.vote-thumb .row {
+    width: 300px;
+    background: #FFF;
+    list-style: none;
+    overflow: hidden;
+    margin: 5px auto;
+    padding: 9px 9px;
+    border: solid 1px #D2D2D2;
+    position: relative;
+}
+.vote-thumb .row a {
+    display: block;
+    outline: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.vote-thumb a,
+.vote-thumb a:visited {
+    text-decoration: none;
+    color: #333;
+}
+.vote-thumb a:hover,
+.vote-thumb a:active {
+    text-decoration: none;
+    color: #C00;
+}
+.vote-thumb .vote-img {
+    {if $thumb_width}width: {intval($thumb_width)}px;{/if}
+    {if $thumb_height}height: {intval($thumb_height)}px;{/if}
+    overflow: hidden;
+    border: 0;
+}
+.vote-thumb .vote-text {
+    clear: both;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 9px;
+    padding-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.vote-thumb .vote-checkbox,
+.vote-thumb .vote-btn {
+    display: block;
+    width: 100%;
+    zoom: 1;
+}
+.vote-thumb .vote-btn {
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    border: 0;
+    padding: 0;
+    background: transparent url({IMG_URL}templates/{TEMPLATE}/css/images/vote-btn.png) no-repeat 0 0;
+    cursor: pointer;
+}
+.vote-thumb .vote-btn-over {
+    color: #FFF;
+    background-position: 0 -36px;
+}
+.vote-thumb .vote-count {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.vote-thumb .vote-count i {
+    font-style: normal;
+}
+.widget-vote-thumb .vote-message {
+    display: none;
+    float: left;
+    margin-left: 10px;
+    color: green;
+}
+.widget-vote-thumb .ui-seccode,
+.ui-vote-form .ui-seccode {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.widget-vote-thumb .ui-seccode .ui-seccode-overlay,
+.ui-vote-form .ui-seccode .ui-seccode-overlay {
+    opacity: 0.3;
+    background: #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.ui-seccode-container {
+    position: absolute;
+    left: 10px;
+    background: #FFF;
+    right: 10px;
+    bottom: 190px;
+    border-radius: 4px;
+    color: #666;
+    padding-top: 10px;
+}
+.ui-seccode-container p {
+    padding: 0 10px 0;
+    line-height: 40px;
+}
+.ui-seccode-container p > img {
+    vertical-align: middle;
+}
+.ui-seccode-container p > a {
+    color: #4D9BFD;
+    margin-left: 12px;
+}
+.ui-seccode-container input {
+    width: 100%;
+    border: 1px solid #E5E5E5;
+    line-height: 36px;
+    border-radius: 4px;
+    text-indent: .5rem;
+}
+.widget-vote .ui-seccode-container input {
+    width: 80%;
+}
+
+.ui-seccode-container .ok {
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #EEE;
+    margin-top: 10px;
+    text-align: center;
+    color: #4D9BFD;
+}
+.ui-seccode-container .canel {
+    position: absolute;
+    width: 100%;
+    background: #FFF;
+    bottom: -60px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+}
+</style>
+<?php
+    $thumb_width = 280;
+?>
+<div class="widget-vote-thumb">
+    <div class="vote-main">
+        <form method="GET" action="{API_URL}mobile/?app=mobile&controller=vote&action=vote_content">
+            <input name="contentid" type="hidden" value="{$contentid}"/>
+            <input name="type" type="hidden" value="{$type}"/>
+            <input name="maxoptions" type="hidden" value="{$maxoptions}"/>
+            <ul class="vote-thumb" style="margin:0;padding:0;">
+                <!--{loop $option $v}-->
+                <li class="row" data-optionid="{$v[optionid]}">
+                    <!--{if $v[link]}-->
+                    <a href="{$v[link]}" target="_blank" hideFocus="true">
+                    <!--{else}-->
+                    <a href="javascript:;" hideFocus="true">
+                        <!--{/if}-->
+                        <img class="vote-img"{if $thumb_width} width="{intval($thumb_width)}"{/if}{if $thumb_height} height="{intval($thumb_height)}"{/if} src="{thumb($v[thumb], $thumb_width ? intval($thumb_width) : null,  $thumb_height ? intval($thumb_height) : null)}" />
+                        <span class="vote-text">{$v[name]}</span>
+                    </a>
+                    <span class="vote-count"><i data-role="count">{intval($v[votes])}</i>票</span>
+                    <!--{if $type == 'radio'}-->
+                    <button class="vote-btn">投一票</button>
+                    <!--{else}-->
+                    <span class="vote-checkbox"><label><input type="checkbox" name="optionid" value="{$v[optionid]}" /> 投一票</label></span>
+                    <!--{/if}-->
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <!--{if $type == 'checkbox'}-->
+            <div class="btnarea" style="padding-left:10px;">
+                <a data-role="submit" class="btn btn-s-blue" href="javascript:;"><span>投票</span></a>
+                <span class="vote-message">投票成功，感谢您的参与</span>
+            </div>
+            <!--{/if}-->
+            <!--{if $seccode_type === 'advanced'}-->
+            <div class="ui-seccode" style="display:none;">
+                <div class="ui-seccode-overlay"></div>
+                <div class="ui-seccode-container">
+                    <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image_pro&no_border=1&height=30" /><a class="change-img" href="javascript:;">换一个</a>
+                        <br/>请输入<span class="seccode-color"></span>字符
+                    </p>
+                    <p><input type="text" name="seccode" /></p>
+                    <div class="ok">确认</div>
+                    <div class="canel">取消</div>
+                </div>
+            </div>
+            <!--{else}-->
+            <div class="ui-seccode" style="display:none;">
+                <div class="ui-seccode-overlay"></div>
+                <div class="ui-seccode-container">
+                    <p><img class="change-img" data-src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30" /><a class="change-img" href="javascript:;">换一个</a></p>
+                    <p><input type="text" name="seccode" /></p>
+                    <div class="ok">确认</div>
+                    <div class="canel">取消</div>
+                </div>
+            </div>
+            <!--{/if}-->
+        </form>
+    </div>
+</div><!-- @end 挂件-投票 -->
+<script type="text/javascript">
+(function() {
+var seccode = $('.ui-seccode');
+function vote(url, form, callback, cancelback) {
+    var data;
+    if (seccode.length) {
+        seccode.find('img').trigger('click');
+        seccode.show();
+        seccode.find('.ok').unbind().bind('click', function () {
+            if (seccode.find('input').val()) {
+                seccode.hide();
+                if (form.jquery) {
+                    data = decodeURIComponent(form.serialize());
+                } else {
+                    data = form;
+                    data.seccode = seccode.find('[name="seccode"]').val();
+                }
+                $.post(url, data, function(json) {$.isFunction(callback) && callback(json);}, 'json');
+            }
+        });
+        seccode.find('.canel').unbind().bind('click', function () {
+            seccode.hide();
+            cancelback();
+        });
+    } else {
+        $.post(url, form.serialize(), function(json) {$.isFunction(callback) && callback(json);}, 'json');
+    }
+}
+function updateResult(rows, data) {
+    $.each(data, function(i, n) {
+        rows.filter('[data-optionid='+n.optionid+']').find('[data-role=count]').text(n.votes || 0);
+    });
+}
+function init() {
+    $('.widget-vote-thumb').each(function(i, rows) {
+        rows = $(rows);
+        if (rows.data('vote-inited')) return;
+        var form = rows.find('form'),
+                url = form.attr('action'),
+                contentid = form.find('[name=contentid]').val(),
+                type = form.find('[name=type]').val(),
+                maxoptions = parseInt(form.find('[name=maxoptions]').val());
+        if (url && contentid) {
+            var allRows = rows.find('li.row');
+            if (type == 'radio') {
+                allRows.each(function(j, row) {
+                    row = $(row);
+                    var optionid = parseInt(row.attr('data-optionid'));
+                    if (!optionid) return;
+                    var button = row.find('button').click(function(ev) {
+                        button.attr('disabled', true);
+                        vote(url, {
+                            contentid:contentid,
+                            optionid:optionid
+                        }, function(json) {
+                            if (json && json.state) {
+                                updateResult(allRows, json.data);
+                                button.text('已投票');
+                                allRows.find('button').attr('disabled', true);
+                            } else {
+                                alert(json && json.message || '投票失败，请重试');
+                                button.attr('disabled', false);
+                            }
+                        });
+                        button.removeClass('vote-btn-over');
+                        return false;
+                    });
+                    button.hover(function() {
+                        button.addClass('vote-btn-over');
+                    }, function() {
+                        button.removeClass('vote-btn-over');
+                    });
+                });
+            } else {
+                var lock = false;
+                var button = form.find('[data-role=submit]').click(function() {
+                    if (lock) return false;
+                    var checkedOptions = form.find('[name=optionid]:checked');
+                    if (!checkedOptions.length) {
+                        alert('请至少选择一项');
+                        return false;
+                    }
+                    if (maxoptions && checkedOptions.length > maxoptions) {
+                        alert('最多可以选择 ' + maxoptions + ' 项');
+                        return false;
+                    }
+                    lock = true;
+                    var params = 'contentid='+contentid;
+                    checkedOptions.each(function() {
+                        params += '&optionid[]=' + this.value;
+                    });
+                    vote(url, form, function(json) {
+                        lock = false;
+                        if (json && json.state) {
+                            updateResult(allRows, json.data);
+                            button.find('span').text('已投票');
+                            button.unbind();
+                            button.onclick = null;
+                            button.next('span').show();
+                        } else {
+                            alert(json && json.message || '投票失败，请重新尝试');
+                        }
+                    });
+                    return false;
+                });
+            }
+            rows.find('.vote-text').each(function() {
+                var text = $(this), thumb = text.prev('img');
+                text.width(Math.max(1, thumb.width() - 18));
+            });
+        }
+        rows.data('vote-inited', true);
+
+        seccode.length && seccode.find('.change-img').bind('click', function (e) {
+            var img = $('.ui-seccode').find('img'),
+                src = img.attr('data-src');
+            img.bind('load', function () {
+                $('.seccode-color').html(decodeURIComponent(document.cookie.match(new RegExp(COOKIE_PRE + 'seccode_color=(.*?)(?:;|$)'))[1]).replace(/\+/, ' '));    
+            });
+            img.attr('src', src + '&_=' + Date.now());
+            $('[name="seccode"]').val('');
+        });
+        seccode.length && seccode.find('input[type="text"]').bind('keydown', function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        });
+    });
+}
+init();
+})();
+</script>

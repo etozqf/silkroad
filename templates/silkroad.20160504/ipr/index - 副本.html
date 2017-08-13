@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>丝路数据库-知识产权</title>
+	<!--{template 'ipr/system/header_jscss_yuqing.html'}-->
+</head>
+<body>
+<!--头部-->
+	<!--{template 'ipr/system/header_channel.html'}-->
+	<!--{template 'ipr/system/header_search.html'}-->
+	
+<div class="column ov mar-t-20">
+	<div id="menu" class="left_menu">
+		<ul class="mar-t-10">
+            <li class="on"><a target="_blank">知识产权动态信息<em class="icon-jl"></em></a></li>
+			<li><a href="javascript:void(0);" onclick="getData(2,1,10,295)" title="典型案例">典型案例<em class="icon-jl"></em></a></li>
+			<!--{template 'ipr/system/list3.html'}-->
+			<!--{template 'ipr/system/list4.html'}-->
+			<!--{template 'ipr/system/list5.html'}-->
+			<!--{template 'ipr/system/list6.html'}-->
+			<!--{template 'ipr/system/list7.html'}-->
+			<!--{template 'ipr/system/list8.html'}-->
+			<!--{template 'ipr/system/list9.html'}-->
+		</ul>
+	</div>
+	<div id="show" class="right_data">
+		<!--列表页标题，以及专利布局成果列表-->
+		<div id="t-data2">
+			<div id="article">
+				<!--这里放article内容，不用时清空-->
+			</div>
+			<!--这里是列表标题-->
+			<div id="listtitle">
+				<div class="hd">
+					<h3 style="padding:0 15px 0 15px;">IP动态信息</h3>
+				</div>
+			</div>
+
+			<!--ul里面是列表-->
+			<div id="list">
+				<ul class="summary-list">
+					<!--{content catid="294" orderby="published desc" size="10" page="$page"}-->
+					<li class="bor-b">
+						<em class="f-l">&bull;</em>
+						<a href="{$r[url]}" target="_blank"
+						   class="f-l">{str_cut($r[title],56,'...')}</a>
+						<div class="f-r txt mar-t-3">
+							<span>{date('Y-m-d',$r[published])}</span>
+							<i>{date('H:i',$r[published])}</i>
+						</div>
+					</li>
+					<!--{/content}-->
+				</ul>
+			</div>
+
+
+			<!--分页-->
+			<div id="pagebutton" class="page">
+				<a href="">1</a>
+				<a href="" class="on">2</a>
+				<a href="">...</a>
+				<a href="">8</a>
+				<a href="">9</a>
+				<span>共<i>1/136</i>页 , <i>680</i>记录</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+    var menu,listtitle,list,pagebutton,total,pageSize,totalPage;//菜单，内容，分页按钮，总记录数，每页显示数，总页数
+
+	//获取主页相关信息
+    function getData(id,page,pagesize,catid){
+        $.ajax({
+            type: 'POST',
+            url: "{APP_URL}?app=article&controller=iprpage&action=index",
+            data: {'id':id,'page':page,'catid':catid,'pagesize':pagesize},
+            dataType:'jsonp',
+            success:function(json){
+                console.log(json);
+                $("#menu ul").empty();//清空列表区
+                $("#show").empty();//清空文章区块
+
+                menu = json.menu;//菜单
+				show = json.show;//列表标题
+
+                $("#menu ul").append(menu);
+                $("#show").append(show);
+                state = true;
+
+            },
+            error:function(){
+                alert("数据加载失败");
+            }
+        });
+    }
+    //url转换调用方法
+    function GetQueryString(name){
+        var reg=new RegExp("(^|&)"+name+"=([^&]*)(&|$)","i");
+        var r=window.location.search.substr(1).match(reg);
+        if(r!=null)return(r[2]);
+        return null;
+	}
+
+	//获取文章详情
+	function getarticle(id,catid,contentid) {
+        $.ajax({
+            type: 'POST',
+            url: "{APP_URL}?app=article&controller=iprpage&action=getarticle",
+            data: {'id':id,'catid':catid,'contentid':contentid},
+            dataType:'jsonp',
+            success:function(json){
+                $("#show").empty();//清空文章区块
+
+
+                article = json.article;//文章
+                $("#show").prepend(article);
+
+            },
+            error:function(){
+                alert("数据加载失败");
+            }
+        });
+    }
+
+    //国家列表的展开效果
+    $(function () {
+        $(document).on('click','.morebtn', function(){
+            $(this).parents("dl").toggleClass("all");
+		});
+        $(document).on('click',".allcountry dd span",function () {
+            $(this).removeClass("on").addClass("on");
+        })
+    })
+
+
+
+//    getarticle(248978);
+	//id=2&page=1&pagesize=10&catid=295
+//  getData(GetQueryString("id"),GetQueryString("page"),GetQueryString("pagesize"),GetQueryString("catid"));
+  getData(1,1,10,294);
+
+</script>
+
+<!--尾部-->
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

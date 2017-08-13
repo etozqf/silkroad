@@ -1,0 +1,24 @@
+/*
+ @name 默认菜单样式
+ @notes 白色浅灰色渐变色背景，万能搭
+*/
+
+.content-menu-blank {
+	background:url("images/bg.jpg") repeat-x 0 0;
+	padding:0px 10px;
+}
+.content-menu-blank a {
+	color:#333;
+	font-size:12px;
+}
+.content-menu-blank a:hover {
+	text-decoration:underline;
+	color:#333;
+}
+.content-menu-blank span.sepr {
+	margin:0 4px;
+	color:#ccc;
+	font-size:12px;
+}
+
+.menu-list{width:960px; margin:0 auto;}/*此宽度可以根据自己网站宽度进行修改*/

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<title tips="请填写项目名称">
+		<required event="submit">项目名称不能为空</required>
+		<max args="80">标题不得超过80个字节</max>
+	</title>
+	<country tips="请在右侧选择,手动输入无效">
+		<required event="submit">不能为空,请在右侧按钮选择</required>
+	</country>
+	<tradeid>
+		<required event="submit">所属行业:请至少选择一项</required>
+	</tradeid>
+	<investmenttypeid>
+		<required event="submit">投资方式:请至少选择一项</required>
+	</investmenttypeid>
+	<starttime>
+		<required event="submit">请选择项目发布时间</required>
+	</starttime>
+	<stoptime>
+		<required event="submit">请选择项目有效时间</required>
+	</stoptime>
+	<description>
+		<required event="submit">请填写项目介绍</required>
+	</description>
+	<publishorganization>
+		<required event="submit">请填写项目发布的机构</required>
+		<max args="80">最大长度255个字</max>
+	</publishorganization>
+	<itemunit>
+		<max args="80">最大长度80个字</max>
+	</itemunit>
+	<itemcontacts>
+		<required event="submit">请填写项目联系人或项目单位</required>
+		<max args="80">最大长度255个字</max>
+	</itemcontacts>
+	<phone>
+		<required event="submit">请填写联系电话</required>
+		<max args="80">最大长度80个字</max>
+	</phone>
+</root>

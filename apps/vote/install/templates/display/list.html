@@ -1,0 +1,135 @@
+<div class="vote-inner margin10">
+    <div class="hr10"></div>
+    <form id="vote_<?php echo $identifier;?>" method="GET" action="{APP_URL}{url('vote/vote/ajaxvote')}">
+    <input name="contentid" type="hidden" value="{$contentid}"/>
+    <input name="type" type="hidden" value="{$type}"/>
+    <input name="maxoptions" type="hidden" value="{$maxoptions}"/>
+    <input name="seccode" type="hidden" />
+    <!--{if $seccode_type == 'normal'}-->
+    <span id="image_action" action='image' class="hidden"></span>
+    <!--{else}-->
+    <span id="image_action" action='image_pro' class="hidden"></span>
+    <!--{/if}-->
+    <div class="vote-result" style="padding-left: 8px;">
+        <ul>
+            <!--{loop $option $v}-->
+            <li class="ov" data-optionid="{$v[optionid]}">
+                <p class="fl-l vote-w200 fz14 cor444"><label for=""><input type="{$type}" name="optionid{if $type == 'checkbox'}[]{/if}" value="{$v[optionid]}"> {$v[name]}</label></p>
+                <div class="progress vote-w120 vote-c1 margin-r-20 fl-l">
+                    <div style="width:<?php echo (int)$v['percent'];?>%;"></div>
+                </div>
+                <div class="nums fl-l fz14 cor444">{$v[votes]}</div>
+            </li>
+            <li class="hr10"></li>
+            <!--{/loop}-->
+        </ul>
+        <div class="hr20"></div>
+        <div><a href="javascript:void(0);" data-role="submit" class="button1 buttonsamll">投 票</a>
+             <span class="vote-message" style="display:none;">投票成功，感谢您的参与</span>
+        </div>
+        <div class="hr10"></div>
+    </div>
+    </form>
+</div>
+<script type="text/javascript">
+(function() {
+$.ajaxSetup({
+    jsonp: 'jsoncallback'
+});
+function vote(url, data, callback) {
+    $.getJSON(url + (url.indexOf('?') > -1 ? '&' : '?') + 'jsoncallback=?', data, function(json) {
+        $.isFunction(callback) && callback(json);
+    });
+}
+function updateResult(form, data) {
+    $.each(data, function(index, item) {
+        var row = form.find('[data-optionid=' + item.optionid + ']');
+        row.find('.per').css('width', parseInt(item.percent));
+        row.find('.progress').attr('title', item.votes+'票');
+        row.find('.nums').html(parseInt(item.percent)+'%');
+    });
+}
+function init() {
+    var contentid;
+    $('.vote-inner').each(function(i, rows) {
+        rows = $(rows);
+        if (rows.data('vote-inited')) return;
+        var form = rows.find('form'),
+            url = form.attr('action'),
+            type = form.find('[name=type]').val(),
+            maxoptions = parseInt(form.find('[name=maxoptions]').val()),
+            button = form.find('[data-role=submit]'),
+            lock = false;
+        contentid = form.find('[name=contentid]').val();
+        if (url && contentid) {
+            form.find('li.row').each(function(i, row) {
+                $(row).find('label a').click(function() {
+                    var input = $(this).prev(':input');
+                    if (!input.attr('checked')) input.attr('checked', true);
+                });
+            });
+            function submit() {
+                if (lock) return false;
+                var checkedLength = form.find(':checked').length;
+                if (! checkedLength) {
+                    alert('请选择投票选项');
+                    return false;
+                }
+                if (type == 'checkbox' && maxoptions && maxoptions < checkedLength) {
+                    alert('最多可以选择 ' + maxoptions + ' 项');
+                    return false;
+                }
+                lock = true;
+                vote(url, decodeURIComponent(form.serialize()), function(json) {
+                    if (json && json.state) {
+                        updateResult(form, json.data);
+                        button.find('span').text('已投票');
+                        button.unbind();
+                        button.onclick = null;
+                        button.next('span').show();
+                        button.remove()
+                    } else {
+                        lock = false;
+                        alert(json && json.error || '投票失败，请重新尝试');
+                    }
+                });
+                return false;
+            }
+            button.seccode({
+                form:form,
+                validate:submit
+            });
+            button.bind('click', function () {
+                if (! form.find(':checked').length) {
+                    $('#fn-seccode').hide();
+                    alert('请选择投票选项');
+                    return false;
+                }
+            });
+        }
+        rows.data('vote-inited', true);
+    });
+
+    // 读取投票数据
+    $.get(APP_URL, {
+        app: 'vote',
+        controller: 'vote',
+        action: 'ajaxresult',
+        contentid: <?php echo $contentid;?>
+    }, function(res) {
+        updateResult($('#vote_<?php echo $identifier;?>'), res.option);
+    }, 'jsonp');
+}
+if ('fet' in window) {
+    fet({
+        assets:'{IMG_URL}js/lib/cmstop.seccode.js',
+        test:'jQuery.fn.seccode',
+        depends:'lib.jQuery'
+    }, init);
+} else if ('jQuery' in window) {
+    $(function() {
+        init();
+    });
+}
+})();
+</script>

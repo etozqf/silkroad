@@ -1,0 +1,13 @@
+/*
+ @name 通用标题样式
+ @notes 背景颜色和标题颜色可修改
+*/
+.title-font-black {
+	font-size:14px;
+	font-weight:bold;
+	padding:0 0 5px 5px;
+    height:24px;
+	line-height:24px;
+}
+.title-font-black,
+.title-font-black span{}

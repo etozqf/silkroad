@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>专栏频道_{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="专栏 {$SYSTEM[sitename]} {$SYSTEM[seokeywords]}" />
+    <meta name="description" content="专栏 {$SYSTEM[sitename]} {$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    
+    <div class="hr20"></div>
+
+    <!-- 广告位 -->
+    <div class="column ov">
+        <div class="fl-l"><!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #--></div>
+    </div>
+    <div class="hr20"></div>
+
+    <div class="column js-returntop ov">
+        <div class="special-chanel-left fl-l">
+            <!-- 头图 -->
+            <div class="video-headimages js-hoveroverlay ov">
+               <!--{db sql="SELECT * FROM #table_content c LEFT JOIN #table_space s ON c.spaceid=s.spaceid WHERE c.spaceid is not null AND c.modelid=1 AND c.status=6 ORDER BY c.published desc" size="1"}-->
+                <section class="bigimage pos-r fl-l">
+                    <img src="{thumb($r[thumb], 440, 330)}" width="440" height="330" alt="{$r[title]}">
+                    <div class="titlepanel pos-a"><h1 class="title"><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_natcut($r[title], 18, '')}</a></h1></div>
+                    <div class="_overlay"></div>
+                </section>
+                <!--{/db}-->
+                <!--{db sql="SELECT * FROM #table_content c LEFT JOIN #table_space s ON c.spaceid=s.spaceid WHERE c.spaceid is not null AND c.modelid=1 AND c.status=6 ORDER BY c.published desc" size="2" offset="1"}-->
+                <section class="second pos-r fl-r m-imagetitle">
+                    <a href="{$r[url]}" title="{$r[title]}" target="_blank" class="thumb-link"><img src="{thumb($r[thumb], 220, 165)}" width="220" height="165" alt=""></a>
+                    <div class="titlepanel pos-a"><h1 class="title"><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_natcut($r[title], 18, '')}</a></h1></div>
+                    <a href="{$r[url]}" title="{$r[title]}" target="_blank" class="overlay"><b class="overlay-play icon40x40"></b></a>
+                </section>
+                <!--{/db}-->
+            </div>
+            <div class="hr20"></div>
+            <div class="hline"></div>
+            <!-- 列表文章 -->
+            <div class="special-c">
+                <ul>
+                    <!--{db sql="SELECT * FROM #table_content c LEFT JOIN #table_space s ON c.spaceid=s.spaceid WHERE c.spaceid is not null AND c.modelid=1 AND c.status=6 ORDER BY c.published desc" size="20" offset="3"}-->
+                    <li class="article-picture-item">
+                        <h3 class="title"><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_natcut($r[title], 18, '')}</a></h3>
+                        <div class="m-imagetext">
+                            <!--{if $r[thumb] != '' && $r[thumb] != 'null'}-->
+                            <a href="{$r[url]}" target="_blank" class="thumblink"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                            <!--{/if}-->
+                            <div>
+                                <p class="describe">{$r[description]}</p>
+                                <div class="ov">
+                                    <div><span class="time"><a href="{space_url($r['spaceid'])}" target="_blank"style="color:#0091e4;">{$r[author]}</a> <span style="margin-left:10px;">{date('Y-m-d H:i', $r[published])}</span></span></div>
+                                </div>f
+                            </div>
+                        </div>
+                    </li>
+                    <!--{/db}-->
+                </ul>
+            </div>
+            <div class="hr30"></div>
+        </div>
+
+        <!-- 右侧 -->
+        <div class="special-chanel-right fl-r ov">
+            <!-- 专栏列表 -->
+            <div class="special-list-shoveler pos-r ov">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a href="/list">专栏列表</a></h2>
+                </div>
+                <div class="shoveler-point pos-a ov"></div>
+                <div class="video-interview-inner js-shoveler ov">
+                    <div class="shoveler-contains ov">
+                        <div class="shoveler-item fl-l ov">
+                            <ul class="m-imagetitle video-imagetitle">
+                                <!--{db sql="SELECT * FROM `#table_space` WHERE status=4 ORDER BY `sort` DESC" size="5"}-->
+                                <?php if ($r) {$space[] = $r;}else{$space = false;} $spacenum=count($space)-1;?>
+                                <!--{/db}-->
+                                <!--{loop $space $k $r}-->
+                                <li class="item js-overlay">
+                                    <div class="hr20"></div>
+                                    <div class="photo ov">
+                                        <a href="{SPACE_URL}{$r['alias']}" target="_blank" title="{$r['author']}" class="fl-l"><img src="{if $r['photo']} {thumb($r['photo'], 80, 80)} {elseif $r['userid']} {element::member_photo($r['userid'], 80, 80)} {/if}" width="80" height="80" alt=""></a>
+                                        <!--{db sql="SELECT contentid,title,url FROM #table_content WHERE spaceid=$r[spaceid] AND  weight>=80 AND modelid=1 AND status=6 ORDER BY published desc" size="1" return="c"}-->
+                                        <p><a href="{$c[url]}" target="_blank" tilte="{$c[tilte]}" class='title'>{$c[tilte]}</a></p>
+                                        <!--{/db}-->
+                                        <p><a href="{SPACE_URL}{$r['alias']}" title="{$r['author']}" class="name">{$r['author']}</a></p>
+                                    </div>
+                                    <div class="hr20"></div>
+                                    <!--{if $k < $spacenum}-->
+                                    <div class="hline"></div>
+                                    <!--{/if}-->
+                                </li>
+                                <!--{/loop}-->
+                            </ul>
+                        </div>
+                        <!--{db sql="SELECT * FROM `#table_space` WHERE status=4 ORDER BY `sort` DESC" size="5" offset="5"}-->
+                            <?php if ($r) {$space[] = $r;}else{$space = false;} $spacenum=count($space)-1;?>
+                        <!--{/db}-->
+                        <!--{if $space}-->
+                        <div class="shoveler-item fl-l ov">
+                            <ul class="m-imagetitle video-imagetitle ov">
+                                <!--{loop $space $k $r}-->
+                                <li class="item js-overlay">
+                                    <div class="hr20"></div>
+                                    <div class="photo ov">
+                                        <a href="{SPACE_URL}{$r['alias']}" target="_blank" title="{$r['author']}" class="fl-l"><img src="{if $r['photo']} {thumb($r['photo'], 80, 80)} {elseif $r['userid']} {element::member_photo($r['userid'], 80, 80)} {/if}" width="80" height="80" alt=""></a>
+                                        <!--{db sql="SELECT contentid,title,url FROM #table_content WHERE spaceid=$r[spaceid] AND  weight>=80 AND modelid=1 AND status=6 ORDER BY published desc" size="1" return="c"}-->
+                                        <p><a href="{$c[url]}" target="_blank" tilte="{$c[tilte]}" class='title'>{$c[tilte]}</a></p>
+                                        <!--{/db}-->
+                                        <p><a href="{SPACE_URL}{$r['alias']}" title="{$r['author']}" class="name">{$r['author']}</a></p>
+                                    </div>
+                                    <div class="hr20"></div>
+                                    <!--{if $k < $spacenum}-->
+                                    <div class="hline"></div>
+                                    <!--{/if}-->
+                                </li>
+                                <!--{/loop}-->
+                            </ul>
+                        </div>
+                        <!--{/if}-->
+                        <!--{db sql="SELECT * FROM `#table_space` WHERE status=4 ORDER BY `sort` DESC" size="5" offset="10"}-->
+                            <?php if ($r) {$space[] = $r;}else{$space = false;} $spacenum=count($space)-1;?>
+                        <!--{/db}-->
+                        <!--{if $space}-->
+                        <div class="shoveler-item fl-l ov">
+                            <ul class="m-imagetitle video-imagetitle ov" >
+                                <!--{loop $space $k $r}-->
+                                <li class="item js-overlay">
+                                    <div class="hr20"></div>
+                                    <div class="photo ov">
+                                        <a href="{SPACE_URL}{$r['alias']}" target="_blank" title="{$r['author']}" class="fl-l"><img src="{if $r['photo']} {thumb($r['photo'], 80, 80)} {elseif $r['userid']} {element::member_photo($r['userid'], 80, 80)} {/if}" width="80" height="80" alt=""></a>
+                                        <!--{db sql="SELECT contentid,title,url FROM #table_content WHERE spaceid=$r[spaceid] AND  weight>=80 AND modelid=1 AND status=6 ORDER BY published desc" size="1" return="c"}-->
+                                        <p><a href="{$c[url]}" target="_blank" tilte="{$c[tilte]}" class='title'>{$c[tilte]}</a></p>
+                                        <!--{/db}-->
+                                        <p><a href="{SPACE_URL}{$r['alias']}" title="{$r['author']}" class="name">{$r['author']}</a></p>
+                                    </div>
+                                    <div class="hr20"></div>
+                                    <!--{if $k < $spacenum}-->
+                                    <div class="hline"></div>
+                                    <!--{/if}-->
+                                </li>
+                                <!--{/loop}-->
+                            </ul>
+                        </div>
+                        <!--{/if}-->
+                    </div>
+                </div>
+            </div>
+            <!-- 广告 -->
+            <div class=""><!--#include virtual="/section/254.html"--><!--# 访谈内容页 右侧300x90 #--></div>
+            <!-- 今日推荐 -->
+            <div class="hr20"></div>
+            <div class="commend-article">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>今日推荐</a></h2>
+                </div>
+                <div class="commend-inner">
+                    <div class="m-accordion js-accordion">
+                        <ul>
+                            <!--#include virtual="/section/19.html"--><!--# 文章内容 今日推荐 #-->
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns">
+        <div class="btn home icon40x40">
+            <a href="{WWW_URL}" class="text">返回首页</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="javacript:;" class="text">返回顶部</a>
+        </div>
+    </div>
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+</body>
+</html>

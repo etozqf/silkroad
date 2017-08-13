@@ -1,0 +1,75 @@
+/*面包屑导航*/
+.category-programa-nav {
+    height: 46px;
+    width: 658px;
+    line-height: 46px;
+    border: 1px solid #eee;
+    border-top: 3px solid #eee;
+    font-size: 0;
+    white-space: nowrap;
+    position: relative;
+    background: #fff;
+    z-index: 1;
+}
+.category-programa-nav > a {
+    color: #666;
+    font-size: 18px;
+    width: 108px;
+    display: inline-block;
+    text-align: center;
+    margin-top: -3px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.category-programa-nav .first {
+    border-left: 1px solid #eee;
+    margin-left: -1px;
+}
+.category-programa-nav .more {
+    border-right: 1px solid #eee;
+}
+.category-programa-nav > .cur {
+    border-top: 3px solid #0095e3;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+.category-programa-more {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    border: 1px solid #eee;
+    border-top: none;
+    right: -1px;
+}
+.category-programa-more-container {
+    background: #fff;
+    margin-top: 45px;
+    border-top: 1px solid #eee;
+}
+.category-programa-more-container > a {
+    color: #666;
+    font-size: 18px;
+    width: 108px;
+    display: block;
+    text-align: center;
+    margin-top: -3px;
+}
+.category-programa-more-container > .cur {
+    color: #0066cc;
+}
+.category-more {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background: #f7f7f7;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    color: #777;
+    display: block;
+}
+.category-more:hover {
+    color: #777!important;
+}

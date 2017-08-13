@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{$SYSTEM[sitename]}_{$SYSTEM[seotitle]}_导航页</title>
+<meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+<meta name="description" content="{$SYSTEM[seodescription]}" />
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/ledivs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+
+</head>
+<body>
+<!--{template 'system/head_zn.html'}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+
+<div class="dh_mainbox">
+
+	
+
+ <!--{loop $data $r}-->
+	<div class="dh_main_block">
+		<div class="dh_main_blocktit"><label><a href="{$r[url]}">{$r[name]}</a></label></div>
+		
+		<div class="dh_main_blockline">
+
+
+	<!--{loop $r[child] $i $v}-->
+	
+			<dl>
+			<!--{if $v[0][parentid]}-->
+			<dt>{table('property',$v[0][parentid],'name')}</dt>
+			<!--{else}-->
+			<dt>
+				<?php $arr = explode(',',$r['childids']); ?>
+				{table('property',$arr[$i],'name')}
+			</dt>
+			<!--{/if}-->
+			<dd>　
+	<!--{loop $v $val}-->
+			<a href="#">{$val[name]}</a>　
+	<!--{/loop}-->
+			<span class="dh_main_bkline_more"><a href="#">更多</a></span></dd>
+			</dl>
+	<!--{/loop}-->	
+	
+		</div>
+		
+	</div>
+<!--{/loop}-->
+	
+</div>
+
+
+<!--{template 'system/foot_zn.html'}-->
+
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?php $width = isset($width) ? htmlspecialchars($width) : 650; ?>
+<?php $height = isset($height) ? htmlspecialchars($height) : 519; ?>
+<?php $manual = isset($manual) ? htmlspecialchars($manual) : 0; ?>
+<script type="text/javascript" src="http://211.103.128.226/api/js/swfobject.js"></script>
+<script type="text/javascript" src="http://211.103.128.226/api/js/tvieplayer.js"></script>
+<script type="text/javascript">
+var width = 531;
+var height = 463;
+var resourceRoot = "http://211.103.128.226/api/js/";
+var tvie = new TViePlayer("player", resourceRoot+"CBNVodSkin.swf", width, height);
+tvie.videoScaleMode = "original";
+tvie.setApiServer("211.103.128.226");
+tvie.setTVieSmoothVod({$video}, false);
+tvie.run();
+</script>
+<div id="player"></div>

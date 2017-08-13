@@ -1,0 +1,138 @@
+.special-operation {
+    margin-top: 10px;
+}
+.special-categorys {
+    float: left;
+    width: 185px;
+    margin-right: 15px;
+    border: 1px solid #9AC4DC;
+}
+.special-categorys .special-categorys-header {
+    background: url(/css/images/bg_x.gif) repeat-x 0 -172px;
+    height: 24px;
+    line-height: 24px;
+    color: #077AC7;
+    padding: 0 5px;
+    position: relative;
+}
+.special-categorys .special-categorys-header img {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+}
+.special-categorys .special-categorys-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 2px 2px 0;
+    min-height: 200px;
+}
+.special-categorys .special-category {
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+    border: solid 1px transparent;
+    padding: 3px;
+    cursor: move;
+    margin-bottom: 2px;
+}
+.special-categorys .special-category img {
+    visibility: hidden;
+}
+.special-categorys .special-category:hover,
+.special-categorys .special-category.hover {
+    color:#0099CC;
+    border-color:#ddd;
+    background-color:#EFEFEF;
+}
+.special-categorys .special-category:hover img,
+.special-categorys .special-category.hover img {
+    visibility: visible;
+}
+.special-categorys .special-category.checked {
+    background-color: #F2F9FB;
+    border-color: #9AC4DC;
+    font-weight: bold;
+}
+.special-categorys .special-category a {
+    display: inline-block;
+    zoom: 1;
+    max-width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer!important;
+}
+.special-categorys .special-category img {
+    margin: 0 0 0 5px;
+}
+.special-contents {
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+}
+.special-contents-header {
+    height: 25px;
+    line-height: 25px;
+    background: #F2F9FB;
+    color: #077AC7;
+    padding: 0 10px;
+    position: relative;
+}
+.special-contents-header .special-contents-button {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    cursor: pointer;
+}
+.special-contents-header .special-contents-button img {
+    float: left;
+    margin: 5px 2px 0 0;
+}
+.special-contents-body {
+    padding: 10px 5px;
+}
+.special-contents-body li {
+    position: relative;
+    padding-top: 3px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    background-position: 0 -19px;
+    height: 20px;
+    line-height: 20px;
+    cursor: move;
+}
+.special-contents-body li:hover,
+.special-contents-body li.hover {
+    background-color: #F2F9FB;
+}
+.special-contents-body li a {
+    display: inline-block;
+    zoom: 1;
+    max-width: 480px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.special-contents-body li img {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+}
+.special-contents-empty,
+.special-list-empty {
+    display: none;
+    overflow: hidden;
+    zoom: 1;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+.special-contents-empty {
+    height: 230px;
+    line-height: 230px;
+}
+.special-contents-empty input {
+    margin-top: 90px;
+}
+.special-list-empty {
+    height: 230px;
+    line-height: 230px;
+}

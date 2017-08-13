@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$wd}_search result_{$sitename[1]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/seach.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.search.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/pop-box.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body class="search-result">
+<!--{template "system/head.html"}-->
+  
+ <div class="hr20"></div>
+    <div class="column">
+      <form id="search" name="search" action="" method="GET">
+      <div class="fmt">
+        <input type="hidden" name="app" value="search">
+        <input type="hidden" name="controller" value="indexcn">
+        <input type="hidden" name="action" value="search">
+        <div class="ov">
+          <div class="search-input-panel ov fl-l" style="width:370px">
+            <input type="text" style="color: #b9b9b9;"class="text fl-l" id="wd" name="wd" value="{$wd}" />
+            <input type="submit" class="btn fl-r" value="Search" />
+          </div>
+          <div class="search-mode-panel fl-l">
+            <label style="margin-left:10px;"><input type="radio" name="mode" value="full" {if $mode!=='title'}checked="checked"{/if}>all</label>
+            <label style="margin-left:10px;"><input type="radio" name="mode" value="title" {if $mode==='title'}checked="checked"{/if}>title</label>
+          </div>
+        </div>
+      </div>
+      <div class="fmb">
+        <div class="type-panel">
+          <?php $typeUrl = preg_replace('#&type=\w+#', '', $url['this']).'&type=';?>
+          <a href="{$typeUrl}all" class="first{if empty($type) || $type === 'all'} cur{/if}">All</a>
+          <a href="{$typeUrl}article"{if $type === 'article'} class="cur"{/if}>Article</a>
+         
+        </div>
+        <div class="select-panel" style="left:500px;width:200px">
+                    <div id="category">{if $catid}{$channel[$catid]['alias']}{else}Channel{/if} <i class="arrow-down"></i>
+                        <?php $catUrl = preg_replace('#&catid=\w+#', '', $url['this']).'&catid=';?>
+                        <ul class="select-box">
+                            {loop $channel $v}
+                            <li><a href="{$catUrl}{$v['catid']}">{$v['alias']}</a></li>
+                            {/loop}
+                        </ul>
+                    </div>
+          <div id="sort">{if $order==='time'}Time{elseif $order==='pv'}Pv{elseif $order==='comments'}Comment{else}Sort{/if} <i class="arrow-down"></i>
+            <ul class="select-box">
+              <?php $sortUrl = preg_replace('#&order=\w+#', '', $url['this']).'&order=';?>
+              <li><a href="{$sortUrl}time">time</a></li>
+              <li><a href="{$sortUrl}pv">pv</a></li>
+              <li><a href="{$sortUrl}comments">comment</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sort-panel">
+          <a href="{$url[rel]}">Sort by similarity</a> | <a href="{$url[time]}">Sorting by phase update time</a>
+        </div>
+      </div>
+    </form>
+    </div>
+    <div class="hr20"></div>
+    <div class="column info">Find related pages about {$data['total']} articles , Spend<?php echo round(microtime(true)-CMSTOP_START_TIME,5);?>seconds<a href="{$rssurl}" class="rss" style="display:none;"></a></div>
+    <div class="hr20"></div>
+    <div class="column search-result-list">
+      <ul style="min-height:300px;padding-top:0">
+        <!--{loop $data['result'] $r}-->
+            {if $r['contentid']}
+        <li class="article-picture-item">
+                <h3 class="title" style="padding-top:0"><i class="icon-model icon16x16 model-{$r['modelid']}"></i><a href="{$r['url']}" title="">{$r['title']}</a></h3>
+                <div class="m-imagetext"{if !$r['thumb'] && !description($r[contentid])} style="height:20px"{/if}>
+                  <!--{if $r[thumb]}-->
+                    <a href="{$r['url']}" class="thumblink"><img src="{thumb($r[thumb], 140, 105)}" width="140" height="105" alt=""></a>
+                    <!--{/if}-->
+                    <div>
+                        <p class="describe">{str_cut(htmlspecialchars_decode(description($r[contentid])), 80,'')}</p>
+            <span class="time">{date('Y-m-d H:i', $r['published'])}<a href="{$r['caturl']}" target="_blank" class="catname" style="display:none;">{table('category',$r[catid],'alias')}</a></span>
+                    </div>
+                </div>
+            </li>
+            {/if}
+            <!--{/loop}-->
+      </ul>
+      <div class="hr40"></div>
+      <div class="align-c">
+            <div class="pagination ov">
+                {$multipage}
+            </div>
+        </div>
+        <div class="hr40"></div>
+    </div>
+    
+    <script>
+    $(function () {
+        $('.search-result-list').css('min-height', $(window).height() - 307);
+        $('#sort').add($('#category')).on('mouseenter', function () {
+            $(this).find('.select-box').show();
+        }).find('.select-box').on('mouseleave', function () {
+            $(this).hide()
+        }).on('click', function () {
+            //
+        });
+        $('#wd').focus(function(){
+            $(this).val('');
+        })
+    })
+    </script>
+<!--弹出结束-->
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

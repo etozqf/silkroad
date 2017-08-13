@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>丝路数据库-知识产权</title>
+	<!--{template 'ipr/system/header_jscss_yuqing.html'}-->
+</head>
+<body>
+<!--头部-->
+	<!--{template 'ipr/system/header_channel.html'}-->
+	<!--{template 'ipr/system/header_search.html'}-->
+	
+<div class="column ov mar-t-20">
+	<div id="menu" class="left_menu">
+		<ul class="mar-t-10">
+            <li class="on"><a target="_blank">知识产权动态信息<em class="icon-jl"></em></a></li>
+			<li><a href="javascript:void(0);" onclick="getData(2,1,10,295)" title="典型案例">典型案例<em class="icon-jl"></em></a></li>
+			<!--{template 'ipr/system/list3.html'}-->
+			<!--{template 'ipr/system/list4.html'}-->
+			<!--{template 'ipr/system/list5.html'}-->
+			<!--{template 'ipr/system/list6.html'}-->
+			<!--{template 'ipr/system/list7.html'}-->
+			<!--{template 'ipr/system/list8.html'}-->
+			<!--{template 'ipr/system/list9.html'}-->
+		</ul>
+	</div>
+	<div id="show" class="right_data">
+		<!--列表页标题，以及专利布局成果列表-->
+		<div id="t-data2">
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+    var menu,listtitle,list,pagebutton,total,pageSize,totalPage;//菜单，内容，分页按钮，总记录数，每页显示数，总页数
+
+	//获取主页相关信息
+
+    function getData(id,page,pagesize,catid){
+        $.ajax({
+            type: 'POST',
+            url: "{APP_URL}?app=article&controller=iprpage&action=index",
+            data: {'id':id,'page':page,'catid':catid,'pagesize':pagesize},
+            dataType:'jsonp',
+            success:function(json){
+                console.log(json);
+                $("#menu ul").empty();//清空列表区
+                $("#show").empty();//清空文章区块
+
+                menu = json.menu;//菜单
+				show = json.show;//列表标题
+
+                $("#menu ul").append(menu);
+                if(localStorage.viewdetail!="true"){
+                    $("#show").append(show);
+				}
+
+                state = true;
+
+                if(localStorage.viewdetail=="true"){
+                    $.ajax({
+                        type: 'POST',
+                        url: "{APP_URL}?app=article&controller=iprpage&action=getarticle",
+                        data: {'id':localStorage.viewdetailid,'catid':localStorage.viewdetailcatid,'contentid':localStorage.viewdetailcontentid},
+                        dataType:'jsonp',
+                        success:function(json){
+                            localStorage.viewdetail="";
+                            localStorage.viewdetailid="";
+                            localStorage.viewdetailcatid="";
+                            localStorage.viewdetailcontentid="";
+                            $("#show").empty();//清空文章区块
+                            $("#menu ul").empty();//清空列表区
+
+
+                            article = json.article;//文章
+                            menu = json.menu;//菜单
+                            $("#show").prepend(article);
+                            $("#menu ul").append(menu);
+
+                        },
+                        error:function(){
+                            alert("数据加载失败");
+                        }
+                    });
+                }
+            },
+            error:function(){
+                alert("数据加载失败");
+            }
+        });
+    }
+
+	//获取文章详情
+	function getarticle(id,catid,contentid) {
+        localStorage.viewdetail="true";
+        localStorage.viewdetailid=id;
+        localStorage.viewdetailcatid=catid;
+        localStorage.viewdetailcontentid=contentid;
+        window.open(location.href+"?"+Math.random(),"_blank");
+    }
+
+
+    //国家列表的展开效果
+    $(function () {
+        $(document).on('click','.morebtn', function(){
+            $(this).parents("dl").toggleClass("all");
+		});
+        $(document).on('click',".allcountry dd span",function () {
+            $(this).removeClass("on").addClass("on");
+        })
+    })
+
+
+
+//    getarticle(248978);
+	//id=2&page=1&pagesize=10&catid=295
+//  getData(GetQueryString("id"),GetQueryString("page"),GetQueryString("pagesize"),GetQueryString("catid"));
+  getData(1,1,10,294);
+
+</script>
+
+<!--尾部-->
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<adsbeginfile tips="支持jpg,png,swf,flv,mp4格式">
+	</adsbeginfile>
+	<adsbeginlink tips="广告链接地址">
+	</adsbeginlink>
+    <adspausefile tips="支持jpg,png,swf格式">
+    </adspausefile>
+    <adspauselink tips="广告链接地址">
+    </adspauselink>
+    <adsendfile tips="支持jpg,png,swf,flv,mp4格式">
+    </adsendfile>
+    <adsendlink tips="广告链接地址">
+    </adsendlink>
+</root>

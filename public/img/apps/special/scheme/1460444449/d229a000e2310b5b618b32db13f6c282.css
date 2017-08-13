@@ -1,0 +1,50 @@
+body { background:#F5F1E1; font-family:宋体,Arial Narrow,arial,serif; font-size:12px; _text-align:center; line-height:21px;}
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, input, textarea { margin:0; padding:0;}
+address, caption, cite, code, dfn, ins, em, th, var { font-style:normal; font-weight:normal; font-size:12px;}
+.diy-root { margin:0 auto; text-align:left;}
+.diy-widget a { color:#333; text-decoration: none;}
+.diy-widget a:hover { color:#f00; text-decoration: underline;}
+.diy-widget input,.diy-widget textarea,.diy-widget select,.diy-widget button { vertical-align:middle;}
+.diy-widget input.input-text,.diy-widget textarea { border:1px solid #ccc;}
+.diy-widget input.input-radio,.diy-widget input.input-checkbox { border:none; outline:none;}
+.diy-widget input.input-submit,.diy-widget button,.diy-widget input.input-button { cursor:pointer; border:none; background:#fff url("http://img.silkroad.news.cn/apps/special/ui/page/yellow-a/images/btn.gif") no-repeat; height:22px; width:60px;}
+.diy-content-menu { }
+.diy-content-menu a { color:#fff;}
+.diy-content-menu a:hover { color:#ff0;}
+.diy-content-menu span.sepr { margin:0 4px; color:#fff;}
+.require { color:red;}
+.title-yellow-a { overflow: hidden; background:url("http://img.silkroad.news.cn/apps/special/ui/title/yellow-a/images/yellow-a.png") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-yellow-a,.title-yellow-a span{color:#D7000F;}
+.frame-white{ background:#fff;}
+.content-menu-black { background:#333 url("http://img.silkroad.news.cn/apps/special/ui/content/menu/black/images/bg.jpg") no-repeat 0 0; padding:0px 10px;}
+.content-menu-black a { color:#fff; font-size:12px;}
+.content-menu-black a:hover { color:#ccc; text-decoration:none;}
+.content-menu-black span.sepr { margin:0 4px; color:#fff; font-size:12px;}
+.title-red-d { overflow: hidden; background:url("http://img.silkroad.news.cn/apps/special/ui/title/red-d/images/red-d.jpg") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-red-d a,.title-red-d span{color:#fff;font-weight:bold;font-size:14px;}
+.title-red-b { overflow: hidden; background:#BC2421 url("http://img.silkroad.news.cn/apps/special/ui/title/red-b/images/red-b.jpg") no-repeat 0 0; height:40px; line-height:40px; padding-left:80px; }
+.title-red-b a,.title-red-b span{color:#fc0;font-size:24px;font-family:"微软雅黑";}
+.frame-margin-t10{ margin-top:10px;}
+.widget-gray-a .diy-inner { border:1px solid #dadada; background:#fff;}
+ .content-piclist-gray-a{padding-top:10px;background-color:#FFF;}
+ .content-piclist-gray-a li {margin:0 7px 10px;}
+ .content-piclist-gray-a img{border:1px solid #ccc;padding:1px;}
+ .content-piclist-gray-a a { color:#333; font-size:12px;}
+ .content-piclist-gray-a a:hover{text-decoration:none;color:#c00;}
+.content-comment-orange-a .mod-comment { padding:10px; font-size:12px; background:#FFF;}
+.content-comment-orange-a dl {}
+.content-comment-orange-a .user-info { color:#c00;}
+.content-comment-orange-a .post-time { color:#663300; float:right;}
+.content-comment-orange-a dd { border-bottom:1px dotted #ccc; padding:6px 0 10px; font-size:14px; color:#663300;}
+.content-comment-orange-a .view-comment { padding:8px 0; text-align:right; color:#c00;}
+.content-comment-orange-a .view-comment a{ color:#c00; text-decoration:none;}
+.content-comment-orange-a .view-comment span{ color:#663300;}
+.content-comment-orange-a textarea { width:100%; overflow:auto; height:120px; font-size:14px;}
+.content-comment-orange-a .user-writeinfo { margin:5px 0; font-size:12px; color:#663300;}
+.content-comment-orange-a .user-writeinfo .quickLogout a{ color:#c00; text-decoration:none;}
+.content-comment-orange-a input.input-submit { background:#fff url("http://img.silkroad.news.cn/apps/special/ui/content/comment/orange-a/images/submit.gif") no-repeat 0 0; color:#fff; height:23px; width:66px; border:0;}
+.citation{padding: 4px 4px 0 4px; line-height: 24px; margin-bottom: 4px; border: 1px solid #ffe1a4; color: #444;}
+.citation-title,.citation-title a{ color: #CC0000; font-size: 12px;}
+.mode-comment dd .citation p{ padding: 8px 0; font-size: 12px; }
+.citation-number{ margin-right: 4px; font-size: 10px; color: #999; font-family: Arial; }
+.diy-widget a:hover {color:#000;text-decoration:none}

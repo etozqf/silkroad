@@ -1,0 +1,37 @@
+.ui-slider {
+    position: relative;
+    text-align: left;
+
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+
+    border: 1px solid #AAAAAA;
+    color: #222222;
+
+    background: url(images/bar.png) repeat-x left center;
+    border-radius: 5px;
+}
+
+.ui-slider-horizontal {
+    height: 0.8em;
+}
+
+.ui-slider .ui-slider-handle {
+    cursor: default;
+    height: 1.2em;
+    position: absolute;
+    width: 1.2em;
+    z-index: 2;
+
+    border: 1px solid #077AC7;
+    background: #077AC7;
+    color: #555555;
+    font-weight: normal;
+
+    border-radius: 5px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    margin-left: -0.6em;
+    top: -0.3em;
+}

@@ -1,0 +1,108 @@
+/* CSS Document */
+/* 通用 */
+body {	margin-left: 0px;	margin-top: 0px;	margin-right: 0px;	margin-bottom: 0px;	color:#445159;	font-family:"微软雅黑","黑体";	font-size:14px;  line-height:30px;   background:#fff; letter-spacing:0.4pt;	text-decoration:none;}
+body,p,a,td,img,table,div,ul,li,dl,dd,dt { margin:0px; padding:0px; list-style:none; padding-left:0px; margin-left:0px;}
+body{behavior:url("csshover.htc"); }/* css注释说明：兼容ie6 hover,必须直接放html */
+img { border:0px;}
+em {color:red;font-style:normal;}
+*{margin:0px;padding:0px;}
+a { color:#445159; text-decoration:none;} a:hover {	 color:#ff6c00; text-decoration:none;}
+a.gblack,.gblack  {color: #000;}a.gblack:link, a.gblack:visited {color: #000;}a.gblack:hover, a.gblack:active {color:#ff6c00;}
+a.blue,.blue  {color: #145fb0;}a.blue:link, a.blue:visited {color: #145fb0;}a.blue:hover, a.blue:active {color:#ff6c00;}
+a.ysblue,.ysblue  {color: #00a0ea;}a.ysblue:link, a.ysblue:visited {color: #00a0ea;}a.ysblue:hover, a.ysblue:active {color:#ff6c00;}
+a.gyblue,.gyblue  {color: #046abe;}a.gyblue:link, a.gyblue:visited {color: #046abe;}a.gyblue:hover, a.gyblue:active {color:#ff6c00;}
+a.dpblue,.dpblue  {color: #3887ca;}a.dpblue:link, a.dpblue:visited {color: #3887ca;}a.dpblue:hover, a.dpblue:active {color:#ff6c00;}
+a.grey,.grey  {color: #9c9c9c;}a.grey:link, a.grey:visited {color: #9c9c9c;}a.grey:hover, a.grey:active {color:#000;}
+a.white,.white  {color: #ffffff;}a.white:link, a.white:visited {color: #ffffff;}a.white:hover, a.white:active {color:#ffe5a7;}
+a.red,.red  {color: #ff0000;}a.red:link, a.red:visited {color: #ff0000;}a.red:hover, a.red:active {color:#e30000;}
+a.orange,.orange  {color: #ff6600;}a.orange:link, a.orange:visited {color: #ff6600;}a.orange:hover, a.orange:active {color:#ff0000;}
+a.yellow,.yellow  {color: #ff9000;}a.yellow:link, a.yellow:visited {color: #ff9000;}a.yellow:hover, a.yellow:active {color:#ff0000;}
+a.dpyellow,.dpyellow  {color: #d45504;}a.dpyellow:link, a.dpyellow:visited {color: #d45504;}a.dpyellow:hover, a.dpyellow:active {color:#ff0000;}
+a.green,.green  {color: #277f00;}a.green:link, a.green:visited {color: #277f00;}a.green:hover, a.green:active {color:#e45000;}
+a.titag,.titag  {color: #00275a;}a.titag:link, a.titag:visited {color: #00275a;}a.titag:hover, a.titag:active {color:#ff6c00;}
+a.cont,.cont  {color: #434343;}a.cont:link, a.cont:visited {color: #434343;}a.cont:hover, a.cont:active {color:#ff6c00;}
+a.navg,.navg  {color: #0d3684;}a.navg:link, a.navg:visited {color: #0d3684; }a.navg:hover, a.navg:active {color:#008bff;}
+a.mores,.mores  {color: #bebebe;}a.mores:link, a.mores:visited {color: #bebebe; }a.mores:hover, a.mores:active {color:#bebebe;}
+
+table,td { line-height:25px;}
+
+.fontsz8 { font-size:8px; line-height:23px;}
+.fontsz9 { font-size:9px; line-height:23px;}
+.fontsz10 { font-size:10px; line-height:25px;}
+.fontsz11 { font-size:11px; line-height:25px;}
+.fontsz12 { font-size:12px; line-height:28px;}
+.fontsz13 { font-size:13px; line-height:28px;}
+.fontsz14 { font-size:14px; line-height:30px;}
+.fontsz15 { font-size:15px; line-height:30px;}
+.fontsz16 { font-size:16px; line-height:30px;}
+.fontsz18 { font-size:18px; line-height:35px;}
+.fontsz20 { font-size:20px; line-height:35px;}
+.fontsz22 { font-size:22px; line-height:38px;}
+.fontsz23 { font-size:24px; line-height:38px;}
+.fontsz24 { font-size:25px; line-height:40px;}
+.fontsz25 { font-size:25px; line-height:40px;}
+.fontsz26 { font-size:26px; line-height:40px;}
+.fontsz28 { font-size:28px; line-height:45px;}
+.fontsz30 { font-size:30px; line-height:45px;}
+.fontsz32 { font-size:32px; line-height:48px;}
+.fontsz33 { font-size:33px; line-height:48px;}
+.fontsz35 { font-size:35px; line-height:50px;}
+.fontsz36 { font-size:36px; line-height:50px;}
+.fontsz38 { font-size:38px; line-height:55px;}
+.fontsz40 { font-size:40px; line-height:55px;}
+
+.fontyh { font-family:"微软雅黑","黑体"; }
+.fontht { font-family:"黑体"; }
+.fontst { font-family:"宋体"; }
+
+.fontbold { font-weight:bold;}
+.fontunline { text-decoration:underline;}
+
+.m_b3 {margin-bottom: 3px;}
+.m_b5 {margin-bottom: 5px;}
+.m_b7 {margin-bottom: 7px;}
+.m_b8 {margin-bottom: 8px;}
+.m_b10 {margin-bottom: 10px;}
+.m_b12 {margin-bottom: 12px;}
+.m_b15 {margin-bottom: 15px;}
+.m_b20 {margin-bottom: 20px;}
+.m_b23 {margin-bottom: 23px;}
+.m_b25 {margin-bottom: 25px;}
+.m_b30 {margin-bottom: 30px;}
+
+.m_t3 {margin-top: 3px;}
+.m_t5 {margin-top: 5px;}
+.m_t7 {margin-top: 7px;}
+.m_t8 {margin-top: 8px;}
+.m_t10 {margin-top: 10px;}
+.m_t12 {margin-top: 12px;}
+.m_t15 {margin-top: 15px;}
+.m_t20 {margin-top: 20px;}
+.m_t23 {margin-top: 23px;}
+.m_t25 {margin-top: 25px;}
+.m_t30 {margin-top: 30px;}
+
+
+.spit_span10 {float:left; width:10px; overflow:hidden; }
+.spit_span15 {float:left; width:15px; overflow:hidden; }
+.spit_span20 {float:left; width:20px; overflow:hidden; }
+.spit_span25 {float:left; width:25px; overflow:hidden; }
+.spit_span28 {float:left; width:28px; overflow:hidden; }
+.spit_span30 {float:left; width:30px; overflow:hidden; }
+.spit_span35 {float:left; width:35px; overflow:hidden; }
+
+
+.span_h5 { margin:0px auto; padding:0px; height:5px; overflow:hidden; clear:both; }
+.span_h10 { margin:0px auto; padding:0px; height:10px; overflow:hidden; clear:both; }
+.span_h15 { margin:0px auto; padding:0px; height:15px; overflow:hidden; clear:both; }
+.span_h20 { margin:0px auto; padding:0px; height:20px; overflow:hidden; clear:both; }
+.span_h25 { margin:0px auto; padding:0px; height:25px; overflow:hidden; clear:both; }
+.span_h30 { margin:0px auto; padding:0px; height:30px; overflow:hidden; clear:both; }
+.span_h40 { margin:0px auto; padding:0px; height:40px; overflow:hidden; clear:both; }
+.span_h50 { margin:0px auto; padding:0px; height:50px; overflow:hidden; clear:both; }
+.span_h75 { margin:0px auto; padding:0px; height:75px; overflow:hidden; clear:both; }
+.span_h90 { margin:0px auto; padding:0px; height:90px; overflow:hidden; clear:both; }
+
+
+
+.en {font:12px,Arial,Helvetica,sans-serif;}

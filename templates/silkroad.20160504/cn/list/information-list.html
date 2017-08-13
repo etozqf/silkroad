@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{loop $title_pos $_title_pos}{$_title_pos[alias]}_{/loop}{$alias}_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/information-list.css"/>
+    <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/information-list.js"></script>
+	<script>
+	$(function () {
+		catname_top = 'CEI';	// 顶级栏目名称
+		/*$('.col-r-extra>ul>li').each(function(){
+			if($(this).hasClass('over')){
+				catname = $(this).find('a').html();
+			}
+		})*/
+		catname="All News";
+	})
+	</script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+<!-- 顶部 -->
+<!--{template "system/head.html"}-->
+
+
+<div class="columnA mar-t-15 ov">
+    <div class="bor-rb">
+        <div class=" bor-trbl list-con">
+            <!--左侧-->
+            <div class="col-r-extra mar-t-20 mar-l-20">
+                <div class="bor-rbs">
+                    <div class="bor-trbs">
+                        <ul class="list-ul">
+                           <li id="allnews" class=" ie6_png32">
+                             <a href="javascript:;" mark="all">All News</a>
+                        </li>
+                        <?php 
+                          $db=factory::db();
+                          /*获取英文资讯频道属性数组*/
+                          $arr=config("en_information");
+                        ?>
+                         <!--{loop $arr $value}-->
+                               <li class="bor-b ie6_png32">
+                                <!--{if $value['son']}-->
+                                     <a mark="father">{$value['alias']}</a>
+                                    <div class="bor-rbs list-hidden-box">
+                                        <div class="bor-trbs">
+                                            <div class="bor-con">
+                                                <dl >
+                                                
+                                            <!--{loop $value['son'] $val}-->
+
+                                            <dd ><a proid="{$val['proid']}" target='_blank'>{$val['alias']}</a></dd>
+
+                                                        <!--{/loop}-->
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!--{else}-->
+                                <a href="javascript:;" proid="{$value['proid']}">{$value['alias']}</a>
+                                <!--{/if}-->
+                                </li>
+                        <!--{/loop}--> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="col-r-main ov f-r mar-r-20 mar-t-20">
+                <ul class="summary-list" id="right_content">
+            <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+                        <li class="bor-b">
+                        <em class="f-l">&bull;</em>
+                        <a href="{$r[url]}" target="_blank" class="f-l">{str_natcut($r[title], 70, '...')}</a>
+                        <div class="f-r txt mar-t-3">
+                            <span>{date('Y-m-d', $r['published'])}</span>
+                            <i>{date('H:i', $r['published'])}</i>
+                        </div>
+                         </li>
+                    <!--{/content}-->
+                </ul>
+                <!--分页-->
+                 <div class="page mar-b-120 mar-t-20">
+                     <ul id="page">
+                             <!--{pages_infolist(min($total, $mintotal), $page, $pagesize, 2, $urlrule)}-->
+                             <li class="mar-l-5"><em>{$total}</em>records</li>
+                     </ul>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" class="pagesize" value="{$pagesize}"/>
+<input type="hidden" class="url" value="{$url}"/>
+<input type="hidden" class="zixun_catid" value="{$catid}"/>
+<script type="text/javascript">
+  $(function(){
+      var summary=$("#right_content"); //右侧显示容器
+      var url=$(".url").val();
+      var page=$("#page");
+      var catid=$(".zixun_catid").val();
+      $(".bor-trbs .list-ul li a").each(function(i,ele){
+         $(ele).click(function(){
+			 catname=$(this).html();
+			 userBehavior();
+             $(ele).parents('li').addClass("over");
+             $(ele).parents('li').siblings().removeClass("over");
+            if($(ele).attr("mark")=="all")
+            {
+                  window.location.href=url;  
+            }
+            else if($(ele).attr("mark")!="father")
+            {  
+                var proid=$(ele).attr("proid");
+                var pagesize=$(".pagesize").val();  //每页显示条数
+                //将容器中的内容先清空
+                summary.empty();
+                
+                var url_server=APP_URL+"?app=system&controller=information&action=get_property_content&jsoncallback=?&proid="+proid+"&pagesize="+pagesize+"&url="+url+"&catid="+catid;
+                   
+                $.getJSON(url_server,function(json){
+
+                    if(json.status=="success"){
+                        var html=custom_template("success",json['content']);
+                        var total = json['total'];
+                        var pagesize=$(".pagesize").val();
+                        var pages = '<li onclick="Prepage()"><a class="pre disable" href="javascript:void(0);">Previous Page</a></li>';
+                            pages += '<li onclick="Ajaxpage(1)"><a class="number red" href="javascript:void(0);">1</a></li>';
+                         for(var i=0;i<Math.ceil((total/pagesize)-1);i++){
+                            pages += '<li onclick="Ajaxpage('+(i+2)+')"><a href="javascript:void(0);" class="number">'+(i+2)+'</a></li>';
+                         }
+                          pages += '<li onclick="Nextpage()"><a class="next" href="javascript:void(0);">Next Page</a></li>';
+                          pages += '<li class="mar-l-5"><em>'+total+'</em>records</li>';
+                        page.empty();
+                        page.append(pages);
+                    }
+                    else
+                    {
+                        
+                        html=custom_template("error",json['content']);
+                    }
+
+                    //将返回结果插入到容器中
+                    summary.append(html);
+                  });
+
+            }
+
+         })
+
+      })
+      
+      /*定义模板函数*/
+      function custom_template(type,json){
+            var html='';
+
+            if(type=="success"){
+                
+                for(var i=0;i<json.length;i++){
+                    var timestamp=parseInt(json['published']*1000);
+                    html+='<li class="bor-b"><em class="f-l">&bull;</em>';
+                    html+='<a href="'+json[i]['url']+'" target="_blank" class="f-l">'+json[i]['title']+'</a>';
+                    html+='<div class="f-r txt mar-t-3">';
+                    html+='<span>'+json[i]['published']+'</span>';
+                    html+='</div></li>';
+                }
+            }else{
+                html+="<li>"+json+"</li>";
+            }
+
+            return html;
+      }
+  })
+
+      /*ajax动态获取分页数据*/
+      function Ajaxpage(pages){
+          var proid=$(".over").children().attr("proid");
+          var pagesize=$(".pagesize").val();  //每页显示条数
+          var catid=$(".zixun_catid").val();
+          var url=$(".url").val();
+          var summary=$("#right_content"); //右侧显示容器
+
+          var url_server=APP_URL+"?app=system&controller=information&action=get_property_content&jsoncallback=?&proid="+proid+"&pagesize="+pagesize+"&url="+url+"&catid="+catid+"&page="+pages;
+                   
+                $.getJSON(url_server,function(json){
+                    if(json.status=="success"){
+                      var html=custom_template("success",json['content']);
+                      summary.empty();
+                      summary.append(html); 
+                    }
+                });
+              $("#page li:eq("+pages+")").children().addClass("red");
+              $("#page li:eq("+pages+")").siblings().children().removeClass("red");
+      }
+      /*定义模板函数*/
+      function custom_template(type,json){
+            var html='';
+
+            if(type=="success"){
+                
+                for(var i=0;i<json.length;i++){
+                    var timestamp=parseInt(json['published']*1000);
+                    html+='<li class="bor-b"><em class="f-l">&bull;</em>';
+                    html+='<a href="'+json[i]['url']+'" target="_blank" class="f-l">'+json[i]['title']+'</a>';
+                    html+='<div class="f-r txt mar-t-3">';
+                    html+='<span>'+json[i]['published']+'</span>';
+                    html+='</div></li>';
+                }
+            }else{
+                html+="<li>"+json+"</li>";
+            }
+
+            return html;
+      }
+      /*点击上一页函数*/
+      function Prepage(){
+        var curret = $("#page").find(".red").html();
+        var cur = parseInt(curret);
+        
+        if(cur==1){
+          Ajaxpage(1);
+        }else{
+          Ajaxpage(cur-1);
+        }
+      }
+      /*点击下一页函数*/
+      function Nextpage(){
+        var curret = $("#page").find(".red").html();
+        var cur = parseInt(curret);
+        var max = $("#page").find(".red").parent().next().children().html();
+        if(!isNaN(max)){
+          Ajaxpage(cur+1);
+        }else{
+          Ajaxpage(cur);
+
+        } 
+      }
+</script>
+<!--页脚-->
+<!-- 顶部 -->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

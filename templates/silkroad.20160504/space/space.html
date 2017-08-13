@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$sitename[0]} _ 专栏</title>
+<meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/consultation.css"> 
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script>
+	catname_top = '咨询';	// 顶级栏目名称
+	catname = '{$space['name']}';
+</script>
+</head>
+<body>
+<!-- 顶部 -->
+    <!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+
+
+ 
+<div class="container">
+	<!-- left -->
+	<div class="left730"> 
+		<div class="userdetail">
+			<div class="hd"><h3>{$space['name']}</h3><div class="bar"><a href="{APP_URL}?app=guestbook&typeid={$_GET['typeid']}"  target="_blank"class="talk">&nbsp;</a><a href="" class="fav">&nbsp;</a></div></div>
+			<div class="bd">
+				<div class="tags" style="width:200px;float:left;">
+					<img src="{UPLOAD_URL}{$space['photo']}"  alt="">
+					<div>标签：<span>{$space['tags']}</span></div>
+				</div>
+				<div class="content" style="width:460px;float:right;padding:20px;"><span>{$space['description']}</span></div>
+			</div>
+		</div>
+		<div class="jy-bg">
+			<ul class="tab">
+				<!--{if $_GET['typeid']==1}-->
+				<li class="on">投资建议</li>
+				<li>记者观点</li>
+				<!--{elseif $_GET['typeid']==2}-->
+				<li class="on">专家观点</li>
+				<!--{elseif $_GET['typeid']==3}-->
+				<li class="on">机构观点</li>
+				<!--{/if}-->
+				
+			</ul>
+			<!--{if $_GET['typeid']==1}-->
+			<!-- 投资建议 -->
+			<div class="tabcon" style="display:block;">
+				<div class="jy">
+			          	<!--{if $space['advice']}-->
+			             {$space['advice']}
+			            <!--{else}-->
+			             暂无数据！
+		            	<!--{/if}-->
+       			</div>
+			</div>
+			<!--{/if}-->
+			<!-- 报告 -->
+			<div class="tabcon" {if $_GET['typeid']!=1}style="display:block;"{/if}>
+				<div class="news"> 
+		        	<ul>
+		        		<?php $spaceid=intval($_GET['spaceid']);?>
+			             <!--{db sql="SELECT * FROM #table_content c,#table_space s WHERE s.spaceid is not null AND c.modelid=1 and s.spaceid=$spaceid AND c.status=6 and c.spaceid=s.spaceid ORDER BY published desc" size="3" }-->
+			            <?php $i = 1; ?>
+			            <li>
+						 <!--{if $r['thumb']}-->
+			            <img src="{UPLOAD_URL}{$r['thumb']}" alt="">
+			            <!--{/if}-->
+			              <h2><a href="{$r['url']}">{$r['title']}</a></h2>
+			              <p>{str_natcut(description($r['contentid'],$r['modelid']),75,'')}</p>
+			              <div class="info"><span class="time">{date('Y-m-d', $r['published'])}<b>{date('H:i', $r['published'])}</b></span><span class="fav">收藏</span></div> 
+			            </li>  
+			             <!--{/db}-->
+			          </ul> 
+			          	<!--{if !$i}-->
+			             暂无数据！
+		            	<!--{/if}-->
+	      		</div>
+			</div>
+		</div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+		<div class="item">
+			<!--#include virtual="/section/291.html"--><!--# 咨询频道 首席记者 #-->
+		</div>
+		<div class="item">
+			<!--#include virtual="/section/283.html"--><!--# 咨询频道 专家观点 #-->
+		</div>
+		<div class="item">
+			<!--#include virtual="/section/292.html"--><!--# 咨询频道 机构观点 #-->
+		</div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+
+
+ <!--{template "system/foot_zn.html"}-->
+<script src="js/jquery-1.12.0.min.js"></script>
+<script>
+	$(function(){ 
+		// 收藏
+		$(".fav").click(function(){
+			$(this).toggleClass("on");
+			if($(this).parent().hasClass("info")){
+				if($(this).hasClass("on")){  
+					$(this).text("取消收藏")
+				}else{ 
+					$(this).text("收藏")
+				}
+			}
+			return false;
+		})
+		// tab
+		$(".jy-bg .tab li").bind("click",function(){
+			$(this).addClass("on").siblings("li").removeClass("on");
+			var index = $(this).index();
+			$(".jy-bg .tabcon").eq(index).show().siblings(".tabcon").hide();
+		})
+	})
+</script>
+
+</body>
+</html>

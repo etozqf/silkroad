@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+	<title>{$name}_国别报告_{$sitename[0]}</title>
+	<meta name="Keywords" content="{$SYSTEM[seokeywords]}">
+	<meta name="description" content="{$SYSTEM[description]} ">
+	<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/country.css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/dialog.css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/ComUse.css">
+	<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<style>
+		.gjml_tagsub p{
+			text-indent:2em;
+		}
+	</style>
+	<script>
+		catname_top = '国别报告';	// 顶级栏目名称
+		catname = '{$name}';
+</script>
+</head>
+<body>
+   <!--{template "system/head_zn.html"}-->
+<div class="crumbs"><a href="{WWW_URL}">首页</a><span>&gt;</span><a href="{table('page','57','url')}"  onclick="return false">国别国家</a><span>&gt;</span>{$name}</div>
+<!--#include virtual="/section/303.html"--><!--# 思路报告 国别报告-国别区块 #-->
+<div class="thereport">
+	<div class="hd">
+		<h3>{$name}的报告</h3>
+		<a href="JavaScript:makePdf();" class="create">一键生成报告</a>
+	</div>
+	<div class="bd">
+		<div class="introduction">
+			<img src="{thumb($jianjie['thumb'],200,null,1)}" alt="" width="200">
+			<div class="title"><h3>{$jianjie['name']}</h3></div>
+			<div class="content">
+				{$jianjie['description']}
+			</div>
+		</div>
+		<!-- 右侧 -->
+
+		<div class="box_gjml">
+			<div class="box_gjml_top">
+				<div class="box_gjml_tag">
+					<label><input type="checkbox" name="checkbox" value="checkbox" onclick="checkall();" id="checkall" />
+						全选</label> (请选择报告内容)
+				</div>
+			</div>
+			<div class="gjml_block" id="DCountryTree">
+			<input type="hidden" name="proid" value="{$proid}">
+			<!--{loop $res $k $v}-->
+				<dl>
+					<dt class="gjml_dashline">
+					<div class="gjml_tagtit">
+						<input type="checkbox" name="contentid" 
+							value="{$v['content']['contentid']}"
+				    	    id="contentid_{$v['content']['contentid']}"/> {$v['name']}
+					</div>
+					<a href="javascript:void(0);" onclick="openNode(this);">
+						<div class="gjml_but">+</div>
+					</a>
+					</dt>
+					<dd style="display:none;">
+						<div class="gjml_tagsub"><?php echo $v['content'] ? $v['content']['content'] : '<div style="text-align:center;">暂时没有内容!</div>';?></div>
+					</dd>
+				</dl>
+			<!--{/loop}--> 
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--{template "system/foot_zn.html"}-->
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/dialog.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/countryjs.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/position.js"></script>
+<script>
+	$(function () {
+		$(".morebtn").on("click", function () {
+			$(this).parents("dl").toggleClass("all");
+		});
+		$(".allcountry dd span").not(".disfont").on("click", function () {
+			$(".allcountry dd span").removeClass("on");
+			$(this).addClass("on");
+			// return false;
+		})
+	})
+	function checkall()
+	{
+	    
+	    var alls = $("#checkall").prop("checked");
+	    if (!alls)
+	    {
+	        $("input[name='contentid']").prop("checked",false);
+	    }
+	    else
+	    {
+	        $("input[name='contentid']").prop("checked",true);
+	    }
+	    
+	}
+	
+	//读取新数据标识
+	$(function () {
+		var ajax_url="/?app=country&controller=getNew&action=index";
+		$.ajax({
+			"type":"get",
+			"url":ajax_url
+		}).done(function (data) {
+		    var data=JSON.parse(data);
+            if(data.state){
+                for (var i in data.data){
+                    var ele=$(".allcountry .bd  dd span a");
+                    ele.each(function () {
+						var _thispid=($(this).attr("href")).split("proid=")[1];
+						if(_thispid==data.data[i].proid){
+						    $(this).find("img").remove();
+                            $(this).css("position","relative").append('<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAANCAYAAACtpZ5jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNTMxNzY4MEREQjExRTY5MkUxRThCQUU1NzUyOENCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjAwNTMxNzY5MEREQjExRTY5MkUxRThCQUU1NzUyOENCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDA1MzE3NjYwRERCMTFFNjkyRTFFOEJBRTU3NTI4Q0IiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDA1MzE3NjcwRERCMTFFNjkyRTFFOEJBRTU3NTI4Q0IiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4ZNUM+AAAApklEQVR42mL8H6PsycDAMBeIJRmoA54DcTIj0OBnVDQUbjgTiqGL76BKw/ggGhmjy2HqlWTBsAukIFYF0w3YxPAAJqwGoLsc3dVEABasotgMR3cxshosvmTCaSW6QbhcjCOIaJUqXoBcnAJiUNHQp6B0DArjbWgu/o/E/gnE+UA8k1TTWfDIgYIoFIiPkeNsXJF3FIhNyDUUl8HTgdgJmufJBgABBgBmkTk6N4VetAAAAABJRU5ErkJggg==" style="right:-8px; top:-9px;width:22px; height:13px; position:absolute;" />')
+						}
+                    });
+				}
+            }
+        })
+    })
+</script>
+
+</body>
+</html>

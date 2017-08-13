@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>
+        
+  <?php $title=is_null($catid)?'Companies':table('category',$catid,'alias');
+        echo $title;
+  ?>
+      
+    </title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/company-list.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/company.js"></script>
+	<script>
+	$(function () {
+		catname_top = 'Companies';	// 顶级栏目名称
+		catname= '{$title}';
+	})
+	</script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+ <!--{template "system/head.html"}-->
+ <!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+ <style>
+    #getcatid:last-child{border: none;}
+ </style>
+<!--@end 搜索-->
+<div class="columnA ov mar-t-15">
+    <!--左侧-->
+    <div class="bor-rb col-l-main ov">
+        <div class="bor-trbl ov h-1905">
+            <div class="w-692 ">
+                <!--左辅栏-->
+                <div class="col-l-extra">
+                    <div class="bor-rbs">
+                        <div class="bor-trbs">
+                            <ul class="list-ul">
+                            <?php 
+                              $catid=is_null($catid)?92:$catid;
+                            $subcatgorys = subcategory(92);?> 
+                            <!--{loop $subcatgorys $catidkey $cat}-->
+                                <!--{if $cat[catid]==$catid}-->
+                                <li class="bor-b over"catid="{$cat[catid]}">
+                                <!--{else}-->
+                                 <li class="bor-b">   
+                                <!--{/if}-->
+                                    <a id="{$cat[catid]}" onclick="getContent({$cat[catid]},'null','catid',this.id)">{str_natcut($cat['alias'])}  100</a>
+                                <?php 
+                                    $proids = factory::db()->select("select proid from cmstop_property_category where catid=".$cat['catid']);
+                                ?>
+                                </li>
+                            <!--{/loop}-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--@end 左辅栏-->
+                <!--右辅栏-->
+                <div class="col-r-extra">
+                    <table class="r-table">
+                        <thead class="thead">
+                        <tr>
+                            <td class="t-c w-53">Rank</td>
+                            <td class="pad-10 w-150" >Enterprise</td>
+                            <td class="pad-10 w-126">Chinese Name </td>
+                            <td class="pad-10 w-100" > Revenue </td>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody">
+                        <?php
+                           /*当公司栏目首页被选中时,默认根据栏目（英文公司库-ID：92）显示所有文章*/ 
+                           $db=factory::db();
+                           if($catid==92)
+                           {
+                             $catid=table('category',$catid,'childids');
+                            $result=$db->select("select contentid,title,url,weight from #table_content where catid in ($catid) and status=6 order by weight asc limit 100");
+                           }
+                           else
+                           {                           
+                            $result=$db->select("select contentid,title,url,weight from #table_content where catid=$catid and status=6 order by weight asc limit 100");               
+                           } 
+
+
+                        if(!empty($result))
+                        {
+                            foreach ($result as $key => $data) 
+                            {
+                                $subtitle = table('article',$data['contentid'],'subtitle');
+                                $meta = unserialize(table('content_meta',$data['contentid'],'data'));
+                                $capital = $meta[1]['Capital'];
+                                $n = $key+1;
+                            ?>
+
+                            <tr>
+                                <td class="t-c number co-999">{$data['weight']}</td>
+                                <td class="pad-10 co-0079c6"><a href="{$data['url']}" target="_blank">{$data[title]}</a></td>
+                                <td class="pad-10 co-0079c6"><a href="{$data['url']}" target="_blank">{$subtitle}</a></td>
+                                <td class="pad-10 co-333">{$capital}</td>
+                            </tr>
+                            <?php
+                            }
+                        }
+                        else
+                        {
+                                echo "<tr><td colspan='4' style='text-align: center'>No Content</td></tr>";
+                        }    
+
+                        ?>
+                       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--右侧-->
+    <div class="bor-rb col-r-main ov">
+        <div class="bor-trbl ov h-1905">
+            <!--#include virtual="/section/310.html"--><!--# 英文公共区块 英文版右侧-定制报告（Customized Report） #-->
+            <!--#include virtual="/section/314.html"--><!--# 英文公共区块 英文版右侧-国别报告(China Factbook) #-->
+            <!--#include virtual="/section/327.html"--><!--# 英文公共区块 英文版右侧-法律法规（Laws & Rules） #-->
+        </div>
+    </div>
+    <!--@end 右侧-->
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>
+<script type="text/javascript">
+    function getContent(catid,proid,mark,id){
+       $("#"+id).parent().addClass("over");
+       $("#"+id).parent().siblings().removeClass("over");
+        var html ='';
+        var json = "{APP_URL}?app=system&controller=property&action=Companies&jsoncallback=?&catid=" + catid + "&proid=" + proid+"&mark="+mark;
+        $.getJSON(json,function (data){
+		
+        if(data.status!="error")
+        {
+				catname=$("#"+id).html().split("  100")[0];
+				userBehavior();
+                $.each(data,function(i,j){
+                var title = j.title;
+                var subtitle = j.subtitle;
+                var capital = j.capital;
+                var weight=j.weight;
+                var url=j.url;
+                if(capital==null){
+                    capital=0;
+                }
+                if(j){
+                    html +='<tr>';
+                    html +='<td class="t-c number co-999">'+weight+'</td>';
+                    html +='<td class="pad-10 co-0079c6"><a href="'+url+'" target="_blank">'+title+'</a></td>';
+                    html +='<td class="pad-10 co-0079c6">'+subtitle+'</td>';
+                    html +='<td class="pad-10 co-333">'+capital+'</td>';
+                    html +='</tr>';
+                }
+            });
+            
+        }
+        else
+        {
+            html+='<tr><td colspan="4" style="text-align:center">No Content</td></tr>';
+        }
+
+            $('.tbody').html(html);
+        })
+    }
+
+    $(function(){
+        $(".bor-trbs .list-ul li").mousemove(function(){
+                $(this).addClass("ya");
+        });
+        $(".bor-trbs .list-ul li").mouseleave(function(){
+                $(this).removeClass("ya");
+        })
+    })
+
+</script>

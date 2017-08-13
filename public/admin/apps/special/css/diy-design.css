@@ -1,0 +1,218 @@
+/*
+    Document   : diy-design
+    Created on : 2010-7-13, 12:44:27
+    Author     : kakalong
+    Description:
+        use for base special page design
+*/
+
+/* start: design mode sets ----------------------------*/
+.diy-design-mode .diy-area, .diy-design-mode .diy-widget {
+	min-height:30px;
+}
+.diy-design-mode .diy-area {
+	background-color:transparent;
+}
+.diy-design-mode .diy-root.diy-area {
+    background:#ECF4FD;
+	background-color:rgba(236,244,253, .4);
+	padding:2px;
+	height:100%;
+}
+.diy-wrapper {
+	margin:8px 1px;
+	position:relative;
+	overflow:hidden;
+}
+.diy-wrapper .diy-frame {
+	position:relative;
+	z-index:0;
+}
+.diy-design-mode .diy-wrapper, .diy-design-mode .diy-frame {
+	min-height:30px;
+}
+.diy-top, .diy-right, .diy-bottom,
+.diy-left {
+	font-size:0;height:0;width:0;
+	background-color:#6694E3;
+	overflow:hidden;
+	position:absolute;
+	display:none;
+}
+.diy-top {
+	top:0;left:0;
+	height:2px;width:100%;
+}
+.diy-right {
+	top:0;right:0;
+	width:2px;height:100%;
+}
+.diy-bottom {
+	bottom:0;left:0;
+	height:2px;width:100%;
+}
+.diy-left {
+	top:0;left:0;
+	width:2px;height:100%;
+}
+.diy-x-resize {
+	font-size:0;
+	overflow:hidden;
+	position:absolute;
+	display:none;
+	top:0;
+	height:100%;
+	width:5px;
+	margin-left:-2.5px;
+	cursor: w-resize;
+	background: transparent url(../images/diy-repeaty.png) repeat-y -50px;
+}
+.diy-x-resize.diy-active {
+	background-color: #454545;
+}
+.diy-resize-tips {
+	border:1px solid #ccc;
+	background-color: #EFEFEF;
+	opacity:0.5;
+	filter:Alpha(Opacity="50");
+	position:absolute;
+	height:20px;
+	top:50%;
+	margin-top:-10px;
+	text-align:center;
+	padding:0 5px;
+	line-height:20px;
+	font-size:12px;
+	display:none;
+}
+.diy-handle {
+	cursor: move;
+	background-color:#6694E3;
+	height:8px;
+	display:none;
+}
+
+.diy-color-6694E3>.diy-border {
+	background-color:#6694E3;
+}
+.diy-color-f69>.diy-border {
+	background-color:#f69;
+}
+.diy-color-9c9>.diy-border {
+	background-color:#9c9;
+}
+.diy-color-fc3>.diy-border {
+	background-color:#fc3;
+}
+.diy-color-0cf>.diy-border {
+	background-color:#0cf;
+}
+.diy-color-090>.diy-border {
+	background-color:#090;
+}
+.diy-color-c00>.diy-border {
+	background-color:#c00;
+}
+.diy-hidden>.diy-border {
+    background-color:#333;
+}
+.diy-design-mode .diy-top, .diy-design-mode .diy-right,
+.diy-design-mode .diy-bottom, .diy-design-mode .diy-left,
+.diy-design-mode .diy-x-resize, .diy-design-mode .diy-handle {
+	display:block;
+	filter:Alpha(Opacity="50");
+	z-index:1;
+}
+.diy-wrapper.diy-over>.diy-border {
+	opacity:1;
+	filter:Alpha(Opacity="100");
+}
+
+.diy-design-mode .diy-widget {
+	margin:5px 1px;
+}
+.diy-placement {
+	position:relative;
+}
+.diy-hidden {
+    display: none;
+}
+.diy-design-mode .diy-hidden {
+    display: block;
+}
+
+/* specially for design  */
+.diy-placeholder {
+	border:1px dashed #FFFFFF;
+	background-color: #000000;
+	opacity:0.5;
+	filter:Alpha(Opacity="50");
+	min-height:30px;
+	margin:8px 1px;
+}
+.diy-spinning {
+	height:42px;
+	margin:4px;
+	background:transparent url(../images/diy-spinning.gif) no-repeat center center;
+}
+.diy-widget .diy-masker {
+	height:100%;
+	width:100%;
+	background-color:transparent;
+	opacity:.30;
+	filter:Alpha(Opacity="30");
+	position:absolute;
+	top:0;left:0;
+	z-index:10;
+	display:none;
+}
+.diy-widget:hover .diy-masker  {
+    background-color:#FFC866;
+}
+.diy-widget.diy-modified .diy-masker {
+	background-color:#F66;
+}
+.diy-hidden.diy-widget .diy-masker {
+    background-color:#333;
+    filter:Alpha(Opacity="80");
+}
+.diy-design-mode .diy-masker {
+	display:block;
+}
+.diy-blink-hover .diy-masker {
+	background-color:orange;
+	opacity:.80;
+	filter:Alpha(Opacity="80");
+}
+.diy-render-error {
+    background:#ccc url(../images/diy-rendererror.png) no-repeat center center;
+    height:100px;
+}
+
+.diy-size-3 {width:26px;}
+.diy-size-4 {width:32px;}
+.diy-size-5 {width:38px;}
+.diy-size-6 {width:44px;}
+.diy-size-7 {width:50px;}
+.diy-size-8 {width:56px;}
+.diy-size-9 {width:62px;}
+.diy-size-10 {width:66px;}
+.diy-size-15 {width:96px;}
+.diy-size-20 {width:132px;}
+.diy-size-25 {width:158px;}
+.diy-size-30 {width:188px;}
+.diy-size-35 {width:218px;}
+.diy-clear {clear:both;}
+
+@include "message.css";
+@include "finder.css";
+@include "part/placement.css";
+@include "part/panel.css";
+@include "part/tip.css";
+@include "part/reel.css";
+@include "part/pagination.css";
+@include "part/tabigation.css";
+@include "part/dialog.css";
+@include "part/popup.css";
+@include "part/popmenu.css";
+@include "part/addpage.css";

@@ -1,0 +1,24 @@
+<div class="inner border1" style="height:300px;width:170px;">
+    <ul class="member-aside">
+        <!-- <li rel="news"><a href='{url("contribution/panelcn/news")}' title="News Bookmarks" style="padding-left:10px">News Bookmarks(<span>0</span>)</a></li> -->
+        
+        <li rel="project"><a href='{url("contribution/panelcn/project")}' title="Project Bookmarks" style="padding-left:10px">Project Bookmarks(<span></span>)</a></li>
+        <li rel="voide"><a href='{url("contribution/panelcn/voide")}' title="Voide Bookmarks" style="padding-left:10px">Voide Bookmarks(<span></span>)</a></li>
+        <!-- <li rel="media"><a href='{url("contribution/panel/media","memberid=$memberid")}' title="外媒收藏">外媒收藏(<span></span>)</a></li> -->
+        <li rel="law"><a href='{url("contribution/panelcn/law")}' title="Law Bookmarks" style="padding-left:10px">Law Bookmarks(<span></span>)</a></li>
+       
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'news';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

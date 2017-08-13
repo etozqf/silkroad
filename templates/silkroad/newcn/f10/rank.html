@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_rank</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/jquery.autocompleter.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery.autocompleter.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/diy/js/data.js"></script>
+    <script type="text/javascript">
+        var LANG ='en';
+        jQuery(function ($) {
+            FTEN.init();
+        })
+    </script>
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--排行榜-->
+            <div class="rank ov mar-t-20 bor-b-ccc" style="display:none;">
+                <div class="f-l ov">
+                    <em class="f-l ov mar-l-20 mar-t-10"></em>Ranking List
+                </div>
+                <ul class="f-l ov mar-l-10" style="display: none;">
+                    <li><a href=""target="_blank">最能融资企业</a></li>
+                    <li><a href="" target="_blank">最赚钱企业</a></li>
+                    <li><a href="" target="_blank">最XXX企业</a></li>
+                </ul>
+
+            </div>
+            <!--news-->
+            <div class="rank bor-b-ccc ov mar-t-5" style="display: none;">
+                <div class="f-l ov">
+                    <em class="f-l ov mar-l-20 mar-t-10 em02"></em>News
+                </div>
+                <p class="mar-l-20 f-l">XXX Company（600123.SH）to set up R&D center in Beijing.</p>
+            </div>
+            <!--搜索-->
+            <div class="search-box" style="width: 960px; margin: 20px auto">
+                <div class="searchs" style="margin-left: 80px;">
+                    <form id="searchForm" action="{APP_URL}?app=system&controller=ften&action=search" method="POST" onsubmit="return false;">
+                        <div class="f-l"><input type="text" name="keyword" class="txt-input txt-focus" placeholder="Silk Road" /></div>
+                        <button type="button" class="btn-search">Search</button>
+                        <img src="{IMG_URL}templates/{TEMPLATE}/f10/image/fdj.png" width="19" height="19" class="ie6_png32 search_icon"/>
+                    </form>
+                </div>
+                <div class="adv-searchs" style="display:none;">
+                    <a href="javascript:;"onclick="popbox('.pop-box')">Advanced Search</a>
+                </div>
+            </div>
+            <!--@end 搜索-->
+            <!--内容-->
+            <div class="content ov">
+                <ul id="classify_list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+
+</body>
+</html>

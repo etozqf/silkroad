@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+<title>{$sitename[0]} _ 项目</title>
+<meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css"> 
+
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+   <div class="container">
+    <!-- left -->
+    <div class="left730">
+          <div class="n_ind_contmain">
+            <!--此处容器内拼装ajax动态请求的数据-->
+          <div class="news" style="display:block"> 
+                <ul id="data-list">
+                    <span id="start-data-{$page}"></span>
+                <!--{content catid="$catid" orderby="published desc" page="$page" size="$pagesize"}-->
+                    <li>
+                        <!--{if !empty($r['thumb'])}-->
+                        <img src="{thumb($r['thumb'],310,220,1,null,0)}" alt="{$r['title']}" width="310" height="220">
+                        <!--{/if}-->  
+                      <h2><a href="{$r['url']}" target="_blank">{str_natcut($r['title'],20,'')}</a></h2>
+                      <p>{str_natcut(description($r['contentid']),60,'....')}</p>
+                      <div class="info">
+                        <span class="time">2014-10-28<b>07:46</b></span>
+                        <span class="fav" mark="{$mark}" collectid="" contentid="{$r['contentid']}">收藏</span>
+                        </div> 
+                    </li>
+                <!--{/content}-->
+                    <span id="stop-data-{$page}"></span>
+                </ul>
+              {if $page == 1}<a class="more" id="more-data" href="javascript:;">更多最新内容>></a>{/if}
+          </div>
+          </div>
+    </div>
+    <!-- right -->
+    <div class="right250">
+       
+            <!--#include virtual="/section/301.html"--><!--# 资讯频道 丝路情报 #-->
+      
+            <!--#include virtual="/section/304.html"--><!--# 资讯频道 国别报告 #-->
+      
+            <!--#include virtual="/section/318.html"--><!--# 资讯频道 阅读排行 #-->
+          
+    </div>
+    <div class="clearfix"></div>    
+</div>
+
+
+<!--{template 'system/foot_zn.html'}-->
+
+<script>
+    $(function(){
+        //瀑布流加载数据
+        var page = "{$page}";
+        var pagetotal = "<?php echo ceil(min($total, $mintotal)/$pagesize);?>";
+        var url = "{$url}";
+        $('#more-data').click(function(){
+            if(page >= pagetotal){
+                alert('数据已经全部加载完毕!');
+                return false;
+            } 
+            page++;
+            $.get(url+page+'.shtml',function(res){
+                var start_data = res.indexOf('<span id="start-data-'+page+'"></span>');
+                var stop_data = res.indexOf('<span id="stop-data-'+page+'"></span>');
+                var LoadHtml = res.substring(start_data,stop_data)+'<span id="stop-data-'+page+'"></span>';
+                $('#data-list').append(LoadHtml);
+                 $(".news .info .fav").on('click',function()
+                 {
+                    clickCollect($(this));
+                 });
+                return false;
+            });
+        });
+
+
+        $(".n_ind_contitle li").bind("click",function(){
+            var index = $(this).index();
+            $(this).addClass("n_ind_contitle_on").siblings().removeClass("n_ind_contitle_on");
+            $(".n_ind_contmain .news").eq(index).show().siblings().hide();
+        });
+
+
+         //点击收藏与取消搜藏
+         $(".news .info .fav").on('click',function()
+         {
+            clickCollect($(this));
+         });
+         var clickCollect = function(t){
+            var text=t.text();
+                var that=t;
+                var contentid=t.attr("contentid");
+                var collectid=t.attr('collectid');
+                var mark=t.attr('mark');
+                $.getJSON(APP_URL+"?app=system&controller=property&action=collect&jsoncallback=?&contentid="+contentid+"&collectid="+collectid+"&mark="+mark,function(json){
+                    var content=json['collect'];
+                    var mark=json['mark'];  
+                    //代表由收藏转为取消收藏   
+                    if(json.status=="success")
+                    {
+                        that.text(content);
+                        that.attr("mark",mark);
+                    }else if(json.status=="success_q")
+                    {   //代表取消收藏转为收藏    
+                        var collectid=json['collectid'];
+                        that.text(content);
+                        that.attr("mark",mark);
+                        that.attr("collectid",collectid);
+                    }else if(json.status=="cunzai"){
+                        var collectid=json['collectid'];
+                        that.text(content);
+                        that.attr("mark",mark);
+                        that.attr("collectid",collectid);
+                    }
+                })
+         };
+    })
+</script>
+
+</body>
+</html>

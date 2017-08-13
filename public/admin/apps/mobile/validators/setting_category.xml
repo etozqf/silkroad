@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <catname>
+        <required event="submit">请填写频道名称</required>
+    </catname>
+    <iconurl>
+        <required event="submit">请填写图标</required>
+    </iconurl>
+</root>

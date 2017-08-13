@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$content[title]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+<!--{if value($content, 'thumb')}-->
+<img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+<!--{/if}-->
+<?php $image_config = app_config('mobile', 'special.image'); ?>
+<div class="ui-container ui-special-content-page">
+    <section>
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">{$content[title]}</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+        <!--{template 'mobile/touch/_blocks/nav.html'}-->
+        <!--{if $content[image]}-->
+        <div class="ui-special-banner">
+            <img src="{thumb($content[image], $image_config[width], $image_config[height])}" alt="">
+            <!--{if $content[description]}-->
+            <div class="description">{$content[description]}</div>
+            <!--{/if}-->
+        </div>
+        <!--{/if}-->
+        <div class="ui-video-list ui-special-list">
+            <!--{loop $content['categorys'] $category}-->
+            <div class="ui-special-header">
+                <h2>{$category[name]}</h2>
+            </div>
+            <ul>
+                <!--{loop $category['contents'] $r}-->
+                <li>
+                    <a href="{$r[url]}">
+                        <!--{if $r[thumb]}-->
+                        <div class="ui-video-thumb">
+                            <img src="{thumb($r[thumb], 80, 60)}" width="80" height="60" alt="">
+                        </div>
+                        <!--{/if}-->
+                        <h3>{$r[title]}</h3>
+                        <p>{$r[description]}</p>
+                    </a>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <!--{/loop}-->
+        </div>
+    </section>
+</div>
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<script>
+    $(function() {
+        // 底部栏目选择
+        var bb = $('.js-menubtn-bottom');
+        bb.click(function() {
+            $('.js-categorys-bottom').toggleClass('js-hidden');
+            setTimeout(function() {
+                document.body.scrollTop = document.body.clientHeight;
+            }, 50);
+        });
+        limitMaxWidth($('.ui-special-banner'), parseInt('{$image_config[width]}', 10));
+    });
+</script>
+</body>
+</html>

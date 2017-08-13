@@ -1,0 +1,12 @@
+<div class="photo fl-l"><img src="{thumb($space['photo'], 82, 82)}" alt="{$space['name']}" width="82" height="82" ></div>
+<div class="info fl-l">
+    <a href="{space_url($space['spaceid'])}" title="{$space['name']}" class="name fz14">{$space['name']}</a>
+    <p><em>文章：{$space['posts']}</em><em>人气：{$space['pv']}</em></p>
+    <div class="hr10"></div>
+    <div><a href="{space_url($space['spaceid'])}/feed" target="_blank" class="button1 buttonsamll">+ 订阅</a></div>
+</div>
+<ul class="fl-l list">
+	<!--{loop $article $k $v}-->
+    <li><a href="{$v['url']}" title="{$v['title']}" target="_blank">{str_natcut($v['title'], 19, '...')}</a></li>
+    <!--{/loop}-->
+</ul>

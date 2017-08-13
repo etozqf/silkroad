@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+<title>{$title}_{$m[name]}_{$sitename[0]}</title>
+<meta name="Keywords" content="{$SYSTEM[seokeywords]}">
+<meta name="description" content="{$SYSTEM[description]} ">
+<!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+<link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/report.css"> 
+<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<!-- ajax 分页/ -->
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.template.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.pagination.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/item/js/item.tablelist.js"></script>
+<style>
+		.optionlist ul li p{text-indent:2em;}
+		.page *{  border: 1px solid #dedede;color: #0079c6;display: inline-block;height: 31px;margin: 0 5px;text-align: center;width: 31px;}
+	  .page .current{color:red;}
+	  .page .prev,.page .next{ border: 1px solid #ebebeb;}
+	  .page .prev.current,.page .next.current{ border: 1px solid #ebebeb;background: #ebebeb;}
+	  .page{padding:0 0 20px 0;text-align:center;}
+		.page a{display:inline-block;height:28px;width:28px;text-align:center;line-height:28px;font-size:16px;border:1px solid #ddd;background:#fff;margin:0 5px;color:#666;}
+		.page a:hover,.page a.on{background:#e4393c;border:1px solid #e4393c;color:#fff;text-decoration:none;}
+		.page i{color:#e4393c;font-style:normal;}
+</style>
+<script type="text/javascript">
+	var mid = '{$m[mid]}';
+	var url = "{APP_URL}?app=magazine&controller=page&action=pagesize&mid="+mid;
+</script>
+<script>
+		catname_top = '报告';	// 顶级栏目名称
+		catname = '{$m[name]}';
+</script>
+</head>
+<body>
+<!-- 顶部 -->
+    <!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<!--{if $m[mid] == 4}-->
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/country.css"> 
+ 	<!--#include virtual="/section/303.html"--><!--# 思路报告 国别报告-国别区块 #-->
+<!--{/if}-->
+<div class="container">
+	<!-- left -->
+	<div class="left730">  
+		<div class="block guob">
+			<div class="bd"> 
+				<div class="vhead">
+					<h1>{$title}</h1>
+					<div class="info"><span>{date('Y年m月d日 H:i:s', $created)}</span></div>
+				</div>
+				<div class="wrapper">
+                    <div id="focus">
+                        <ul style="left: 0px; width: 795px;">
+                            <li><img src="{thumb(UPLOAD_URL . $image,240,340,1)}" width="242" height="342" alt=""></li>
+                        </ul> </div>
+                </div>
+				<div class="prointro">
+					<p>{str_cut($description, 500, '...')}</p>
+					<a href="{APP_URL}?app=magazine&controller=download&id={$eid}" target="_blank" class="abtn">阅读全文</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="block themenu">
+			<div class="hd"><h3>往期回顾</h3></div>
+			<div class="optionlist" >
+					<ul id="tablelist">
+					</ul>
+          <div class="page">
+          </div> 
+			</div>
+			<div class="bd" style="display:none">
+				<ul>
+				<?php $mid = $m['mid'];?>
+				<!--{db sql="SELECT * FROM #table_magazine_edition WHERE mid = $mid  ORDER BY publish DESC"}-->
+					<li>
+						<h3><a href="{APP_URL}?app=magazine&controller=download&id={$r['eid']}" target="_blank">{str_cut($r['title'], 40, '')}</a></h3>
+						<p>{$r[description]}<!--[<a href="{WWW_URL}magazine/{$m['alias']}/{$r['year']}/{$r['eid']}/" target="_blank">详细</a>]--></p>
+					</li>
+				<!--{/db}-->
+				</ul>
+			</div>
+		</div>
+		<div class="block imginfo">
+			<div class="hd"><h3>图片资讯</h3><a href="http://db.silkroad.news.cn/db/picture/">更多</a></div>
+			<div class="bd">
+				<!--#include virtual="/section/316.html"--><!--# 资讯频道 图片资讯 #--> 
+			</div>
+		</div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+				<!--#include virtual="/section/372.html"--><!--# 报告 右侧-智讯参考区块 #-->
+	
+				<!--#include virtual="/section/301.html"--><!--# 思路报告 右侧-丝路情报区块 #-->
+			
+				<!--#include virtual="/section/304.html"--><!--# 思路报告 右侧-国别报告区块 #-->
+		
+				<!--#include virtual="/section/318.html"--><!--# 思路报告 右侧-阅读排行 #-->
+		
+	</div>
+	<div class="clearfix"></div>	
+</div>
+<script type="text/javascript" src="{IMG_URL}apps/magazine/js/magazine_table.js"></script>
+<!--<div style="left:0px;top:460px;position:fixed;z-index:999">
+  <em class="db-li-close"></em>
+  <a href="http://db.silkroad.news.cn/2016/1121/219273.shtml">
+    <img src="{IMG_URL}templates/{TEMPLATE}/img/survey.gif">
+  </a>
+</div>-->
+<!--{template "system/foot_zn.html"}-->
+
+</body>
+</html>

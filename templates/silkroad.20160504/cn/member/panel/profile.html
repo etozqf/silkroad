@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>Change data_Member Center_{$sitename[1]}</title>
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/ledivs.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="{IMG_URL}js/lib/validator/style.css" />
+    <script type="text/javascript" src="{IMG_URL}js/lib/cmstop.validator.js"></script>
+    <script type="text/javascript" src="{IMG_URL}js/lib/jquery.form.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <script>
+    $.validate.setConfigs({
+        xmlPath:'apps/member/validators/'
+    });
+    $(function(){
+        $('#subform').validate({
+            submitHandler:function(form){
+                form.ajaxSubmit({
+                    success: function(json){
+                        if (json.state) {
+                            alert(json.message);
+                        } else {
+                            alert(json.error);
+                        }
+                    },
+                    dataType:'json'
+                });
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <header class="member-article-header">
+        <!--{template 'cn/member/panel/header.html'}-->
+    </header>
+
+    <div class="hr20"></div>
+    <div class="column member-main ov">
+        <div class="member-left w160 fl-l">
+           <!--{template 'cn/member/member_personal_left.html'}-->
+        </div>
+        <div class="member-right fl-l w680 margin-l-20">
+            <div class="hr10"></div>
+            <form action='{url("member/panelcn/profile","memberid=$memberid")}' method="POST" name="editProfile" id="subform" class="member-form">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="align-r"><label for="" class="label">Name</label></td>
+                            <td><a>{$_username}</a></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Gender</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov"><div class="fl-l margin-r-20"><input type="radio" value="1" name="sex" id="" style="margin-left:5px;margin-right:5px;" {if $member['sex'] == 1} checked="checked" {/if} />Male</div><div class="fl-l"><input type="radio" value="2" name="sex" id="" style="margin-left:5px;margin-right:5px;" {if $member['sex'] == 2} checked="checked" {/if}>Female</div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Photo</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov"><a href="{url('member/panel/avatar')}" class="fl-l photo"><img src="<?=element::member_photo($_userid,100,100)?>" alt="{$_username}"></a><a href="{url('member/panelcn/avatar')}" class="fl-l cor06c" style="margin-top:80px;">Change</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">True Name</label></td>
+                            <td><div class="hr30"></div><input type="text" name="name" value="{$member['name']}" class="m-input-text w160" /></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Birthday</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div><select name="birthday[year]" id="year">
+                                        <option value="0">----</option>
+                                    </select> year
+                                    <select name="birthday[month]" id="month">
+                                        <option value="0">--</option>
+                                    </select> month
+                                    <select name="birthday[day]" id="day">
+                                        <option value="0">--</option>
+                                    </select> day
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Email</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <span style="padding-right:20px;">{$member['email']}</span><a href="{url('member/panelcn/email')}" class="cor06c">Photo</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Twitter</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <input type="text" name="qq" value="{$member['qq']}" class="m-input-text w160" />
+                                <label for="" class="label" style="margin-left:50px;">Facebook</label>
+                                <input type="text" name="msn" value="{$member['msn']}" class="m-input-text w160" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">E-mail</label></td>
+                            <td>
+                                <div class="hr30"></div>
+                                <input type="text" name="telephone" value="{$member['telephone']}" class="m-input-text w160" />
+                                <label for="" class="label" style="margin-left:50px;">Phone</label>
+                                <input type="text" name="mobile" value="{$member['mobile']}" class="m-input-text w160" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Occupation</label></td>
+                            <td><div class="hr30"></div><input type="text" name="job" value="{$member['job']}" class="m-input-text w260" /></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Contact address</label></td>
+                            <td><div class="hr30"></div><input type="text" name="address" value="{$member['address']}" class="m-input-text w380" /></td>
+                        </tr>
+                        <tr>
+                            <td class="align-r"><div class="hr30"></div><label for="" class="label">Zip code</label></td>
+                            <td><div class="hr30"></div><input type="text" name="zipcode" value="{$member['zipcode']}" class="m-input-text w160" /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <div class="hr30"></div>
+                                <div class="ov submit-bar">
+                                    <input type="submit" value="Save" class="submit button1" />
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div class="hr20"></div>
+    
+    <!--页脚-->
+    <!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+    <!--@end页脚-->
+    
+</body>
+</html>
+<script type="text/javascript">
+(function(u_birthday){
+	var days = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+	var selectStr = '<option value="0">----</option>';
+	var check_m_d = false;
+	function isLeap(year) {
+		return ((0 == year % 4) && (0 != (year % 100))) || (0 == year % 400) ? true : false; 
+	}
+	function isDate(date) {
+		var d = date.split('-');
+		return (d[0] =='0000' || d[1] == '00' || d[2] == '00')?false:true;
+	}
+	function setYear(b) {
+			var html = '';
+			var now = new Date(); 
+			var year = now.getFullYear(); 
+			var select = '';
+			var b_array =new Array();
+			if(isDate(b)) {
+				b_array = b.split('-');
+				check_m_d = true;
+			} else {
+				b_array = [0,0,0];
+			}
+			
+			for(var i=year;i>1909;i--) {
+				select = (i ==b_array[0] )?' selected="selected"':'';
+				html += '<option value="'+i+'" '+select+'>'+i+'</option>';
+			}
+			$("#year").append(html);
+			if(check_m_d) {
+				setMonth(b_array[1]);
+				setDay(b_array[0],b_array[1],b_array[2]);
+			}
+	};
+	function setMonth(m) {
+		var html = selectStr;
+		for(var i=1;i<13;i++) {
+			i = (i>=10) ? i : '0' + i;
+			select = (i ==m )?' selected="selected"':'';
+			html += '<option value="'+i+'" '+select+'>'+i+'</option>';
+		}
+		$("#month").empty().append(html);
+	}
+	function setDay(y,m,d) {
+		ds = days[m-1];
+		if(isLeap(y) && (m == '02')) {
+			ds++;
+		}
+		var html = selectStr;
+		for(var i=1;i<=ds;i++) {
+			i = (i>=10) ? i : '0' + i;
+			select = (i == d )?' selected="selected"':'';
+			html += '<option value="'+i+'" '+select+'>'+i+'</option>';
+		}
+		$("#day").empty().append(html);
+	}
+	$(function(){
+		var y = $("#year");
+		var m = $("#month");
+		var d = $("#day");
+		var daySelect = function(){
+			if(y.val() ==0 || m.val() == 0) {
+				d.empty().append(selectStr);
+				return;
+			}
+			setDay(y.val(),m.val(),1);
+		};
+		var daySelect2 = function() {
+			if(y.val() == 0) {
+				m.empty().append(selectStr);
+				d.empty().append(selectStr);
+				return;
+			} else {
+				var m_set = m.val()>1?m.val():1;
+				setMonth(m_set);
+				setDay(y.val(),m_set,1);
+			}
+		};
+		y.change(daySelect2);
+		m.change(daySelect);
+		setYear(u_birthday);
+	});
+})("{$member['birthday']}");
+</script>

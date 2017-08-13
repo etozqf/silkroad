@@ -1,0 +1,40 @@
+<div class="ov hdzj mar-t-10">
+    <div class="f-l hdzj-l mar-l-20 t-c">
+        <h3>{$companyinfo['YWJC']}</h3>
+        <em>{$daima}</em>
+    </div>
+    <div class="hdzj-r f-l ov mar-l-10">
+        <ul>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=operate" {if $type == 'operate'}class="on"{/if}>Reference Information</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=information"  {if $type == 'information'}class="on"{/if}>Company Profile</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=sharecapital"  {if $type == 'sharecapital'}class="on"{/if}>Capital Stock</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=finance" {if $type == 'finance'}class="on"{/if}>Financial Analysis</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=manage" {if $type == 'manage'}class="on"{/if}>Operation Analysis</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=mainpositions" {if $type == 'mainpositions'}class="on"{/if}>Main Positions</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=fundraising" {if $type == 'fundraising'}class="on"{/if}>Company Fundraising</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=announcement" {if $type == 'announcement'}class="on"{/if}>Company Announcement</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=dividend" {if $type == 'dividend'}class="on"{/if}>Dividend Financing</a>
+            </li>
+            <li>
+                <a href="{APP_URL}?app=system&controller=ften&action=view&gid={$gid}&type=peercomparison" {if $type == 'peercomparison'}class="on"{/if}>Peer Comparison</a>
+            </li>
+        </ul>
+    </div>
+</div>

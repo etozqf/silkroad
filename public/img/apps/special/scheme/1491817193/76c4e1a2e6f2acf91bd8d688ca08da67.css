@@ -1,0 +1,106 @@
+body { background:#222; font-family:宋体,Arial Narrow,arial,serif; font-size:12px; _text-align:center; line-height:21px;}
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, input, textarea { margin:0; padding:0;}
+address, caption, cite, code, dfn, ins, em, th, var { font-style:normal; font-weight:normal; font-size:12px;}
+.diy-root { margin:0 auto; text-align:left;}
+.diy-widget {color:#999;}
+.diy-widget a { color:#999; text-decoration: none;}
+.diy-widget a:hover { color:#fff; text-decoration: underline;}
+.diy-widget input,.diy-widget textarea,.diy-widget select,.diy-widget button { vertical-align:middle;}
+.diy-widget input.input-text,.diy-widget textarea { border:1px solid #cbcbcb;}
+.diy-widget input.input-radio,.diy-widget input.input-checkbox { border:none; outline:none;}
+.diy-widget input.input-submit,.diy-widget button,.diy-widget input.input-button { cursor:pointer; border:none; background:#fff url("http://img.db.silkroad.news.cn/apps/special/ui/page/black/images/btn.gif") no-repeat; height:22px; width:60px;}
+.diy-content-menu { }
+.diy-content-menu a { color:#fff;}
+.diy-content-menu a:hover { color:#ffb400; }
+.diy-content-menu span.sepr { margin:0 4px; color:#fff;}
+.require { color:red;}
+.title-black-a { overflow: hidden; background:url("http://img.db.silkroad.news.cn/apps/special/ui/title/black-a/images/black-a.jpg") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-black-a a,.title-black-a span{color:#FFBE00;font-weight:bold;font-size:14px;}
+.content-code-event { background:url(http://img.db.silkroad.news.cn/apps/special/ui/content/code/event/head.jpg) no-repeat 0 0; height:240px;}
+.content-title-black-a ul {padding:2px; font-size:12px; color:#666666;}
+.content-title-black-a li { line-height:18px;}
+.content-title-black-a a { color:#999;}
+.content-title-black-a a:hover { color:#ffc000; text-decoration:none;}
+.content-title-black-a li.item-1 { padding:5px 2px; float:none;}
+.content-title-black-a li.item-1 a { font-family: Microsoft YaHei; font-size:16px; font-weight:bold; color:#ffc000; text-decoration:none; line-height:20px;}
+.content-title-black-a li.item-1 a:hover { color:#ffc000;}
+ .content-palist-black-a li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-black-a img { margin:8px 8px 8px 0;}
+ .content-palist-black-a .summary { margin:0; padding:0;}
+ .content-palist-black-a{background-color:#1c1c1c;}
+ .content-palist-black-a .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-black-a .imgtxtsummary-list a{ color:#ffc000;}
+ .content-palist-black-a .imgtxtsummary-list h3 a{color:#999;font-size:12px; font-weight:bold;}
+ .content-palist-black-a .imgtxtsummary-list p{color:#999;}
+ .content-palist-black-a .imgtxtsummary-list a:hover{text-decoration:none;color:#ffc000;}
+ .content-slider-white-a {background:#000;}
+.content-slider-white-a .slider-nav a,.content-slider-white-a .slider-nav a:hover { color:#333; text-decoration: none; font-size:12px;}
+.content-slider-white-a .slider-nav a.active{ color:#fff; background:#333;}
+.content-slider-white-a a.title{color:#fff; font-weight:normal;}
+.content-slider-white-a a:hover.title{color:#999;}
+.content-menu-black-a { background:#171717; padding:0px 10px;}
+.content-menu-black-a a { color:#ddd; font-size:12px;}
+.content-menu-black-a a:hover { color:#fff; text-decoration:none;}
+.content-menu-black-a span.sepr { margin:0 4px; color:#ddd; font-size:12px;}
+.content-comment-black-a .mod-comment { padding:10px; font-size:12px; background:#1c1c1c;}
+.content-comment-black-a dl {}
+.content-comment-black-a .user-info { color:#ffc000;}
+.content-comment-black-a .post-time { color:#999; float:right;}
+.content-comment-black-a dd { border-bottom:1px dotted #ccc; padding:6px 0 10px; font-size:14px; color:#ccc;}
+.content-comment-black-a .view-comment { padding:8px 0; text-align:right; color:#ffc000;}
+.content-comment-black-a .view-comment a{ color:#ffc000; text-decoration:none;}
+.content-comment-black-a .view-comment span{ color:#ccc;}
+.content-comment-black-a textarea { width:100%; overflow:auto; height:120px; font-size:14px;}
+.content-comment-black-a .user-writeinfo { margin:5px 0; font-size:12px; color:#ccc;}
+.content-comment-black-a .user-writeinfo .quickLogout a{ color:#ffc000; text-decoration:none;}
+.content-comment-black-a input.input-submit { background:#fff url("http://img.db.silkroad.news.cn/apps/special/ui/content/comment/black-a/images/submit.gif") no-repeat 0 0; color:#fff; height:23px; width:66px; border:0; margin-top:10px;}
+.citation{padding: 4px 4px 0 4px; line-height: 24px; margin-bottom: 4px; border: 1px solid #ffe1a4; color: #444;}
+.citation-title,.citation-title a{ color: #FFC000; font-size: 12px;}
+.mode-comment dd .citation p{ padding: 8px 0; font-size: 12px; }
+.citation-number{ margin-right: 4px; font-size: 10px; color: #999; font-family: Arial; }
+.content-activity-gray-c {background-color:#fff;}
+.content-activity-gray-c .mod-activity { padding:10px; font-size:12px; color:#999; background:#1c1c1c;}
+.content-activity-gray-c .summary { padding-bottom:10px; line-height:18px; font-size:12px;}
+.content-activity-gray-c .require { color:#ffc000; border-top:1px dotted #999;}
+.content-activity-gray-c label { cursor:pointer; font-weight:normal;}
+.content-activity-gray-c table { color:#999;}
+.content-activity-gray-c th { text-align:right; font-weight:normal;}
+.content-activity-gray-c th em { color:#ffc000;}
+.content-activity-gray-c input.input-submit { background:url("http://img.db.silkroad.news.cn/apps/special/ui/content/activity/gray-c/images/submit.gif") no-repeat 0 0; color:#fff; height:23px; width:72px; border:0;}
+ .content-survey-black-a{background-color:#1c1c1c; font-size:12px;}
+ .content-survey-black-a .mod-survey .summary{line-height:20px;color:#999;}
+ .content-survey-black-a .mod-survey .bdr_0{ margin-right:4px;}
+.content-survey-black-a .mod-survey { padding:10px;}
+.content-survey-black-a dl { margin:3px 0; margin-bottom:15px;}
+.content-survey-black-a dt { color:#ffc000; line-height:18px; margin-bottom:6px;}
+.content-survey-black-a dd { margin-left:10px; line-height:20px; color:#999;}
+.content-survey-black-a label { cursor:pointer;}
+.content-vote-black-a { font-size:12px; color:#333;}
+.content-vote-black-a .mod-vote { padding:0 10px 5px; overflow:hidden; zoom:1;}
+.content-vote-black-a dl { margin:3px 0;}
+.content-vote-black-a dt { line-height:18px; padding:5px 0; font-size:14px; font-weight:bold;}
+.content-vote-black-a dd { padding:5px; line-height:18px;}
+.content-vote-black-a .input-radio { margin:-3px 6px 0 0;}
+.content-vote-black-a label { cursor:pointer;}
+.content-vote-shuimo .content-vote-shuimo { margin-top:10px 0; float:left;}
+.content-vote-black-a a.result { margin-left:10px; text-decoration:none;}
+.dd-submit { margin-top:10px;}
+.frame-blue-a { border:1px solid #BAD6F1; background:#fff;}
+.content-code-blue { background:url(http://img.db.silkroad.news.cn/apps/special/ui/content/code/blue/head.jpg) no-repeat; height:240px;}
+ .content-palist-blue li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-blue img { margin:8px 8px 8px 0;}
+ .content-palist-blue .summary { margin:0; padding:0;}
+ .content-palist-blue{background-color:#fff;}
+ .content-palist-blue .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-blue .imgtxtsummary-list a{color:#333;}
+ .content-palist-blue .imgtxtsummary-list h3 a{ color:#06c; font-size:12px;font-weight:bold;}
+ .content-palist-blue .imgtxtsummary-list p{color:#333;}
+ .content-palist-blue .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.frame-gray-b { border:1px solid #B6BBC0; background:#fff;}
+.title-blue-b { overflow: hidden; background:#E1EEFF url("http://img.db.silkroad.news.cn/apps/special/ui/title/blue-b/images/bg.png") no-repeat 0 0; height:30px; line-height:30px; padding-left:20px;}
+.title-blue-b,.title-blue-b span{color:#369;font-size:14px; font-weight:bold;}
+.frame-margin-t10{ margin-top:10px;}
+.content-html-font-black-a{ color:#333; padding:5px 9px;}
+.content-html-font-black-a p{ line-height:1.8em;}
+.frame-gray-a { border:1px solid #dadada; background:#fff;}
+.frame-white{ background:#fff;}

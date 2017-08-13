@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <title>
+        <max args="80">标题不得超过80个字节</max>
+        <required event="submit">请填写标题</required>
+    </title>
+    <host>
+        <required event="submit">请填写直播员名称</required>
+    </host>
+    <description>
+        <required event="submit">请填写摘要</required>
+    </description>
+</root>

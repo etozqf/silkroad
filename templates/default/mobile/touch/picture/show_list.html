@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$content[title]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/touch-slider.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body class="bg-0">
+<div class="ui-container photos-content ui-picture-show-container">
+    <header>
+        <div class="ui-header-bar list1">
+            <a class="ui-return" href="{MOBILE_URL}picture/"></a>
+            <div class="ui-pagetitle ui-pagetitle2"><a href="{MOBILE_URL}{if $content_source}{$content_source}{else}picture{/if}/{$content[contentid]}"><img src="{MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/list2.png" alt=""></a></div>
+            <a href="{MOBILE_URL}comment/{$content[topicid]}" class="ui-menu-trigger"></a>
+        </div>
+    </header>
+    <div class="ui-cateandsearch js-category-search">
+        <!-- 栏目导航 -->
+        <menu class="ui-categorys2 js-category-panel js-hidden"><a href="" class="peak">赞</a><a href="" class="comment">评论</a><a href="" class="share">分享</a> </menu>
+        <!-- @end 栏目导航 -->
+    </div>
+    <!-- swipe -->
+    <section class="ui-picture-show ui-picture-list">
+        <ul>
+            <!--{loop $content['picture']['pictures'] $i $r}-->
+            <li><a href="{MOBILE_URL}{if $content_source}{$content_source}{else}picture{/if}/{$content[contentid]}#p={$i}"><img src="{thumb($r[image], 280, 210)}" alt="{$r[note]}"/></a> </li>
+            <!--{/loop}-->
+            </ul>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<starttime tips="请选择开始时间">
+		<required event="submit">请选择开始时间</required>
+	</starttime>
+	<endtime tips="请选择结束时间">
+		<required event="submit">请选择结束时间</required>
+	</endtime>
+</root>

@@ -1,0 +1,322 @@
+@CHARSET "UTF-8";
+
+a,button,input{
+	-webkit-tap-highlight-color:rgba(255,0,0,0)
+}
+
+input{
+	border:0 none; height:25px; padding:0px; margin:0px; list-style:none; padding-left:0px; margin-left:0px; padding-top:0px; margin-top:0px;
+}
+
+.animated{
+	-webkit-animation-duration:1.4s;
+	animation-duration:1.4s;
+	-webkit-animation-fill-mode:both;
+	animation-fill-mode:both
+}
+
+@-webkit-keyframes bounceIn{
+	0%{
+	opacity:0;
+	-webkit-transform:scale(.3);
+	transform:scale(.3)
+}
+50%{
+	opacity:1;
+	-webkit-transform:scale(1.05);
+	transform:scale(1.05)
+}
+70%{
+	-webkit-transform:scale(.9);
+	transform:scale(.9)
+}
+100%{
+	opacity:1;
+	-webkit-transform:scale(1);
+	transform:scale(1)
+}
+
+}
+@keyframes bounceIn{
+	0%{
+	opacity:0;
+	-webkit-transform:scale(.3);
+	-ms-transform:scale(.3);
+	transform:scale(.3)
+}
+50%{
+	opacity:1;
+	-webkit-transform:scale(1.05);
+	-ms-transform:scale(1.05);
+	transform:scale(1.05)
+}
+70%{
+	-webkit-transform:scale(.9);
+	-ms-transform:scale(.9);
+	transform:scale(.9)
+}
+100%{
+	opacity:1;
+	-webkit-transform:scale(1);
+	-ms-transform:scale(1);
+	transform:scale(1)
+}
+
+}
+.bounceIn{
+	-webkit-animation-name:bounceIn;
+	animation-name:bounceIn
+}
+
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+}
+
+@-webkit-keyframes rollIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%) rotate(-120deg);
+    -ms-transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-100%) rotate(-120deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+    -ms-transform: translateX(0px) rotate(0deg);
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+.rollIn {
+  -webkit-animation-name: rollIn;
+  animation-name: rollIn;
+}
+
+
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    -ms-transform: perspective(400px) rotateX(90deg);
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+    -ms-transform: perspective(400px) rotateX(-10deg);
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+    -ms-transform: perspective(400px) rotateX(10deg);
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    -ms-transform: perspective(400px) rotateX(0deg);
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  -ms-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+}
+
+/*------------------- 华丽分割线 -----------------------*/
+
+.log_demo{width:100%;margin:0 auto;text-align:center;}
+.log_demo a{margin:0 5px 20px;}
+
+/*------------------- 华丽分割线 -----------------------*/
+
+#dialogBg,#dialogBg2{width:100%;height:100%;background-color:#000000;opacity:.6;filter:alpha(opacity=60);position:fixed;top:0;left:0;z-index:9999;display:none;}
+#dialog,#dialog2{width:500px;height:330px;margin:0 auto; padding:20px; display:none;position:fixed;top:40%;left:42%;margin:-120px 0 0 -150px;z-index:10000;border: 3px solid #0e2550;background-color: #ffffff; }
+.dialogTop{margin:0 auto; font-size:22px; color:#0b63ad; text-align:left; padding-bottom:10px;}
+.dialogTop label { padding-left:10px; font-size:14px;color:#b7b7b7;}
+
+.ipt{border:1px solid #ccc;padding:5px;border-radius:3px;-webkit-border-radius:3px;box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset;margin-left:5px;}
+.ipt:focus{outline:none;border-color:#66afe9;box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);-webkit-box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);}
+.submitBtn{width:90px;height:30px;line-height:30px;font-family:"微软雅黑","microsoft yahei";cursor:pointer;margin-top:10px;display:inline-block;border-radius:5px;-webkit-border-radius:5px;text-align:center;background-color:#428bca;color:#fff;box-shadow: 0 -3px 0 #2a6496 inset;-webkit-box-shadow: 0 -3px 0 #2a6496 inset;}
+
+.loginputdim { line-height:21px; height:21px; color:#b3b3b3; border:0 none;	-webkit-appearance:none; outline:none;}
+.box_rt_close { float:right; width:25px; height:25px; font-size:12px;}
+.box_logmain { background-color:#f9f9f9; line-height:28px; padding:25px; color:#585858;}
+.box_logtophd { margin:0px auto; padding:0px; width:440px; height:65px; font-size:14px; font-weight:bold; clear:both;}
+	.box_logtophd ul { margin:0px auto;height:45px; margin-bottom:15px; clear:both; overflow:hidden;}
+	.box_logtophd ul li { float:left; display:block; width:50%; height:43px; line-height:43px; text-align:center;}
+	.box_logtophd ul li.box_logtop_gr { background:url(../images/log_tittabdot.jpg) 38px -34px no-repeat; color:#b6b6b6; border-bottom:solid 1px #cccccc;}
+	.box_logtophd ul li.box_logtop_gr_on { background:url(../images/log_tittabdot.jpg) 38px 5px no-repeat; color:#0b63ad; border-bottom:solid 1px #0b63ad;}
+	.box_logtophd ul li.box_logtop_qy { background:url(../images/log_tittabdot.jpg) 15px -125px no-repeat; color:#b6b6b6; border-bottom:solid 1px #cccccc;}
+	.box_logtophd ul li.box_logtop_qy_on { background:url(../images/log_tittabdot.jpg) 15px  -76px no-repeat; color:#0b63ad; border-bottom:solid 1px #0b63ad;}
+	.box_logtophd ul li:hover { cursor:pointer;}
+	
+.box_logbox,.box_logline_hzzh { margin:0px auto; width:70%; padding:0px; clear:both; overflow:hidden;}
+.box_logline_usr,.box_logline_pswd { margin:0px auto; margin-bottom:20px; height:28px; color:#b7b7b7; border:1px solid #b9b9b9; padding:0px; padding-left:30px; border-radius:8px;-webkit-border-radius:8px;box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset;}
+.box_logline_mod { margin:0px auto; margin-bottom:20px; height:28px; color:#b7b7b7; background-color:#FFFFFF; border:1px solid #b9b9b9; padding:0px; padding-left:5px; border-radius:8px;-webkit-border-radius:8px;box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset;}
+.box_logline_usr {background:url(../images/input_indimg.jpg) left 7px no-repeat #fff; } .box_logline_pswd {background:url(../images/input_indimg.jpg) left -52px no-repeat #fff; }
+.box_logline_usr:hover,.box_logline_pswd:hover, .box_logline_mak:hover,.box_logline_mod:hover{outline:none;border-color:#66afe9;box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);-webkit-box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);}
+.box_logline_yzm { margin:0px auto; padding:0px; height:50px; clear:both;}
+.box_logline_mak { float:left; width:130px;height:28px;  background-color:#FFFFFF; border:1px solid #b9b9b9; border-radius:8px;-webkit-border-radius:8px;box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset; padding-left:5px;}
+.box_logline_mak2 { float:left; width:200px;height:28px;  background-color:#FFFFFF; border:1px solid #b9b9b9; border-radius:8px;-webkit-border-radius:8px;box-shadow:0 0 3px #ccc inset;-webkit-box-shadow:0 0 3px #ccc inset; padding-left:5px;}
+.box_logline_pid { float:left; width:75px; height:28px; border:solid 1px #bcbcbc; margin-left:10px;} .box_logline_txt { float:left; width:50px; margin-left:10px;}  .box_logline_txt ,.box_logline_txt a { color:#1162b1;} .box_logline_txt a:hover { color:#1162b1;}
+.box_logline_bt { margin:0px auto; padding:0px; color:#fff; height:50px; background-color:#d8471a; text-align:center; font-size:24px; line-height:50px; cursor:pointer;}
+.box_logline_butn { float:left; margin-left:5px; background-color:#3b81bc; width:75px; height:32px; text-align:center;} .box_logline_butn,.box_logline_butn a,.box_logline_butn a:hover { color:#FFFFFF;} .box_logline_butn:hover { background-color:#0275d6;}
+.box_logline_bt:hover {background-color:#ef3900;color:#fff000; }
+.box_logline_dsp { margin:0px auto; padding:0px; text-align:left; padding-top:10px;} .box_logline_dsp span { float:left; padding-right:10px;} .box_logline_dsp,.box_logline_dsp span a { color:#1b6db2; }  .box_logline_dsp span a:hover { color:#0078dd; }
+.box_logline_txtdisp  { margin:0px auto; padding:0px; padding-top:10px; } .box_logline_txtdisp span{ float:left; padding-right:10px; color:#585858;} .box_logline_txtdisp span a { color:#0b63ad; }  .box_logline_txtdisp span a:hover { color:#0078dd; }
+.box_logline_hzzh { padding-top:10px; } .box_logline_hzzh ,.box_logline_hzzh span { color:#585858;}
+.box_log_tag0 { float:left; }
+.box_log_tag1 { float:left; display:inline-block; width:32px; height:32px; background:url(../images/lgo_qitatubiao.jpg) 0px 0px no-repeat; text-indent:-9999px; margin-right:8px;}
+.box_log_tag1:hover {background:url(../images/lgo_qitatubiao.jpg) 0px -42px no-repeat; }
+.box_log_tag2 { float:left; display:inline-block; width:32px; height:32px; background:url(../images/lgo_qitatubiao.jpg) -32px 0px no-repeat; text-indent:-9999px; margin-right:8px;}
+.box_log_tag2:hover {background:url(../images/lgo_qitatubiao.jpg) -32px -42px no-repeat; }
+.box_log_tag3 { float:left; display:inline-block; width:32px; height:32px; background:url(../images/lgo_qitatubiao.jpg) -64px 0px no-repeat; text-indent:-9999px; margin-right:8px;}
+.box_log_tag3:hover {background:url(../images/lgo_qitatubiao.jpg) -64px -42px no-repeat; }
+.box_log_tag4 { float:left; display:inline-block; width:32px; height:32px; background:url(../images/lgo_qitatubiao.jpg) -96px 0px no-repeat; text-indent:-9999px; margin-right:8px;}
+.box_log_tag4:hover {background:url(../images/lgo_qitatubiao.jpg) -96px -42px no-repeat; }
+.box_cavse,.box_cavse2 { float:left; display:inline-block; }

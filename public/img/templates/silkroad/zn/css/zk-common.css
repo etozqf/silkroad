@@ -1,0 +1,71 @@
+body{background: #f3f3f3!important;background-image: none!important;}
+h1,h2,h3,h4,h5,h6{ font-weight: normal;}
+.column{width:1000px;margin: 0 auto;}
+.columnA{width:1003px;margin: 0 auto; overflow: auto; }
+.f-l{_display: inline;float: left}
+.f-r{_display: inline;float: right}
+.ov{overflow: hidden;font-family:'simhei';}
+.col-l-main{width: 730px; background: #fff; float: left;overflow: hidden; _display: inline;}
+.col-r-main{width: 250px; background: #fff; float: right;   overflow: hidden; _display: inline;}
+.pad-10{padding: 10px;}
+.pad-20{padding: 20px;}
+.fn-24{font-size: 24px;}
+/*边框*/
+.bor-rb{border-bottom:1px solid #ededed;border-right:1px solid #ededed;}
+.bor-trbl{border-left: 1px solid #f1f1f1; border-top: 1px solid #f1f1f1; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;}
+/*tab*/
+.n_ind_contitle ul{padding-left: 10px;}
+.n_ind_contitle ul li{padding: 0;}
+.n_ind_contitle ul li a{border-left: 1px solid #ccc;display: block;height: 20px;line-height: 16px; overflow: hidden;padding: 0 17px;margin-top: 13px;}
+.n_ind_contitle ul li a:hover{color: #333;}
+.span{padding: 0!important;color: #ccc;}
+.n_ind_contitle_on{position: relative;left: 1px;}
+.n_ind_contitle_on a{border: none!important;margin-top: 10px!important;}
+.n_ind_contmain i{font-style: normal;}
+.n_ind_contmain i a{color: #208acd;font-size: 14px;margin-right: 5px;}
+.n_ind_contmain i a:hover{color:#e4393c;}
+/*标题*/
+.b-tit-box{width: 100%; height: 40px; border-bottom: 2px solid #dcdcdc; position: relative; line-height: 40px;}
+.b-h3{position: absolute; border-bottom: 2px solid #c81623; left:0; bottom: -2px;  z-index: 10; padding: 0 10px;}
+.b-h3 a{font-size: 19px; color: #333;font-family:"simhei";font-weight:bold;}
+.b-h3 a:hover{text-decoration: none;}
+.more1,.more1:hover{font-size: 15px; color: #3a3a3a; float: right;display: block;}
+.more1 span{cursor: pointer;}
+.jiao{width: 4px; float: left; height: 5px;background: url("../images/red-jt.jpg")  no-repeat;margin: 17px 10px 0 2px;}
+
+.news01 li,.news01 h3{height:28px;background:url(../images/dot_list.jpg) no-repeat 0 14px;padding-left:11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size: 15px; line-height: 28px;font-family:"Arial";}
+.news01 li a,.news01 h3 a{color:#208acd;}
+.news01 li a:hover,.news01 h3 a:hover{color:#e4393c;}
+/*图文*/
+.pic-summary01{overflow: hidden; height: 136px;}
+.pic-summary01 .pic{display: block;width: 98px; height: 134px; border: 1px  solid #dedede;}
+.pic-summary01 p{width: 118px; height:126px;margin-left: 8px;line-height: 18px;color: #555;font-size: 12px;}
+.pic-summary02 li{border-bottom: 1px dashed #dedede;margin-bottom: 8px; padding-bottom: 8px;}
+.pic-summary02 li h3{font-size: 15px;font-family:"Arial";line-height: 30px; height: 30px; overflow: hidden}
+.pic-summary02 li h3 a{color: #208acd;}
+.pic-summary02 li h3 a:hover{color:#e4393c;}
+.pic-summary02 li .img{display: block}
+.pic-summary02 li p{width: 116px;font-size: 12px; color: #555; line-height: 18px;height: 72px;}
+.h-1410{height: 1410px;}
+.h-1280{height: 1280px;}
+.h-655{height: 655px;}
+/*滚动图片*/
+.scroll-img{width: 230px; height: 192px; margin:10px auto; background: red;position: relative;overflow: hidden}
+.scroll-img ul{width: 100%; height: 192px; position:absolute}
+.scroll-img ul li{float: left;width: 230px; height: 192px; overflow: hidden; }
+/*page*/
+.page{padding:0 0 20px 0;text-align:center;}
+.page a{display:inline-block;height:28px;width:28px;text-align:center;line-height:28px;font-size:16px;border:1px solid #ddd;background:#fff;margin:0 5px;color:#666;}
+.page a:hover,.page a.on{background:#e4393c;border:1px solid #e4393c;color:#fff;text-decoration:none;}
+.page i{color:#e4393c;font-style:normal;}
+/*------------------右侧公用---------------------------*/
+.gn{height: 426px;overflow: hidden}
+.yz{height: 410px;overflow: hidden}
+.gn .pic-summary02 li,.yz .pic-summary02 li{margin-bottom: 4px; padding-bottom: 4px;}
+.gn .pic-summary02 li h3,.yz .pic-summary02 li h3{line-height: 28px; height: 28px;}
+/*---------标签-----------*/
+.bq .news li{padding-bottom: 5px;}
+.bq .news li p{height: 63px;}
+/*内容页*/
+.zkjj .news01 h3{background:none;padding-left:5px; margin-bottom: 5px;}
+.zkjj p{line-height: 18px;font-size: 15px;color: #555;/*height: 216px;*/}

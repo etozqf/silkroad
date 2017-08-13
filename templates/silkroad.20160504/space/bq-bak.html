@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>{$sitename[0]} _ 标签切换页</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-list.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zk-common.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/zn/js/zk-common.js"></script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+   <!--{template "system/head_zn.html"}-->
+   <!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<div class="column ov">
+    <!--左侧-->
+    <div class="bor-rb col-l-main ov m_t20 ">
+        <div class="bor-trbl ov h-1280">
+            <!--tab-->
+            <div class="m_t10">
+                <div class="n_ind_contitle">
+                    <ul>
+                    <!--{loop $sub_type $k $r}-->
+                    <!--{if $k==0}--> 
+                        <li class="n_ind_contitle_on"><a href="javascript:;">{$r[name]}智库</a></li>
+                    <!--{else}-->
+                        <li><a href="javascript:;">{$r[name]}智库</a></li>
+                    <!--{/if}-->
+                    <!--{/loop}-->
+                    </ul>
+                </div>
+                <div class="n_ind_contmain bq">
+                <!--{loop $data $k $r}-->
+                    <!--{if $k==0}-->
+                    <div class="news" style="display:block">
+                        <ul>
+                            <!--{loop $r[data] $i $m}-->
+                                <li>
+                                    <!--{if $m[photo]}-->
+                                    <a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}"><img src="{thumb($m[photo],133,100,1,null,0)}" alt=""></a>
+                                    <!--{/if}-->
+                                    <h2><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{$m[name]}</a></h2>
+                                    <p><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{str_cut(strip_tags($m[description]),200,'...')}</a></p>
+                                </li>
+                            <!--{/loop}-->   
+                        </ul>
+                        <div class="page">
+                            <tr>
+                               <!--{space_pages($r[total], $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                            </tr>
+                            <span>共<i>{$page}/{ceil($r[total]/$pagesize)}</i>页 , <i>{$r[total]}</i>记录</span>
+                        </div>
+                    </div>
+                    <!--{else}-->
+                    <div class="news">
+                        <ul>
+                            <!--{loop $r[data] $i $m}-->
+                                <li>
+                                    <!--{if $m[photo]}-->
+                                    <a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}"><img src="{thumb($m[photo],133,100,1,null,0)}" alt=""></a>
+                                    <!--{/if}-->
+                                    <h2><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{$m[name]}</a></h2>
+                                    <p><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{str_cut(strip_tags($m[description]),200,'...')}</a></p>
+                                </li>
+                            <!--{/loop}-->   
+                        </ul>
+                        <div class="page">
+                            <tr>
+                               <!--{space_pages($r[total], $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                            </tr>
+                            <span>共<i>{$page}/{ceil($r[total]/$pagesize)}</i>页 , <i>{$r[total]}</i>记录</span>
+                        </div>
+                    </div>
+                    <!--{/if}-->
+                <!--{/loop}-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右侧-->
+    <div class="bor-rb col-r-main ov m_t20">
+        <div class="bor-trbl ov h-1280">
+            <!--亚太智库推荐-->
+            <!--#include virtual="/section/359.html"--><!--# 智库频道 列表页-亚太智库推荐 #-->
+            <!--欧洲智库推荐-->
+            <!--#include virtual="/section/360.html"--><!--# 智库频道 列表页-欧洲智库推荐 #-->
+            <!--美洲智库推荐-->
+            <!--#include virtual="/section/361.html"--><!--# 智库频道 列表页-美洲智库推荐 #-->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $(".bor-trbl h3").click(function(){
+                var str = $(this).children().html();
+                var newstr = str.substring(0,4);
+            //获取左侧所有的标题
+            $(".n_ind_contitle ul li").each(function(){
+                var lefttitle = $(this).children().html();
+                var index = $(this).index();
+                if(lefttitle==newstr){
+                    $(this).addClass('n_ind_contitle_on').siblings().removeClass('n_ind_contitle_on');
+                    $(".n_ind_contmain .news").eq(index).show().siblings().hide();
+                }
+            })
+            
+            // $(".n_ind_contitle ul").find()
+            })
+        })
+    </script>
+</div>
+<!--{template 'system/foot_zn.html'}-->
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿/*
+ @name 白色背景
+ @notes 每条规则 以 .widget-{风格包文件夹名} 开头
+*/
+.widget-white .diy-inner {
+	background:#fff;
+}

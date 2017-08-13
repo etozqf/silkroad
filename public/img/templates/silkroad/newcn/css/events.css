@@ -1,0 +1,21 @@
+/*Events-list*/
+.events-list li{overflow: hidden;border-bottom: 1px solid #e5e5e5;padding: 15px 0;}
+.events-list li h3{font-size: 18px;line-height: 30px;}
+.events-list li h3 a{color: #006e97}
+.events-list li i,.events-list li span{display: block;font-style: normal;font-size: 14px;line-height: 22px;color: #999;}
+.events-list li i{font-size: 16px;color: #333}
+/*Events-content*/
+.events-content{border-bottom: 1px dashed #ccc; padding-bottom: 15px;}
+.events-content .title-h3{font-size: 30px; line-height: 30px;color: #000;font-weight: 500}
+.events-content span{font-size: 16px;color: #666;display: block; line-height: 24px; }
+.events-content span em{color: #333;font-weight: bold}
+.events-content-p{font-size: 16px; line-height: 24px;color: #333;}
+.related-link h3{font-size: 16px;color: #333;font-weight: bold;margin-bottom: 10px;}
+.related-link a{display: block;font-size: 14px;color: #006e97;line-height: 20px;text-decoration: underline}
+/*分享按钮*/
+.news-joy-box{width: 100%; height: 33px; overflow: hidden; }
+.news-joy-box a{float: left; margin-right: 9px; _display: inline;}
+.joy-icon1,.joy-icon2,.joy-icon3,.joy-icon4{width: 33px; height: 33px; background: url("images/joy-icon.jpg") 0 0 no-repeat; float: left;}
+.joy-icon2{background-position: -42px 0;}
+.joy-icon3{background-position: -82px 0;}
+.joy-icon4{background-position: -124px 0;}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <classname>
+        <required event="submit">请填写分类名称</required>
+    </classname>
+    <modelid>
+        <required event="submit">请绑定系统模型</required>
+    </modelid>
+</root>

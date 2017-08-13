@@ -1,0 +1,73 @@
+er:sseach-add {
+    width: 1002px;
+    height: auto;
+    margin-left:130px;
+    margin-top:-2px;
+    background: #FFFFFF;
+}
+.search-addcon {
+    width: 658px;
+    height: 38px;
+    /*border: 1px solid #0079c6;*/
+    margin-left: 259px;
+    _margin-left: 60px;
+    backgound:white;
+}
+ul.seach-add-menu {
+    float: right;
+    width: 260px;
+    height: 38px;
+    line-height: 38px;
+    /*background: red;*/
+}
+ul.seach-add-menu>li {
+    float: left;
+    margin-left: 20px;
+}
+ul.seach-add-menu>li>span {
+    position: relative;
+    font-size:16px;
+    color:#444444;
+    letter-spacing:0.68px;
+    height: 38px;
+    display: inline-block;
+}
+ul.seach-add-menu>li>span>em {
+    width: 11px;
+    height: 8px;
+    display: inline-block;
+    background: url(../img/spirit.png) -66px -12px no-repeat;
+    margin-left: 5px;
+}
+.seach-add-nav {
+    display: none;
+    position: absolute;
+    top: 37px;
+    background:#ffffff;
+    border:1px solid #c81922;
+    box-shadow:0 0 2px 0 rgba(0,0,0,0.50);
+    text-align: center;
+    left: 50%;
+    z-index: 2;
+}
+ul.seach-add-menu>li>span:hover .seach-add-nav {
+    display: block;
+}
+.seach-add-nav li{
+    height:43px;
+    border-bottom:1px solid #c81922;
+    float: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+.seach-add-nav a {
+    height: 43px;
+    width: 100%;
+    font-size: 16px;
+    display: inline-block;
+}
+.seach-add-nav a:hover {
+    background:#c81922;
+    color: #FFFFFF;
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+    <resource>{IMG_URL}js/config.js</resource>
+    <resource>{IMG_URL}apps/activity/js/activity.js</resource>
+    <resource>{IMG_URL}js/lib/cmstop.seccode.js</resource>
+	<depends>jquery</depends>
+    <depends>cookie</depends>
+</package>

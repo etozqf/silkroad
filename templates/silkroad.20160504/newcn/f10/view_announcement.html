@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_view_nanouncement</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".zb-tab-menu li").hover ( function () {
+                $ ( this ).addClass ( "sel" ).siblings ().removeClass ();
+                $ ( ".zb-tab-data>div" ).hide ().eq ( $ ( '.zb-tab-menu li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--东华重机-->
+            <!--{template "newcn/f10/view_types.html"}-->
+            <div class="ov hdzj-tag">
+                <ul class="ov">
+                    <li style="display: none;"><a href="#nav01">CA Classification Code</a></li>
+                    <li style="display: none;"><span>|</span></li>
+                    <li><a href="#nav02">CA Related Institution</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav03">CA Summary</a></li>
+                </ul>
+            </div>
+            <!--内容-->
+            <div class="w-960 ov">
+                <div class="zb ov" id="nav01" style="display: none;">
+                    <div class="mod-title bgff9933">CA Classification Code</div>
+                    <div class="bor-e9e9e9 ov ds">
+                        <!--{if !$data['A061']}-->
+                        <span>No relevant information</span>
+                        <!--{/if}-->
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav02">
+                    <div class="mod-title bge51c2b">CA Related Institution</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Securities Abbreviation (Chinese)</th>
+                                <th>Securities Code</th>
+                                <th>Securities Type</th>
+                            </tr>
+                            <!--{if !$data['A062']}-->
+                            <tr>
+                                <td colspan="3" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A062'] $val}-->
+                            <tr class="center">
+                                <td>{$val['zhengquanjiancheng(zhongwen）']}</td>
+                                <td>{$val['zhengquandaima']}</td>
+                                <td>{$val['zhengquanleibie']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav03">
+                    <div class="mod-title bg666" name="nav01">CA Summary</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>CA Type</th>
+                                <th>Summary</th>
+                            </tr>
+                            <!--{if !$data['A063']}-->
+                            <tr>
+                                <td colspan="3" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A063'] $val}-->
+                            <tr class="center">
+                                <td>{$val['gonggaoriqi']}</td>
+                                <td>{$val['gongaoleixing']}</td>
+                                <td>{$val['zhaiyao']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

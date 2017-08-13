@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$SYSTEM[sitename]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+    <script src="{IMG_URL}js/lib/cmstop.template.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.scrolllist.js"></script>
+</head>
+<body>
+<div class="ui-container">
+    <header>
+        <div class="ui-header-bar">
+            <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+            <div class="ui-pagetitle">视频</div>
+            <div class="ui-menu-trigger js-menubtn-top"></div>
+        </div>
+    </header>
+    <!--{template 'mobile/touch/_blocks/nav.html'}-->
+    <section class="ui-articles-container video-page">
+        <!--{mobile_content modelid="4" size="10" return="data" /}-->
+        <!--{if !empty($data)}-->
+        <div class="ui-section-block">
+            <div class="ui-cate-list">
+                <div class="ul">
+                    <!--{loop $data['data'] $i $r}-->
+                    <div class="ui-mod-picsummary ui-border-bottom-gray" data-sorttime="{$r[sorttime]}">
+                        <time>{second_to_time(table('mobile_video', $r[contentid], 'playtime'))}</time>
+                        <a href="{$r[url]}"> <img class="ui-pic" src="{if $r[thumb]}{thumb($r[thumb], 80, 60, 1, null, 1, 95)}{else}{IMG_URL}images/nopic.gif{/if}" width="80" height="60"/>
+                            <h3 class="ui-title">{$r[title]}</h3>
+                            <div class="ui-summary">{str_natcut($r[description], 30)}</div>
+                        </a>
+                    </div>
+                    <!--{/loop}-->
+                </div>
+                <!--{if $data[total] > 10}-->
+                <a class="ui-more">点击查看更多</a>
+                <script type="text/template" id="tpl-row">
+                    <div class="ui-mod-picsummary ui-border-bottom-gray">
+                        <time>{%playtime%}</time>
+                        <a href="{$r[url]}"> <img class="ui-pic" src="{%if thumb%}{%thumb%}{%else%}{IMG_URL}images/nopic.gif{%endif%}" width="80" height="60"/>
+                            <h3 class="ui-title">{%title%}</h3>
+                            <div class="ui-summary">{%description%}</div>
+                        </a>
+                    </div>
+                </script>
+                <!--{/if}-->
+            </div>
+        </div>
+        <!--{/if}-->
+        <div class="clearfix"></div>
+    </section>
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container"></div>
+<!--@end 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<!--@end 底部 -->
+<script>
+    $(function() {
+        var list = $('.ui-cate-list > .ul');
+        new ScrollList({
+            url: '{MOBILE_URL}video/',
+            trigger: $('.ui-more'),
+            container: list,
+            template: $('#tpl-row').html(),
+            page: 2,
+            pagesize: 10,
+            sorttime: list.children().first().attr('data-sorttime') || 0
+        });
+    });
+</script>
+</body>
+</html>

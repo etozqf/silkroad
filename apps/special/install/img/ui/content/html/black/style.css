@@ -1,0 +1,10 @@
+.content-html-black{
+	font-size: 12px;
+	color: #ccc;
+	padding:10px 15px;
+	background-color: #333;
+}
+.content-html-black p{
+	text-indent: 2em;
+	margin:10px 0;
+}

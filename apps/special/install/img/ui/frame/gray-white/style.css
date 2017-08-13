@@ -1,0 +1,8 @@
+/*
+@name 素色系列
+@notes 白底灰边框
+*/
+.frame-gray-white {
+	background-color:white;
+	border:1px solid #ddd;
+}

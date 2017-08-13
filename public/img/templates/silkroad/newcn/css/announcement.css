@@ -1,0 +1,10 @@
+/*内容页样式*/
+.announcement-con{border-bottom: 1px dashed #ccc; padding-bottom: 15px;}
+.announcement-con .title-h3{font-size: 30px; line-height: 30px;color: #000;font-weight: 500}
+.announcement-con span{font-size: 16px; font-weight: bold;color: #666;display: block; line-height: 21px; }
+.announcement-con-p{font-size: 16px; line-height: 24px;color: #333;}
+/*list样式*/
+.announcement-list ul li{overflow: hidden; border-bottom: 1px solid #e5e5e5;padding: 15px 0;}
+.announcement-list ul li h3{font-size: 18px; line-height: 30px;}
+.announcement-list ul li h3 a{color: #333}
+.announcement-list ul li span{font-size: 16px;color: #999;display: block; line-height: 20px; }

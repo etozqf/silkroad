@@ -1,0 +1,21 @@
+<section>
+    <div class="m-title-a">
+        <h2 class="m-title-h2">热点关注</h2>
+    </div>
+    <ul class="baoliao-hot">
+        <!-- {db sql="SELECT `baoliaoid`,`title` FROM #table_baoliao WHERE 1 ORDER BY `pv` desc LIMIT 12"} -->
+        <li><a href="{url('baoliao/index/content', array('id'=>$r[baoliaoid]))}" target="_blank">{str_natcut($r[title],18)}</a></li>
+        <!-- {/db} -->
+    </ul>
+</section>
+<div class="hr20"></div>
+<section>
+    <div class="m-title-a">
+        <h2 class="m-title-h2">报料须知</h2>
+    </div>
+    <div class="baoliao-notice">
+        <p>在线报料是面向普通网友的新闻线索发布平台，传递更多的新闻信息，为网站搜集新闻线索。通过“在线报料”，你可以将身边发生的新鲜事、突发事、感人事、烦心事告诉更多的人，我们将安排专门的记者，随时关注网友们的报料，经过记者跟追采访的新闻将直接在网站上发布。</p>
+        <p>为确保你报料的新闻线索能在第一时间被采用，请你在报料时，详细提供新闻事件发生的时间、地点、内容、联系方式等相关信息，为保障你的个人隐私，你的联系方式仅会提交给我们的记者，同时也便于我们与你联系。</p>
+        <p>为体现严肃性，发挥“在线报料”的作用，与新闻线索无关的报料将不能通过审核，请网友们提供真实性的新闻线索。新闻线索一旦采用，我们将给予一定的奖励。</p>
+    </div>
+</section>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>Features</title>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/features.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<!--面包屑-->
+<div class="column ov mar-t-20">
+    <div class="view-tit bor-1">
+        <h3>Features</h3>
+    </div>
+</div>
+<!--内容-->
+<div class="column ov">
+    <div class="list-left mar-t-12">
+        <div class="tit-box">
+            <ul class="ov">
+                <li class="m {if $catid=='277'}active{/if}"><a href="{table('category', '277', 'url')}">AIIB</a></li>
+                <li class="shu">|</li>
+                <li class="m {if $catid=='278'}active{/if}"><a href="{table('category', '278', 'url')}">Silk Road Fund</a></li>
+                <li class="shu">|</li>
+                <li class="m {if $catid=='279'}active{/if}"><a href="{table('category', '279', 'url')}">Block Train</a></li>
+            </ul>
+        </div>
+        <div class="data-box mar-t-2">
+            <div>
+                <ul class="data-ul">
+                    <!--{content catid="$catid" orderby="published desc" size="$pagesize" page="$page"}-->
+                    <!--{if $r[thumb]}-->
+                    <li>
+                        <a href="{$r[url]}" target="_blank" class="f-l mar-t-6"><img src="{thumb($r[thumb], 115, 80)}" width="115" height="80" alt=""/></a>
+                        <div class="txt-box">
+                            <h3>
+                                <a href="{$r[url]}" target="_blank">{$r[title]}</a>
+                            </h3>
+                            <span>{date('F d, Y', $r[published])}</span>
+                        </div>
+                    </li>
+                    <!--{else}-->
+                    <li>
+                        <h3>
+                            <a href="{$r[url]}" target="_blank">{$r[title]}</a>
+                        </h3>
+                        <span>{date('F d, Y', $r[published])}</span>
+                    </li>
+                    <!--{/if}-->
+                    <!--{/content}-->
+                </ul>
+                <div class="pagemod f-l mar-t-30">
+                    <ul>
+                    <!--{pages(min($total, $mintotal), $page, $pagesize, 2, $urlrule, false, 'li', 'on', '&lt', '&gt')}-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-right">
+        <!--#include virtual="/section/412.html"--><!--# 专题频道 右侧广告 #-->
+        <!--#include virtual="/section/413.html"--><!--# 专题频道 右侧most read #-->
+    </div>
+</div>
+<!--{template "newcn/system/footer.html"}-->
+</body>
+</html>

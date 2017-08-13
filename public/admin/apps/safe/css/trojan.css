@@ -1,0 +1,88 @@
+.scan-box {
+    position:relative;
+    width:100%;
+    height:55px;
+    top:0;
+    left:0;
+    background-color:#fff;
+    z-index:9999;
+    text-align:center;
+    display: none;
+    }
+.last-scan {
+    position:relative;
+    width:100%;
+    height:25px;
+    top:0;
+    left:0;
+    background-color:#fff;
+    z-index:9999;
+    text-align:center;
+}
+.scan-box .current {
+    text-align:left;
+    font-size:12px; font-family:Arial, Verdana, "宋体";
+    width:650px;
+    height:20px;
+    line-height:20px;
+    margin-left:8px;
+}
+.scan-box .current.wide{
+    width:98%;
+}
+.scan-box .output {
+    width:640px;
+    height:150px;
+    margin:0 auto;
+    overflow-y:auto;
+    padding:5px;
+    text-align:left;
+    background:#000;
+    display:none;
+}
+.scan-box .progress-control:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+.scan-box .progress-control {
+    margin:0 auto;
+}
+.scan-box .progress {
+    font-size:12px; font-family:Arial, Verdana, "宋体";
+    background-color:#F2F8FD;
+    text-align:center;
+    width:98%;
+    float:left;
+    margin-left:8px;
+}
+.scan-box .progress .bar {
+    height:28px;
+    border:1px solid #ccc;
+    background:#fff;text-align:left;position:relative;
+}
+.scan-box .progress .bar .percent {
+    position:absolute; top:0; left:50%;
+    width:80px;
+    height:28px;
+    margin-left:-40px;
+    line-height:28px;text-align:center;
+    font-family:Tahoma, Verdana, Arial; font-size:14px;
+    font-weight:bold; color:#f60;
+}
+.scan-box .progress .bar .indicator {
+    background-color:#DDEEF1;
+    height:28px;width:10%;
+    border-right:1px solid #9FCCE9;
+}
+.exclude{
+    float:left;
+    padding-top: 5px;
+}
+
+.trojan_version{
+    padding-top: 5px;
+}

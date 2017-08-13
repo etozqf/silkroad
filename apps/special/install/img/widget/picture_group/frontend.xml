@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+    <depends>jquery</depends>
+    <resource>{IMG_URL}js/lib/gallery/black.css</resource>
+    <resource>{IMG_URL}js/lib/cmstop.gallery.js</resource>
+</package>

@@ -1,0 +1,9 @@
+<!-- 索贝VMS视频模板 -->
+<!--{db sql="SELECT `playerCodeList` FROM `#table_sobeyvms` WHERE `id` = $video" size="1"}-->
+<?php
+	$html = value(json_decode($r['playerCodeList']), 0)->playerCode;
+	$html = str_replace('<![CDATA[', '', $html);
+	$html = str_replace(']]>', '', $html);
+?>
+{$html}
+<!-- {/db} -->

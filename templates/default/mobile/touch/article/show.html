@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$content[title]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+</head>
+<body>
+<!--{if value($content, 'thumb')}-->
+<img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+<!--{/if}-->
+<div class="ui-container">
+    <header>
+        <div class="ui-header-bar">
+            <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+            <div class="ui-pagetitle">新闻中心</div>
+            <div class="ui-menu-trigger js-menubtn-top"></div>
+        </div>
+    </header>
+    <!--{template 'mobile/touch/_blocks/nav.html'}-->
+    <div>
+        <article class="ui-article-container">
+            <header>
+                <h1 class="ui-article-title">{$content[title]}</h1>
+                <div class="ui-article-infos">
+                    <time>{date('Y-m-d H:i', $content[published])}</time>
+                    <!--{if $content[source]}-->
+                    <span class="source">{$content[source]}</span>
+                    <!--{/if}-->
+                    <var class="js-font big-fontSize"></var>
+                </div>
+            </header>
+            <!-- 正文 -->
+            <section class="ui-article-detail">
+                <!--{if !empty($addons)}-->
+                <!--{loop $addons['A2'] $addon}-->
+                <!--{mobileAddon::render($addon['engine'], 'touch', $addon)}-->
+                <!--{/loop}-->
+                <!--{/if}-->
+                <div id="content-show" class="mar-t-20"><!--{$content['content']}--></div>
+                <!--{if !empty($addons)}-->
+                <!--{loop $addons['A5'] $addon}-->
+                <!--{mobileAddon::render($addon['engine'], 'touch', $addon)}-->
+                <!--{/loop}-->
+                <!--{/if}-->
+            </section>
+
+            <section>
+                <div class="share">
+                    <dl>
+                        <dt>分享到</dt>
+                        <dd>
+                            <a href="javascript:;" class="sharet"></a>
+                            <a href="javascript:;" class="shareqzone"></a>
+                            <a href="javascript:;" class="sharewb"></a>
+                            <!--<a href="javascript:;" class="sharewx"></a>-->
+                            <!--<a href="javascript:;" class="shareqq"></a>-->
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+
+            <!-- 相关内容 -->
+            <section class="on-content" {if empty($content[relateds])}style="border:none;"{/if}>
+                <!--{if !empty($content[relateds])}-->
+                <h3 class="title"><a href="">相关内容</a></h3>
+                <div class="ui-mod-lists ui-cate-list">
+                    <ul>
+                        <!--{loop $content[relateds] $i $r}-->
+                        <li> <a href="{$r[url]}">{$r[title]}</a> </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+                <!--{/if}-->
+            </section>
+            <!--@end 相关内容 -->
+            <!-- 广告位 -->
+            <div class="AdPositionId ui-ad">
+                {mobile_content_ad()}
+            </div>
+            <!--@end 广告位 -->
+            <!-- 精彩推荐 -->
+            <section class="on-content">
+                <h3 class="title"><a href="">精彩推荐</a></h3>
+                <div class="ui-mod-lists ui-cate-list">
+                    <!--#include virtual="/section/94.html"--><!--# 手机版 精彩推荐文字 #-->
+                </div>
+                <div class="ui-mod-picsummary ui-picture-list">
+                    <!--#include virtual="/section/93.html"--><!--# 手机版 精彩推荐图片 #-->
+                </div>
+            </section>
+            <!--@end 精彩推荐 -->
+            <!-- 评论 -->
+            <div class="comment">
+            <!-- {if setting('cloud', 'sohu_changyan')} -->
+            <!--#include virtual="/section/cloud/mobilecomment.html"-->
+            <!--{/if}-->
+            </div>
+            <!--@end 评论 -->
+            <!-- @end正文 -->
+        </article>
+    </div>
+</div>
+<div class="download">
+    <!--#include virtual="/section/246.html"--><!--# 手机版 客户端下载 #-->
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container"></div>
+<!--@end 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<!--@end 底部 -->
+</body>
+</html>

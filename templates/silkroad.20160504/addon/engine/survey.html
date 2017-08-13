@@ -1,0 +1,34 @@
+<!-- 调查 -->
+<div class="hr20"></div>
+<div class="survey border1">
+    <div class="m-title-b">
+        <h2 class="ov"><span class="name fl-l">调查</span> <span class="summary fl-l">{str_natcut($content[title], 35, '')}？</span></h2>
+    </div>
+    <div class="survey-inner margin10">
+        <p class="survey-o1"><!--{if $content[starttime] && $content[endtime]}-->
+        {date('Y-m-d H:i', strtotime($content[starttime]))} 至 {date('Y-m-d H:i', strtotime($content[endtime]))}
+        <!--{elseif $content[starttime]}-->
+        调查开始于 {date('Y-m-d H:i', strtotime($content[starttime]))}
+        <!--{elseif $content[endtime]}-->
+        <?php $_uuid = uniqid('addon-survey-token-'); $_endtime = strtotime($content['endtime']); ?>
+        <span id="{$_uuid}">将</span>于 {date('Y-m-d H:i', $_endtime)} 结束
+        <!--{else}-->
+        调查开放中，赶快参加
+        <!--{/if}--></p>
+        <p class="survey-intro">{$content[description]}</p>
+        <a href="{$content[url]}" class="button1 margin10 buttonsamll">我要参加</a>
+    </div>
+</div>
+<div class="hr20"></div>
+<!--{if $_uuid}-->
+<script type="text/javascript">
+    (function() {
+        if ((new Date()).getTime() / 1000 >= {$_endtime}) {
+            try {
+                document.getElementById('{$_uuid}').innerHTML = '已';
+            } catch (ex) {}
+        }
+    })();
+</script>
+<?php unset($_uuid, $_endtime); ?>
+<!--{/if}-->

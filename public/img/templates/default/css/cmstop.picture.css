@@ -1,0 +1,149 @@
+/* 组图-列表瀑布流 */
+.waterfull {
+    width: 1050px;
+    margin-left: -20px;
+}
+.waterfull .item {
+    border: 1px solid #eeeeee;
+}
+.waterfull .item a {
+    text-decoration: none;
+    display: block;
+}
+.waterfull .item a p {
+    font-size: 14px;
+    padding: 6px 8px;
+    line-height: 24px;
+    color: #444;
+}
+.waterfull .item a:hover  p {
+    color: #06c;
+}
+
+/* slider幻灯片 */
+.clearfix:before, .clearfix:after {
+    content: '.';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+.icon-arrow-a-left {
+    background-position: -16px -1712px;
+    height: 80px;
+    width: 50px;
+}
+.icon-arrow-a-left:hover, .icon-arrow-a-left.arrow-a-left_hover, .icon-arrow-a-left.arrow-a-left-hover {
+    background-position: -13px -1630px;
+}
+.icon-arrow-a-right {
+    background-position: -18px -1556px;
+    height: 80px;
+    width: 50px;
+}
+.icon-arrow-a-right:hover, .icon-arrow-a-right.arrow-a-right_hover, .icon-arrow-a-right.arrow-a-right-hover {
+    background-position: -16px -1473px;
+}
+.slide-css {
+    width: 1000px;
+    height: 600px;
+    margin: auto;
+    position: relative;
+}
+.slide-css img {
+    width: 1000px;
+    height: 600px;
+}
+.slide-css .inner {
+    width: 1000px;
+    height: 600px;
+}
+.slide-css .wrap {
+    overflow: visible;
+    position: absolute;
+}
+.slide-css .next, .slide-css .prev {
+    filter: alpha(Opacity=40);
+    opacity: .4;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    background-color: #000;
+    z-index: 3;
+}
+.slide-css .next:hover, .slide-css .prev:hover {
+    filter: alpha(Opacity=100);
+    opacity: 1;
+}
+.slide-css .next {
+    right: 0;
+}
+.slide-css .disabled {
+    background-color: #eee;
+}
+.slide-css .mask-left, .slide-css .mask-right, .slide-css .item {
+    background-color: #fff;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+    left: 2000px;
+}
+.slide-css .mask-right, .slide-css .mask-left {
+    z-index: 4;
+    left: -1000px;
+    filter: alpha(Opacity=50);
+    opacity: .5;
+    background: #fff;
+    overflow: hidden;
+}
+.slide-css .mask-right {
+    left: 1000px;
+}
+.slide-css .active {
+    z-index: 2;
+    left: 0;
+}
+.slide-css .item .text {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.slide-css .item .text p {
+    color: #fff;
+    font-size: 22px;
+    line-height: 60px;
+    margin-left: 20px;
+}
+.slide-css .pointer {
+    bottom: 25px;
+    right: 20px;
+    z-index: 4;
+}
+
+.ie8 .slide-css .item .text {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+.waterfall p {
+    color:#333;
+    font-size: 14px;
+    padding: 6px 8px;
+}
+.waterfall .item {
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}

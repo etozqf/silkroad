@@ -1,0 +1,31 @@
+<pack>
+	<?php foreach ($data as $rule):?><rule>
+		<name><![CDATA[<?=$rule['name']?>]]></name>
+		<type><![CDATA[<?=$rule['type']?>]]></type>
+		<charset><![CDATA[<?=$rule['charset']?>]]></charset>
+		<get_url_type><![CDATA[<?=$rule['get_url_type']?>]]></get_url_type>
+		<epaper_rule><![CDATA[<?=$rule['epaper_rule']?>]]></epaper_rule>
+		<edition_cycle><![CDATA[<?=$rule['edition_cycle']?>]]></edition_cycle>
+		<first_time><![CDATA[<?=$rule['first_time']?>]]></first_time>
+		<epaper_limit><![CDATA[<?=$rule['epaper_limit']?>]]></epaper_limit>
+		<list_start><![CDATA[<?=$rule['list_start']?>]]></list_start>
+		<list_end><![CDATA[<?=$rule['list_end']?>]]></list_end>
+		<list_rule><![CDATA[<?=$rule['list_rule']?>]]></list_rule>
+		<content_start><![CDATA[<?=$rule['content_start']?>]]></content_start>
+		<content_end><![CDATA[<?=$rule['content_end']?>]]></content_end>
+		<content_rule><![CDATA[<?=$rule['content_rule']?>]]></content_rule>
+		<content_scope_start><![CDATA[<?=$rule['content_scope_start']?>]]></content_scope_start>
+		<content_scope_end><![CDATA[<?=$rule['content_scope_end']?>]]></content_scope_end>
+		<content_title_start><![CDATA[<?=$rule['content_title_start']?>]]></content_title_start>
+		<content_title_end><![CDATA[<?=$rule['content_title_end']?>]]></content_title_end>
+		<content_article_start><![CDATA[<?=$rule['content_article_start']?>]]></content_article_start>
+		<content_article_end><![CDATA[<?=$rule['content_article_end']?>]]></content_article_end>
+		<content_author_start><![CDATA[<?=$rule['content_author_start']?>]]></content_author_start>
+		<content_author_end><![CDATA[<?=$rule['content_author_end']?>]]></content_author_end>
+		<allow_tags><![CDATA[<?=$rule['allow_tags']?>]]></allow_tags>
+		<default_catid><![CDATA[<?=$rule['default_catid']?>]]></default_catid>
+		<import_list><![CDATA[<?=$rule['import_list']?>]]></import_list>
+		<allowed_auto><![CDATA[<?=$rule['allowed_auto']?>]]></allowed_auto>
+		<default_state><![CDATA[<?=$rule['default_state']?>]]></default_state>
+	</rule><?php endforeach;?>
+</pack>

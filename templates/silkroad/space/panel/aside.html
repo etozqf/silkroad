@@ -1,0 +1,34 @@
+<!-- 左侧菜单 -->
+<!--{if $space_exist['status']>2}-->
+<div class="inner border1">
+        <ul class="member-aside">
+            <li><a href="" class="align-c">个人资料</a></li>
+            <li><a href="" class="align-c">修改头像</a></li>
+            <li><a href="" class="align-c">修改密码</a></li>
+            <li><a href="" class="align-c">修改邮箱</a></li>
+            <li><a href="" class="align-c last">外部链接</a></li>
+        </ul>
+    </div>
+<!--{else}-->
+<div class="inner border1" style="height: 809px;">
+    <ul class="member-aside">
+        <li rel="contribute"><a href="{url('space/panel/contribute')}" title="投稿">投稿</a></li>
+        <li rel="published"><a href="{url('space/panel/published')}" title="已发表">已发表({$statistics[published]})</a></li>
+        <li rel="submitted"><a href="{url('space/panel/submitted')}" title="审核中">审核中({$statistics[submitted]})</a></li>
+        <li rel="rejected"><a href="{url('space/panel/rejected')}" title="已退稿">已退稿({$statistics[rejected]})</a></li>
+        <li rel="drafted"><a class="last" href="{url('space/panel/drafted')}" title="草稿箱">草稿箱({$statistics[drafted]})</a></li>
+    </ul>
+</div>
+<!--{/if}-->
+<script type="text/javascript">
+$(function() {
+	var rel = "{$_GET[action]}";
+	if (!rel || rel == 'index') {
+		rel = 'published';
+	}
+	if (rel == 'edit') {
+		rel = 'contribute';
+	}
+	$('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

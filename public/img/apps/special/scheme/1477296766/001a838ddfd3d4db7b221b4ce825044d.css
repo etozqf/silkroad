@@ -1,0 +1,41 @@
+.content-html-font-black-a{ color:#333; padding:5px 9px;}
+.content-html-font-black-a p{ line-height:1.8em;}
+.title-red-a { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/red-a/images/red-a.jpg") repeat-x; height:50px; line-height:50px; font-size:24px; font-weight:bold; padding-left:12px;}
+.title-red-a a,.title-red-a span{color:#ffae00;font-size:24px; font-family:"微软雅黑"}
+.frame-gray-white { background-color:white; border:1px solid #ddd;}
+ .content-palist-gray-a li {padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-gray-a img {margin:8px 8px 8px 0;}
+ .content-palist-gray-a .summary {margin:0; padding:0;}
+ .content-palist-gray-a{background-color:#fff;}
+ .content-palist-gray-a .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-gray-a .imgtxtsummary-list a{color:#333;}
+ .content-palist-gray-a .imgtxtsummary-list h3 a{ color:#333; font-size:12px;font-weight:bold;}
+ .content-palist-gray-a .imgtxtsummary-list p{color:#333;}
+ .content-palist-gray-a .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.title-gray-b { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/gray-b/images/gray_title2.png") no-repeat; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; padding-left:20px;}
+.content-list-gray-a ul { padding:5px 8px;}
+.content-list-gray-a li { line-height:25px; padding-left:8px; background:url("http://img.xinhua08.com/apps/special/ui/content/list/gray-a/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-a a { font-size:14px; color:#333;}
+.content-list-gray-a a:hover{ color:#c00;}
+.content-list-gray-a .date{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #bbb;}
+.title-arrow-b { overflow: hidden; background:#fff url("http://img.xinhua08.com/apps/special/ui/title/arrow-b/images/bg.png") no-repeat 0 2px; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; border-bottom:1px solid #ddd; padding-left:20px;}
+.title-arrow-b a,.title-arrow-b span {}
+.frame-gray-b { border:1px solid #B6BBC0; background:#fff;}
+.frame-gray-a { border:1px solid #dadada; background:#fff;}
+.widget-gray-a .diy-inner { border:1px solid #dadada; background:#fff;}
+.title-blue { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/blue/images/bg.jpg") repeat-x 0 0; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#06c;}
+.title-blue a,.title-blue span { padding-left:9px;}
+ .content-piclist-gray-a{padding-top:10px;background-color:#FFF;}
+ .content-piclist-gray-a li {margin:0 7px 10px;}
+ .content-piclist-gray-a img{border:1px solid #ccc;padding:1px;}
+ .content-piclist-gray-a a { color:#333; font-size:12px;}
+ .content-piclist-gray-a a:hover{text-decoration:none;color:#c00;}
+ .content-palist-blue li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-blue img { margin:8px 8px 8px 0;}
+ .content-palist-blue .summary { margin:0; padding:0;}
+ .content-palist-blue{background-color:#fff;}
+ .content-palist-blue .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-blue .imgtxtsummary-list a{color:#333;}
+ .content-palist-blue .imgtxtsummary-list h3 a{ color:#06c; font-size:12px;font-weight:bold;}
+ .content-palist-blue .imgtxtsummary-list p{color:#333;}
+ .content-palist-blue .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}

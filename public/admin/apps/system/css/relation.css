@@ -1,0 +1,41 @@
+.container{
+   width:800px;
+
+}
+
+div.one_category{
+    margin:10px;
+    padding:10px;
+    border:1px solid #daeeff;
+}
+
+div.one_category span{
+  
+}
+
+div.two_category
+{
+   margin:10px;
+   padding:5px;
+
+}
+
+div.two_category span{tfont-weight:bold;}
+
+div.three_category{
+  margin:10px;
+  padding:10px;
+  
+}
+
+div.three_category li
+{
+  list-style:none;
+  float:left;
+  padding:0px 8px 0px 4px;
+}
+
+.t_a{
+  margin:0px 2px 0px 2px;
+  padding: 4px;
+}

@@ -1,0 +1,233 @@
+.tag_list {
+    padding-left: 5px;
+}
+
+.container {
+    margin: 10px 15px;
+    width: 900px;
+}
+
+.infomation {
+    position: relative;
+    width: 450px;
+    float: left;
+    margin-right: 20px;
+}
+.infomation .button-primary {
+    margin-right: 0;
+}
+
+#pick-container {
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+#pick-container input {
+    margin-right: 0;
+}
+
+.infomation-row {
+    margin: 5px 0 15px;
+    overflow: hidden;
+}
+.infomation label,
+.infomation-row label {
+    display: block;
+    color: #077AC7;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.infomation-row label em {
+    color: #F00;
+    margin-right: 5px;
+}
+
+#str {
+    display: block;
+    resize: vertical;
+    width: 98%;
+    height: 100px;
+}
+
+#note {
+    display: block;
+    width: 98%;
+}
+
+#btn-add-category {
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px 0;
+}
+
+.qrcode-tips {
+    border: solid 1px #99AED4;
+    background: #EBF2FA;
+    padding: 10px;
+    line-height: 20px;
+}
+
+.search-options {
+    overflow: hidden;
+}
+.search-options label {
+    float: left;
+    color: #077AC7;
+    margin-top: 5px;
+}
+.search-options input {
+}
+.search-options span {
+    float: left;
+    margin-right: 20px;
+}
+
+.qrcode-image {
+    float: left;
+    width: 300px;
+    padding-top: 10px;
+}
+.qrcode-image span,
+.qrcode-image a,
+.qrcode-image label,
+.qrcode-image input {
+    float: left;
+    margin-right: 5px;
+}
+.qrcode-image label {
+    margin-top: 4px;
+    color: #333;
+}
+.qrcode-image label input {
+    margin: 2px 5px 5px 0;
+}
+.qrcode-image a {
+    margin-top: 5px;
+}
+.qrcode-image div {
+    display: none;
+    margin-top: 1px;
+}
+
+#slider {
+    clear: both;
+    margin: 0 10px;
+}
+
+.options {
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+}
+
+.preview {
+    border: solid 1px #EFEFEF;
+    width: 380px;
+    height: 380px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    *display: block;
+    *font-size: 331px; /* height * 0.873 */
+    *font-family:Arial;
+    background: #FFF url(../images/qrcode.png) no-repeat center center;
+}
+.preview a {
+    cursor: pointer;
+}
+.preview img {
+    max-width: 360px;
+    max-height: 360px;
+    vertical-align: middle;
+}
+
+#download-panel {
+    display: none;
+    position: absolute;
+    width: 380px;
+    padding: 30px 0;
+    left: 1px;
+    top: 125px;
+    text-align: center;
+    background: #FBFBFB;
+}
+
+/* stat */
+#qrcode-detail {
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+}
+#qrcode-detail #pick-container {
+    right: 10px;
+    top: 5px;
+}
+.qrcode-detail {
+    background: #FFF;
+}
+.qrcode-detail th,
+.qrcode-detail td {
+    line-height: 24px;
+}
+.qrcode-detail-note {
+
+}
+.qrcode-detail-note p {
+    padding: 0;
+    line-height: 20px;
+}
+#qrcode-pie-container {
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    position: relative;
+}
+#qrcode-pie-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff url(/images/loading.gif) no-repeat center center;
+}
+#qrcode-pie {
+    width: 420px;
+    height: 300px;
+}
+
+.ui-label {
+    display: inline-block;
+    zoom: 1;
+    text-align: center;
+    height: 18px;
+    line-height: 18px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+
+    padding: 0 10px;
+    background: #ffaa09;
+    color: #FFF;
+}
+
+td .thumb {
+    margin-left: 5px;
+}
+
+.ui-related-title {
+    padding: 2px;
+    border: solid 1px #A0C3DA;
+    /*background: #F5F9FA;*/
+}
+.ui-related-title .related-item {
+    padding: 8px 2px 5px;
+    color: #999;
+    display: none;
+}
+.ui-related-title .related-item .hand {
+    text-decoration: underline;
+    padding-left: 5px;
+}

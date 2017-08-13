@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>活动地图：{$content[title]}</title>
+
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-slider.css" />
+
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+</head>
+<body>
+<div class="ui-container">
+    <section>
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">活动地图</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+
+        <div class="ui-activity-map" id="map-activity">
+
+        </div>
+    </section>
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container">
+    <!-- 栏目导航 -->
+    <menu class="ui-categorys js-category-panel js-categorys-bottom js-hidden">
+        <ul>
+            <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{MOBILE_URL}">首页</a></li>
+            <!--{loop mobile_category() $category}-->
+            <!--{if !$category[headline]}-->
+            <li style="background-image:url({MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/cate_ico.png);"><a href="{$category[url]}">{$category[catname]}</a></li>
+            <!--{/if}-->
+            <!--{/loop}-->
+        </ul>
+    </menu>
+    <!-- @end 栏目导航 -->
+</div>
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<script>
+    $(function() {
+        // 底部栏目选择
+        var bb = $('.js-menubtn-bottom');
+        bb.click(function() {
+            $('.js-categorys-bottom').toggleClass('js-hidden');
+            setTimeout(function() {
+                document.body.scrollTop = document.body.clientHeight;
+            }, 50);
+        });
+
+        var win = $(window);
+        var mapAcitvity = $('#map-activity');
+
+        function resize() {
+            mapAcitvity.height(win.height() - $('header').height() - $('footer').height());
+        }
+        win.resize(resize);
+        resize();
+
+        var map = new BMap.Map(mapAcitvity[0]);
+        var point = new BMap.Point('{$point[0]}', '{$point[1]}');
+        map.centerAndZoom(point, 12);
+
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+
+        var infoWindow = new BMap.InfoWindow('{$address}');
+        marker.addEventListener('click', function () {
+            this.openInfoWindow(infoWindow);
+        });
+    });
+</script>
+</body>
+</html>

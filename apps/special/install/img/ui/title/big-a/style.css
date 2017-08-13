@@ -1,0 +1,14 @@
+/*
+ @name 大标题
+ @notes 大标题，适用于内容标题
+*/
+.title-big-a {
+	font-size:24px;
+	background: url("images/title.png") no-repeat 0 10px;
+	line-height:28px;
+	font-family:"微软雅黑";
+	padding:10px 20px 12px 50px;
+	border-bottom:1px solid #d6d6d6;
+	margin:0 15px;
+	}
+.title-big-a span{}

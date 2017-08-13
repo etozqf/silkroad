@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <?php $title_pos = array_reverse($pos); ?>
+    <title>{$title}_{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="{$tags}" />
+    <meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.activity.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+    <script type="text/javascript">
+        var contentid = '{$contentid}';
+        var topicid = '{$topicid}';
+    </script>
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    
+    <div class="hr20"></div>
+
+    <!-- 面包屑 -->
+    <div class="column m-crumb" style="border-bottom:none;">
+        <a href="{WWW_URL}">首页</a>
+        <!--{loop $pos $cat}-->
+        <em class="icon16x16"></em>
+        <a href="{$cat[url]}">{$cat[name]}</a>
+        <!--{/loop}-->
+    </div>
+
+    <div class="column article-content pos-r">
+        <h1 class="article-content-title">{$title}</h1>
+        <!-- <h2 class="article-content-level2title">副标题的自留地，此树是我栽，此路是我开</h2> -->
+        <div class="article-infos ov">
+            <span class="date fl-l">{date('Y-m-d H:i', $published)}</span>
+            <!--{if $source_name}-->
+            <!--{if $source_url}-->
+            <a class="source fl-l" href="{$source_url}" target="_blank">
+            <!--{else}-->
+            <a class="source fl-l">
+            <!--{/if}-->
+                {$source_name}</a>
+            <!--{/if}-->
+            <!--{if $editor}-->
+            <span class="editor fl-l">{$editor}</span>
+            <!--{/if}-->
+            <div class="share fl-l"><!--#include virtual="/section/cloud/share.html"--></div>
+        </div>
+        <!-- 活动头图 -->
+        <div class="activity-big-pic ov">
+            <div class="fl-l activity-logo-pic">
+                <!--{if $bgimg}-->
+                <img src="{thumb(abs_uploadurl($bgimg), 660, 280)}" width="660" height="280" />
+                <!--{else}-->
+                <img src="{IMG_URL}templates/{TEMPLATE}/img/thumb25.jpg">
+                <!--{/if}-->
+            </div>
+            <div class="fl-r activity-infos pos-r">
+                <div class="hr30"></div>
+                <div class="hr10"></div>
+                <p class="text cor444 fz14">报名时间：{date('Y-m-d H:i', $signstart)}~{if $signend}{date('Y-m-d H:i', $signend)}{else}不限{/if}</p>
+                <div class="hr30"></div>
+                <p class="text cor444 fz14 address ov">活动地址：{$address}</p>
+                <div class="hr30"></div>
+                <div class="hline"></div>
+                <div class="hr15"></div>
+                <p class="text cor444 fz14 text2"><!--{if $maxpersons}-->限额{$maxpersons}人<!--{else}-->不限人数<!--{/if}--> <span class="gender">{if $gender}{if $gender==1}限男性{else}限女性{/if}{/if}<span></p>
+                <div class="hr15"></div>
+                <div class="hline"></div>
+                <div class="ov join-bar pos-a">
+                    <!-- .disable 为活动结束状态 ,添加在.button1上，效果呈灰色状态 -->
+                    {if time() < $signstart}
+                        <a href="javascript:;" class="button1 fl-l disable">未开始</a>
+                    {elseif time() > $signend}
+                        <a href="javascript:;" class="button1 fl-l disable">已结束</a>
+                    {else}
+                        <a href="javascript:;" class="button1 fl-l js-gojoin">报名</a>
+                    {/if}
+                    <div class="interaction ov fl-l">
+                        <a href="javascript:digg.set({$contentid},'supports')" class="icon40x40 interaction-btn love fl-l js-ilove"><span class="hidden">10</span></a>
+                        <a href="javascript:;" rel="sidebar" onclick="addfavorite();return false;" class="icon40x40 interaction-btn collect fl-l"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hr20"></div>
+        <!-- 详情 -->
+        <div class="activity-detail ov">
+            <div class="w660 fl-l">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>活动详情</a></h2>
+                </div>
+                <div class="activity-text">
+                    <p class="time"><strong>活动时间：</strong>{date('Y-m-d H:i',$starttime)}~{if $endtime}{date('Y-m-d H:i',$endtime)}{else}不限{/if} </p>
+                    {$content}
+                </div>
+            </div>
+            <div class="w300 fl-r">
+                <!--{if $address && is_array($point)}-->
+                <div class="activity-map">
+                    <div class="m-title-a pos-r">
+                        <h2 class="m-title-h2"><a>活动地址</a></h2>
+                        <a target="_blank" href="http://map.baidu.com/?latlng={$point[lat]},{$point[lng]}&title={$address}&content={$address}" class="view pos-a">放大查看</a>
+                    </div>
+                    <div class="hr20"></div>
+                    <div class="border1">
+                        <a target="_blank" href="http://map.baidu.com/?latlng={$point[lat]},{$point[lng]}&title={$address}&content={$address}" class="view">
+                            <img src="http://api.map.baidu.com/staticimage?center={$point[lng]},{$point[lat]}&zoom={$zoom}&markers={$point[lng]},{$point[lat]}&width=298&height=319" width="298" height="319" alt="{$address}" title="{$address}" />
+                        </a>
+                    </div>
+                </div>
+                <!--{/if}-->
+                <div class="hr20"></div>
+                <div class="activity-joiner">
+                    <div class="m-title-a">
+                        <h2 class="m-title-h2"><a>最新报名</a></h2>
+                    </div>
+                    <div class="hr10"></div>
+                    <div class="list ov" id="name_list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hr30"></div>
+    </div>
+    {if time() > $signstart && time() < $signend}
+    <!-- 报名弹窗 -->
+    <div class="joinform hidden margin-l-20 margin-r-20" style="width:550px;">
+        <div class="m-title-a">
+            <h2 class="m-title-h2"><a>活动报名</a></h2>
+        </div>
+        <form action="{APP_URL}?app=activity&controller=sign&action=add" id="signform" name="signform" method="POST" enctype="multipart/form-data" class="member-form">
+        <input type="hidden" name="contentid" id="contentid" value="{$contentid}"/>
+        <div class="field">
+            <table>
+                <tbody>
+                    <!--{loop $fields $field}-->
+                    <!--{activityField::render($field['type'], $field)}-->
+                    <!--{/loop}-->
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <!--{if setting('activity', 'seccode')}-->
+            <div class="hr10"></div>
+            <div class="ov submit-bar">
+                <input type="text" name="seccode" id="seccode" class="m-input-text fl-l" style="margin-left:0;" value="验证码">
+                <img style="visibility:visible;cursor:pointer;" class="fl-l" title="验证码,看不清楚?请点击刷新验证码" align="bottom" />
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    var input = $('#seccode'),
+                        img = input.next('img');
+                    function change() {
+                        img.attr('src', '{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5);
+                    }
+                    change();
+                    input.focus(function() {
+                        !img.attr('src') && change();
+                        img.css('visibility', 'visible');
+                    });
+                    img.click(function() {
+                        change();
+                        input[0].focus();
+                        input[0].select();
+                    });
+                    if (img.is(':visible')) change();
+                });
+            </script>
+            <div class="hr20"></div>
+            <!--{/if}-->
+            <div class="ov submit-bar">
+                <input type="submit" name="submit" value="确定" class="submit button1" /> <a style="font-size:14px;margin-left:20px;color:#444;" href="" class="cancel">取消</a>
+            </div>
+        </div>
+        </form>
+    </div>
+    {/if}
+    <!--#include virtual="/section/2.html"--><!--网站底部-->
+</body>
+</html>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/article-show.js"></script>
+<script type="text/javascript" src="{IMG_URL}apps/activity/js/activity.js"></script>
+<script type="text/javascript">
+    // bShare划词分享
+    if(typeof(bShare) == 'undefined'){
+        document.write('<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&style=-1"><\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareDrag.js?bp=qqmb,sinaminiblog,qzone,kaixin001,bsharesync&text=分享到"><\/script><script type="text/javascript">$(".BSHARE_POP img").addClass("BSHARE_IMAGE");<\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareMM.js#shareClass=BSHARE_IMAGE"><\/script>');
+    }else{
+        document.write('<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareDrag.js?bp=qqmb,sinaminiblog,qzone,kaixin001,bsharesync&text=分享到"><\/script><script type="text/javascript">$(".BSHARE_POP img").addClass("BSHARE_IMAGE");<\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareMM.js#shareClass=BSHARE_IMAGE"><\/script>');
+    }
+    $(function(){
+        var form = $('#signform');
+        activity.formReady(contentid, form);
+        $.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){});
+        $('.js-gojoin').click(function(){
+            $('#seccode').val('验证码');
+        });
+        var textwidth = $('.activity-text').width();
+        $('.activity-text').find('img').width(textwidth);
+    });
+</script>

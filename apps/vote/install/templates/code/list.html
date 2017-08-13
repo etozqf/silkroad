@@ -1,0 +1,37 @@
+<form id="vote_{$contentid}" name="vote_{$contentid}" method="post" action="{APP_URL}?app=vote&controller=vote&action=vote">
+  <input name="seccode" type="hidden" />
+  <input name="contentid" type="hidden" class="hidden" value="{$contentid}" />
+  <dl>
+	<dt>{$title}</dt>
+  <!--{if $type=='radio'}-->
+      <!--{loop $option $k $v}-->
+      <dd><label><input type="{$type}" name="optionid" value="{$v[optionid]}"/>{$v[name]}</label></dd>
+      <!--{/loop}-->
+  <!--{else}-->
+      <!--{loop $option $k $v}-->
+      <dd><label><input type="{$type}" name="optionid[]" value="{$v[optionid]}"/>{$v[name]}</label></dd>
+      <!--{/loop}-->
+  <!--{/if}-->
+  <!--{if setting('vote', 'seccode')}-->
+    <input name="seccode" type="text" autocomplete="off" title="输入验证码" placeholder="验证码" class="">
+    <img title="看不清楚？点击换一张" alt="" src="{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30&_={TIME}" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&no_border=1&height=30&_='+(new Date()).getTime()">
+  <!--{/if}-->
+    <dd><input type="submit" name="submit" value="投票" class="submit"/>　<a href="{APP_URL}?app=vote&controller=vote&action=result&contentid={$contentid}">查看结果</a></dd>
+  </dl>
+</form>
+<script language="javascript">
+//验证投票选项
+$('#vote_{$contentid}').submit(function(){
+	var checkeds = $('#vote_{$contentid} input:checked').length;
+	if(checkeds == 0){
+		alert('请选择投票选项');
+		return false;
+	}
+	<!--{if $type == 'checkbox'}-->
+	if({$maxoptions} && checkeds > {$maxoptions}){
+		alert('最多允许选{$maxoptions}项');
+		return false;
+	}
+	<!--{/if}-->
+});
+</script>

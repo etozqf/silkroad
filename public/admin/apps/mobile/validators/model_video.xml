@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <title>
+        <required event="submit">请填写标题</required>
+    </title>
+    <video>
+        <required event="submit">请填写视频</required>
+    </video>
+    <playtime>
+        <number event="submit">时长单位为秒</number>
+    </playtime>
+    <description>
+        <required event="submit">请填写摘要</required>
+    </description>
+    <thumb>
+        <required event="submit">请填写列表缩略图</required>
+    </thumb>
+    <thumbig>
+        <required event="submit">请填写内容缩略图</required>
+    </thumbig>
+    <thumb_slider>
+
+    </thumb_slider>
+</root>

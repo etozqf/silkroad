@@ -1,0 +1,25 @@
+<table>
+    <thead class="header">
+        <tr style="height:39px;">
+            <td class="align-c"><span class="line">编号</span></td>
+            <td class="w300 align-c"><span class="line">我生成的报告</span></td>
+            <td class="align-c"><span class="line">ip</span></td>
+            <td class="align-c"><span class="line">生成时间</span></td>
+            <td class="align-c"><span class="line">操作</span></td>
+        </tr>
+    </thead>
+    <tbody id="tablelist" >
+
+    </tbody>
+</table>
+<div class="article-list-pagination pagination align-c ov page">
+</div>
+<script type="text/template" id="tpl">
+<tr class="item dashed data_{%cid%}">
+    <td width="10%" class="align-c"><a href="{%pdf%}" target="_blank" title="{%cid%}" class="name">{%cid%}</a></td>
+	<td width="40%" class="align-c"><a href="{%pdf%}" target="_blank" title="{%property%}的报告(PDF)" class="">{%property%}</a></td>
+	<td width="20%" class="align-c"><a class="nums cor06c">{%ip%}</a></td>
+	<td width="15%" class="align-c"><span class="date nums">{%pubtime%}</span></td>
+	<td width="12%" class="align-c"><span class="name"><a href="javascript:;" title="还原" onclick="back({%cid%})">还原</a></span></td>
+</tr>
+</script>

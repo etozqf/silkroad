@@ -1,0 +1,35 @@
+.diy-area, .diy-frame, .diy-widget, .diy-inner { margin: 0; padding: 0; border:none; word-wrap: break-word; zoom: 1;}
+div.diy-area:after, .diy-frame:after,.diy-widget:after, .diy-content:after { content: "."; display: block; height: 0; font-size: 0; clear: both; visibility: hidden;}
+.diy-frame .diy-area { float:left; overflow:hidden;}
+.diy-area, .diy-widget { min-height: 5px;}
+.diy-root { }
+.diy-frame { }
+.diy-widget {}
+.diy-title { overflow: hidden;}
+.diy-title img { vertical-align: middle;}
+.diy-frame .diy-title {}
+.diy-widget .diy-title {}
+.clear {height: 0;font-size: 0;clear: both;}
+.hr-dot {border-bottom:1px dashed #ccc;height:10px;clear:both;overflow:hidden;}
+a img { border: none;}
+.menu-list { line-height: 32px;}
+.menu-list a { padding: 0px 4px; text-decoration:none;}
+.menu-list a:hover { text-decoration:underline;}
+.txtlink-list { overflow:hidden; margin:0; list-style:none;}
+.txtlink-list li { style-type:none; line-height: 20px;}
+.txtlink-list li a { text-decoration:none;}
+.txtlink-list li a:hover { text-decoration:underline;}
+.txtlink-list li .date { float: right;}
+.imgtxtsummary-list { overflow:hidden; margin:0; padding:0; list-style:none; font-size:12px;}
+.imgtxtsummary-list li { list-style:none; margin:0; padding:0;}
+.imgtxtsummary-list h3 { margin:0 0 4px; padding:0; font-size:14px; line-height: 21px;}
+.imgtxtsummary-list a { text-decoration:none; font-weight:normal;}
+.imgtxtsummary-list a:hover { text-decoration:underline;}
+.imgtxtsummary-list .pic {}
+.imgtxtsummary-list img { width:80px; height:60px; float:left; border:none;}
+.imgtxtsummary-list .summary { margin:0;padding:0; line-height:20px; text-indent:2em;}
+.imgtxtsummary-list .clear { clear:both; font-size:0; height:0;}
+.pic-list { margin:0;padding:0;}
+.pic-list li { list-style:none; display:inline-block; vertical-align:top; *display:inline-table; +display:inline; +zoom:1; padding:1px 1px 2px 2px; margin:2px; text-align:center; line-height:16px;}
+.pic-list img { width:80px; height:60px; border:none; display: block; margin:0 auto 6px;}
+.pic-list a { display:inline-block; text-decoration: none;}

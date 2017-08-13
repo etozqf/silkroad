@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <name>
+        <required event="submit">请填写应用名称</required>
+    </name>
+    <iconurl>
+        <required event="submit">请填写图标</required>
+    </iconurl>
+    <description>
+        <required event="submit">请填写应用简介</required>
+    </description>
+</root>

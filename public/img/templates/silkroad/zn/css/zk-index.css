@@ -1,0 +1,41 @@
+/*焦点*/
+.focus{height: 128px;background: #fff; border: 1px solid #e4e4ec; position: relative;font-family:'Arial';}
+.focus em{display:block; height: 63px;width: 63px;background: url("../images/zx-icon.png") no-repeat 0 0;position: absolute; top: -1px; left: -1px; z-index: 10; }
+.focus-b{width: 980px;height: 85px; border-bottom: 1px solid #e4e4ec; margin: 0 auto;}
+.focus-l{width: 700px; height: 128px;}
+.focus-l h3{font-size: 28px;text-align: center;line-height: 48px; height: 48px; font-weight: bold;}
+.focus-l h3 a,.focus-l h3 a:hover,.focus-l ul li a,.focus-l ul li a:hover{color: #20559d;}
+.focus-l ul{width: 650px; margin: 0 auto; overflow: hidden}
+.focus-l ul li{float: left;font-size: 15px; height: 28px; line-height: 28px; overflow: hidden;}
+.focus-l ul li span{margin: 0 5px; color: #d6e5f3;display: block}
+/*往期回顾*/
+.focus-r{width: 239px; height: 70px;border-left: 1px solid #e4e4ec;padding-left: 11px;}
+.focus-r h3{font-size: 12px;line-height: 21px;}
+.focus-r li{font-size: 15px; line-height: 25px; height: 21px; overflow: hidden}
+.focus-r li a,.focus-r li a:hover{color: #208acd}
+/*智库动态*/
+.zk-dynamic{height: 40px;width: 980px; margin: 0 auto;}
+.zk-dynamic span{display: block; width: 85px; line-height: 28px;height: 28px;background: url("../images/zx-icon.png") no-repeat -65px 0;text-align: center}
+.zk-dynamic span a,.zk-dynamic span a:hover{color: #fff; font-size: 14px;}
+.zk-dynamic ul{overflow: hidden;width: 880px;}
+.zk-dynamic ul li{float: left;letter-spacing:0;font-size: 15px;margin-right: 15px;}
+.zk-dynamic ul li i{display: block;width: 5px; height: 5px; background: url("../images/zx-icon.png") -162px -1px; margin-top: 13px; margin-right: 5px; }
+/*幻灯片*/
+.zx-home-banner{height: 457px;overflow: hidden}
+.silder-big-img{ width:708px; height:360px; position:relative; overflow:hidden;}
+.silder-big-img ul{ position:absolute; left:0; top:0;}
+.silder-big-img ul li{ width:708px; height:360px;}
+.silder-small-img{ height:90px;overflow:hidden; width:654px; position:relative;float:left; margin-left:2px;}
+.silder-small-img ul{ position:absolute; left:0; top:0;}
+.silder-small-img ul li{ width:162px; height:83px;padding-top: 5px;margin-right: 2px;}
+.silder-small-img ul li img{width: 160px; height: 81px;border:1px solid #fff;}
+.silder-small-img ul li.on{background: url("../images/arrow-top.jpg") top center no-repeat}
+.silder-small-img ul li.on img{border:1px solid #c81623}
+.prev_btn1,.next_btn1{ width:25px; height:82px;cursor:pointer; float:left;background:#747474 url(../images/zx-icon.png) -167px 22px no-repeat;margin-top: 5px;}
+.next_btn1{background-position: -205px 22px;float:right;}
+/*智库简介排行榜*/
+#tab-title-1 li{float:left;margin-left:25px;width:33px;}
+.check{background: rgba(0, 0, 0, 0) url("../images/tab.png") no-repeat scroll center bottom;}
+.news01 .bgred{background: url("../images/rank.png") no-repeat scroll 0 2px;}
+.news01 li em{background:url("../images/rank1.png") no-repeat scroll 0 2px;float: left;font-family: Arial,Helvetica,sans-serif;font-size: 11px;font-weight: bold;height: 18px;line-height: 22px;margin-right: 5px;margin-top: 5px;text-align: center;width: 18px;color: #ffffff;}
+

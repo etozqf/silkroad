@@ -1,0 +1,23 @@
+<div class="member-left w160 fl-l">
+    <div class="inner border1">
+        <ul class="member-aside">
+            <li rel="profile"><a href="{url('member/panel/profile')}" title="个人资料" class="align-c">个人资料</a></li>
+            <li rel="avatar"><a href="{url('member/panel/avatar')}" title="修改头像" class="align-c">修改头像</a></li>
+            <li rel="password"><a href="{url('member/panel/password')}" title="修改密码" class="align-c">修改密码</a></li>
+            <li rel="email"><a href="{url('member/panel/email')}" title="修改邮箱" class="align-c">修改邮箱</a></li>
+            <li rel="otherlogin"><a href="{url('member/index/otherlogin', 'arg=bindPage')}" title="外部绑定" class="align-c last">外部链接</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'profile';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

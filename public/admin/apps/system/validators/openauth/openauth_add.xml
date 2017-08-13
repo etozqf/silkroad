@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <username>
+        <required event="submit">授权用户不能为空</required>
+    </username>
+    <auth_key>
+        <required event="submit">授权公钥不能为空</required>
+        <max args="32">授权公钥不得超过32个字节</max>
+    </auth_key>
+    <auth_secret>
+        <required event="submit">授权私钥不能为空</required>
+        <max args="32">授权公钥不得超过32个字节</max>
+    </auth_secret>
+</root>

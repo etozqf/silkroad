@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>专家观点</title>
+	<!--{template 'ipr/system/header_jscss.html'}-->
+</head>
+<body>
+<!--头部-->
+	<!--{template 'ipr/system/header_channel.html'}-->
+	<!--{template 'ipr/system/header_search.html'}-->
+
+<div class="column ov mar-t-20">
+	<div class="left_menu">
+		<ul class="mar-t-10">
+			<!--{template 'ipr/system/list1.html'}-->
+			<!--{template 'ipr/system/list2.html'}-->
+			<li class="on"><a target="_blank">专家观点<em class="icon-jl"></em></a></li>
+			<!--{template 'ipr/system/list4.html'}-->
+			<!--{template 'ipr/system/list5.html'}-->
+			<!--{template 'ipr/system/list6.html'}-->
+			<!--{template 'ipr/system/list7.html'}-->
+			<!--{template 'ipr/system/list8.html'}-->
+			<!--{template 'ipr/system/list9.html'}-->
+		</ul>
+	</div>
+	<div class="right_data">
+		<!--专家观点-->
+		<!--特约观察-->
+		<div class="observa">
+			<div class="hd">
+				<h3 style="padding:0 15px 0 15px;">专家观点</h3>
+			</div>
+			<div class="pic-summary mar-t-10">
+				<ul>
+					<!--{content catid="302" orderby="published desc" size="3" page="$page"}-->
+					<li>
+					    <a href="{$r[url]}" target="_blank" class="h-t">
+					    <img src="{$r[thumb]}" width="45" height="45" alt="" class="f-l h-img"/>
+					    <span class="a-span">{str_cut($r[title],20,'...')}</span>
+					    <p>{str_cut(description($r[contentid]),100,'...')}</p>
+					    <p class="ph-18">
+					        <a href="" target="_blank" class="h-t">{$r[subtitle]}</a><span>|</span><span>{date('Y-m-d', $r[published])}</span>
+					    </p>
+					</li>
+					<!--{/content}-->
+				</ul>
+			</div>
+		</div>
+		<!--转载观点-->
+		<div class="view mar-t-20">
+			<div class="hd">
+				<h3 style="padding:0 15px 0 15px;">转载观点</h3>
+			</div>
+			<div class="view-list">
+				<ul class="summary-list">
+					<!--{content catid="303" orderby="published desc" size="10" page="$page"}-->
+							  <li class="bor-b">
+							<em class="f-l">&bull;</em>
+							<a href="{$r[url]}" target="_blank"
+							class="f-l">{$r[title]}</a>
+							<div class="f-r txt mar-t-3">
+							<span>{date('Y-m-d',$r[published])}</span>
+							<i>{date('H:i',$r[published])}</i>
+							</div>
+							</li>
+						<!--{/content}-->
+					
+				</ul>
+				<!--分页-->
+				<div class="page">
+					<a href="">1</a>
+					<a href="">2</a>
+					<a href="">3</a>
+					<a href="" class="on">4</a>
+					<a href="">...</a>
+					<a href="">8</a>
+					<a href="">9</a>
+					<a href="">10</a>
+					<a href="">11</a>
+					<a href="">12</a>
+					<span>共<i>1/136</i>页 , <i>680</i>记录</span></div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--尾部-->
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

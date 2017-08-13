@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <section_log_retain tips="留空或为 0 时不自动清除">
+
+    </section_log_retain>
+    <section_history_retain tips="留空或为 0 时不自动清除">
+
+    </section_history_retain>
+</root>

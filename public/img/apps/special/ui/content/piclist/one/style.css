@@ -1,0 +1,5 @@
+/*单张图片*/
+.content-piclist-one{ }
+.content-piclist-one li {padding:0; margin:10px;}
+.content-piclist-one a {color:#fff;	font-size:12px; background:#454545; line-height:20px;}
+.content-piclist-one a:hover{text-decoration:none;color:#fff;}

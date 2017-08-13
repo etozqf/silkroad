@@ -1,0 +1,131 @@
+<script type="text/javascript">
+try {
+	window.document.head.innerHTML += '<link type="text/css" rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-loginform.css" />';
+} catch (e) {	// 兼容IE
+	window.document.createStyleSheet('{IMG_URL}templates/{TEMPLATE}/css/cmstop-loginform.css');
+}
+</script>
+<div class="loginform-left-box">
+<form action="{APP_URL}{url('member/index/ajaxlogin')}" method="post" id="memberLogin" onsubmit="return false;">
+	<div class="loginform-login-title"></div>
+	<div class="loginform-login-error" id="loginError" style="display:none;"></div>
+	<table>
+		<tr>
+			<td width="64"><label>用户名</label></td>
+			<td><input tabindex="1" class="loginform-login-input-text" type="text" id="member_login_username" name="username" value="" /></td>
+		</tr>
+		<tr>
+			<td><label>密　码</label></td>
+			<td><input tabindex="2" class="loginform-login-input-text" type="password" id="member_login_password" name="password" value="" /></td>
+		</tr>
+		<tr id="needseccode" {if !$needseccode } style="display: none;"{/if}>
+			<td><label>验证码</label></td>
+			<td>
+				<input tabindex="3" class="loginform-login-input-text" type="text" id="member_login_seccode" name="seccode" value="" style="width: 50px;" />
+		        <img id="member_login_seccodeimg" style="cursor:pointer;" width="48" height="20" align="absmiddle" class="loginform-img_mar" src="{APP_URL}{url('system/seccode/image')}" />
+			    <a tabindex="4" href="javascript:void(0);" class="loginform-ch-yzm" onclick="this.parentNode.getElementsByTagName('img')[0].src='{APP_URL}{url('system/seccode/image')}&action=image&='+Math.random()*5;">换一张</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="line-height:24px;">&nbsp;</td>
+			<td style="line-height:24px;">
+				<input tabindex="5" type="checkbox" tabindex="4" id="member_login_remember" name="cookietime" value="1296000"{if $rememberusername} checked="checked"{/if}>
+	            <label class="loginform-remember" for="member_login_remember">下次自动登录</label>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" name="submit" class="loginform-login-btn" value="登录" /></td>
+		</tr>
+	</table>
+</form>
+</div>
+<div class="loginform-right-box">
+	<a tabindex="6" href="{APP_URL}{url('member/index/getpassword')}" class="loginform-forgetpass">忘记密码?</a>
+	<a href="{APP_URL}{url('member/index/register')}"><div class="loginform-register" style="_background:none;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src='{IMG_URL}templates/{TEMPLATE}/css/images/loginform/register.png');"></div></a>
+</div>
+<div class="loginform-bottom-box">
+	{if $thirdlogin }
+	<span class="loginform-bottom-text">合作网站账号登录</span>
+	<span id="thirdIco" class="loginform-bottom-imgbox">
+		{loop $thirdlogin_data $item}
+		<a class="{$item[interface]}" href="javascript:;" title="{$item[name]}" onclick="loginThirdParty(this,'{$item[interface]}')">
+			<img src="{$item[icon]}" alt="{$item[interface]}" />
+		</a>
+		{/loop}
+	</span>
+	{/if}
+</div>
+
+<script type="text/javascript">
+	var form = $('form#memberLogin');
+	form.bind('submit', function(){
+		var username = form.find('[name=username]').val(),
+			password = form.find('[name=password]').val(),
+			needSeccode = (form.find('#needseccode').css('display') !== 'none'),
+			seccode = form.find('[name=seccode]').val(),
+			cookietime = form.find('[name=cookietime]'),
+			remember = cookietime.is(':checked'),
+			cookietime = cookietime.val(),
+			param = [];
+
+		if (!username) {
+			postError('请输入用户名');
+			return false;
+		}
+
+		if (!password) {
+			postError('请输入密码');
+			return false;
+		}
+
+		if (needSeccode && !seccode) {
+			postError('请输入验证码');
+			return false;
+		}
+
+		param.push('username=' + encodeURIComponent(username));
+		param.push('password=' + encodeURIComponent(password));
+		needSeccode && param.push('seccode=' + encodeURIComponent(seccode));
+		remember && param.push('cookietime=' + encodeURIComponent(cookietime));
+		$.get('{APP_URL}{url('member/index/ajaxlogin')}&jsoncallback=?&' + param.join('&'), null, function(json) {
+			if (json && json.state) {
+				if (json.message && json.message.indexOf('<script') > -1) {
+					var src;
+					if (src = /<script[^>]+src="([^"]*)"/.exec(json.message)[1]) {
+						$.getScript(src);
+					}
+				}
+				loginForm.getDialog().close();
+				loginForm.update();
+			} else {
+				postError(json && json.error || '登录失败，请重新尝试');
+				$('#needseccode').show();
+				loginForm.getDialog().resize(null, 264);
+			}
+		}, 'jsonp');
+
+		return false;
+	});
+	
+	window.loginThirdParty = function(elm, type) {
+		window.loginWin = window.open('{APP_URL}{url('cloud/thirdlogin/redirect_to_authorize')}&type=' + type, elm.getAttribute('title'), 'width=640,height=480,location=no,menubar=no,scrollbars=yes');
+		var p = setInterval(function() {
+			if (loginWin.closed) {
+				loginForm.getDialog().close();
+				loginForm.update();
+				clearInterval(p);
+			}
+		}, 1000);
+	}
+	window.postError = function(e) {
+		$('#loginError').empty().show().append(e);
+		setTimeout(function() {
+			$('#loginError').hide();
+		}, '3000');
+	}
+
+	{if $needseccode }
+	loginForm.getDialog().resize(null, 264);
+	{/if}
+</script>

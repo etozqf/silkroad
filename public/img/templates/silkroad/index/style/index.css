@@ -1,0 +1,17 @@
+﻿/*丝路首页样式*/
+
+.index-header { height: 465px;}
+.index-mainnav { height: 41px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI5MUMwQkJEMkEyRjExRTc5NjBERDE1MEUzQzk2MUQ5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI5MUMwQkJFMkEyRjExRTc5NjBERDE1MEUzQzk2MUQ5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjkxQzBCQkIyQTJGMTFFNzk2MEREMTUwRTNDOTYxRDkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjkxQzBCQkMyQTJGMTFFNzk2MEREMTUwRTNDOTYxRDkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7a8oAWAAAAD0lEQVR42mJg6Dh1BiDAAAP9Ah+TwtZ7AAAAAElFTkSuQmCC") repeat; line-height: 41px; color: #FFFFFF;}
+.index-mainnav a { color: #FFFFFF;}
+.index-mainnav ul li { margin-right: 10px;}
+.index-mainnav ul li.hr { margin: 0 20px;}
+
+.index-container .index-item { margin-top: 10px; margin-bottom: 20px;}
+.index-container .index-item .tit { border-bottom: 1px solid #4B95CD; border-top: 1px solid #4B95CD; height: 35px; line-height: 35px;}
+.index-container .index-item .txt { color: #0066AC;}
+.index-container .index-item .more a { color: #5B5E5B;}
+.index-container .index-item .con .contxt { width: 80%;}
+.index-container .index-item ul { width: 45%; padding-top: 15px;}
+.index-container .index-item ul li { margin-bottom: 10px;}
+.index-container .index-item ul li a { color: #324649;}
+#charData { height: 500px; margin-top: 20px;}

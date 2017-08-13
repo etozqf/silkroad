@@ -1,0 +1,66 @@
+.container{width:1000px;margin:20px auto;}
+.block{}
+.block .hd{margin:10px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.block .hd h3{left:0px;top:0px;display:inline-block;font-size:24px;font-weight:normal;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;padding:0 24px;position:absolute;z-index:3;}
+.guob{padding-bottom:40px;overflow:hidden;}
+.guob .bd{margin:25px;}
+.wrapper{width:240px;text-align:center;border:1px solid #cdcdcd;float:left;position:relative;}
+
+/* qqshop focus */
+#focus{width:240px;height:340px;overflow:hidden;position:relative;}
+#focus ul{height:300px;position:absolute;}
+#focus ul li{float:left;width:240px;height:340px;overflow:hidden;position:relative;background:#000;}
+#focus ul li div{position:absolute;overflow:hidden;}
+#focus ul li img{width:240px;height:340px;}
+#focus .btn{position:absolute;width:240px;height:5px;right:0;bottom:14px;text-align:right;text-align:center;}
+#focus .btn span{display:inline-block;width:25px;height:5px;_font-size:0;margin:0 3px;line-height:1;cursor:pointer;background:#999;vertical-align:top;}
+#focus .btn span.on{background:#ff6c00;}
+#focus .preNext{width:19px;height:28px;position:absolute;top:157px;background:url(../images/btn-lr.jpg) no-repeat 0 0;cursor:pointer;opacity:0.6;}
+#focus .pre{left:0;}
+#focus .next{right:0;background-position:right top;}
+.prointro{float:left;margin-left:30px;width:408px;}
+.prointro p{text-indent:2em;line-height:26px;}
+.prointro .abtn{display:inline-block;height:46px;line-height:46px;padding:0 20px;border-radius:2px;color:#fff;font-size:20px;background:#ff6c00;margin-top:10px;}
+.themenu{margin:0 25px;}
+.themenu ul{padding-top:20px;}
+.themenu li{margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed #e5e5e5;}
+.themenu li h3{font-weight:normal;font-size:20px;margin-bottom:10px;}
+.themenu li h3 a{color:#208acd;}
+.themenu li p{line-height:28px;}
+.themenu li p a{color:#208acd;}
+.themenu li:last-child{border-bottom:none;}
+.subscribers{}
+.subscribers ul{overflow:hidden;padding-top:10px;}
+.subscribers li{float:left;width:210px;padding-left:25px;margin-bottom:40px;}
+.subscribers li img{width:208px;border:1px solid #cccccc;}
+.subscribers li p{font-size:18px;color:#208acd;height: 90px;}
+.subscribers .more{line-height:28px;color:#208acd;font-size:14px;text-align:center;background:#f3f3f3;display:block;margin:0 25px 15px;}
+.grayblock{background:#f3f3f3;height:20px;-ms-box-shadow:inset 0px 2px 0px #c5cac6;-moz-box-shadow:inset 0px 2px 0px #c5cac6;-webkit-box-shadow:inset 0px 2px 0px #c5cac6;box-shadow:inset 0px 2px 0px #c5cac6;margin-right:-3px;}
+.item{}
+.item .hd{margin:0px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.item .hd a{left:0px;top:0px;display:inline-block;font-size:18px;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;padding:0 10px;position:absolute;z-index:3;}
+.item .bd{padding:20px;}
+.img-w208{width:208px;border:1px solid #cccccc;display:block;margin:0 auto 10px;}
+.news02{}
+.news02 li{height:24px;background:url(../images/dot_list.jpg) no-repeat 0 14px;padding-left:11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.guobie{color:#ccc;}
+.guobie a{padding:0 3px;word-break:keep-all;}
+.tops{}
+.tops li{height:30px;line-height:30px;border-bottom:1px dashed #e5e5e5;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.tops .num{display:inline-block;width:18px;line-height:18px;text-align:center;background:#989898;color:#fff;font-size:12px;margin-right:8px;}
+.tops .t3{background:#c60000;}
+.self-application{background: #f3f3f3; width: 640px; height: 650px; position: absolute; left:50%; top:50%; margin:-325px 0 0 -320px; z-index: 199; box-shadow: 0 0 10px 1px #dfdfdf;}
+.self-application .hd{height: 40px; line-height: 40px; background: #fff; padding: 0 25px;position: relative;}
+.self-application .hd h3{font-size: 18px; color: #666; font-weight: normal;}
+.self-application .close{display: block; height: 32px; width: 32px; background: url(../images/icon-close.png) no-repeat; position: absolute; right:10px; top:4px; cursor: pointer;}
+.self-application .bd{padding: 20px 25px;}
+.self-application .txt1{color: #208acd;}
+.self-application .txt2{color: #666; border-bottom: 1px solid #ccc;}
+.self-application .txt2 b{font-size: 18px; font-weight: normal;}
+.self-application form{margin-top: 10px;}
+.self-application label{ position: absolute; display: block; width: 130px; left:0; top:0; text-align: right; font-size: 16px; color: #333; line-height: 32px;} 
+.self-application li{ padding-left: 140px; position: relative;margin-bottom: 20px;}
+.self-application .inp{height: 30px; line-height: 30px; border: 1px solid #d3d3d3; background: #fff; width:100%;}
+.self-application .textarea{height: 90px; width: 100%; background: #fff; border: 1px solid #d3d3d3;}
+.self-application .tips{line-height: 1.4; font-size: 12px; color:#666; padding-top: 5px;}
+.self-application .btn{ width: 138px; height: 46px; line-height: 46px; text-align: center; background: #ff6c00; color: #fff; font-size: 20px; border: none; border-radius: 2px; cursor: pointer;}

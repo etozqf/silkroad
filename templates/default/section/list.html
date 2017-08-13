@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $title_pos = array_reverse($pos); ?>
+    <title>{$section['name']}{if $section_page['url'] != WWW_URL}_{$section_page['name']}{/if}_{$SYSTEM[sitename]}</title>
+    <link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-common.css" />
+    <link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-list-text.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    <!--[if lt IE 9 ]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/helper/modernizr.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- 头部 -->
+<header class="head-repeat-x">
+    <!--{template "system/head_simple_php.html"}-->
+</header>
+
+<!-- 面包屑 -->
+<div class="programa-crumb ov">
+    <div class="crumb">
+        <a href="{WWW_URL}">首页</a>
+        <!--{if $section_page['url'] != WWW_URL}--><em>&gt;</em> <a href="{$section_page['url']}">{$section_page['name']}</a><!--{/if}-->
+        <em>&gt;</em>{$section['name']}
+    </div>
+</div><!-- end 面包屑 -->
+
+<div class="programa-Layout">
+    <section class="column">
+        <section class="column-main">
+
+            <!-- 左侧列表 -->
+            <section class="list-text-box ov">
+                <ul class="list list-point">
+                    <!--{loop $data $i $r}-->
+                    <li class="item"><em class="ico"></em><a href="{$r[url]}" title="{$r[title]}" class="title" target="_blank">{$r[title]}</a><span class="date">{date('n月j日G:i', $r['time'])}</span></li>
+                    <!--{if ($i+1)>0 && ($i+1)%5==0}--><li class="hr"></li><!--{/if}-->
+                    <!--{/loop}-->
+                </ul>
+
+                <!-- 分页 -->
+                <div class="page-box clear ov">
+                    <ul class="page">
+                        <!--{pages($total, $page, $pagesize, 2, $urlrule, false, '', 'current', '&lt;', '&gt;')}-->
+                    </ul>
+                </div><!-- @end 分页 -->
+            </section><!-- 左侧列表 -->
+        </section>
+        <aside class="column-aside">
+
+            <!-- 广告 -->
+            <div class="ad">
+                <!--#include virtual="/section/9.html"--><!--# 广告页面 右侧 banner 320 x 240 #-->
+            </div>
+
+            <!-- 新闻排行 -->
+            <div class="news-rank-box">
+                <!--#include virtual="/section/8.html"--><!--# 公共区块 新闻排行 #-->
+            </div><!-- @end 新闻排行 -->
+
+            <!-- 推荐图片 -->
+            <div class="pic-recommend">
+                <!--#include virtual="/section/11.html"--><!--# 公共区块 推荐图片 #-->
+            </div><!-- @end 推荐图片 -->
+
+            <!-- 推荐视频 -->
+            <div class="pic-recommend">
+                <!--#include virtual="/section/14.html"--><!--# 公共区块 推荐视频 #-->
+            </div><!-- @end 推荐视频 -->
+
+        </aside>
+    </section>
+</div>
+<!--#include virtual="/section/2.html"--><!--网站底部-->
+<!-- 脚本区域 -->
+<script type="text/javascript">
+    $(function(){
+        TAB({
+            menu: 'tabmenu',
+            content: 'tabcontent',
+            active_tab: 0,
+            active_css: 'tabactive'
+        });
+    });
+</script>
+</body>
+</html>

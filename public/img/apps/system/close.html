@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+</head>
+<body id="colored" onLoad="document.forms['done'].submit();">
+	<div class="box_border"  id="wrong" style="margin:100px auto 0;width:420px; padding:20px 0;border:1px solid #FDBD77; background:#FFFDD7 url(/images/bg_wrong.gif) no-repeat 10px center; display: none;" >
+		<div class="content">
+			<h1 id="title" style="padding-left:100px; text-align:left;font-size:14px; margin-top:12px;color:#f30;"></h1>
+			<p style="padding-left:100px; text-align:left;font-size:14px; margin-top:12px; font-size:12px; line-height:150%;padding:10px 10px 10px 100px;line-height:18px;">点击右上角关闭按钮,关闭本页面</p>
+		</div>
+	</div>
+	<form name="done" action="/apps/system/close.html?s=" method="GET"></form>
+</body>
+<script type="text/javascript">
+var title;
+try {
+	var title = decodeURIComponent(/s=([^&]*)/.exec(location.search)[1]);
+} catch (e) {}
+document.getElementById('title').innerHTML = title || '';
+document.forms['done'].action = "/apps/system/close.html?s=" + title || '';
+</script>
+</html>

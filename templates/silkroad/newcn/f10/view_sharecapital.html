@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_view_sharecapital</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".zb-tab-menu li").hover ( function () {
+                $ ( this ).addClass ( "sel" ).siblings ().removeClass ();
+                $ ( ".zb-tab-data>div" ).hide ().eq ( $ ( '.zb-tab-menu li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--{template "newcn/f10/view_types.html"}-->
+            <div class="ov hdzj-tag">
+                <ul class="ov">
+                    <li><a href="#nav01">Updated Shareholders Information</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav02">Equity Structure</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav03">Shareholding Change of Large Shareholders</a></li>
+                </ul>
+            </div>
+            <div class="w-960 ov">
+                <div class="zb ov" id="nav01">
+                    <div class="mod-title bgff9933">Updated Shareholders Information</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 2000px;">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>End Date</th>
+                                <th>Shareholder’s Name</th>
+                                <th>Amunt of Holding Shares</th>
+                                <th>Shareholding Proportion</th>
+                                <th>Shareholders’ Ranking</th>
+                                <th>Shareholder Type</th>
+                                <th>Nature of Share</th>
+                                <th>Number of Shares Pledged</th>
+                                <th>Number of Shares Frozen</th>
+                                <th>Number of Shares Pledged or Frozen</th>
+                                <th>Reason for Change</th>
+                            </tr>
+                            <!--{if !$data['A038']}-->
+                            <tr>
+                                <td colspan="12" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A038'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td class="center">{$val['gudongmingcheng']}</td>
+                                <td>{$val['chigushuliang']}</td>
+                                <td>{$val['chigubili']}</td>
+                                <td>{$val['gudongmingci']}</td>
+                                <td class="center">{$val['gudongleibie']}</td>
+                                <td class="center">{$val['gudongxingzhi']}</td>
+                                <td>{$val['gufenzhiyashuliang']}</td>
+                                <td>{$val['gufendongjieshuliang']}</td>
+                                <td>{$val['gufenzhiyadongjieshuliang']}</td>
+                                <td class="center">{$val['biandongyuanyin']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav02">
+                    <div class="mod-title bge51c2b">Equity Structure</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 6500px;">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Total Share Capital</th>
+                                <th>Tradable Shares</th>
+                                <th>Other Tradable Shares</th>
+                                <th>Non-tradable Shares</th>
+                                <th>Other Non-tradable Shares</th>
+                                <th>A Shares</th>
+                                <th>State-owned Shares</th>
+                                <th>Founders’ Shares</th>
+                                <th>Natural Persons Shares</th>
+                                <th>Of Which: Domestics Natural<br/> Persons Shares</th>
+                                <th>Of Which: Overseas Natural<br/> Persons Shares</th>
+                                <th>Legal Person Private Placement<br/> Shares</th>
+                                <th>Legal Person Shares Placed</th>
+                                <th>State Legal Person Shares</th>
+                                <th>Shares Held by General Legal<br/> Persons</th>
+                                <th>Domestic Legal Person Shares</th>
+                                <th>Of Which: Domestics Legal<br/> Persons Shares</th>
+                                <th>Overseas Legal Person Shares</th>
+                                <th>Of Which: Overseas Legal Person Shares</th>
+                                <th>Restricted Shares Held by <br/>State-owned Legal Persons</th>
+                                <th>Restricted Shares Related <br/>to Split Share Structure Reform</th>
+                                <th>Restricted Shares Held By <br/>Other Domestic Investors</th>
+                                <th>Restricted Shares Held by<br/> State</th>
+                                <th>Restricted Shares</th>
+                                <th>Transferred Allotted Shares</th>
+                                <th>Shares Held by Securities<br/> Investment Fund</th>
+                                <th>Preferential Shares</th>
+                                <th>Shares Held by Strategic Investors</th>
+                                <th>Foreign Ownership Shares(Restricted)</th>
+                                <th>B Shares</th>
+                                <th>H Shares</th>
+                                <th>Management Shares</th>
+                                <th>Staff Shares</th>
+                                <th>Reason for Change</th>
+                            </tr>
+                            <!--{if !$data['A039']}-->
+                            <tr>
+                                <td colspan="34" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A039'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td>{$val['zongguben']}</td>
+                                <td>{$val['yiliutonggufen']}</td>
+                                <td>{$val['qitaliutonggu']}</td>
+                                <td>{$val['weiliutonggufen']}</td>
+                                <td>{$val['qitaweiliutonggu']}</td>
+                                <td>{$val['renminbiputonggu']}</td>
+                                <td>{$val['guojiachigu']}</td>
+                                <td>{$val['faqirengufen']}</td>
+                                <td>{$val['ziranrenchigu']}</td>
+                                <td>{$val['qizhong:jingneiziranrenchigu']}</td>
+                                <td>{$val['qizhong:jingwaiziranrenchigu']}</td>
+                                <td>{$val['mujifarengu']}</td>
+                                <td>{$val['peishoufarengu']}</td>
+                                <td>{$val['guoyoufarenchigu']}</td>
+                                <td>{$val['yibanfarenchigu']}</td>
+                                <td>{$val['jingneifarenchigu']}</td>
+                                <td>{$val['qizhong:jingneifarenchigu']}</td>
+                                <td>{$val['jingwaifarenchigu']}</td>
+                                <td>{$val['qizhong:jingwaifarenchigu']}</td>
+                                <td>{$val['guoyoufarenchigu(shouxian)']}</td>
+                                <td>{$val['guquanfenzhishouxiangufen']}</td>
+                                <td>{$val['qitaneizichigu(shouxian)']}</td>
+                                <td>{$val['guojiachigu(shouxian)']}</td>
+                                <td>{$val['liutongshouxiangufen']}</td>
+                                <td>{$val['zhuanpeigu']}</td>
+                                <td>{$val['zhengquantouzijijinchigu']}</td>
+                                <td>{$val['youxiangu']}</td>
+                                <td>{$val['zhanluetouzizhechigu']}</td>
+                                <td>{$val['waizichigu(shouxian)']}</td>
+                                <td>{$val['jingneishangshiwaizigu(Bgu)']}</td>
+                                <td>{$val['jingwaishangshiwaizigu(Hgu)']}</td>
+                                <td>{$val['gaoguangu']}</td>
+                                <td>{$val['neibuzhigonggu']}</td>
+                                <td class="center">{$val['biandongyuanyin']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+                <div class="zb ov mar-t-20" id="nav03">
+                    <div class="mod-title bg666" name="nav01">Shareholding Change of Large Shareholders</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Share Increased/Decreased Deadline</th>
+                                <th>Shareholder’s Name</th>
+                                <th>Number of Shares Increased/Decreased</th>
+                                <th>Increased/Decreased Shares<br/> to Total Equity</th>
+                                <th>Increase or Decrease</th>
+                                <th>Price per Increased/ Decreased<br/> Shares</th>
+                            </tr>
+                            <!--{if !$data['A040']}-->
+                            <tr>
+                                <td colspan="7" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A040'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['biandongjiezhiriqi']}</td>
+                                <td class="center">{$val['gudongmingceng']}</td>
+                                <td>{$val['biandongshuliang']}</td>
+                                <td>{$val['biandongshuliangzhanzonggubenbili']}</td>
+                                <td class="center">{$val['zeng(jian)chileixing']}</td>
+                                <td>{$val['zeng(jian)chijiage']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

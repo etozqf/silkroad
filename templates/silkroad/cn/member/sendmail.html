@@ -1,0 +1,10 @@
+<div style="width:480px; padding:10px;">
+<h1 style="font-size:14px; line-height:24px; color:#333;">Dear user：</h1>
+<p style="line-height:28px; color:#333; font-size:12px; text-indent:24px;">We received your request to retrieve the password.</p>
+<h2 style="font-size:12px; line-height:24px; color:#333; font-weight:normal;">Your user name is :{$check['username']}：<br/> Please change the password by the following address within 24 hours：</h2>
+<ul style="border-top:1px dotted #ccc; border-bottom:1px dotted #ccc; background-color:#fff; margin:0 0; padding:12px 8px;">
+	<li style=" font-size:12px;line-height:24px; list-style:none; font-family:Arial, Helvetica, sans-serif; color:#f30;">Password modify link:<a href="{$check['url']}">{$check['url']}</a>  （Please click or copy the above address to browse open ）</li>
+</ul>
+<p style="margin:10px 0; line-height:24px; font-size:12px; color:#666;">You can log in via the above information<a href="{WWW_URL}" target="_blank">{WWW_URL}</a>Use the site service.Thank you for your support to our site! <br/>
+	<a href="{WWW_URL}" target="_blank">{$set['sitename']}</a> <br/> {$set['date']}</p>
+</div>

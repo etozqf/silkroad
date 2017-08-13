@@ -1,0 +1,69 @@
+.addon-survey {
+    clear: both;
+    border: solid 1px #DDD;
+    background: #FFF;
+    margin: 15px auto;
+    padding: 0;
+    position: relative;
+}
+.addon-survey .survey-banner {
+    position: absolute;
+    width: 50px;
+    height: 49px;
+    left: 0;
+    top: 0;
+    background: url(images/icon.png) no-repeat 0 0;
+    _background-image: url(images/icon-ie6.png);
+}
+.addon-survey .survey-title {
+    background: #F5F5F5;
+    padding: 0 55px;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+}
+.addon-survey .survey-title a,
+.addon-survey .survey-title a:visited {
+    white-space: nowrap;
+    color: #0066CC;
+    font-size: 14px;
+    text-decoration: none;
+}
+.addon-survey .survey-title a:hover,
+.addon-survey .survey-title a:active {
+    color: #0066CC;
+    text-decoration: underline;
+}
+.addon-survey .survey-info {
+    padding: 16px 50px 18px;
+    color: #666;
+    font-size: 12px;
+    line-height: 20px;
+}
+.addon-survey .survey-info .survey-icon-time {
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: url(images/icon.png) no-repeat 0 -50px;
+    _background-image: url(images/icon-ie6.png);
+    margin: 2px 5px 0 0;
+}
+.addon-survey .survey-button,
+.addon-survey .survey-button:focus {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    float: right;
+    display: inline-block;
+    _zoom: 1;
+    background: transparent url(images/icon.png) no-repeat 0 -64px;
+    _background-image: url(images/icon-ie6.png);
+    width: 68px;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    font-weight: normal;
+}
+.addon-survey .survey-intro {
+    margin-top: 15px;
+}

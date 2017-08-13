@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+    <title>图片频道_{$sitename[0]}</title>
+    <meta name="keywords" content="图片频道 {$SYSTEM[sitename]} {$SYSTEM[seokeywords]}" />
+    <meta name="description" content="图片频道 {$SYSTEM[sitename]} {$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染1 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+    <!--
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.slide.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.grids.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script>
+    var page = 1;
+    $(function(){
+        var isIE  = !!window.ActiveXObject;
+        var isIE6 = isIE&&!window.XMLHttpRequest;
+        var isIE7 = isIE&&!isIE6;
+        var gutter = 40;
+        if (isIE6 || isIE7) {
+            gutter = 0;
+        }
+        // 瀑布流
+       $('.js-waterfall').waterfall({
+            width: 220,
+            gutter: gutter,
+            selector: '.item',
+            fadein: true,
+            isScrollLoad: false,
+            loadButton: $('.js-append'),
+            getResource:function(index, render){
+            //index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
+              return $(makeboxs());
+            }
+       });
+
+       // 模拟加载
+       var makeboxs = function(div) {
+             var arrs = [];
+             var defered = new $.Deferred;
+            var amount = Math.floor(Math.random()*10); 
+            if (amount == 0) amount = 1;
+            var div = '';
+            var txt = '';
+            $.getJSON(APP_URL+'?app=picture&controller=picture&action=page&page='+page+'&size=1&jsoncallback=?', function(json){
+                if (json.state) {
+                    txt = json.data;
+                    amount = json.data.length;
+                    page++;
+                    for( var i = 0; i < amount; i++) {
+                        var alink = '<a href="'+txt[i].url+'" target="_blank" ><img src="'+txt[i].thumb+'" alt="" /><p>'+txt[i].title+'</p></a>';
+                        div += '<div class="item"><div class="border">'+alink+'</div></div>';
+                    }
+                     return div;
+                    //defered.resolve(div);
+                }
+            });
+            //return defered.promise();
+       };
+
+       // 幻灯片
+       $.slide({container: $('.js-slide')});
+    });
+    </script>
+-->
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template 'system/head_zn.html'}-->
+    
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.slide.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.grids.js"></script>
+
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script>
+    var page = 1;
+    $(function(){
+        var isIE  = !!window.ActiveXObject;
+        var isIE6 = isIE&&!window.XMLHttpRequest;
+        var isIE7 = isIE&&!isIE6;
+        var gutter = 40;
+        if (isIE6 || isIE7) {
+            gutter = 0;
+        }
+        // 瀑布流
+       $('.js-waterfall').waterfall({
+            width: 220,
+            gutter: gutter,
+            selector: '.item',
+            fadein: true,
+            isScrollLoad: false,
+            loadButton: $('.js-append'),
+            getResource:function(index, render){
+            //index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
+              return $(makeboxs());
+            }
+       });
+
+       // 模拟加载
+       var makeboxs = function(div) {
+             var arrs = [];
+             var defered = new $.Deferred;
+            var amount = Math.floor(Math.random()*10); 
+            if (amount == 0) amount = 1;
+            var div = '';
+            var txt = '';
+            $.getJSON(APP_URL+'?app=picture&controller=picture&action=page&page='+page+'&size=1&jsoncallback=?', function(json){
+                if (json.state) {
+                    txt = json.data;
+                    amount = json.data.length;
+                    page++;
+                    for( var i = 0; i < amount; i++) {
+                        var alink = '<a href="'+txt[i].url+'" target="_blank" ><img src="'+txt[i].thumb+'" alt="" /><p>'+txt[i].title+'</p></a>';
+                        div += '<div class="item"><div class="border">'+alink+'</div></div>';
+                    }
+                     return div;
+                    //defered.resolve(div);
+                }
+            });
+            //return defered.promise();
+       };
+
+       // 幻灯片
+       $.slide({container: $('.js-slide')});
+    });
+    </script>
+
+    <!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+    <div class="hr20"></div>
+    <!-- 频道页幻灯片 -->
+    <div class="slide pos-r ov">
+        <!--#include virtual="/section/29.html"--><!--# 图片频道 幻灯片 #-->
+    </div>
+    <div class="hr30"></div>
+    <!-- 推荐频道 -->
+   
+    <!-- 瀑布流 -->
+    <div class="column picture ov">
+        <div class="m-title-a">
+            <h2 class="m-title-h2"><a>精彩组图</a></h2>
+        </div>
+        <div class="hr20"></div>
+        <div class="waterfall js-waterfall">
+            <?php $thumbnum = 0;?>
+            <!--{content modelid="2" catid="144" where="thumb <> '' and thumb is not null" orderby="published desc" size="9"}-->
+            <?php $thumbnum++;?>
+            <!--{if $i < 9}-->
+            <div class="item">
+                <div class="border">
+                    <a href="{$r[url]}" target="_blank" title="{$r[title]}">
+                        <img src="{thumb($r[thumb], 220)}" alt="" />
+                        <p>{str_natcut($r[title],28,'')}</p>
+                    </a>
+                </div>
+            </div>
+            <!--{/if}-->
+            <!--{/content}-->
+        </div>
+        <div class="hr10"></div>
+        <!--{if $thumbnum < 9}-->
+        <div class="align-c hidden">
+        <!--{else}-->
+        <div class="align-c">
+        <!--{/if}-->
+            <a href="javascript:;" class="load-button js-append">加载更多</a>
+        </div>
+
+        <div class="hr30"></div>
+    </div>
+    <!-- 返回顶部 -->
+    <div class="scroll-btns js-scrollbtns">
+        <div class="btn home icon40x40">
+            <a href="{WWW_URL}db" class="text">返回首页</a>
+        </div>
+        <div class="hr10"></div>
+        <div class="btn top icon40x40">
+            <a href="" class="text">返回顶部</a>
+        </div>
+    </div>
+    <!-- 底部 -->
+      <!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

@@ -1,0 +1,51 @@
+.ad-content {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.ad-content h3 {
+    font-size: 16px;
+    color: #424242;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.ad-more-item {
+	line-height: 36px;
+	width: 500px;
+	height: 122px;
+	border: 2px dashed #ccc;
+	padding: 36px 12px 0;
+	margin: 6px 0;
+	position: relative;
+}
+
+.ad-more-item.error {
+	border-color: red;
+}
+
+.ad-more-item label {
+	display: block;
+}
+
+.ad-more-item .delete {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	visibility: hidden;
+}
+
+.ad-more-item:hover .delete {
+	visibility: visible;
+}
+
+.ad-more-item .name {
+	display: inline-block;
+	width: 120px;
+}
+
+.ad-more-item .error {
+	position: absolute;
+	top: 0;
+	left: 0;
+}

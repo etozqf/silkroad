@@ -1,0 +1,18 @@
+/*
+ @name 粉色菜单样式
+ @notes  粉底白字
+*/
+.content-menu-pink-a {
+	background:#FFA6C3;
+	padding:0px 10px;
+}
+.content-menu-pink-a a {
+	color:#fff;
+	font-size:12px;
+}
+
+.content-menu-pink-a span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}

@@ -1,0 +1,254 @@
+ html,body,div ,h1,h2,h3,p{
+ 	margin: 0 0;
+	padding: 0 0;
+ }
+ body {
+ 	font-size: 12px; background:#fff
+ }
+ img {
+ 	border: none;
+ }
+ li {
+ 	list-style-type: none;
+ }
+ .YH {
+ 	font-family: Microsoft YaHei;
+ }
+ .f-l {
+ 	float:left;
+ }
+ .ov {
+ 	overflow:hidden;
+	zoom: 1;
+ }
+ .pos-r {
+ 	position:relative;
+ }
+ .pos-a {
+ 	position:absolute;
+ }
+ .top-bar {
+ 	width: 100%;
+	height:33px;
+	background-image:url(images/mobile-ico.png);
+ }
+ .top-bar a {
+ 	color:#666;
+	text-decoration:none;
+ }
+ .top-bar .column .info {
+ 	right: 0;
+	top: 10px;
+ }
+ .top-bar a:hover {
+ 	color:#c00;
+ }
+ .column {
+ 	width: 960px;
+	margin: 0 auto;
+ }
+ .ad-area {
+ 	margin-top: 50px;
+ 	overflow:hidden;
+	zoom:1;
+ }
+ 
+ .ad-image {
+ 	width: 520px;
+	height: 500px;
+ }
+ .ad-summary {
+ 	width: 350px;
+ }
+ 
+	/* 左右滑动 */
+	 .carousel {
+	 	width: 500px;
+		position:relative;
+	 }
+	.carousel ul {
+	    position:absolute;
+	    overflow:hidden;
+	    margin:0;
+	    padding:0;
+	    list-style:none;
+	}
+	.no-js .carousel ul {position:static;}
+	.carousel .mask {
+	    position:relative;
+	    overflow:hidden;
+		width: 500px;
+	}
+	.carousel ul li {
+		float:left;
+		width: 500px;
+	    height: 450px;
+		text-align:center;
+	}
+	.carousel .pagination-links {
+	    padding:0;
+		overflow:hidden;
+		zoom: 1;
+		margin-left:200px;
+	}
+	.carousel .pagination-links li {
+	   float:left;
+	}
+	.carousel .pagination-links li a {
+		padding: 0 4px;
+		text-indent: -9999px;
+		float:left;
+		width: 12px;
+		height: 12px;
+		background-image:url(images/mobile-ico.png);
+		background-position:-22px -103px;
+	}
+	.carousel .pagination-links li a:hover {text-decoration:none;background-position:-2px -103px;}
+	.carousel .pagination-links li.current a {
+		 color:#fff;
+		 background-position:-2px -103px;
+	}
+	.carousel .disabled {
+	    color:gray;
+	    cursor:default;
+	}
+	.carousel .prev ,.carousel .next{
+		position:absolute;
+		top: 200px;
+		width: 38px;
+		height: 40px;
+		text-indent:-9999px;
+		background-image:url(images/mobile-ico.png);
+	}
+	.carousel .prev {
+		left: 0;
+		background-position: -85px -92px;
+	}
+	.carousel .next {
+		right: 0;
+		background-position: -42px -92px;
+	}
+ /* 功能特色描述*/
+ .ad-summary .h2 {
+ 	font-size: 30px;
+	color:#06c;
+ }
+ .ad-summary .h3-a {
+ 	font-size: 20px;
+	line-height: 50px;
+ }
+ .ad-summary .h3-b {
+ 	font-size: 40px;
+	color:#090;
+ }
+ .titles .item {
+ 	font-family: Microsoft YaHei;
+ 	background-image:url(images/mobile-ico.png);
+	background-repeat: no-repeat;
+	margin-top: 20px;
+ }
+ .titles .one {
+ 	background-position:-157px -57px; 
+ }
+ .titles .two {
+ 	background-position:-157px -122px; 
+ }
+ .titles .three {
+ 	background-position:-157px -200px; 
+ }
+ .titles .four {
+ 	background-position:-157px -275px; 
+ }
+ .titles .five {
+ 	background-position:-157px -354px; 
+ }
+ .titles .item div {
+ 	margin-left: 60px;
+	padding-bottom: 10px;
+ }
+ .titles .item h3 {
+ 	line-height: 28px;
+ }
+ .titles .item p {
+ 	color:#666;
+ }
+ 
+ /* download */
+ .download {
+	height: 142px;
+	position:relative;
+
+ }
+ .download .android,.download .iphone,.download .web {
+ 	position:absolute;
+	left: 20px;
+	top: 20px;
+	width: 240px;
+	height: 100px;
+	background-position:-15px -15px; 
+	font-size: 16px;
+	color: #fff;
+ }
+ .download .iphone {
+ 	left: 360px;
+ 	background-position:-15px -138px;
+ }
+ .download .web{
+	height: 61px;
+	background-position: -15px -266px;
+	left: 700px;
+ }
+ .download .store {
+ 	width: 200px;
+	height: 61px;
+	position:absolute;
+	left: 0;
+	top: 0;
+ }
+ .download .down {
+ 	width: 100px;
+	height: 35px;
+ 	position:absolute;
+	left: 0;
+	top: 62px;
+ }
+ .download .twc {
+ 	position:absolute;
+	left: 0;
+	top: 0
+ }
+ .download .p1 {
+ 	position: absolute;
+ 	left: 120px;
+ 	top: 4px;
+ }
+ .download .p2 {
+ 	position: absolute;
+ 	left: 120px;
+ 	top: 36px;
+ }
+ .download .btn {
+ 	position: absolute;
+ 	left: 120px;
+ 	top: 70px;
+ 	display: block;
+ 	width: 90px;
+ 	height: 30px;
+ 	color: #fff!important;
+ 	text-align: center;
+ 	line-height: 30px;
+ 	border-radius: 3px;
+ 	background: #0091e4;
+}
+.download .web .p1 {
+ 	top: 22px;
+ }
+.download .web .p2 {
+	top: 54px;
+}
+.bg-blue{background-color:#036;	margin-top: 20px;}
+.m-center{ margin:0 auto; width:900px;}
+.page-main  {
+	border: none;
+	background: #fff;
+}

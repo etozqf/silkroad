@@ -1,0 +1,15 @@
+.list-con{width: 1000px; background: #fff; overflow:hidden;}
+body{font-family: "Arial";}
+/*主辅栏*/
+.col-r-extra{width: 164px; background: #fff; float: left; _display: inline;position: relative;z-index: 1;}
+.col-r-main{width: 770px; float: right;  overflow: hidden; _display: inline;}
+/*右侧*/
+.summary-list{height:auto;*height:auto;overflow: hidden;}
+.summary-list li{height: 41px;overflow: hidden;}
+.summary-list li a{font-family: "Times New Roman";color: #0079c6;width: 660px;font-size: 16px;overflow: hidden;display: block;line-height: 42px;text-decoration: none}
+.summary-list li em{margin:0 10px;color: #c81623;line-height: 42px;overflow: hidden;}
+.summary-list li .txt{width: 80px;color: #999;}
+.summary-list li .txt span,.summary-list li .txt i{display: block;text-align: center;line-height: 18px;font-style: normal;font-size: 12px;}
+.summary-list li.on{background: #f3f3f3}
+.list-ul li.yang{background: #f3f3f3}
+.list-ul li.over{background: #ddd}

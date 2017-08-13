@@ -1,0 +1,97 @@
+<div id="{$uuid}" class="mod-gallery">
+    <div class="gallery-overlay" data-gallery="overlay"></div>
+    <div class="gallery-content" data-gallery="content" style="visibility:hidden;">
+        <div class="gallery-toolbar">
+            <span style="float:right">
+                <a href="{$picture[url]}" target="_blank">查看完整组图</a>
+            </span>
+            <span style="float: left">
+                <a data-gallery="view-origin" href="javascript:void(0);" hideFocus="true" target="_blank" class="mod-btn">
+                    <i class="btn-left"></i><span><i class="btn-icon icon-origin"></i>查看原图</span><i class="btn-right"></i>
+                </a>
+                <a data-gallery="auto-play" href="javascript:void(0);" hideFocus="true" class="mod-btn">
+                    <i class="btn-left"></i><span><i class="btn-icon icon-slide"></i>幻灯播放</span><i class="btn-right"></i>
+                </a>
+                <a data-gallery="auto-stop" href="javascript:void(0);" hideFocus="true" class="mod-btn">
+                    <i class="btn-left"></i><span><i class="btn-icon icon-stop"></i>手动播放</span><i class="btn-right"></i>
+                </a>
+                <!--<a class="mod-btn"><i class="btn-left"></i><span><i class="btn-icon icon-comment"></i>我要评论</span><i class="btn-right"></i></a>
+                <a class="mod-btn"><i class="btn-left"></i><span><i class="btn-icon icon-vote"></i>99999</span><i class="btn-right"></i></a>-->
+            </span>
+        </div>
+        <div class="gallery-photo">
+            <div class="gallery-photo-items" data-gallery="photo-items"></div>
+            <div class="gallery-photo-prev" data-gallery="photo-prev">
+                <a title="点击浏览上一张图片，支持'←'翻页" href="javascript:void(0);" hideFocus="true">上一页</a>
+            </div>
+            <div class="gallery-photo-next" data-gallery="photo-next">
+                <a title="点击浏览下一张图片，支持'→'翻页" href="javascript:void(0);" hideFocus="true">下一页</a>
+            </div>
+            <div class="gallery-loading" data-gallery="loading"><span></span></div>
+        </div>
+        <div class="gallery-photo-description">
+            <p data-gallery="photo-description"></p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="gallery-footer" data-gallery="footer" style="visibility:hidden;">
+        <div class="clearfix">
+            <div class="gallery-thumb" data-gallery="slider">
+                <span class="gallery-thumb-prev">
+                    <a href="javascript:void(0);" hideFocus="true" data-slider="items-left"></a>
+                </span>
+                <span class="gallery-thumb-next">
+                    <a href="javascript:void(0);" hideFocus="true" data-slider="items-right"></a>
+                </span>
+                <div class="gallery-thumbs" data-slider="control">
+                    <div class="gallery-thumb-list">
+                        <ul class="gallery-thumb-items" data-slider="items"></ul>
+                    </div>
+                    <div class="gallery-thumb-bar mod-bar" data-slider="bar">
+                        <span class="bar-left"></span>
+                        <span class="bar-right"></span>
+                        <div class="bar-body">
+                            <div class="bar-content">
+                                <a class="bar-btn" href="javascript:void(0);" hideFocus="true" data-slider="btn">
+                                    <b class="bar-btn-left"></b>
+                                    <b class="bar-btn-right"></b>
+                                    <span class="bar-btn-body">
+                                        <span>
+                                            <b class="bar-btn-content"></b>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $max_width = intval($data['max_width']) ? intval($data['max_width']) : 900; ?>
+<?php $min_height = intval($data['min_height']) ? intval($data['min_height']) : null; ?>
+<?php $thumb_width = intval($data['thumb_width']) ? intval($data['thumb_width']) : 100; ?>
+<?php $thumb_height = intval($data['thumb_height']) ? intval($data['thumb_height']) : 75; ?>
+<script type="text/javascript">
+$(function() {
+    var photos = [];
+{loop $picture['pictures'] $index $_picture}
+    photos.push({
+        big: '{thumb($_picture["image"], $max_width, $min_height, true, null, null, 100)}',
+        thumb: '{thumb($_picture["image"], $thumb_width, $thumb_height)}',
+        note: {json_encode($_picture["note"])}
+    });
+{/loop}
+    $('#{$uuid}').gallery({
+        photos: photos,
+        maxWidth: parseInt({$max_width}) || 0,
+        minHeight: parseInt({$min_height}) || 500,
+        preload: 1,
+        scrollIntoView: false,
+        hashPageParam: 'g{$picture[contentid]}',
+        thumbWidth: parseInt({$thumb_width}) || 100,
+        thumbHeight: parseInt({$thumb_height}) || 75
+    });
+});
+</script>

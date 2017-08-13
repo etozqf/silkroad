@@ -1,0 +1,9 @@
+.form-row table th {
+    border: 0;
+    text-align: right;
+    color: #077AC7;
+    font-weight: bold;
+}
+.form-row table td {
+    border: 0;
+}

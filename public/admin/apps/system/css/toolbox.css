@@ -1,0 +1,8 @@
+form{overflow:hidden;}
+body{overflow:hidden; position:relative;}
+body, h1, p, a, img {margin:0;padding:0;}
+.mini-footer{ height:42px; background-color:#ccc;width:100%; position: fixed; bottom: 0;}
+.mini-main{overflow-x:hidden; overflow-y:auto; position:relative;} /* fix IE7 bug */
+.mini-footer {height:40px;background-image:url(/css/images/ct-toolbox-bar.png);margin:0}
+.mini-footer .btn-ok{position:relative;float:right;top:2px;color:#fff;display:block;width:72px;height:32px;background:transparent url(/css/images/ct-toolbox-boxico.png) no-repeat -202px top;border-width:0;cursor:pointer;}
+.mini-footer .btn-cancel{position:relative;float:right;top:6px;display:block;width:72px;height:32px;background:transparent url(/css/images/ct-toolbox-boxico.png) no-repeat -202px -34px;color:#666;text-align:center;line-height:30px; margin-right:18px;}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>news</title>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/list.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/newcn/css/foot.css"/>
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+ 	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/newcn/js/head.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<body>
+<!--头部-->
+<!--{template "newcn/system/head.html"}-->
+<!--内容-->
+<div class="column ov mar-t-18">
+	<div class="list-left ">
+		<!--Politics & Economy-->
+		<!--#include virtual="/section/414.html"--><!--# 政经频道 Politics & Economy #-->
+		<!--Policy & Politics-->
+		<div class="conts-box mar-t-32">
+                      <div class="view-tit bor-1">
+                           <h3 class="f-l b"><a href="{APP_URL}?app=system&controller=newcn&action=category&catid=266" target="_blank">Policy & Politics</a></h3>
+                           <a href="{APP_URL}?app=system&controller=newcn&action=category&catid=266" target="_blank" class="more">More ></a>
+                      </div>
+			<!--#include virtual="/section/416.html"--><!--# 政经频道 Policy&Politics头条 #-->
+		</div>
+		<!--Economy-->
+		<div class="conts-box mar-t-25">
+                      <div class="view-tit bor-1">
+                           <h3 class="f-l b"><a href="{APP_URL}?app=system&controller=newcn&action=category&catid=267" target="_blank">Economy</a></h3>
+                           <a href="{APP_URL}?app=system&controller=newcn&action=category&catid=267" target="_blank" class="more">More ></a>
+                      </div>
+			<!--#include virtual="/section/420.html"--><!--# 政经频道 Economy头条 #-->
+		</div>
+		<!-- International Relations-->
+		<div class="conts-box mar-t-25">
+                      <div class="view-tit bor-1">
+                           <h3 class="f-l b"><a href="{APP_URL}?app=system&controller=newcn&action=category&catid=268" target="_blank">International Relations</a></h3>
+                           <a href="{APP_URL}?app=system&controller=newcn&action=category&catid=268" target="_blank" class="more">More ></a>
+                      </div>
+			<!--#include virtual="/section/424.html"--><!--# 政经频道 International Relations头条 #-->
+                </div>
+		<!--分页-->
+		<div class="page mar-t-36" style="display:none;">
+			<ul>
+				<li><a href="" target="_blank" class="pre">Previous Page</a></li>
+				<li><a href="" target="_blank" class="number red">1</a></li>
+				<li><a href="" target="_blank" class="number">2</a></li>
+				<li><a href="" target="_blank" class="number">3</a></li>
+				<li><a href="" target="_blank" class="number">4</a></li>
+				<li><a href="" target="_blank" class="number">5</a></li>
+				<li><a href="" target="_blank" class="number">6</a></li>
+				<li><a href="" target="_blank" class="number">7</a></li>
+				<li><a href="" target="_blank" class="number">8</a></li>
+				<li><a href="" target="_blank" class="number">9</a></li>
+				<li><a href="" target="_blank" class="number">10</a></li>
+				<li><a href="" target="_blank" class="next">Next Page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="list-right">
+		<!--#include virtual="/section/391.html"--><!--# 新闻频道 右侧顶部广告 #-->
+		<div class="hr-20"></div>
+		<!--Most Read-->
+		<!--#include virtual="/section/380.html"--><!--# 新英文站 右侧-Most Read #-->
+		
+	</div>
+</div>
+<!--尾部-->
+<!--{template "newcn/system/footer.html"}-->
+</body>
+</html>

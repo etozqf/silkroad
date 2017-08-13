@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=3DUTF-8"/>
+  <title>{$title}_活动通知</title>
+</head>
+<body style="margin:0;padding:0;">
+    <table width="900" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td style="">
+                <div style="background-color:#fff;font-family:'微软雅黑';">
+                    <div style="width:500px;height:240px;padding:0 30px;font-size:15px;padding-top:20px;">
+                        <p>亲爱的 {$sign['name']}：</p>
+                        <p>你申请的{$title}活动已通过审核，请在{date('Y-m-d H:i', $starttime)}及时参加！</p>
+                    </div>
+                    <div style="width:500px;height:30px;padding-left:500px;color:#444;">
+                        <span style="font-size:17px;">{$sitename}</span>
+                    </div>
+                    <div style="width:500px;height:30px;padding-left:500px;color:#444;">
+                        <span style="font-size:17px;">{date('Y-m-d', time())}</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

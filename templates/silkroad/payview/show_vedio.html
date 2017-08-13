@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}_{$SYSTEM[sitename]}</title>
+<?php $mtags=str_replace(' ',',',$tags);?>
+<meta name="keywords" content="{$mtags}">
+<meta name="description" content="{$description}">
+<link rel="shortcut icon" href="{IMG_URL}templates/xinhua08/images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://img.xinhua08.com/js/config.js"></script>
+<script type="text/javascript" src="http://img.xinhua08.com/js/jquery.js"></script>
+<script type="text/javascript" src="http://img.xinhua08.com/js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};	
+</script>
+</head>
+<body>
+<style>
+<!--
+body { position:relative}
+.videoBG { background:#333; width:100%; float:left}
+.videoArea { background:#333; padding-top:20px; padding-bottom:10px; color:#a9a9a9;}
+.videoArea h1 { color:#fff; font-size:22px; line-height:26px; padding-left:20px; font-family:'Microsoft Yahei',simhei;}
+.reInfo { text-align:left; border-bottom:1px solid #666; margin:0 20px 20px; height:100%; overflow:hidden}
+.reInfo span { float:left}
+.news_titlebar h2 { height:18px; line-height:18px; margin-bottom:10px; background:url({IMG_URL}templates/xinhua08/images/bg_data_text.gif) no-repeat 0 -772px; padding-left:18px; font-size:14px !important}
+.videoArea .mainContent {padding:0 34px;}
+.videoArea .mainContent p { margin-bottom:0;}
+.details { border-left:1px solid #666;}
+.details p { line-height:30px;}
+.share { float:left; display:inline; margin-left:2em}
+.share a { color:#a9a9a9}
+#supports {background-position:-461px -77px}
+#againsts {background-position:-536px -77px}
+.vAds { width:185px;}
+.vSpecials li { background:url({IMG_URL}templates/xinhua08/images/sp.png) no-repeat 0 8px; padding-left:2em; }
+#shadow { background:#000; position:absolute; left:0; top:0; width:100%; z-index:100; opacity:0.90; filter: alpha(opacity = 90); zoom:1;}
+.lightSwitcher {color:#a9a9a9; line-height:26px; position:absolute; top:220px; z-index:1002; background:url({IMG_URL}templates/xinhua08/images/lightSwitcher.gif) no-repeat 0 0; padding-left:16px}
+a.turnedOff {color:#ff0; background:url({IMG_URL}templates/xinhua08/images/lightSwitcher.gif) no-repeat 0 -33px;}
+.news_with_pic p { text-indent:0;}
+.presentation { max-height:700px; _height:440px; overflow-y:auto}
+-->
+</style>
+<div class="container_25">
+	<!--#include virtual="/section/249.html"-->
+	<!--#include virtual="/section/247.html"--><!--视频频道导航-->
+    <div class="grid_25 crumbs mb0">
+        <a href="{WWW_URL}">首页</a>{loop $pos $cat} > <a href="{$cat[url]}" target="_blank">{$cat[name]}</a>{/loop} > {$title}
+    </div>
+    <div class="grid_25 videoArea">
+    	<h1>{$title}</h1>
+        <div class="reInfo"><span>{$published}</span><span>来源：<!--{if $source_url}--><a href="{$source_url}" target="_blank"><!--{/if}-->{$source_name}<!--{if $source_url}--></a><!--{/if}--></span><span>时长：{second_format($playtime)}</span></div>
+        <div class="vAds left">&nbsp;</div>
+        <div class="grid_15 alpha omega mb20">
+        <!--{template 'payview/player/'.$player.'.html'}-->
+        </div>
+        <div class="vAds right">&nbsp;</div>
+        <div class="grid_17 alpha omega">
+        	<div class="mainContent">
+        		<div><strong>视频介绍</strong></div>
+        		<p><!--{$description}--></p>
+            </div>
+        </div>
+        <div class="grid_8 omega details">
+        	<p><!--{$title}--></p>
+            <p>来源：<!--{if $source_url}--><a href="{$source_url}"><!--{/if}-->{$source_name}<!--{if $source_url}--></a><!--{/if}-->&nbsp;&nbsp;&nbsp;&nbsp;责任编辑：{$editor}</p>
+            <p>日期：{$published}</p>
+            <div class="share"><span>分享到 |</span><div id="ckepop">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_renren"></a>
+                <a class="jiathis_button_kaixin001"></a>
+                <a href="http://www.jiathis.com/share/" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">更多</a>
+            	</div><script type="text/javascript">var jiathis_config = {"data_track_clickback":true};</script><script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=898668" charset="utf-8"></script></div>
+<p class="digg left"><a id="supports" href="javascript:digg.set({$contentid},1)"><span>0%</span></a><a id="againsts" href="javascript:digg.set({$contentid},0)" class="againsts"><span>0%</span></a></p>
+        </div>
+    </div>
+	<div class="grid_17" style="position:static">
+    	<!--{if $presentation}-->
+    	<div class="Gborder"></div>
+        <div class="innercontent mb10">
+        	<h3>视频文稿</h3>
+			<div class="mainContent presentation"> 
+            	{$presentation}
+            </div>
+        </div>
+        <!--{/if}-->
+        <div class="Gborder"></div>
+        <div class="innercontent mb10">
+        	<h3>图文资讯</h3>
+    		<!--#include virtual="/section/118.html"--><!--图文资讯-->
+        </div>
+        
+        	<!--{if $allowcomment}-->
+        	<!--{template 'article/comment2.html'}-->
+        	<!--{/if}-->
+        
+    </div>
+    <div class="grid_8">
+    	<!--#include virtual="/section/250.html"--><!--每周排行-->
+        <!--#include virtual="/section/251.html"--><!--热门专题-->
+        <!--{if $presentation}-->
+<!--#include virtual="/section/70.html"--><!--广告源-->
+<script type="text/javascript">
+BAIDU_CLB_preloadSlots("253727");
+</script>
+        <div align="center" class="mb10"><!--#include virtual="/section/25.html"--><!--内文右侧矩形--></div>
+        <!--{/if}-->
+    </div>
+	<!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+<a class="lightSwitcher" href="#">关灯</a>
+<div id="shadow"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+    var rightP=($(document).width()-1000)/2+40;
+    $(".lightSwitcher").css("right", rightP);
+    $("#shadow").css("height", $(document).height()).hide();
+    $(".lightSwitcher").click(function(){
+        $("#shadow").toggle();
+        if ($("#shadow").is(":hidden"))
+            $(this).html("关灯").removeClass("turnedOff");
+        else
+            $(this).html("开灯").addClass("turnedOff");
+    });
+}); 
+</script>
+<script type="text/javascript">
+$(".presentation p:last").append("<a href=\"http://www.xinhua08.com\/\" target=\"_blank\" title=\"返回新华08网首页\"><img src=\"http://img.xinhua08.com/templates/xinhua08/images/logo_content.gif\" alt=\"返回新华08网首页\"></a>"); 
+</script>
+<script type="text/javascript" src="{IMG_URL}templates/xinhua08/js/digg.js"></script>
+<script type="text/javascript">
+var content = '';//第一页内容缓存
+var context = '';//全文内容缓存
+var isfulltext = false;
+$(function(){
+	digg.get(contentid);
+	content = $('#ctrlfscont').html();
+	var font = $.cookie(COOKIE_PRE+'font');//根据cookie设置字体大小并初始化按钮
+	if(font){
+		$('#ctrlfssummary,#ctrlfscont').addClass(font);
+		if(font == 'fs-big'){
+		 	$('#bfont').addClass('cor-current');
+			$('#sfont').removeClass('cor-current');
+		}
+	}
+	$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid);
+	
+	$('form[id^="vote"]').each(function(){
+		var contentid = $(this).find('>input[name="contentid"]:hidden').val();
+		var maxoptions = $(this).find('>input[name="maxoptions"]:hidden').val();
+		$(this).submit(function(){
+			var checkeds = $(this).find('input:checked').length;
+			if(checkeds == 0){
+				alert('请选择投票选项');
+				return false;
+			}
+			if(maxoptions){
+				if(checkeds > parseInt(maxoptions)){
+					alert('最多允许选'+maxoptions+'项');
+					return false;
+				}
+			}
+		})
+	})
+})
+</script>
+<link rel="stylesheet" type="text/css" href="{IMG_URL}js/lib/popsearch/popmenu.css" />
+<script type="text/javascript" src="{IMG_URL}js/lib/popsearch/recommend.js"></script>
+</body>
+</html>

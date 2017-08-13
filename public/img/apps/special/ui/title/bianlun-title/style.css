@@ -1,0 +1,16 @@
+/*
+ @name 辩论专题方案专题标题
+ @notes 辩论专题专用，可以通过更换北京图片进行复用
+*/
+.title-bianlun-title{
+	overflow: hidden;
+	background:#222222 url("images/bianlun.png") no-repeat;
+	height:50px;
+	line-height:50px;
+	font-family:"微软雅黑";
+	font-size:22px;
+	padding-left:100px;
+	color:#fff;
+}
+.title-bianlun-title,
+.title-bianlun-title span{}

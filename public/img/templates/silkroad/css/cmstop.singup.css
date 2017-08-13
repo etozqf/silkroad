@@ -1,0 +1,234 @@
+.singup-box {
+    background-color: #eaf2f7;
+}
+.singup-panel {
+    background-color: #fff;
+}
+.singup-panel .inner {
+    padding: 40px 80px 20px 80px;
+}
+.singup-form-left {
+    border-right: 1px solid #eee;
+}
+.singup-line {
+    border-bottom: 1px solid #ddd;
+}
+.active-border-blue {
+    border-color: #0091e4;
+}
+.border-red {
+    border-color: #f15252;
+}
+.label {
+    font-size: 16px;
+    color: #333;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+.input-text {
+    padding: 4px 5px;
+    height: 22px;
+    border: none;
+    font-size: 16px;
+    font-family: Arial,"Microsoft YaHei";
+}
+.input-text:focus {
+    outline:none;
+}
+.submit {
+    border: 0px;
+    padding: 12px 30px;
+}
+.submit.disable {
+    background-color: #bbbbbb;
+}
+a.cor06c {
+    color: #06c;
+}
+a.cor06c:hover {
+    color: #0080ff!important;
+}
+.fz12 {
+    font-size: 12px;
+}
+.margin-l-70 {
+    margin-left: 70px;
+}
+.margin-r-10 {
+    margin-right: 10px;
+}
+.margin-r-60 {
+    margin-right: 60px;
+}
+.hr100 {
+    height: 100px;
+}
+.singup-w70 {
+    width: 70px;
+}
+.singup-w180 {
+    width: 180px;
+}
+.singup-w280 {
+    width: 280px;
+}
+.singup-w300 {
+    width: 300px;
+}
+.singup-w330 {
+    width: 330px;
+}
+.singup-w430 {
+    width: 430px;
+}
+.singup-w430 .input-text {
+    width: 420px;
+}
+.singup-w580 {
+    width: 580px;
+}
+
+.singup-form-right .title {
+    font-size: 14px;
+    color: #777;
+}
+.web-login {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    background-color: #0091e4;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    width: 90px;
+    background-image: url(images/signup.png);
+    background-repeat: no-repeat;
+    padding-left: 70px;
+}
+.web-login:hover {
+    color: #ff0!important;
+}
+.web-login.qq {
+    background-color: #0091e4;
+    background-position: 17px -1px;
+}
+.web-login.sina {
+    background-color: #f15252;
+    background-position: 20px -50px;
+}
+.web-login.tqq {
+    background-color: #48b7d5;
+    background-position: 22px -101px;
+}
+
+/*验证*/
+.singup-item {
+    position: relative;
+}
+.singup-item .tip, .singup-item .warn {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.singup-item .tip {
+    top: 5px;
+}
+.singup-item .tip {
+    color: #999;
+    font-size: 12px;
+}
+.singup-item .tip.fz16 {
+    font-size: 16px;
+}
+.singup-item .warn {
+    color: #f15252;
+    width:100%;
+    text-align: right;
+}
+.singup-clear-mobile {
+    clear : both;
+}
+.singup-relative-mobileB20 {
+    position: relative;
+    bottom:20px;
+}
+
+/*弹窗里的特殊设置*/
+.singup-in-dialog .singup-form-right {
+    margin-left: 30px;
+}
+.singup-in-dialog .loginicon {
+    background-image: url(images/login.png);
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+.singup-in-dialog .icon-user {
+    background-position: -30px -24px;
+}
+.singup-in-dialog .icon-pw {
+    background-position: -30px -71px;
+}
+.singup-in-dialog .icon-user.warn {
+    background-position: -30px -133px;
+}
+.singup-in-dialog .icon-pw.warn {
+    background-position: -30px -133px;
+}
+.singup-in-dialog .tip {
+    padding-left: 25px;
+    color: #ddd;
+}
+.singup-in-dialog .warn {
+    color: #f15252;
+}
+.singup-in-dialog .icon-user.active-border-blue {
+    background-position: -30px -296px;
+}
+.singup-in-dialog .icon-pw.active-border-blue {
+    background-position: -30px -182px;
+}
+/**
+ * 说明：登录框的顶级样式为.ui-dialog-login
+ */
+/*弹框无边框*/
+.ui-popup .ui-dialog-login {
+    border:none;
+}
+/*针对弹窗里的个别特殊样式重新设置*/
+.ui-popup .ui-dialog-login .singup-form-left {
+    padding-right: 20px;
+    padding-left: 10px;
+}
+/**
+ * 头像点击弹窗样式
+ */
+.usermenu a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #f0f3f4;
+    text-align: center;
+    width: 90px;
+    font-size: 12px;
+    color: #777;
+}
+.usermenu .last {
+    border-bottom: none;
+}
+.ui-popup.ui-popup-modal .ui-usermenu {
+    border: 1px solid #ddd;
+    box-shadow: none;
+}
+.ui-popup .ui-usermenu .ui-dialog-body{
+    padding: 0
+}
+.ui-popup-bottom-right .ui-usermenu  .ui-dialog-arrow-b, .ui-popup-bottom-right .ui-usermenu .ui-dialog-arrow-a {
+    right: 4px;
+}
+.ui-popup-bottom-right .ui-usermenu .ui-dialog-arrow-a {
+    border-bottom: 8px solid #ddd;
+}
+
+
+

@@ -1,0 +1,55 @@
+<div id="comment_form_<?php echo TIME?>" class="comment-form"{if $indialog} style="margin-top: 0"{/if}>
+	<div class="c-inner">
+		<form action="{APP_URL}{url('comment/review/add')}" method="post">
+			<input type="hidden" name="topicid" value="" />
+			<input type="hidden" name="followid" value="{$followid}" />
+			<div class="textarea-wrap"><textarea name="content" class="textarea"></textarea><div class="login-warn"><p class="info login">
+				您需要登录后才可以评论，<a href="javascript:;" class="cloud-login js-ajax-login" hideFocus="true">登录</a>| <a href="{APP_URL}?app=member&controller=index&action=register"  hideFocus="true">注册</a>
+			</p></div></div>
+			<div class="ov">
+				<div class="loginform-user-info"></div>
+				<input class="btn-post" type="submit" value="发表评论">
+			</div>
+		</form>
+	</div>
+</div>
+<script id="afterlogin_<?php echo TIME?>" type="text/template">
+	<div>
+		<div class="username-area">
+			<em></em>
+			<a class="quickLogout" href="javascript:;">退出</a>
+		</div>
+		<span class="anonymous"></span>
+		<div class="seccode-area" style="visibility: hidden;"></div>
+	</div>
+</script>
+<script id="beforelogin_<?php echo TIME?>" type="text/template">
+	<div>
+		<span class="info">
+			<a href="javascript:;" class="cloud-login js-ajax-login">登录</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="{APP_URL}?app=member&controller=index&action=register">注册</a>
+		</span>
+		<div class="seccode-area" style="visibility: hidden;"></div>
+	</div>
+</script>
+<script type="text/javascript" src="{IMG_URL}apps/comment/js/comment.post.js"></script>
+<script type="text/javascript">
+$(function() {
+	var rid = '<?php echo TIME?>',
+	form = $('#comment_form_'+rid).find('form');
+	commentPost = new CommentPost({
+		form: form,
+		isLogin: {setting('comment', 'islogin')},
+		isCheck: {setting('comment', 'ischeck')},
+		isSeccode: {setting('comment', 'isseccode')},
+		topicid: topicid,
+		afterLoginTemplate: $('#afterlogin_'+rid).html(),
+		beforeLoginTemplate: $('#beforelogin_'+rid).html(),
+		userInfoPanel: form.find('.loginform-user-info'),
+		warningPanel: form.find('.login-warn'),
+		loginSelector: '.cloud-login',
+		logoutSelector: '.quickLogout'
+	});
+});
+</script>

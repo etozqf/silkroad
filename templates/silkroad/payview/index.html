@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我订阅的栏目组-付费阅读-{$SYSTEM[sitename]}</title>
+<link rel="shortcut icon" href="{IMG_URL}images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<base target="_blank" />
+<style type="text/css">
+<!--
+.crumbs { width:670px; overflow:hidden; height:33px; line-height:33px; margin-top:0; background-position:0 10px}
+li { height:auto}
+.mainContent h1 {
+    background: url(http://img.xinhua08.com/templates/xinhua08/images/titlebg12345678.gif) no-repeat scroll right center transparent;
+    font-family: simhei;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.payview_header {padding-left:130px}
+.mainContent a { color:#333; text-decoration:none}
+.unilist a:hover { text-decoration:underline}
+h3 span { float:left;}
+.morenews { float:right; font-size:12px; color:#656565; font-weight:normal}
+.borderB { border-bottom:1px solid #CBCBCB; padding-bottom:10px;}
+.unilist { padding:0 0 0 15px}
+.regionNav { width:288px; overflow:hidden; height:100%;}
+.regionNav li { float:left; height:23px; text-align:center; margin-right:7px; margin-top:10px;}
+.regionNav li a { display:block; width:40px; height:21px; line-height:21px; background:#f0f0f0; border:1px solid #d5d5d5;}
+.regionNav li a.tabSwitch { text-decoration:none; background:#fff7db; border-color:#ffaa09}
+.regionNav li.longname a { width:64px;}
+.dataChange { width:288px;}
+.dataChange a { display:inline-block; height:19px; line-height:19px; border:1px solid #cfcfcf; margin-top:10px; padding-left:5px; padding-right:19px; background:url(http://img.xinhua08.com/templates/xinhua08/images/bg_data_text.gif) no-repeat right -841px;}
+.dataChange a.down { background-position:right -857px}
+.dataChange a.same { background-position:right -874px}
+-->
+</style>
+<script type="text/javascript" src="{IMG_URL}js/jquery.js"></script>
+</head>
+<body>
+<div class="container_25">	
+<a name="top" id="top"></a>    
+    <!--#include virtual="/section/249.html"--><!--头部小-->       
+    <!--#include virtual="/section/287.html"--><!--付费导航-->
+    <div class="grid_25 mb0">     
+        <div class="crumbs"><a href="{WWW_URL}">首页</a> > <a href="http://vip.xinhua08.com/">付费阅读</a> > 栏目组</div>
+	</div>
+  	<div class="grid_17 mb10">
+        <div class="Gborder"></div>
+        <div class="innercontent"><div class="mainContent"> 
+			<h1>我订阅的栏目组</h1>  
+			<!--{db sql="SELECT * FROM #table_payview_category WHERE pvcid IN ($user_pvcid) AND disabled=0" return="cat_group"}-->
+			<div class="payview_header" style="background: url(<?=UPLOAD_URL?>{$cat_group[logo]}) no-repeat;"><h1>{$cat_group[title]}</h1><p>{$cat_group[description]}<a href="{url('payview/index/category')}&pvcid={$cat_group[pvcid]}" target="_blank">[>进入栏目组<]</a></p></div>
+			<?php $categorys = explode(',',$cat_group['categorys']); ?>
+				
+				{loop $categorys $cat}
+				<?php $cat = table('category',$cat);?>
+				<h3 class="borderB"><span>{$cat[name]}</span><a class="morenews" href="{$cat[url]}">更多>></a></h3>
+				<ul class="unilist">
+				<?php $catids = $cat['$childids'] ? $cat['$childids']:$cat['$catid']; ?>
+				<!--{content catid="$catids" status="7" orderby="published DESC" size="10"}-->
+					<li><a href="{$r[url]}">{$r[title]}</a> <span class="sp_lan14 gray">{date('n月j日 G:i', $r['published'])}</span></li>
+				<!--{/content}-->
+				</ul>
+				{/loop}
+    			<div class="backtotop"><a href="#top">返回顶部</a></div> 
+  			
+           <!--{/db}-->
+  		</div></div>
+  	</div>
+    <div class="grid_8">
+	<!--#include virtual="/section/161.html"-->        
+        <!--#include virtual="/section/270.html"--><!--金融词典-->
+        <!--#include virtual="/section/264.html"--><!--周刊订阅-->
+    </div>
+    <!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.content-html-pingxuan{
+	background:#333 url(images/title.jpg) no-repeat 20px 0;
+	color: #fff;
+	padding:10px 15px 10px 90px;
+
+}
+.content-html-pingxuan p{
+	text-indent: 2em;
+	margin:5px 10px 15px 10px;
+	font-size:14px;
+	line-height:1.8em;
+}

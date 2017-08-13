@@ -1,0 +1,26 @@
+.w-692{width:692px; margin: 20px auto}
+.col-l-extra{width: 203px; background: #fff; float: left; _display: inline;position: relative;z-index: 1;}
+.col-r-extra{width: 471px; float: right; _display: inline;border-left: 1px solid #f3f3f3;margin-bottom: 30px;border-top: 1px solid #f3f3f3;}
+.h-1905{height: auto;}
+/*左侧*/
+.list-ul{width: 175px;padding:10px 11px; font-family: "Arial"}
+.list-hidden-box{left: 175px;}
+.list-ul li.on {background-position: 162px 14px;}
+/*表格*/
+table{-webkit-border-spacing:none;}
+.r-table{width: 100%;font-size: 14px;font-family: "Arial";}
+.r-table tr{line-height: 29px;height: 29px;overflow: hidden;}
+.r-table td{}
+.r-table .thead{background: url("images/thead.jpg") repeat-x;color: #333;border-right: 1px solid #f3f3f3;}
+.tbody tr td{border-right: 1px solid #f3f3f3;border-bottom: 1px solid #f3f3f3; }
+.pad-10{padding: 0 10px;}
+.co-999{color: #999}
+.co-333{color: #333}
+.co-0079c6{color: #0079c6}
+.on{background: #f3f3f3;cursor: pointer}
+.w-53{width: 53px;}
+.w-150{width: 220px;}
+.w-126{width: 180px;}
+.w-100{width:140px;}
+.ya{background-color:#ddd}
+.list-ul .over{background: #ddd}

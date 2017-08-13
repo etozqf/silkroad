@@ -1,0 +1,41 @@
+<!-- 活动 -->
+<div class="hr20"></div>
+<div class="article-activity border1">
+    <div class="m-title-b">
+        <h2 class="ov"><span class="name fl-l">活动</span> <span class="summary fl-l">{str_natcut($content[title], 35, '')}</span></h2>
+    </div>
+    <div class="article-activity-inner margin10">
+        <div class="article-activity-time icon16x16">
+            <!--{if $content[starttime] && $content[endtime]}-->
+            {date('Y-m-d H:i', $content[starttime])} 至 {date('Y-m-d H:i', $content[endtime])}
+            <!--{elseif $content[starttime]}-->
+            活动开始于 {date('Y-m-d H:i', $content[starttime])}
+            <!--{elseif $content[endtime]}-->
+            <?php $_uuid = uniqid('addon-activity-token-'); $_endtime = $content['endtime']; ?>
+            <span id="{$_uuid}">将</span>于 {date('Y-m-d H:i', $_endtime)} 结束
+            <!--{else}-->
+            活动开放报名中，赶快参加
+            <!--{/if}-->
+        </div>
+        <!--{if $content[description]}-->
+        <div class="hr15"></div>
+        {$content[description]}
+        <!--{/if}-->
+        <div class="align-c">
+            <a href="{$content[url]}" target="_blank" class="button1 margin10 buttonsamll">我要报名</a>
+        </div>
+    </div>
+</div>
+<div class="hr20"></div>
+<!--{if $_uuid}-->
+<script type="text/javascript">
+    (function() {
+        if ((new Date()).getTime() / 1000 >= {$_endtime}) {
+            try {
+                document.getElementById('{$_uuid}').innerHTML = '已';
+            } catch (ex) {}
+        }
+    })();
+</script>
+<?php unset($_uuid, $_endtime); ?>
+<!--{/if}-->

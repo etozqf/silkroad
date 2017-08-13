@@ -1,0 +1,18 @@
+.content-slider-gray-a {background:#fff;}
+.content-slider-gray-a .slider-nav a,.content-slider-gray-a .slider-nav a:hover { color:#333; text-decoration: none; font-size:12px;}
+.content-slider-gray-a .slider-nav a.active{ color:#fff; background:#333333;}
+.content-slider-gray-a a.title{color:#333; font-weight:normal;}
+.content-slider-gray-a a:hover.title{ color:#c00;}
+.title-blue { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/blue/images/bg.jpg") repeat-x 0 0; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#06c;}
+.title-blue a,.title-blue span { padding-left:9px;}
+.content-list-gray-a ul { padding:5px 8px;}
+.content-list-gray-a li { line-height:25px; padding-left:8px; background:url("http://img.xinhua08.com/apps/special/ui/content/list/gray-a/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-a a { font-size:14px; color:#333;}
+.content-list-gray-a a:hover{ color:#c00;}
+.content-list-gray-a .date{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #bbb;}
+.content-html-font-black-a{ color:#333; padding:5px 9px;}
+.content-html-font-black-a p{ line-height:1.8em;}
+.title-wash-b { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/wash-b/images/wash-b.png") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:12px;}
+.title-wash-b a,.title-wash-b span{color:#333;}
+.title-red-d { overflow: hidden; background:url("http://img.xinhua08.com/apps/special/ui/title/red-d/images/red-d.jpg") repeat-x; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:20px;}
+.title-red-d a,.title-red-d span{color:#fff;font-weight:bold;font-size:14px;}

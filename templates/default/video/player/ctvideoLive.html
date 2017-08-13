@@ -1,0 +1,11 @@
+<?php $width = isset($width) ? htmlspecialchars($width) : 650; ?>
+<?php $height = isset($height) ? htmlspecialchars($height) : 519; ?>
+<?php $autostart = ($autostart == 'false' || !$autostart) ? 0 : 1; ?>
+<?php $skinStr = '';if($width < 400){$skinNum=2;$skinStr='&amp;skinNum='.$skinNum;} ?>
+<object class="cmstopVideo" width="{$width}" height="{$height}" data="{IMG_URL}js/player/cmstopPlayer.swf" type="application/x-shockwave-flash">
+    <param name="src" value="{IMG_URL}js/player/cmstopPlayer.swf" />
+    <param name="flashvars" value="file={$video}&amp;coverImg={abs_uploadurl($thumb)}{$skinStr}&amp;autoStart={$autostart}&amp;isLive=1" />
+    <param name="allowfullscreen" value="true" />
+    <param name="allowscriptaccess" value="true" />
+    <param name="wmode" value="Transparent" />
+</object>

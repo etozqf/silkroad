@@ -1,0 +1,74 @@
+.ui-nlist {
+    position: absolute;
+    border: solid 1px #D6E1EE;
+    overflow: hidden;
+    font-size: 12px;
+    min-width: 150px;
+    _width: 150px;
+    background: #FFF;
+    color: #333;
+    box-shadow: 0 0 3px #CCC;
+    z-index: 999999;
+}
+.ui-nlist .ui-nlist-loading {
+    text-align: center;
+    line-height: 20px;
+}
+.ui-nlist-result {}
+.ui-nlist-result .ui-nlist-label {
+    padding-right: 10px;
+}
+.ui-nlist .ui-nlist-header {
+    background: #F1F5FB;
+    color: #333;
+    padding: 5px 8px;
+    font-weight: bold;
+    cursor: default;
+}
+.ui-nlist .ui-nlist-level {
+    padding: 5px;
+    border-bottom: solid 1px #EFEFEF;
+}
+.ui-nlist .ui-nlist-level .ui-nlist-item,
+.ui-nlist .ui-nlist-level .ui-nlist-item:visited {
+    display: inline-block;
+    *zoom: 1;
+    margin: 1px;
+    padding: 1px 2px;
+    cursor: pointer;
+    border: solid 1px transparent;
+    color: #333;
+}
+.ui-nlist .ui-nlist-level .ui-nlist-item:hover,
+.ui-nlist .ui-nlist-level .ui-nlist-item:active {
+    background-color: #EFF6FF;
+    border-color: #B9D7FC;
+    color: #0066CC;
+}
+.ui-nlist .ui-nlist-level .ui-nlist-item.checked {
+    background-color: #D4E7FF;
+    border-color: #84ACDD;
+    color: #005FB6;
+}
+.ui-nlist .ui-nlist-footer {
+    padding: 3px 8px;
+    text-align: right;
+    vertical-align: middle;
+    overflow: hidden;
+    height: 19px;
+    line-height: 19px;
+}
+.ui-nlist .ui-nlist-btn,
+.ui-nlist .ui-nlist-btn:visited {
+    margin-left: 5px;
+    padding: 2px 3px;
+    cursor: pointer;
+    color: #333;
+    border: solid 1px;
+    border-color: #BBBBBB #BBBBBB #999999;
+    background: #FCFCFC;
+}
+.ui-nlist .ui-nlist-btn:hover,
+.ui-nlist .ui-nlist-btn:active {
+    border-color: #999999 #999999 #666666;
+}

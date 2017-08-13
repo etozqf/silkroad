@@ -1,0 +1,68 @@
+body{background:rgb(233, 233, 233);}
+.dh_headbar{margin:0px auto;padding:0px;background-color:#125faf;height:70px;clear:both;box-shadow: 0 5px 5px 0 #b9b9b9;position: relative;z-index: 2;}
+.dh_headbar_logo{float:left;display:block;width:280px;height:70px;}
+.dh_headbar_nav{float:left;display:block;width:625px;height:70px;}
+.dh_headbar_nav ul{margin:0px auto;padding:0px;width:650px;clear:both;}
+.dh_headbar_nav ul li{float:left;display:inline-block;padding:0px 10px;font-size:18px;height:70px;line-height:70px;text-align:center;position:relative;z-index:1;}
+.dh_headbar_nav ul li,.dh_headbar_nav ul li a{color:#fff;}
+.dh_headbar_nav ul li a:hover{color:#ffff99;}
+.dh_headbar_nav ul li:hover,.dh_headbar_nav ul li.on{color:#ffff99;background-color:#2870b5;border-bottom:solid 2px #ffff99;height:70px;line-height:70px;cursor:pointer;}
+.dh_hdbar_navdot{right:3px;top:34px;width:5px;height:5px;background:url(../images/dh_dotaupdowj.png) 0px 0px no-repeat;position:absolute;z-index:3;}
+.dh_headbar_nav ul li:hover .dh_hdbar_navdot{background:url(../images/dh_dotaupdowj.png) 0px -56px no-repeat;}
+.dh_headbar_navsub{width:98px;background-color:#ffffff;border:solid 1px #c6dfef;position:absolute;left:0px;top:70px;z-index:5;display:none;}
+.dh_headbar_navsub dl{margin:0px auto;padding:0px;width:78px;clear:both;}
+.dh_headbar_navsub dl dd{width:78px;height:30px;line-height:30px;font-size:14px;text-align:center;border-bottom:dashed 1px #e5e5e5;padding:0px;margin:5px 0px;clear:both;}
+.dh_headbar_navsub dl dd:hover{background-color:#f6f6f6;}
+.dh_headbar_navsub dl dd,.dh_headbar_navsub dl dd a{color:#0079c6;}
+.dh_headbar_navsub dl dd a:hover{color:#073caa;}
+.dh_headbar_nav ul li:hover .dh_headbar_navsub{display:block;}
+.dh_headbar_user{float:right;display:block;width:50px;height:70px;line-height:70px;position:relative;z-index:1;}
+.dh_headbar_user img{-webkit-border-radius:25px;-moz-border-radius:25px;-os-border-radius:25px;border-radius:25px;position:absolute;left:2px;top:20px;}
+.dh_headbar_user img:hover{border:solid 2px #82c2ff;cursor:pointer;left:0px;top:16px;}
+.dh_headbar_user:hover .dh_hdbar_navdot{background:url(../images/dh_dotaupdowj.png) 0px -56px no-repeat;}
+.dh_headbar_user:hover .dh_headbar_navsub{display:block;left:auto;right:0px;}
+.dh_mainbox{margin:0px auto;margin-top:20px;padding:0px;width:1000px;background-color:#ffffff;clear:both;overflow:hidden; box-shadow:2px 3px 3px 0 #e8e8e8;}
+.dh_mainbox form{padding:25px 0;height:42px;}
+.dh_main_seachbar{height:40px;line-height:40px;border:solid 1px #0079c6;width:640px;float:left;}
+.dh_main_seachbar span{float:left;display:inline-block;}
+.dh_main_seachbar label.dh_seachbarbut{float:right;display:inline-block;width:90px;height:40px;text-align:center;font-size:18px;color:#fff;background:url(../images/dh_searchdot.png) 10px 10px no-repeat #0079c6;}
+.dh_main_seachbar label.dh_seachbarbut:hover{background-color:#0067c6;cursor:pointer;}
+.dh_main_searchtag{padding:0px;overflow:hidden;text-align:center;width:278px;float:left;line-height:42px;}
+.dh_main_searchtag label{color:#666666;}
+.dh_main_searchtag span{padding-left:15px;color:#000;font-weight:400;}
+.dh_main_block{margin:0px auto;padding:0px;width:960px;padding-top:20px;clear:both;overflow:hidden;}
+.dh_main_blocktit{margin:0px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.dh_main_blocktit label{left:0px;top:0px;display:inline-block;font-size:20px;width:115px;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;position:absolute;z-index:3;}
+.dh_main_blocktit label,.dh_main_blocktit label a{color:#333333;}
+.dh_main_blocktit label a:hover{color:#c81623;}
+.dh_main_blockline{margin:0px auto;margin-bottom:15px;margin-top:15px;line-height:30px;padding:0px;clear:both;overflow:hidden;}
+.dh_main_blockline,.dh_main_blockline a{color:#0079c6;}
+.dh_main_blockline a:hover{color:#006cff;}
+.dh_main_blockline dl{padding:15px 0px 0px 0px;clear:both;overflow:hidden;}
+.dh_main_blockline dl dt{float:left;width:115px;height:30px;background-color:#e7f2f9;font-size:16px;text-align:center;margin-right:15px;line-height:30px;-webkit-border-radius:4px;-moz-border-radius:4px;-os-border-radius:4px;border-radius:4px;}
+.dh_main_blockline dl dt,.dh_main_blockline dl dt a{color:#333333;}
+.dh_main_blockline dl dd{line-height:30px;}
+.dh_main_blockline dl dd,.dh_main_blockline dl dd  a{color:#0079c6;padding-right:8px;}
+.dh_main_blockline dl dd  a:hover{color:#006cff;}
+.dh_main_blockline dl dd span.dh_main_bkline_more{text-align:left;width:45px;background:url(../images/dh_dot3j.png) right 8px no-repeat;padding-right:5px;}
+.dh_main_blockline dl dd span.dh_main_bkline_more,.dh_main_blockline dl dd span.dh_main_bkline_more a{color:#666666;}
+.dh_main_blockline dl dd span.dh_main_bkline_more a:hover{color:#c81623;}
+.box1000{margin:0px auto;padding:0px;width:1000px;clear:both;}
+.box920{margin:0px auto;padding:0px;width:920px;clear:both;}
+.searchinput{border:none;margin-left:26px;height:21px;line-height:21px;color:#6a767f;background-color:transparent;font-size:12px;font-family:"宋体";outline:none;}
+.searchselcted{border:none;color:#068ecc;background-color:transparent;font-size:14px;font-family:"宋体";outline:none;}
+.searchdim1{border:none;margin-left:26px;width:180px;height:40px;line-height:40px;color:#076bc0;background-color:transparent;font-size:12px;font-family:"宋体";outline:none;}
+.textarea_dim{border:none;background-color:transparent;font-size:12px;line-height:22px;font-family:"宋体";outline:none;color:#797979;}
+button{padding:3px;display:inline-block;}
+.n_ind_cpy{margin:0px auto;padding:15px 0px;margin-top:30px;text-align:center;clear:both;overflow:hidden;background-color:#dcdcdc;}
+.n_ind_cpy span,.n_ind_cpy span a{color:#047fcc;}
+.n_ind_cpy span a:hover{color:#c81623;}
+.nav-foot{width: 820px; margin: 0 auto; overflow: hidden; border-bottom: 1px solid #bdbdbd; padding-bottom: 6px;}
+.nav-foot li{float: left; margin-left: 30px; font-size: 14px; line-height: 28px; height: 28px; overflow: hidden;}
+.nav-foot li a{color: #047fcc;}
+.left730{float: left; width: 730px;background: #fff;box-shadow:2px 3px 3px 0 #e8e8e8;}
+.right250{ float: right; width: 250px;background: #fff;box-shadow:2px 3px 3px 0 #e8e8e8;}
+
+.clearfix{clear: both;}
+.clearfix:after{content: "";display: block; overflow: hidden; height: 0;}
+.hide{display: none;}

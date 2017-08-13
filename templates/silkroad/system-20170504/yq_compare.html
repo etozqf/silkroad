@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+  <title>{$sitename[0]}_{$SYSTEM[seotitle]}_园区对比</title>
+  <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+  <meta name="description" content="{$SYSTEM[seodescription]}" />
+  <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+<div class="dh_mainbox h-1560">
+	<div class="box920">
+		<h3 class="comp-h3 mar-t-30 mar-b-13">
+			<a href="" target="_blank">{table('content',$first,'title')}</a>与<a href="" target="_blank">{table('content',$third,'title')}</a>的对比
+		</h3>
+	</div>
+	<div class="box938 mar-t-13">
+		<div class="lh-39 bor-b-1">
+			<div class="w-198 lh-39 t-c bg-f3 f-l bor-r-1">
+				对比项
+			</div>
+			<div class="w-370 lh-39 t-c f-l bor-r-1">
+				{table('content',$first,'title')}
+			</div>
+			<div class="w-368 t-c lh-39 f-l">
+				{table('content',$third,'title')}
+			</div>
+		</div>
+		<div class="h-189 bor-b-1">
+			<div class="w-198 h-189 lh-189  bg-f3 f-l bor-r-1">
+				<h3 class="data-h3">地理位置</h3>
+			</div>
+			<div class="w-370 h-189 t-c f-l bor-r-1">
+				<img src="{thumb(field($first,'position'),200,150,1,null,0)}" class="data-img" width="200" height="150" alt=""/>
+			</div>
+			<div class="w-368  h-189 t-c f-l">
+				<img src="{thumb(field($third,'position'),200,150,1,null,0)}" class="data-img" width="200" height="150" alt=""/>
+			</div>
+		</div>
+		<div class="h-129 bor-b-1">
+			<div class="w-198 h-129 lh-129  bg-f3 f-l bor-r-1">
+				<h3 class="data-h3">规模大小</h3>
+			</div>
+			<div class="w-370 h-129  f-l bor-r-1">
+				<p class="data-p">
+					{field($first,'size')}
+				</p>
+			</div>
+			<div class="w-368  h-129 f-l">
+				<p class="data-p">
+					{field($third,'size')}
+				</p>
+			</div>
+		</div>
+		<div class="h-119 bor-b-1">
+			<div class="w-198 h-119 lh-119  bg-f3 f-l bor-r-1">
+				<h3 class="data-h3">功能分类</h3>
+			</div>
+			<div class="w-370 h-119 f-l bor-r-1">
+				<span class="class-span lh-40">{$cat1}</span><br/>
+			</div>
+			<div class="w-368 h-119 f-l">
+				<span class="class-span lh-40">{$cat2}</span><br/>
+			</div>
+		</div>
+		<div class="h-119 bor-b-1" style="height:235px;">
+			<div class="w-198 h-119 lh-119  bg-f3 f-l bor-r-1" style="height:235px;">
+				<h3 class="data-h3">重点企业</h3>
+			</div>
+			<div class="w-370 h-119 f-l bor-r-1" style="height:235px;overflow-y:scroll;">
+				<ul class="data-ul">
+				<?php 
+					$a = field($first,'company');
+					$b = str_replace(';',';',$a);
+					$data = str_replace('；',';',$b);
+					$data = explode(';',$data);
+					
+					foreach($data as $k=>$v){
+				?>
+					<li>{$v}</li>
+				<?php
+				}
+				?>
+				</ul>
+			</div>
+			<div class="w-368 h-119 f-l" style="height:235px;overflow-y:scroll;">
+				<ul class="data-ul">
+				<?php 
+					$a = field($third,'company');
+					$b = str_replace(';',';',$a);
+					$data = str_replace('；',';',$b);
+					$data = explode(';',$data);
+					foreach($data as $k=>$v){
+				?>
+					<li>{$v}</li>
+				<?php
+				}
+				?>
+				</ul>
+			</div>
+		</div>
+		<div class="h-279" style="display:none">
+			<div class="w-198 h-279 lh-279  bg-f3 f-l bor-r-1">
+				<h3 class="data-h3">政策管理</h3>
+			</div>
+			<div class="w-370 h-279 f-l bor-r-1">
+				<ul class="data-ul">
+					<li>固安加快构建大交通网络通车里程达1209公里</li>
+					<li>河北固安县林城花海向阳开</li>
+					<li>京东华北地区最大物流园区备战“618”</li>
+					<li>河北固安：智能分拣中心提升京东物流效率”</li>
+					<li>固安：培树示范典型深化“两学一做”</li>
+					<li>河北固安：高标准农田节水又增效</li>
+					<li>固安：三个精准打好“京”字牌</li>
+					<li>全民健身——风格独特的郭氏八卦</li>
+					<li>固安国税提前一个月实现年税收任务“过半”</li>
+				</ul>
+			</div>
+			<div class="w-368 h-279 f-l"></div>
+		</div>
+	</div>
+</div>
+<!--{template 'system/foot_zn.html'}-->
+
+</body>
+</html>

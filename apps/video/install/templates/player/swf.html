@@ -1,0 +1,8 @@
+<?php $width = isset($width) ? htmlspecialchars($width) : 650; ?>
+<?php $height = isset($height) ? htmlspecialchars($height) : 519; ?>
+<object class="cmstopVideo" width="{$width}" height="{$height}" data="{$video}" type="application/x-shockwave-flash">
+    <param name="src" value="{$video}" />
+    <param name="allowfullscreen" value="true" />
+    <param name="allowscriptaccess" value="true" />
+    <param name="wmode" value="Transparent" />
+</object>

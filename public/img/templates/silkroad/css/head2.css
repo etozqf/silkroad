@@ -1,0 +1,27 @@
+.header{width: 100%; height: 77px;  background: url("images/top-bg.png") repeat-x;}
+.header-box{width: 100%; height: 70px;background: #1060ad;}
+.logo-img{width: 235px; height: 60px; float: left;}
+.nav-box{width: 675px; height: 70px; line-height: 70px;  float: left; margin-left: 25px; }
+.nav-box ul li{float: left; height: 68px; padding-left: 12px; padding-right: 12px;position: relative; cursor: pointer;}
+.nav-box ul li.curr{border-bottom: 2px solid #fff; background: #2870b5;}
+.nav-box ul li.curr .second-menu-box{display: block;}
+.nav-box ul li a,.nav-box ul li a:hover{font-family: "Times New Roman";font-size: 16px; color: #fff; text-decoration: none;}
+/*用户*/
+.luser{width: 60px; height: 70px; float: right; position: relative; }
+.user-login{width: 45px; height: 32px; margin-top: 20px;margin-left:15px; }
+.user-menu{width: 120px; display: none; border: 1px solid #D7E6F2; background: #fff; position: absolute; top: 70px; right: 0; z-index: 100;}
+.user-menu dl{padding-left: 10px; padding-right: 10px;}
+.user-menu dl dd{height: 32px; width: 100%;  float: left; line-height: 32px; font-size: 16px;
+        border-bottom: 1px dashed #d9d9d9;overflow: hidden;}
+.user-menu dl dd a{color: #1684C9;padding-left: 10px; padding-right: 10px; }
+.click .user-menu{display: block;}
+/*图标*/
+.micon{width: 5px; height: 3px; position: absolute; right: 6px; top: 36px;background: url("images/icons.png") -16px -72px no-repeat;}
+.micon1{width: 5px; height: 3px; background: url("images/icons.png") -16px -72px no-repeat; float: left; margin-top: 15px; margin-left: 4px;}
+/*二级菜单*/
+.second-menu-box{width:200px;position: absolute; top: 70px; left: 0; z-index: 100;_z-index: 1000; display: none; border: 1px solid #D7E6F2; background: #fff;}
+.second-menu{display:block;  z-index: 100; padding-left: 5px; padding-right: 5px; }
+.second-menu dd{height: 32px; width: 100%;  float: left; line-height: 32px; font-size: 16px;
+        border-bottom: 1px dashed #d9d9d9;overflow: hidden;}
+.second-menu dd:hover{background: #f6f6f6;}
+.nav-box ul li .second-menu dd a{color: #1684C9;padding-left: 10px; padding-right: 10px; }

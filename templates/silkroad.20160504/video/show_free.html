@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+<title>{$title}_{$sitename[0]}</title>
+<meta name="keywords" content="{$tags}" />
+<meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+ <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.video.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+ <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/zx-detail.css"> 
+
+<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+    <script type="text/javascript">
+        var contentid = '{$contentid}';// 文章ID
+        var title = {json_encode($title)};//文章标题
+        var topicid = '{$topicid}';// 评论主题
+        var _IMG_URL = '{IMG_URL}templates/{TEMPLATE}';
+    </script>
+    <script>
+    var contentid = '{$contentid}';
+    $(function(){
+        $('.js-overlay').mouseenter(function() {
+            overlayPlay($(this));
+        }).mouseleave(function(){
+            var timeSpan = $('.time',$(this));
+            timeSpan.css({'background-color':timeSpan.attr('data-bgc')});
+            $(this).find('.overlay').fadeOut('fast');
+        });
+        $.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid, function(data){});
+    });
+    </script>
+<!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+<div class="dh_headbar">
+    <!--{template 'system/head_zn_free.html'}-->
+</div> 
+<div class="videobox">
+	<div class="vhead">
+		<h1>{$title}</h1>
+		<div class="info"><span>时间：{date('Y-m-d H:i', $published)}</span><span>作者／记者：{$editor}</span><span>时长：<?php echo ceil($playtime/60)?>分</span><span class="fav" style="display: none">收藏</span></div>
+	</div>
+      <?php
+                    $width = 1000;
+                    $height = 750;
+                    $this->assign('width', $width);
+                    $this->assign('height', $height);
+                ?>
+	<div class="video"><!--{template 'video/player/'.$player.'.html'}--></div>
+    <div style="text-indent: 2em;">{$description}</div>
+</div>
+<div class="container"> 
+	<!-- left -->
+	<div class="left730">  
+	    <div class="sxlist">
+	    	<div class="hd"><h3>猜你喜欢</h3><a href="{table('category',$catid,'url')}" target="_blank">更多</a></div>
+	    	<div class="bd">
+	    		<ul>
+                <!--{content catid="{$catid}" modelid="4" weight="90,100" orderby="published desc, pv desc" page="$page" size="6"}-->
+		            <li>
+		              <a href="{$r['url']}" target="_blank">
+			              <img src="{thumb($r['thumb'],210,158,1,null,0)}">
+			              <p>{str_natcut($r['title'],20,'')}</p>
+			          </a>
+			          <div class="bar"><span class="long">{$playtime}秒</span><span class="fav" style="display:none">收藏</span></div>
+			          <div class="mask"></div>
+		            </li> 
+	           <!--{/content}-->
+		          </ul> 
+	    	</div>
+	    </div>
+	</div>
+	<!-- right -->
+	<div class="right250"> 
+		<div class="item">
+			<div class="hd"><a href="">阅读排行</a></div>
+			<div class="bd">
+				<ul class="tops">
+				<!--{content catid="{$catid}" modelid="4" orderby="published desc, pv desc" page="$page" size="10"}-->
+                    <!--{if $i<=3}-->
+                                <li><a href=""><span class="num t3">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+                        <!--{else}-->
+                                <li><a href=""><span class="num">{$i}</span>{str_natcut($r['title'],20,'')}</a></li>
+                    <!--{/if}-->    
+                <!--{/content}-->
+
+				</ul>
+			</div>
+		</div>
+		<div class="ad"><!--#include virtual="/section/330.html"--><!--# 公共区块 中文视频内容页右下角图片 #--></div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+<!--{template 'system/foot_zn.html'}-->
+
+<script>
+	$(function(){ 
+		// 收藏
+		$(".fav").click(function(){
+			$(this).toggleClass("on");
+			if($(this).hasClass("on")){
+				$(this).text("取消收藏")
+			}else{
+				$(this).text("收藏")
+			}
+		}) 
+		// 视讯		
+		$(".sxlist li").hover(function(){
+			$(this).toggleClass("hover"); 
+		})
+
+	})
+</script>
+</body>
+</html>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/article-show.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/video.js"></script>
+<script type="text/javascript">
+    // bShare划词分享
+    if(typeof(bShare) == 'undefined'){
+        document.write('<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&style=-1"><\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareDrag.js?bp=qqmb,sinaminiblog,qzone,kaixin001,bsharesync&text=分享到"><\/script><script type="text/javascript">$(".BSHARE_POP img").addClass("BSHARE_IMAGE");<\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareMM.js#shareClass=BSHARE_IMAGE"><\/script>');
+    }else{
+        document.write('<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareDrag.js?bp=qqmb,sinaminiblog,qzone,kaixin001,bsharesync&text=分享到"><\/script><script type="text/javascript">$(".BSHARE_POP img").addClass("BSHARE_IMAGE");<\/script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/addons/bshareMM.js#shareClass=BSHARE_IMAGE"><\/script>');
+    }
+</script>

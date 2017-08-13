@@ -1,0 +1,62 @@
+<!-- 登录框 -->
+<script type="text/javascript" src="{IMG_URL}js/lib/md5.js"></script>
+    <div class="singup-box singup-in-dialog hidden login-dialog-test">
+        <div class="singup-panel">
+            <div class="">
+                <div class="m-title-a">
+                    <h2 class="m-title-h2"><a>用户登录</a></h2>
+                </div>
+                <div class="hr20"></div>
+                <!-- 登录内容 -->
+                <div class="singup-form ov">
+                    <div class="singup-form-left singup-w330 fl-l">
+                        <form onsubmit="return false;" id="memberLogin" method="post" action="http://app.silkroad.news.cn/?app=member&amp;controller=index&amp;action=ajaxlogin">
+                            <div class="hr20"></div>
+                            <div class="ov">
+                                <div class="singup-line loginicon icon-user singup-item singup-w300 fl-l">
+                                    <p class="pos-a tip fz16">用户名</p>
+                                    <input type="text" name="username" id="member_login_username" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr40"></div>
+                            <div class="ov">
+                                <div class="singup-line loginicon icon-pw singup-item singup-w300 fl-l">
+                                    <p class="pos-a tip fz16">密码</p>
+                                    <input type="password" name="password" id="member_login_password" class="input-text js-focus username" />
+                                </div>
+                            </div>
+                            <div class="hr30"></div>
+                            <div class="ov">
+                                <input type="checkbox" class="fl-l" style="margin-top: 2px;margin-right: 10px;"  value="1296000" name="cookietime" id="member_login_remember" /><span class="fz12 fl-l margin-r-20">下次自动登录</span> <a href="{APP_URL}?app=member&controller=index&action=getpassword" class="fz12 cor06c fl-l">忘记密码</a>
+                            </div>
+                            <div class="hr30"></div>
+                            <div class="ov">
+                                <div class="memberseccode">
+                                    <input type="text" style="width: 50px;" value="验证码" name="seccode" id="member_login_seccode" class="loginform-login-input-text m-input-text fl-l i-gray" tabindex="3">
+                                    <img align="absmiddle" width="52" height="24" src="http://app.silkroad.news.cn/?app=system&amp;controller=seccode&amp;action=image" class="loginform-img_mar fl-l" style="cursor:pointer;" id="member_login_seccodeimg">
+                                    <a onclick="this.parentNode.getElementsByTagName('img')[0].src='http://app.silkroad.news.cn/?app=system&amp;controller=seccode&amp;action=image&amp;action=image&amp;='+Math.random()*5;" class="reload icon16x16 fl-l" href="javascript:void(0);"></a>
+                                </div>
+                            </div>
+                            <div class="hr30"></div>
+                            <div class="ov">
+                                <input type="submit" value="登录" class="fl-l submit button1 margin-r-20 loginform-login-btn" />
+                                <span class="fz12" style="line-height:40px;">没有账号 <a href="{APP_URL}?app=member&controller=index&action=register" class="fz12 cor06c">马上注册</a></span></div>
+                            <div class="hr40"></div>
+                        </form>
+                    </div>
+                    <div class="singup-form-right singup-w180 fl-l">
+                        <p class="fz16 title">使用第三方账号登录</p>
+                        <div class="hr20"></div>
+                        <div>
+                            <a href="javascript:;" onclick="loginThirdParty(this,'qzone')" class="web-login qq">QQ账户</a>
+                            <div class="hr30"></div>
+                            <a href="javascript:;" onclick="loginThirdParty(this,'sina_weibo')" class="web-login sina">新浪微博</a>
+                            <div class="hr30"></div>
+                            <a href="javascript:;" onclick="loginThirdParty(this,'tencent_weibo')" class="web-login tqq">腾讯微博</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/memberLogin.js"></script>

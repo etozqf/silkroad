@@ -1,0 +1,29 @@
+.mar-t-50{margin-top: 50px;}
+.past .mod-tit1 h3{font-size: 24px;padding-left: 10px; padding-right: 5px;}
+.week-pic-summary{width: 100%; overflow: hidden;}
+.w-pic-box{width: 270px; float: left;_display: inline;}
+.w-pic-box h3{font-size: 18px; color: #333; line-height: 20px; overflow: hidden; text-indent: 6px;font-family: "Times New Roman"}
+.w-summary{width: 690px; float: right; _display: inline;}
+.w-summary dd h3{width: 100%; height: 30px; line-height: 30px; font-size: 20px; overflow: hidden; color: #333; font-weight: bold;}
+.w-summary dd .cont-list li{text-indent: 22px;}
+.w-summary dd{border-bottom: 1px dashed #e5e5e5; padding-bottom: 14px; margin-bottom: 7px;}
+.i-h3{width: 100%; font-size: 20px; line-height: 24px; color: #333; font-style: italic;font-family: "Times New Roman"}
+.i-h3 a{color: #333;}
+.ti-6{text-indent: 6px;}
+.w-date{font-size: 14px; color: #666; line-height: 24px;}
+.w-summary h2{width: 100%; font-size: 32px; font-weight: bold; line-height: 32px;}
+.w-p{width: 100%; font-size: 18px; color: #666; line-height: 24px;}
+.cont-list,.past-list{width: 100%; overflow: hidden;}
+.lh-36{height: 36px; line-height: 36px;}
+.lh-32{height: 32px; line-height: 32px;}
+.cont-list li{width: 100%; overflow: hidden;}
+.cont-list li em{ font-size: 18px; color: #999; margin-left: 6px; margin-right: 12px;}
+.btn-subscribe{width: 178px; height: 46px; background: url("images/subscibe.png") no-repeat;
+        line-height: 46px; overflow: hidden; text-align: center; font-weight: bold; font-size: 24px; color: #f8f2f3; display: block;}
+.btn-subscribe:hover{text-decoration: none;}
+.past-list dl{width: 1100px; overflow: hidden;}
+.past-list dd{width: 420px; float: left; overflow: hidden; margin-right: 100px; margin-top: 20px;}
+.txt-r{width: 320px; float: left; margin-left: 12px;}
+.txt-r h2{font-size: 24px; font-family: "Times New Roman", Times, serif; font-weight: bold; line-height: 30px;}
+.cont-list li a,.w-summary h2 a,.txt-r h2 a{color: #006e97;}
+.txt-r h3{font-size: 18px; color: #333; font-weight: bold;  font-family: "Times New Roman", Times, serif;}

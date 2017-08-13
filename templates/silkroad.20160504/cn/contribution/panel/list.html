@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+    <title>collection_{$title}_{$sitename[1]}</title>
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.article.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/ledivs.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/usercenter.css"> 
+    <!-- <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css"> -->
+    <link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}js/lib/cmstop.template.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/jquery.pagination.js"></script>
+    <script type="text/javascript" src="{IMG_URL}apps/member/js/cmstop.tablelist.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+</head>
+<body style="font-size:16px">
+
+    <header class="member-article-header">
+        <!--{template 'cn/member/panel/header.html'}-->
+    </header>
+
+    <div class="hr20"></div>
+    <div class="column member-main ov">
+        <div class="member-left w160 fl-l">
+            <!--{template "cn/contribution/status/collect_left.html"}-->
+        </div>
+        <div class="member-right fl-l w680 margin-l-20" style="margin-left: 70px;">
+            <div class="member-article pos-r">
+                <div class="gray pos-a"></div>
+                <!--{template "cn/contribution/status/$subTpl.html"}-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="hr20"></div>
+    
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+    
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function(){
+        //ajax完成对各个收藏的统计
+        //请求数据库删除数据
+            $.getJSON(
+                    '?app=contribution&controller=panelcn&action=ajax_total&jsoncallback=?',
+                    function(data){
+                       
+                               // console.log(data.news.total);
+                               // $('ul li:eq(0) a span').html(data.news.total);
+                               $('ul li:eq(1) a span').html(data.voide.total);
+                               $('ul li:eq(2) a span').html(data.law.total);
+                               $('ul li:eq(0) a span').html(data.project.total);
+                        }
+                    );
+
+        //ajax删除
+        $('.delete').click(function(){
+        var res = confirm("您确定要删除?");
+        var collectid = $(this).attr('name');
+        var name = $(this);
+        
+        if(!res){
+            return true;
+        }else{
+            //请求数据库删除数据
+            $.getJSON(
+                    '?app=member&controller=index&action=ajax_delete_collect&jsoncallback=?&collectid='+collectid,
+                    function(data){
+                               if(data.status!='success')
+                               {
+                                      alert('删除失败');
+                                      return false;
+                               }else{
+                                name.parents('tr').hide();
+                               }
+                        }
+                    );
+            
+        }
+
+        })
+    })
+    
+</script>

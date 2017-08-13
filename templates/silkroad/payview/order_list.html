@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$CONFIG[charset]}" />
+<title>付费阅读-订阅记录-{$SYSTEM[sitename]}</title>
+<link href="{IMG_URL}templates/{TEMPLATE}/css/style.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/content.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<!-- <link href="{IMG_URL}apps/pay/pay.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  /> -->
+<!--[if IE 6]> 
+	<link href="{IMG_URL}templates/{TEMPLATE}/css/ie6.css" type="text/css" rel="stylesheet" rev="stylesheet" media="screen"  />
+<![endif]-->
+<link href="{IMG_URL}templates/{TEMPLATE}/css/dialog.css" rel="stylesheet" type="text/css" />
+<link href="{IMG_URL}templates/{TEMPLATE}/css/ajax_Page.css" rel="stylesheet" type="text/css"/>
+<link href="{IMG_URL}templates/xinhua08/css/store.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/cmstop.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/cmstop.table.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.pagination.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('li').removeClass('now')
+	$('li[rel="orderlist"]').addClass('now');
+})
+</script>
+</head>
+<body class="person-theme">
+<div class="person-wrap">
+  <!--{template 'phonereader/header.html'}-->
+  <div class="clear"></div>
+  <div class="person-cont">
+    <!--{template 'payview/left.html'}-->
+    <div class="p-rightbar">
+      <div class="hr-h10"></div>
+      <div class="data-head">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <th width="130">订单号</td>
+              <th width="150">订阅栏目组</td>
+              <th width="150">订阅期限</td>
+              <th width="80">订阅费用</td>
+              <th width="100">支付状态</td>
+              <th width="100">付款方式</td>
+              <th width="100">开发票</td>
+              <th width="80" style="border-right:none;">管理</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <table cellpadding="0" cellspacing="0" class="contr-list" border="0" width="100%"  id="item_list" >
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody id="list_body">
+        </tbody>
+      </table>
+	  	<div style="margin-top:10px;float:left"> 共有<span id="pagetotal">0</span>条记录&nbsp;&nbsp;&nbsp; </div>
+		<div id="pagination" class="pagination" style="float:right;margin-top:10px;"></div>
+    </div>
+<div style="text-align:right;clear:both;font-size:14px">注意：系统将自动关闭7日之前未支付的订单</div>
+  </div>
+<!--#include virtual="/section/193.html"-->
+</div>
+</body>
+<script type="text/javascript">
+var row_template = '\
+<tr id="row_{oid}">\
+	<td width="130">{orderno}</td>\
+	<td width="150">{title}</td>\
+	<td width="150">{starttime}<br>至<br>{endtime}</td>\
+	<td width="80">{payfee}</td>\
+	<td width="100">{status_text}</td>\
+	<td width="100">{type_text}</td>\
+	<td width="100">{is_invoice_text}</td>\
+	<td width="80"><a href="{url("payview/order/showorder")}&orderno={orderno}" target="_blank">订单详情</a></td>\
+</tr>';
+
+var tableApp = new ct.table('#item_list',{
+	rowIdPrefix : 'row_',
+	pageField : 'page',
+	pagesize : <?=$pagesize?>,
+	rowCallback : 'init_row_event',
+	template : row_template,
+	baseUrl  : '?app=<?=$app?>&controller=<?=$controller?>&action=page'
+});
+function json_loaded(json) {
+	$('#pagetotal').html(json.total);
+}
+tableApp.load();
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>{$content[title]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="stylesheet" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/touch-slider.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}/templates/{TEMPLATE}/touch/startup/cover.png"/>
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}/templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+    <script type="text/javascript">
+        var details_down = "{MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/details-up.png";
+        var details_up   = "{MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/details-down.png";
+    </script>
+</head>
+<body>
+<!--{if value($content, 'thumb')}-->
+<img src="{abs_uploadurl($content['thumb'])}" style="position: fixed; left: 9999px" />
+<!--{/if}-->
+<div class="ui-container photos-content ui-picture-show-container">
+    <header>
+        <div class="ui-header-bar list1">
+            <a class="ui-return" href="{MOBILE_URL}picture/"></a>
+            <div class="ui-pagetitle"><a href="{MOBILE_URL}{if $content_source}{$content_source}{else}picture{/if}/{$content[contentid]}/lists"><img src="{MOBILE_URL}/templates/{TEMPLATE}/touch/css/ui/list1.png" alt=""></a><var class="ui-picture-page js-picture-page"><span>0</span>/<span>0</span></var></div>
+            <!--{if setting('cloud', 'sohu_changyan') == 1}-->
+            <a href="{MOBILE_URL}comment/{$content[topicid]}" class="ui-menu-trigger"></a>
+            <!--{/if}-->
+        </div>
+    </header>
+    <div class="ui-cateandsearch js-category-search">
+        <!-- 栏目导航 -->
+        <menu class="ui-categorys2 js-category-panel js-hidden"><a href="" class="peak">赞</a><a href="" class="comment">评论</a><a href="" class="share">分享</a> </menu>
+        <!-- @end 栏目导航 -->
+    </div>
+    <!-- swipe -->
+    <section class="ui-picture-show js-picture-show">
+        <ul>
+            <!--{loop $content['picture']['pictures'] $i $r}-->
+            <?php
+                strpos($r[image], 'http') === false ? $r[image] = UPLOAD_URL.$r[image] : '';
+            ?>
+            <li>
+                <img src="{$r[image]}" alt="{$r[note]}" class="ui-picture-single" />
+                <div class="ui-picture-infos">
+                    <p class="ui-single-summary"><?php echo empty($r['note']) ? $content['description'] : $r['note'];?></p>
+                </div>
+            </li>
+            <!--{/loop}-->
+            <li>
+                <!--#include virtual="/section/245.html"--><!--# 手机版 组图推荐 #-->
+            </li>
+        </ul>
+        <div class="ui-picture-extra-info">
+            <div class="details-down"><img src="{MOBILE_URL}templates/{TEMPLATE}/touch/css/ui/details-up.png" alt=""></div>
+            <p class="ui-single-summary ui-single-summary2"></p>
+        </div>
+    </section>
+</div>
+</body>
+</html>

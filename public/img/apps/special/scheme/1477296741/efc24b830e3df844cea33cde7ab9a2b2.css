@@ -1,0 +1,56 @@
+.widget-gray-a .diy-inner { border:1px solid #dadada; background:#fff;}
+ .content-palist-gray-b li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-gray-b img { margin:8px 8px 8px 0;}
+ .content-palist-gray-b .summary { margin:0; padding:0;}
+ .content-palist-gray-b{background-color:#fff;}
+ .content-palist-gray-b .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-gray-b .imgtxtsummary-list a{color:#333;}
+ .content-palist-gray-b .imgtxtsummary-list h3 a{ color:#333; font-size:12px;font-weight:bold;}
+ .content-palist-gray-b .imgtxtsummary-list p{color:#333;}
+ .content-palist-gray-b .imgtxtsummary-list a:hover{text-decoration:none;color:#136e1d;}
+.content-list-gray-b ul { padding:8px 10px 0;}
+.content-list-gray-b li { line-height:22px; padding-left:8px; background:url("http://img.xinhua08.com/apps/special/ui/content/list/gray-b/images/point.gif") no-repeat 0 10px;}
+.content-list-gray-b a { font-size:14px; color:#333;}
+.content-list-gray-b a:hover{ color:#da2c83;}
+.content-list-gray-b .date{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #999999;}
+.title-blue-c { overflow: hidden; background:#0078B6; height:30px; line-height:30px; font-size:14px; font-weight:bold; padding-left:9px;}
+.title-blue-c,.title-blue-c span{color:#fff;}
+.widget-gray-b .diy-inner { border:1px solid #B6BBC0; background:#fff;}
+.content-html-font-black-a{ color:#333; padding:5px 9px;}
+.content-html-font-black-a p{ line-height:1.8em;}
+.widget-white .diy-inner { background:#fff;}
+ .content-palist-gray-c li { padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-gray-c img { margin:8px 8px 8px 0;}
+ .content-palist-gray-c .summary { margin:0; padding:0;}
+ .content-palist-gray-c{background-color:#fff;}
+ .content-palist-gray-c .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-gray-c .imgtxtsummary-list a{color:#333;}
+ .content-palist-gray-c .imgtxtsummary-list h3 a{ color:#333; font-size:12px;font-weight:bold;}
+ .content-palist-gray-c .imgtxtsummary-list p{color:#333;}
+ .content-palist-gray-c .imgtxtsummary-list a:hover{text-decoration:none;color:#9416cf;}
+.content-html-font-black{ color:#333; padding:10px 15px;}
+.content-html-font-black p{ text-indent: 2em; margin:10px 10px 20px 20px; font-size:14px; line-height:1.8em;}
+ .content-palist-gray-a li {padding:8px 6px; border-bottom:1px dotted #ccc;}
+ .content-palist-gray-a img {margin:8px 8px 8px 0;}
+ .content-palist-gray-a .summary {margin:0; padding:0;}
+ .content-palist-gray-a{background-color:#fff;}
+ .content-palist-gray-a .imgtxtsummary-list{margin:0 4px;}
+ .content-palist-gray-a .imgtxtsummary-list a{color:#333;}
+ .content-palist-gray-a .imgtxtsummary-list h3 a{ color:#333; font-size:12px;font-weight:bold;}
+ .content-palist-gray-a .imgtxtsummary-list p{color:#333;}
+ .content-palist-gray-a .imgtxtsummary-list a:hover{text-decoration:none;color:#c00;}
+.title-bianlun-title{ overflow: hidden; background:#222222 url("http://img.xinhua08.com/apps/special/ui/title/bianlun-title/images/bianlun.png") no-repeat; height:50px; line-height:50px; font-family:"微软雅黑"; font-size:22px; padding-left:100px; color:#fff;}
+.title-bianlun-title,.title-bianlun-title span{}
+.content-vote-gray-e { font-size:12px;}
+.content-vote-gray-e .mod-vote { padding:0 10px 5px; overflow:hidden; zoom:1;}
+.content-vote-gray-e dl { margin:3px 0;}
+.content-vote-gray-e dt { line-height:18px; padding:5px 0; font-size:14px; font-weight:bold;}
+.content-vote-gray-e dd { padding:5px; line-height:18px;}
+.content-vote-gray-e .input-radio { margin:-3px 6px 0 0;}
+.content-vote-gray-e label { cursor:pointer;}
+.content-vote-shuimo .content-vote-shuimo { margin-top:10px 0; float:left;}
+.content-vote-gray-e a.result { margin-left:10px; text-decoration:none;}
+.dd-submit { margin-top:10px;}
+.title-arrow-b { overflow: hidden; background:#fff url("http://img.xinhua08.com/apps/special/ui/title/arrow-b/images/bg.png") no-repeat 0 2px; height:30px; line-height:30px; font-size:14px; font-weight:bold; color:#333; border-bottom:1px solid #ddd; padding-left:20px;}
+.title-arrow-b a,.title-arrow-b span {}
+.widget-green-a .diy-inner { border:1px solid #89c98b; background:#fff;}

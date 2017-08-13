@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <channel_id>
+        <required event="submit">请选择栏目</required>
+    </channel_id>
+    <title>
+        <required event="submit">请填写标题</required>
+    </title>
+    <url>
+        <required event="submit">请填写流地址</required>
+    </url>
+    <thumb>
+        <required event="submit">请选择缩略图</required>
+    </thumb>
+    <online>
+        <required event="submit">请填写上线时间</required>
+    </online>
+    <offline>
+        <required event="submit">请填写下线时间</required>
+    </offline>
+</root>

@@ -1,0 +1,16 @@
+.feedback-ul li{overflow: hidden;line-height: 32px;font-size: 16px;margin-bottom: 20px;}
+.feedback-ul li span{display: block;float: left;color: #333;text-align: right;margin-right: 10px;height: 32px;}
+.feedback-ul li em{color: #fa4646; }
+.feedback-ul li input,.feedback-ul li textarea{line-height: 30px;color: #666; overflow: hidden;border: 1px solid #cfcfcf;
+    border-radius: 2px;font-size: 16px;outline: none;font-family: "Arial";text-indent: 5px;}
+.w-165{width: 166px;}
+.w-178{width: 178px;}
+.w-465{width: 465px;}
+.w-316{width: 316px;}
+.feedback-button{background: #e70b1a;border: 0;height: 46px; line-height: 46px; text-align:center; color: #fff; cursor: pointer;
+    font-size: 20px;width: 137px; border-radius: 5px;outline: none}
+/*Contact Us*/
+.Contact-Us{padding: 20px 15px;}
+.Contact-Us ul li{line-height: 24px; font-size: 14px;color: #333}
+.Contact-Us ul li h3{font-size: 16px;font-weight: bold}
+.Contact-Us ul li a{color: #006e97}

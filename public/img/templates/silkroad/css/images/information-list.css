@@ -1,0 +1,34 @@
+.list-con{width: 1000px; background: #fff; overflow:hidden;}
+body{font-family: "Arial";}
+/*主栏*/
+.col-l-main{width: 164px; background: #fff; float: left; _display: inline;position: relative;z-index: 1;}
+.col-r-main{width: 770px; float: right;  overflow: hidden; _display: inline;}
+/*左侧*/
+.list-ul{width: 126px;border: 1px solid #c6dfef;padding:10px 17px;}
+.list-ul li{font-size: 14px;height: 31px; line-height:32px;position: relative;z-index: 10;text-indent: 5px;cursor: pointer;}
+.list-ul li a{color: #0079c6;}
+.list-ul li a:hover{text-decoration: none}
+.list-ul li.on{background: url("images/icons.png") no-repeat 105px -50px;}
+.list-ul li.on a{color: #c81623;}
+.list-hidden-box{position: absolute; top: 0px; left: 128px; z-index: 1000; background: #fff; display: none}
+.list-hidden-box.top6{top:-80px;}
+.list-hidden-box.top7{top:-100px;}
+.list-hidden-box.top8{top:-120px;}
+.list-hidden-box.top9{top:-130px;}
+.list-hidden-box.top10{top:-150px;}
+.list-hidden-box.top11{top:-200px;}
+.list-hidden-box.top12{top:-250px;}
+.list-hidden-box.top13{top:-300px;}
+.list-hidden-box.top14{top:-350px;}
+.list-hidden-box .bor-con{width:172px; border: 1px solid #D7E6F2;padding: 9px;}
+.list-hidden-box dl dd{height: 31px; line-height:32px;font-family: "Times New Roman";text-indent:10px;overflow: hidden;}
+.list-hidden-box dl dd a{color: #0079c6!important;}
+.list-hidden-box dl dd a:hover{color: #c81623!important;}
+/*右侧*/
+.summary-list{height: 847px;*height: 860px;overflow: hidden;}
+.summary-list li{height: 41px;overflow: hidden;}
+.summary-list li a{font-family: "Times New Roman";color: #0079c6;width: 660px;font-size: 16px;overflow: hidden;display: block;line-height: 42px;text-decoration: none}
+.summary-list li em{margin:0 10px;color: #c81623;line-height: 42px;overflow: hidden;}
+.summary-list li .txt{width: 80px;color: #999;}
+.summary-list li .txt span,.summary-list li .txt i{display: block;text-align: center;line-height: 18px;font-style: normal;font-size: 12px;}
+.summary-list li.on{background: #f3f3f3}

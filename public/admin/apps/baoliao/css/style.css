@@ -1,0 +1,65 @@
+body { overflow: hidden!important;}
+.baoliao-search { margin-right: 20px;}
+.baoliao-search form { width: 440px; *margin-top: -4px;}
+.baoliao-search form * { float: left; display: inline;}
+.baoliao-sider { width: 300px; float: left; overflow: hidden; border-right: 1px #9AC4DC solid; margin: 0;}
+.baoliao-list { padding-left: 8px; margin-top: 8px; overflow: hidden;}
+.baoliao-list li { height: 42px; overflow: hidden; padding: 4px 0; cursor: pointer; margin-left: -6px; padding-left: 6px; position: relative;}
+.baoliao-list li:hover,.baoliao-list .cur { background: #FFFDDD;}
+.baoliao-list-check { width: 24px; float: left;}
+.baoliao-list .baoliao-list-check{ margin-top: 4px;}
+.baoliao-list-content { margin-left: 28px;}
+.baoliao-list-title a{ height: 24px; line-height: 24px; }
+.baoliao-list-date,.baoliao-list-comment,.baoliao-list-pv { float: left; padding: 0 5px; color: #999999; line-height: 20px;}
+.baoliao-list-date {padding-left: 0;}
+.baoliao-list-comment,.baoliao-list-pv { font-size: 12px;}
+.baoliao-list-delete { float: right; margin: 0 12px 0 0; cursor: pointer; display: none; position: relative; top: -50%; margin-top: 8px;}
+li:hover .baoliao-list-delete {display: block;}
+.baoliao-foot { padding: 4px 4px 8px 4px; border: 1px #999999 solid; width: 292px; height: 18px; border-left: none;}
+.baoliao-foot .baoliao-list-check { margin: 2px 0 0 4px;}
+
+.baoliao-main { padding-left: 20px; overflow-y: auto; position: relative;}
+.baoliao-control { padding: 6px 0 0 10px; margin-left: -21px; background-image: url(images/bg.png); background-color: #FFFFFF; height: 32px; border-bottom: 1px solid #C9D4E5;}
+.baoliao-control.fixed { top: 33px; position: fixed; width: 100%; z-index: 999; border: 1px solid #9AC4DC;}
+.baoliao-control .btn { padding: 3px 8px; height: 26px; text-align: center; display: inline-block; margin: 0 6px; float: left; color: #077AC7; border: 1px solid #A5C3D8; background: #fff; cursor: pointer;}
+.baoliao-content-title { font-size: 26px; color: #006699; display: block; width: 620px; word-wrap: break-word; margin-bottom: 6px; padding: 4px; line-height: 33px;}
+input.baoliao-content-title { width: 620px; border: 1px solid #A5C3D8; background: #fff;}
+.baoliao-content-date, .baoliao-content-ip, .baoliao-content-comment, .baoliao-content-pv {display: inline; padding-right: 24px; color: #666666;}
+.baoliao-content,.baoliao-content p { width: 620px; line-height: 18px; font-size: 14px; font-family: Verdana,Arial,Helvetica,sans-serif; text-indent: 2em; line-height: 1.7; word-wrap: break-word;}
+
+textarea.baoliao-content { width: 612px; height: 150px; margin-left: 23px; line-height: 1.7;}
+.baoliao-image-panel, .baoliao-video-panel { margin: 5px 0; clear: both;}
+.baoliao-image-panel h3, .baoliao-video-panel h3 {line-height: 24px; height: 24px;}
+.baoliao-image-item,.baoliao-video-item { position: relative; }
+.baoliao-image-item .baoliao-overlay,.baoliao-video-item .baoliao-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 18px; background: #666; opacity:0.6; filter: alpha(opacity=60);}
+.baoliao-image-item .delete, .baoliao-video-item .delete{ color: #000000; font-weight: bold;}
+.baoliao-image-item .baoliao-view,.baoliao-video-item .baoliao-view{position: absolute; top: 1px; right: 18px; width: 16px; height: 16px; background: url(images/view.png);}
+.baoliao-video-item .baoliao-view{background: url(images/play.png);}
+.baoliao-image{ margin-bottom: 5px;}
+.baoliao-source { color: #0066CC; font-size: 14px; padding-bottom: 8px; font-weight: bold;}
+.baoliao-source-item { color: #0066CC; font-size: 13px; padding-left: 2em; line-height: 20px;}
+.baobiao-repost {border: 1px #A7D093 solid; background: #DDFFD5; padding: 10px 16px; width: 620px;}
+.baobiao-repost-description { font-size: 14px; font-weight: bold;}
+.baobiao-repost textarea { max-width: 600px; width: 600px; margin: 4px; line-height: 24px; overflow: hidden; border: 1px solid #ccc;}
+.baobiao-repost textarea.ready { color: #cccccc; height: 30px;}
+.baoliao-repost-submit {height: 18px; width: 618px;}
+.baobiao-repost-content {position: relative;}
+.baoliao-repost-quote-left {position: absolute; background: url('images/quote-left.png'); width: 26px; height: 26px; top: 0; left: 0;}
+.baoliao-repost-text { padding: 18px 0; width: 530px; word-wrap: break-word; font-size: 14px; line-height: 22px; display: inline;}
+.baoliao-repost-quote-right {position: absolute; background: url('images/quote-right.png'); width: 26px; height: 26px; bottom: 0; right: 0;}
+.baobiao-repost-quote { vertical-align: bottom;}
+.baoliao-edit-btn { width: 614px;}
+.baoliao-edit-btn .btn { padding: 0 8px;}
+.baoliao-popup { background-color: #DDEEF1; border: 1px solid #D0E6EC; position: absolute; width: 270px; padding-bottom: 6px;}
+.baoliao-popup .baoliao-popup-title { background: #ffffff; color: #077AC7; height: 24px; line-height: 24px; overflow: hidden; width: 192px; padding-left: 8px; margin: 0 2px 0 8px;}
+.baoliao-popup a {margin: 4px 2px;}
+.baoliao-popup .popup-close { margin-right: 4px; width: 98%;}
+.baoliao-inpop { position: fixed; top: -99999px;}
+
+body {height: 100%; overflow: hidden!important;}
+.tag_1 {margin-bottom: 0;}
+.btn-big-ok { width: 100px; height: 34px; background: url('images/big-ok.png'); border: none; color: #fff; font-size: 18px; font-weight: bold; letter-spacing: 6px; text-align: center; cursor: pointer;}
+.btn-big-clear { width: 100px; height: 34px; background: url('images/big-clear.png'); border: none; color: #666; font-size: 18px; font-weight: normal; letter-spacing: 6px; text-align: center; margin-left: 12px; cursor: pointer;}
+.search a,.search input[type="text"] { float: right;}
+.search input[type="text"].datepicker { width: 110px; float: none; background: url("/css/images/bg.gif") no-repeat scroll right -353px #FFFFFF;}
+.baoliao-newply { text-align: right; padding-right: 8px; font-size: 14px;}

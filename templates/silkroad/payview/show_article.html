@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}_{$SYSTEM[sitename]}</title>
+<?php $mtags=str_replace(' ',',',$tags);?>
+<meta name="keywords" content="{$mtags}">
+<meta name="description" content="<!--{if $description}-->{$description}{else}{$title}<!--{/if}-->">
+<link rel="shortcut icon" href="{IMG_URL}images/favicon.ico" />
+<link href="{IMG_URL}templates/xinhua08/css/grid.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.grid_17 {position:static}
+li { height:auto}
+.crumbs { width:670px; overflow:hidden; height:33px; line-height:33px; margin-top:0; background-position:0 10px}
+.mainContent h1 { text-align:center; font-size:22px; font-family:"simhei"}
+-->
+</style>
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/jquery.js"></script>
+<script type="text/javascript" src="{IMG_URL}js/lib/jquery.cookie.js"></script>
+<script type="text/javascript">
+var contentid = {$contentid};	
+</script>
+</head>
+
+<body>
+<div class="container_25">	    
+    <!--#include virtual="/section/249.html"--><!--头部小-->       
+    <!--#include virtual="/section/287.html"--><!--付费导航-->
+    <div class="grid_25 mb0">     
+        <div class="crumbs"><a href="{WWW_URL}" target="_blank">首页</a>{loop $pos $cat} > <a href="{$cat[url]}" target="_blank">{$cat[name]}</a>{/loop} > {$title}</div>
+    	<!--#include virtual="/section/195.html"--><!--搜索-->
+    </div>
+  	<div class="grid_17">
+        <div class="Gborder"></div>
+        <div class="innercontent">
+			<div class="mainContent">
+                <h1>{$title}</h1>
+                <div class="reInfo"><span>来源：<!--{if $source_url}--><a href="{$source_url}" target="_blank"><!--{/if}-->{$source_name}<!--{if $source_url}--></a><!--{/if}--></span><span>{date('Y年m月d日H:i',$published)}</span>
+				<span>
+				<?php $categorys = cache_read('categorys.php', ROOT_PATH.'apps'.DS.'payview'.DS.'config'.DS); ?>
+				<!--{loop $categorys[$catid] $k $v}-->
+				<a href="{APP_URL}{url('payview/order/add')}" target="_blank">{$v}</a>
+                <!--{/loop}-->
+				</span>
+				</div>
+                <!--{if $description}--><p class="abstract"><em>核心提示：</em>{$description}</p><!--{/if}-->
+                <!--{if $hastitles}-->
+                <div class="cNav">
+                    <div class="cNav-title">本文导航</div>
+                        <ol>
+                        <!--{loop $pages $k $v}-->
+                            <li><span>{$k}.</span><a {if $page==$k} class="now-tit"{/if} href="{$v[url]}">{$v[title]}</a></li>
+                        <!--{/loop}-->
+                        </ol>
+                </div>
+             	<!--{/if}-->
+                <div id="zoom"><div id="ctrlfscont"></div></div>
+<!--{if $thepsn=="9"}-->
+<div class="digg left"><a id="supports" href="javascript:digg.set({$contentid},1)"><span>0%</span></a><a id="againsts" href="javascript:digg.set({$contentid},0)" class="againsts"><span>0%</span></a></div>
+<!--{/if}-->
+                <p class="editor right">【责任编辑：{$editor}】</p>                
+                <!--{if $pages}-->
+                <div class="page_down">
+                    <!--{if $prevpage}-->
+                    <a href="{$pages[$prevpage][url]}">上一页</a>
+                    <!--{else}-->
+                    <a class="no-op" href="javascript:;">上一页</a>
+                    <!--{/if}-->
+                    <!--{loop $pages $k $v}-->
+                    <a href="{$v[url]}" <!--{if $k==$page}-->class="now"<!--{/if}-->>{$k}</a>
+                    <!--{/loop}-->
+                    <!--{if $nextpage}-->
+                    <a href="{$pages[$nextpage][url]}">下一页</a>
+                    <!--{else}-->
+                    <a class="no-op" href="javascript:;">下一页</a>
+                    <!--{/if}-->
+                    <a href="javascript:;" onclick="fulltext()" id="show-all-cont">单页阅读</a>
+                	<div class="clear"></div>
+                </div>
+                <!--{/if}-->
+
+<!--{if $keywords || $related}-->
+        <!--<?php $related_count = 0; ?>-->
+        <div id="xgnews_div" style="display:none">
+        	<h3>更多关于 <!--{db sql="SELECT * FROM #table_content_tag ct LEFT JOIN #table_tag t ON ct.tagid=t.tagid WHERE ct.contentid=$contentid"}--><a href="http://app.xinhua08.com/tags.php?tag={$r[tag]}" target="_blank">{$r[tag]}</a> {/db}的新闻</h3>
+            <ul>
+            <!--{if $related}-->
+                <!--{loop $relateds $k $r}-->
+                <!--<?php $related_count++; ?>-->
+            <li> ·<a href="{$r[url]}" target="_blank">{$r[title]}</a>　<span>({$r[time]})</span></li>
+                <!--{/loop}-->
+            <!--{else}-->
+                <!--{content_related contentid="$contentid" tags="$tags" size="6"}-->
+                <!--<?php $related_count++; ?>-->
+            <li> ·<a href="{$r[url]}" target="_blank">{$r[title]}</a>　<span>({date('Y-m-d', $r['published'])})</span></li>
+                <!--{/content_related}-->
+            <!--{/if}-->
+            </ul>
+        </div>
+        <!--<?php echo $related_count; ?>-->
+        <!--{if $related_count}-->
+        <style type="text/css">
+		#xgnews_div {display:block !important; margin-top:20px; clear:both}
+		#xgnews_div a { font-size:14px; color:#0072b3}
+                #xgnews_div a:visited {color:purple}
+                #xgnews_div span { color:#868686; font-size:12px}
+                #xgnews_div h3 { background-color:#f5f5f5; background-position:12px -767px; border-top:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5; padding-left:30px; height:28px; line-height:28px}
+                #xgnews_div h3 a {font-weight:normal}
+        </style>
+        <!--{/if}-->
+        <!--{/if}--> 
+
+        	</div> 
+        </div>
+        <div class="function mb10"> 
+        	<div class="customize">
+            	<ul>
+            	    <li><a href="javascript:;" onClick="copyToClipboard(window.location.href);return false">复制本文链接</a></li>
+                    <li class="print"><a href="#" onclick="javascript:window.print()">打印</a></li>
+                    <li class="fontSize"><a href="#" onclick="doZoom('big')">大</a> <a href="#" onclick="doZoom('normal')">中</a> <a href="#" onclick="doZoom('small')">小</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>        
+
+    </div>
+    <div class="grid_8">
+<!--#include virtual="/section/276.html"--><!--微博秀-->
+<!--#include virtual="/section/271.html"--> <!--视觉焦点-->      
+        <!--#include virtual="/section/252.html"--><!--编辑推荐--> 
+        <!--#include virtual="/section/270.html"--><!--金融词典-->
+        <!--#include virtual="/section/264.html"--><!--周刊订阅-->
+    </div>
+<script type="text/javascript">
+$("#ctrlfscont p:last").append("<a href=\"http://www.xinhua08.com\/\" target=\"_blank\" title=\"返回新华08网首页\"><img src=\"http://img.xinhua08.com/templates/xinhua08/images/logo_content.gif\" alt=\"返回新华08网首页\"></a>"); 
+</script>
+<script type="text/javascript">function doZoom(flg){document.getElementById("zoom").className=flg;}</script>
+<script type="text/javascript" src="{IMG_URL}templates/xinhua08/js/digg.js"></script>
+<script type="text/javascript">
+var content = '';//第一页内容缓存
+var context = '';//全文内容缓存
+var isfulltext = false;
+$(function(){
+	digg.get(contentid);
+	content = $('#ctrlfscont').html();
+	var font = $.cookie(COOKIE_PRE+'font');//根据cookie设置字体大小并初始化按钮
+	if(font){
+		$('#ctrlfssummary,#ctrlfscont').addClass(font);
+		if(font == 'fs-big'){
+		 	$('#bfont').addClass('cor-current');
+			$('#sfont').removeClass('cor-current');
+		}
+	}
+	$.getJSON(APP_URL+'?app=system&controller=content&action=stat&jsoncallback=?&contentid='+contentid);
+	
+	$('form[id^="vote"]').each(function(){
+		var contentid = $(this).find('>input[name="contentid"]:hidden').val();
+		var maxoptions = $(this).find('>input[name="maxoptions"]:hidden').val();
+		$(this).submit(function(){
+			var checkeds = $(this).find('input:checked').length;
+			if(checkeds == 0){
+				alert('请选择投票选项');
+				return false;
+			}
+			if(maxoptions){
+				if(checkeds > parseInt(maxoptions)){
+					alert('最多允许选'+maxoptions+'项');
+					return false;
+				}
+			}
+		})
+	})
+	
+	get_content();
+})
+//获取文章内容
+function get_content(){
+	$.getJSON(APP_URL+'?app=payview&controller=article&action=show&jsoncallback=?&catid={$catid}&contentid='+contentid,function(data){
+		if(data.state)
+		{
+			$('#ctrlfscont').html(data.content);
+		}
+		else
+		{
+			//alert(data.error);
+			var str = '<div style="margin:20px auto;border:solid #ccc 1px;width:300px;padding:20px;">\
+			本文章需要付费阅读，如果您已付费请<a href="{APP_URL}?app=member&controller=index&action=login" target="_blank">登录</a><br />\
+			如果您要订阅本栏目文章，<a href="{APP_URL}?app=payview&controller=order&action=add" target="_blank">请点这里进行订阅</a>\
+			</div>';
+			$('#ctrlfscont').html(str);
+		}
+	});
+}
+
+
+function fulltext(){  //单页阅读
+		if(context =='')
+		$.getJSON(APP_URL+'?app=article&controller=article&action=fulltext&jsoncallback=?&contentid='+contentid,function(data){
+			context = data.content;
+			$('#ctrlfscont').html(data.content);
+			$('#show-all-cont').html('分页阅读').siblings().hide();
+			$('.cNav').hide();
+$("#ctrlfscont p:last").append("<a href=\"http://www.xinhua08.com\/\" target=\"_blank\" title=\"返回新华08网首页\"><img src=\"http://img.xinhua08.com/templates/xinhua08/images/logo_content.gif\" alt=\"返回新华08网首页\"></a>"); 
+			isfulltext = true;
+			//holdpic();
+		});
+		else{
+			$('#ctrlfscont').html(isfulltext?content:context);
+			$('#show-all-cont').html(isfulltext?'单页阅读':'分页阅读').siblings().toggle(isfulltext === true);
+			isfulltext = (isfulltext === false);
+			$('.cNav').show();
+			//holdpic();
+		}
+}
+
+function copyToClipboard(txt) {  //复制网址
+	if(window.clipboardData) {
+		window.clipboardData.clearData();
+		window.clipboardData.setData("Text", txt);
+		alert("复制链接成功！");
+	} else if(navigator.userAgent.indexOf("Opera") != -1) {
+		window.location = txt;
+	} else if (window.netscape) {
+		try {
+			netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		} catch (e) {
+			alert(" 被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+		}
+		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+		if (!clip)
+		return;
+		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+		if (!trans)
+		return;
+		trans.addDataFlavor('text/unicode');
+		var str = new Object();
+		var len = new Object();
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		var copytext = txt;
+		str.data = copytext;
+		trans.setTransferData("text/unicode",str,copytext.length*2);
+		var clipid = Components.interfaces.nsIClipboard;
+		if (!clip)
+		return false;
+		clip.setData(trans,null,clipid.kGlobalClipboard);
+		alert("复制链接成功！");
+	}
+}
+
+function changeFont(t){ //改变字号
+	var tosmall = (t.innerHTML=='小')?true:false;
+	if(tosmall&&$(t).hasClass('cor-current')) return;
+	$('.cor-current').removeClass('cor-current');
+	$(t).addClass('cor-current');
+	$.cookie(COOKIE_PRE+'font',tosmall?'fs-small':'fs-big',{domain:COOKIE_DOMAIN,path:COOKIE_PATH,expires:300});
+	$('#ctrlfssummary,#ctrlfscont').removeClass(tosmall?'fs-big':'fs-small').addClass(tosmall?'fs-small':'fs-big');
+}
+</script>
+<!--#include virtual="/section/193.html"--><!--尾部小-->
+</div>
+<link rel="stylesheet" type="text/css" href="{IMG_URL}js/lib/popsearch/popmenu.css" />
+<script type="text/javascript" src="{IMG_URL}js/lib/popsearch/recommend.js"></script>
+</body>
+</html>

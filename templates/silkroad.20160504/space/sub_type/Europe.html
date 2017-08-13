@@ -1,0 +1,23 @@
+
+                    <div class="news" style="display:block">
+                   
+                        <ul>
+                            <!--{loop $data['data'] $i $m}-->
+                                <li>
+                                    <!--{if $m[photo]}-->
+                                    <a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}"><img src="{thumb($m[photo],133,100,1,null,0)}" alt=""></a>
+                                    <!--{/if}-->
+                                    <h2><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{$m[name]}</a></h2>
+                                    <p><a href="{SPACE_URL}{$m['alias']}?typeid={$m['typeid']}&spaceid={$m['spaceid']}">{str_cut(strip_tags($m[description]),200,'...')}</a></p>
+                                </li>
+                            <!--{/loop}-->   
+                        </ul>
+                        <div class="page">
+                            <tr>
+                               <!--{space_pages($data[total], $page, 9, 2, null, false, 'td', 'on', '&lt;', '&gt;')}-->
+                            </tr>
+                            <span>共<i>{$page}/{ceil($data[total]/$pagesize)}</i>页 , <i>{$data[total]}</i>记录</span>
+                        </div>
+                    </div>
+                    
+               

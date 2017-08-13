@@ -1,0 +1,12 @@
+.footer{width: 100%; border-top: 1px solid #d2d2d2; overflow: hidden;}
+.footer ul{width: 770px; margin: 0 auto; overflow: hidden; padding-bottom: 13px; padding-top: 20px; border-bottom: 1px dashed #d9d9d9;}
+.footer ul li{float: left;}
+.footer ul li a{color: #006e97;}
+.footer ul span{ color: #c6c6c6; margin-left: 18px; margin-right: 22px;}
+.footer p{ text-align: center; color: #666; font-family: "Times New Roman", Times, serif; line-height: 28px;}
+.footer p a{color: #006e97;font-family: "Arial"}
+/*#nav{width:200px; margin:50px}
+#nav h3{ cursor:pointer; line-height:30px; height:30px; background-color:#000000; color:#fff}
+#nav a{display:block; line-height:24px;color:#666666}
+#nav a:hover{background-color:#eee; color:#000;}
+#nav div{display:none; border:1px solid #000; border-top:none}*/

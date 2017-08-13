@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>报名：{$content[title]}</title>
+
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+<div class="ui-container">
+    <section>
+        <header>
+            <div class="ui-header-bar">
+                <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+                <div class="ui-pagetitle">我要报名</div>
+                <div class="ui-menu-trigger js-menubtn-top"></div>
+            </div>
+        </header>
+        <!--{template 'mobile/touch/_blocks/nav.html'}-->
+        <!-- 报名 -->
+        <div class="ui-activity-signup-container">
+            <p>
+                <em>*</em> 为必填选项
+            </p>
+            <div>
+                <form id="form-activity-signup" method="post" action="{MOBILE_URL}{if $content_source}{$content_source}{else}activity{/if}/signup" class="ui-login-form ui-signup-form js-form-focusblur ui-vote-form">
+                    <input type="hidden" name="contentid" value="{$content[contentid]}" />
+                    <!--{loop $content[activity][fields] $name $field}-->
+                    <?php $options = activityField::parseOptions($field[options][option]); ?>
+                    <div class="ui-form-option">
+                        <p class="label">
+                            {$field[label]}
+                            <!--{if $field[need]==1}--><em>*</em><!--{/if}-->
+                        </p>
+                        <!--{if $field[type] == 'text'}-->
+                        <input type="text" name="{$field[fieldid]}" />
+                        <!--{elseif $field[type] == 'radio'}-->
+                        <div>
+                            <!--{loop $options $index $option}-->
+                            <?php if (is_array($option)) {
+                                $k = $option[0];
+                                $v = $option[1];
+                            } else {
+                                $k = $v = $option;
+                            }?>
+                            <div class="ui-vote-item">
+                                <a class="ui-voteitem" data-type="radio">{$k}</a>
+                                <input type="hidden" name="{$field[fieldid]}" value="{$v}" disabled />
+                            </div>
+                            <!--{/loop}-->
+                        </div>
+                        <!--{elseif $field[type] == 'checkbox'}-->
+                        <div class="ui-vote-type-checkbox">
+                            <!--{loop $options $index $option}-->
+                            <?php if (is_array($option)) {
+                                $k = $option[0];
+                                $v = $option[1];
+                            } else {
+                                $k = $v = $option;
+                            }?>
+                            <div class="ui-vote-item">
+                                <a class="ui-voteitem" data-type="checkbox">{$k}</a>
+                                <input type="hidden" name="{$field[fieldid]}[]" value="{$v}" disabled />
+                            </div>
+                            <!--{/loop}-->
+                        </div>
+                        <!--{elseif $field[type] == 'select'}-->
+                        <div>
+                            <!--{if $field['options']['limit'] > 1}-->
+                            <select name="{$field[fieldid]}[]" multiple="multiple" maxsize="{intval($field['options']['limit'])}">
+                                <!--{else}-->
+                                <select name="{$field[fieldid]}">
+                                    <!--{/if}-->
+                                    <option value="">请选择</option>
+                                    <!--{loop $options $index $option}-->
+                                    <option value="{if is_array($option)}{$option[1]}{else}{$option}{/if}">{if is_array($option)}{$option[0]}{else}{$option}{/if}</option>
+                                    <!--{/loop}-->
+                                </select>
+                        </div>
+                        <!--{elseif $field[type] == 'textarea'}-->
+                        <textarea name="{$field[fieldid]}" cols="30" rows="4"></textarea>
+                        <!--{elseif $field[type] == 'photo'}-->
+                        <input type="file" name="{$field[fieldid]}" accept="image/*" />
+                        <!--{elseif $field[type] == 'file'}-->
+                        <input type="file" name="{$field[fieldid]}" />
+                        <!--{/if}-->
+                    </div>
+                    <!--{/loop}-->
+                    <div>
+                        <input type="submit" value="确定">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- @end报名 -->
+    </section>
+</div>
+<!-- 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<script>
+    $(function() {
+        // 底部栏目选择
+        var bb = $('.js-menubtn-bottom');
+        bb.click(function() {
+            $('.js-categorys-bottom').toggleClass('js-hidden');
+            setTimeout(function() {
+                document.body.scrollTop = document.body.clientHeight;
+            }, 50);
+        });
+
+        var form = $('#form-activity-signup');
+        form.submit(function() {
+            $.post(form.attr('action'), form.serialize(), function(json) {
+                if (json && json.state) {
+                    form[0].reset();
+                    alert('报名成功');
+                    history.back();
+                } else {
+                    alert(json && json.error || '报名失败，请重试');
+                }
+            }, 'json');
+            return false;
+        });
+
+        $('.ui-voteitem').click(function() {
+            var _this = $(this), size;
+            var type = _this.attr('data-type');
+            if (type === 'radio') {
+                _this.parents('.ui-form-option').find('.ui-voteok').removeClass('ui-voteok').next().attr('disabled', 'disabled');
+                _this.addClass('ui-voteok');
+                _this.next('input').attr('disabled', null);
+            } else {
+                if (_this.hasClass('ui-voteok')) {
+                    _this.removeClass('ui-voteok');
+                    _this.next('input').attr('disabled', 'disabled');
+                } else {
+                    _this.addClass('ui-voteok');
+                    _this.next('input').attr('disabled', null);
+                }
+            }
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <title>留言本_{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="{$SYSTEM[seokeywords]}" />
+    <meta name="description" content="{$SYSTEM[seodescription]}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.common.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.picture.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.basecolor.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.singup.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.dialog.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.member.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.datepicker.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.special.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.index.css" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop.guestbook.css" />
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.common.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.dialog.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.datepicker.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.imagetab.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.gotop.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/cmstop.grids.js"></script>
+    <!-- IE8及IE8以下浏览器都支持HTML5 -->
+    <!--[if lt IE 9]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- IE6支持png24 -->
+    <!--[if lt IE 7 ]>
+        <script src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png24/iepngfix_tilebg.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+    <!--{template "system/head_simple_php.html"}-->
+    <div class="guestbook-gray">
+        <div class="hr10"></div>
+        <div class="column">
+            <!--#include virtual="/section/9.html"--><!--# 全局广告 顶通 1000 x 80 #-->
+        </div>
+        <div class="hr20"></div>
+
+        <!--# 留言分类 #-->
+        <div class="column guest-type">
+            <div class="fl-l"><a class="anchor" href="#post">发表留言</a></div>
+            <div class="fl-r">
+                <!--{loop $type $k $r}-->
+                <a href="{APP_URL}{url('guestbook/index/index')}&typeid={$r[typeid]}" title="" class="type{if $r[typeid] == $_GET[typeid]} now{/if} {if !$typeid && $k == 0} now{/if}">{$r[name]}</a>
+                <!--{/loop}-->
+            </div>
+        </div>
+        <div class="hr10"></div>
+        <!--{if count($data)}-->
+        <div class="column">
+            <div class="waterfall js-waterfall guestbook-waterfull">
+                <!--{loop $data $k $v}-->
+                <div class="item">
+                    <div class="title"><small>[<?php echo $type[$v[typeid]][name];?>]</small>&nbsp;{str_natcut($v['title'], 18)}</div>
+                    <div class="content">{$v['content']}</div>
+                    <div class="ov">
+                        <div class="author fl-l" title="{$v['username']}">{str_natcut($v['username'], 4, '')}</div>
+                        <div class="createat fl-r">{$v['addtime']}</div>
+                    </div>
+                    <div class="reply">评论管理员：{$v['reply']}</div>
+                </div>
+                <!--{/loop}-->
+            </div><!--# 瀑布流 #-->
+            <div class="hr20"></div>
+            <div class="align-c">
+                <div class="pagination ov">
+                    {$multipage}
+                </div>
+            </div>
+        </div>
+        <div class="hr40"></div>
+        <!--{/if}-->
+       </div>
+    <!--# 表单 #-->
+    <div class="column">
+        <div class="hr40"></div>
+        <div id="post" class="post-form">
+            <div class="m-title-a">
+                <h2 class="m-title-h2">发表留言</h2>
+            </div>
+        </div>
+        <div class="hr20"></div>
+        <form class="guestbook-post-form ov" method="POST" id="guestbook_form" action="{url('guestbook/index/add')}" onsubmit="return formSubmit();">
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><em>*</em>类型</div>
+                <div class="col-5">
+                    <!--{loop $type $k $r}-->
+                    <label><input id="typeid_{$r[typeid]}" type="radio"  {if $r[typeid] == $typeid} checked="checked" {/if} {if !$typeid} checked="checked" {/if} value="{$r[typeid]}" name="typeid">{$r[name]}</label>
+                    <!--{/loop}-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><em>*</em>标题</div>
+                <div class="col-5">
+                    <input type="text" name="title" class="long" required>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><em>*</em>内容</div>
+                <div class="col-5">
+                    <textarea name="content" type="text" class="long" required rows="6"></textarea>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><em>*</em>姓名</div>
+                <div class="col-2">
+                    <input type="text" class="short" name="username" required>
+                </div>
+                <!--{if $SETTING['option']['gender']}-->
+                <div class="col-1 align-c"><!--{if $SETTING['option']['isgender']}--><em>*</em><!--{/if}-->性别</div>
+                <div class="col-2">
+                    <label><input type="radio" name="gender" value="1" checked="checked">男</label>
+                    <label><input type="radio" name="gender" value="0">女</label>
+                </div>
+                <!--{/if}-->
+                <div class="col-2 info"></div>
+            </div>
+            <!--{if $SETTING['option']['mobile']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['ismobile']}--><em>*</em><!--{/if}-->手机</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="mobile"{if $SETTING['option']['ismobile']} required{/if}>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['option']['telephone']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['istelephone']}--><em>*</em><!--{/if}-->电话</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="telephone"{if $SETTING['option']['istelephone']} required{/if}>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['option']['qq']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['isqq']}--><em>*</em><!--{/if}-->QQ</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="qq"{if $SETTING['option']['isqq']} required{/if}>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['option']['msn']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['ismsn']}--><em>*</em><!--{/if}-->MSN</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="msn"{if $SETTING['option']['ismsn']} required{/if}>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['option']['homepage']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['ishomepage']}--><em>*</em><!--{/if}-->个人主页</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="homepage"{if $SETTING['option']['ishomepage']} required{/if} value="http://">
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['option']['address']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r"><!--{if $SETTING['option']['isaddress']}--><em>*</em><!--{/if}-->地址</div>
+                <div class="col-5">
+                    <input type="text" class="long" name="address"{if $SETTING['option']['isaddress']} required{/if}>
+                </div>
+                <div class="col-2 info"></div>
+            </div>
+            <!--{/if}-->
+            <!--{if $SETTING['iscode']}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r">&nbsp;</div>
+                <div class="col-5">
+                    <input type="text" name="seccode" style="width:80px" placeholder="验证码" />
+                    <img src="?app=system&controller=seccode&action=image" id="seccodeimg" onclick="this.src='?app=system&controller=seccode&action=image&id='+Math.random()*5;" style="cursor:pointer;" alt="验证码,看不清楚?请点击刷新验证码" align="absmiddle" height="30" /> <a href="javascript:;" onclick="$(this).prev().click();" class="reload"></a>
+                </div>
+            </div>
+            <!--{/if}-->
+            <div class="row">
+                <div class="col-1 margin-r-20 align-r">&nbsp;</div>
+                <div class="col-2"><button type="submit">确定</button></div>
+            </div>
+        </form>
+        <div class="hr30"></div>
+    </div>
+    <!--# 底部 #-->
+    <!--#include virtual="/section/2.html"--><!--# 公共区块 网站底部 #-->
+    <script>
+        var maxText = {$SETTING['replymax']};
+        var needReply = {$SETTING['repliedshow']};
+        var needLogin = {$SETTING['memberguest']};
+        var userid = {intval($_userid)};
+        var $regexs = {
+            email : /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+            telephone : /^((\(\d{2,3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}(\-\d{1,4})?$/,
+            mobile : /^((\(\d{2,3}\))|(\d{3}\-))?1\d{10,10}$/,
+            homepage : /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"])*$/,
+            qq : /^[1-9]\d{4,11}$/,
+            msn : /^[1-9]\d{4,8}$/
+        };
+        $(function(){
+       
+           // 瀑布流
+           $('.js-waterfall').waterfall({
+                width: 230,
+                gutter: 20,
+                selector: '.item',
+                fadein: true,
+                isScrollLoad: false,
+                loadButton: $('.js-append')
+           });
+
+           // 模拟加载
+           var makeboxs = function() {
+                var arrs = [];
+                var amount = Math.floor(Math.random()*10); 
+                if (amount == 0) amount = 1;
+                var div = '';
+
+                var txt = ['奇装异服的自由范儿','希望赢得更多冠军','救助者被遗忘','曾遭叛军包围不投降','网上慈善不再盯着大款 移动互联网点化“开粥厂”','乌鲁木齐三姐妹耗资40万救助400余只流浪狗','警方通过视频锁定嫌疑人'];
+
+                for( var i = 0; i < amount; i++) {
+                    var imgamount = Math.floor(Math.random()*7);
+                    if(imgamount == 0) imgamount = 1;
+                    var alink = '<a href=""><img src="img/water'+imgamount+'.png" alt="" /><p>'+txt[imgamount]+'</p></a>';
+                    div += '<div class="item"><div class="border">'+alink+'</div></div>';
+                }
+                return div;
+           };
+
+        });
+
+        var formSubmit = function() {
+            if ($('[name="homepage"]').val() == 'http://') { 
+                $('[name="homepage"]').val('');
+            }
+            if(needLogin==1 && userid == 0) {
+                alert('请登录后留言');
+                return false;
+            }
+            if(!validateGuesetBook($('#guestbook_form'))) {
+                return false;
+            }
+            return true;
+        }
+
+        function validateGuesetBook(jQ) {
+            var inputs = jQ.find('input,textarea');
+            var name;
+            var counter = inputs.length+1;
+            inputs.each(function(){
+                name = this.name;
+                var d = $(this);
+                var value = d.val();
+                if(d.hasClass('required') && value == '') {
+                    d.parents('.row').find('.info').html('必须填写');
+                    counter--;
+                } else if (value != '' && $regexs[name] != undefined) {
+                    if(!$regexs[name].test(value)) {
+                        if (name == 'telephone') {
+                            d.parents('.row').find('.info').html('格式不正确, 例如：010-12345678');
+                        } else {
+                            d.parents('.row').find('.info').html('格式不正确');
+                        }
+                        counter--;
+                    }
+                }
+            });
+            if(counter < inputs.length+1) return false;
+            return true;
+        }
+    </script>
+</body>
+</html>

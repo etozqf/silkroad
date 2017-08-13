@@ -1,0 +1,17 @@
+/*
+ @name 白底黑色小箭头
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-arrow-b {
+	overflow: hidden;
+	background:#fff url("images/bg.png") no-repeat 0 2px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+	border-bottom:1px solid #ddd;
+	padding-left:20px;
+}
+.title-arrow-b a,
+.title-arrow-b span {}

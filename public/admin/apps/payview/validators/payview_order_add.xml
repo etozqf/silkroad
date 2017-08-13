@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+	<username tips="请填写用户名">
+		<required event="submit">请填写用户名</required>
+		<min args="2">用户名长度不够</min>
+		<max args="16">超过最大长度</max>
+		<ajax args="?app=payview&amp;controller=payview_order&amp;action=check_username&amp;" event="blur"></ajax>
+	</username>
+	<starttime tips="请选择开始时间">
+		<required event="submit">请选择开始时间</required>
+	</starttime>
+	<endtime tips="请选择结束时间">
+		<required event="submit">请选择结束时间</required>
+	</endtime>
+</root>

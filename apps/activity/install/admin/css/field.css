@@ -1,0 +1,16 @@
+.field-type-options {
+    line-height: 24px;
+}
+.field-type-options .options-row {
+    margin: 0 0 5px;
+    clear: both;
+    overflow: hidden;
+}
+.options-row input,
+.options-row textarea {
+    float: left;
+}
+.options-row span {
+    float: left;
+    margin-left: 5px;
+}

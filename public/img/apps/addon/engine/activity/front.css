@@ -1,0 +1,69 @@
+.addon-activity {
+    clear: both;
+    border: solid 1px #DDD;
+    background: #FFF;
+    margin: 15px auto;
+    padding: 0;
+    position: relative;
+}
+.addon-activity .activity-banner {
+    position: absolute;
+    width: 50px;
+    height: 49px;
+    left: 0;
+    top: 0;
+    background: url(images/icon.png) no-repeat 0 0;
+    _background-image: url(images/icon-ie6.png);
+}
+.addon-activity .activity-title {
+    background: #F5F5F5;
+    padding: 0 55px;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+}
+.addon-activity .activity-title a,
+.addon-activity .activity-title a:visited {
+    white-space: nowrap;
+    color: #0066CC;
+    font-size: 14px;
+    text-decoration: none;
+}
+.addon-activity .activity-title a:hover,
+.addon-activity .activity-title a:active {
+    color: #0066CC;
+    text-decoration: underline;
+}
+.addon-activity .activity-info {
+    padding: 16px 50px 18px;
+    color: #666;
+    font-size: 12px;
+    line-height: 20px;
+}
+.addon-activity .activity-info .activity-icon-time {
+    float: left;
+    width: 14px;
+    height: 14px;
+    background: url(images/icon.png) no-repeat 0 -50px;
+    _background-image: url(images/icon-ie6.png);
+    margin: 2px 5px 0 0;
+}
+.addon-activity .activity-button,
+.addon-activity .activity-button:focus {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    float: right;
+    display: inline-block;
+    _zoom: 1;
+    background: transparent url(images/icon.png) no-repeat 0 -64px;
+    _background-image: url(images/icon-ie6.png);
+    width: 68px;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    font-weight: normal;
+}
+.addon-activity .activity-intro {
+    margin-top: 15px;
+}

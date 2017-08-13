@@ -1,0 +1,49 @@
+/* left */
+.video-search-btn { margin-top: -2px;}
+.video-search-cond-title { margin: 10px 0 0 4px; font-size: 13px; font-weight: bold;}
+.video-search-cond { width: 100px;}
+.video-search-cond a {margin: 2px 8px; display: inline-block;}
+.video-search-cond a.cur { color: #FFFFFF; background: #AAAAAA; margin: 1px 6px; padding: 1px 2px;}
+
+/* right */
+.video-search-result { padding: 0 10px; width: 638px; height: 436px; overflow-x: hidden; overflow-y: auto; position: relative;}
+.video-search-list { padding-top: 8px;}
+.video-search-item { float: left; margin: 4px; width: 146px; height: 130px; overflow: hidden;}
+.video-search-item-thumb { position: relative; padding: 2px; border: 1px #cccccc solid;}
+.video-search-item-overlay,.video-search-item-time,.video-search-item-preview { position: absolute; bottom: 3px; width: 128px; height: 18px; text-align: right; padding-right: 12px;}
+.video-search-item-overlay { background: #000000; opacity: .5; filter: alpha(opacity=50); left: 2px;}
+.video-search-item-time { color: #FFFFFF; line-height: 18px; right: 0;}
+.video-search-item-title { padding: 2px 0 0 2px;}
+.video-search-item-title a {color: #000000;}
+.video-search-item-source { padding-left: 2px;}
+.video-search-item-source span { color: #FF0000; }
+.video-search-item-preview  {display: block; width: 16px; height: 16px; left: 6px; bottom: 4px; cursor: pointer; background: url("images/pic-action.gif")}
+.video-search-more { 
+	width: 100%; height: 40px; line-height: 40px; text-align: center; border: 1px #ddd solid; margin-top: 2px; 
+	background-color: #eee;
+	background-image: linear-gradient(bottom, #eaeaea 30%, #eee 80%);
+	background-image: -o-linear-gradient(bottom, #eaeaea 30%, #eee 80%);
+	background-image: -moz-linear-gradient(bottom, #eaeaea 30%, #eee 80%);
+	background-image: -webkit-linear-gradient(bottom, #eaeaea 30%, #eee 80%);
+	background-image: -ms-linear-gradient(bottom, #eaeaea 30%, #eee 80%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.3, #eaeaea),
+		color-stop(0.8, #eee)
+	);
+}
+.video-search-blank { height: 22px; background: #FFFFFF; position: fixed; width: 628px; bottom: 0px; right: 22px;}
+
+.video-search-index { position: relative; height: 420px; overflow: hidden;}
+.video-search-index-title { margin-top: 70px; text-align: center; color: #6095B7; font-size: 36px;}
+.video-search-index-form { width: 480px; margin: 22px auto;}
+.video-search-index-input { width: 362px; height: 32px; padding: 3px 12px; margin: 0; border: 1px #999999 solid; box-shadow: inset 1px 1px 3px #C3C3C3;}
+.video-search-index-input:focus { border: 1px #3EABFF solid; box-shadow: 0px 0px 1px #1681D3, inset 1px 1px 3px #C3C3C3;}
+.video-search-index-submit { width: 70px; height: 40px; background: url(images/search.png); border: none; cursor: pointer; vertical-align: top;}
+.video-search-description { color: #CCCCCC; font-size: 14px; text-align: center; width: 410px; margin: 0 auto; line-height: 20px;}
+.video-search-description span { color: #999999; font-weight: bold;}
+.video-search-foot { position: absolute; bottom: 4px; left: 6px; line-height: 22px; color: #999999; margin-left: 8px; width: 200px;}
+.video-search-foot img { position: relative; top: 7px; margin-left: 8px;}

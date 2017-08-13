@@ -1,0 +1,104 @@
+.left_menu{width: 240px; height: auto; position: relative; float: left;  _display: inline; background-color:#ffffff;clear:both;overflow:hidden;
+        box-shadow:2px 3px 3px 0 #e8e8e8; padding-bottom: 40px;}
+.left_menu li{width: 200px; float: left; margin-left: 20px; text-indent: 10px; line-height: 45px;  border-bottom: 1px solid #d1d1d1; font-size: 16px;}
+.left_menu li a{color: #282828;}
+.left_menu li a:hover{color: #f04035;}
+.left_menu li.on a{color: #f04035;}
+.left_menu li.on .icon-jl{display: block;}
+.right_data{width:740px; float: right; _display: inline; }
+.data{width: 100%; overflow: hidden;}
+.icon-jl{width:5px; height: 10px; float: right; background: url("images/jian-l.png") no-repeat; margin-right: 10px; margin-top: 15px; display: none; }
+.icon-jb{width:10px; height: 5px; float: right; background: url("images/jian-b.png") no-repeat; margin-right: 10px; margin-top: 15px; display: none; }
+.hr-100{width: 100%; height:100px; overflow: hidden;}
+.hr-200{width: 100%; height:200px; overflow: hidden;}
+.left_menu li.selcets  .li_dl{width: 200px; line-height: 40px; display: none;}
+.left_menu li.selcets  .li_dl.show{display: block;}
+.left_menu li.selcets  .li_dl dd.curr{background: #f4f4f4; color: #125faf;}
+.left_menu li.selcets .li_dl dd{width: 100%; height: 40px; line-height: 40px; text-indent: 25px; float: left; cursor: pointer; overflow: hidden;}
+.left_menu li.selcets{width: 200px; line-height: 45px;  float: left;   _display: inline; }
+/*line-height:30px;width:118px;position:absolute;top:30px;left:0px;display:none; z-index: 100;*/
+.left_menu li.selcets .li_dl dd a{color: #282828;}
+/*右侧*/
+/*动态信息*/
+.msg-box{width: 100%; background: #fff;  overflow: hidden;}
+.msh-show{padding: 20px 20px 20px 20px;}
+.msh-show .summary-list li a{width: 450px;}
+.msg-conts{width: 100%; background: #fff;overflow: hidden;}
+.conts-box{padding: 30px 40px; }
+.conts-box h3{width: 100%; overflow: hidden; font-size: 18px; color: #3a3a3a; line-height: 30px;}
+.conts-box p.tit-summary{width: 100%; font-size: 12px; line-height: 18px; color: #7f7f7f; text-indent:0px;}
+.tit-box{width: 580px; border-bottom: 1px dashed #ccc; padding-bottom: 15px; margin-bottom: 10px;}
+.conts-box p{ font-size: 14px; line-height: 27px; color: #333; text-indent: 24px;}
+.a_tit{ font-size:12px; color: #333; width: 100%; overflow: hidden;}
+.a_tit ul{width: 680px;overflow: hidden;}
+.a_tit ul li{margin-right: 40px; float: left;}
+.a_tit a{color: #333;}
+.a_tit a:hover{color: #f04035;}
+.img-p{float: left; margin-left: 40px; width: 540px;}
+.img-p p{width: 100%; overflow: hidden; text-indent: 0px;}
+/*IP案例*/
+#t-data2{width: 100%; background: #fff;overflow: hidden; padding: 30px 20px 20px 20px;}
+.bor-b{border-bottom: 1px dashed #e5e5e5;}
+.summary-list li{height: 42px;overflow: hidden; line-height: 42px; width: 690px;}
+.summary-list li:hover{background: #f3f3f3;}
+.summary-list li a{font-family: "Microsoft YaHei", "微软雅黑";color: #8a8a8a;width:530px;font-size: 16px;overflow: hidden;
+        display: block;line-height: 42px;text-decoration: none; }
+.summary-list li em{margin:0 10px;color: #b3b3b3;line-height: 42px;overflow: hidden;}
+.summary-list li .txt{width: 80px;color: #999; margin-right: 20px;}
+.summary-list li .txt span,.summary-list li .txt i{display: block;text-align: center;line-height: 18px;font-style: normal;font-size: 12px;}
+.summary-list li.on{background: #f3f3f3}
+/*特约观察*/
+.observa,.view{width: 100%; background: #fff; overflow: hidden; padding-bottom: 50px;}
+.observa .pic-summary li{width: 220px; float: left; margin-right: 15px; margin-top: 25px;}
+.observa .pic-summary{width: 700px; overflow: hidden; margin-left: 20px;}
+.h-img{width: 45px; height: 45px; border-radius: 50%;}
+.h-t{color: #0c3b8b;}
+.h-t:hover{color: #ce2029;}
+.a-span{width: 170px; float: right; line-height: 20px; font-size: 14px;}
+.observa .pic-summary p{width: 100%; height: 54px; color: #747474; overflow: hidden; font-size: 12px; float: left; line-height: 18px; margin-top: 5px;}
+.observa .pic-summary p.ph-18{height: 18px; overflow: inherit;}
+.observa .pic-summary p span{margin-left: 2px;}
+.pic-summary ul{width: 735px; overflow: hidden;}
+.view-list{width: 700px; overflow: hidden; margin-left: 20px;}
+.view-list .summary-list li a{color: #1d8dce;width:450px;}
+.summary-list li a.view-add{float: left;width: 30px; font-size: 12px; margin-left:40px;color: #1d8dce;}
+.summary-list li a.view-look{float: right;width: 30px; font-size: 12px; color: #1d8dce;}
+/*IP环境概览*/
+#t-data5{width: 100%; background: #fff;overflow: hidden; padding-bottom: 50px;}
+#t-data6{width: 100%; background: #fff;overflow: hidden; padding-bottom: 50px;}
+.mar-t-5{margin-top: 5px;}
+.mar-r-20{margin-right: 20px;}
+.top_box{width: 710px;height: 85px; background: #f5f7f6;  overflow: hidden; margin-left: 15px; border: 1px solid #eaeceb;}
+.flag{width:84px; height: 55px; float: left; margin-top: 10px; margin-left: 20px; }
+.top_box p{width: 400px; float: left; color: #221e2d; font-size: 12px; font-weight: bold; line-height: 85px; overflow: hidden; margin-left: 10px;}
+.top_box p span{font-size: 16px; color: #767272; font-weight: normal;}
+.ques-box{width: 710px; overflow: hidden; margin-left: 15px; }
+.ques-list{width: 710px; background: #f5f7f6; padding-bottom: 20px; overflow: hidden; border: 1px solid #eaeceb;}
+.ques-line{width: 100%; height: 7px; background: url("images/line-bg.jpg") no-repeat; overflow: hidden;}
+.ques-list li{width: 339px; height: 28px; float: left; margin-left: 15px; font-size: 12px; line-height: 28px; overflow: hidden; margin-top: 5px;}
+.ques-list li a:hover{color: #ff595c;}
+.ques-icon,.ques-icon1{width:18px; height: 27px; background: url("images/icon.jpg") no-repeat; float: left; margin-right: 3px;}
+.ques-icon1{background: url("images/icons.jpg") no-repeat; margin-top: 4px; margin-right: 10px;}
+.ques-icon2{width: 19px; height: 20px; background: url("images/icon1.jpg") no-repeat; float: left; margin-top: 5px; }
+.ques-cont{width: 708px; border: 1px solid #ebebeb; border-radius: 5px;}
+.qc-box{width: 608px; float: left; margin-left: 50px;}
+.qc-box h3{width: 100%; font-size: 18px; height: 30px; line-height: 30px; overflow: hidden; color: #ff595c; font-weight: bold;}
+.qc-box h4{font-size: 12px; font-weight: bold; color: #000102; height: 30px; line-height: 30px; margin-left: 30px;}
+.qc-box p{font-size: 12px; color: #000102; line-height: 26px; width: 550px; float: left; margin-left: 20px; text-indent: 24px;}
+/*专利布局预警*/
+.yuj_list{width: 100%; overflow: hidden; background: #fff; padding-bottom: 50px;}
+.list_box{width: 700px;  margin-left: 20px; height: auto; overflow: hidden;}
+.yuj_list ul{width: 720px; overflow: hidden;}
+.yuj_list li{float: left; width: 720px; border-bottom: 1px dashed #a2a2a2; overflow: hidden; padding-bottom: 10px; margin-right: 20px; margin-top: 20px;}
+.txt-box{width: 600px; float: left; margin-left: 20px;}
+.txt-box h3{font-size: 14px;font-weight: bold; float: left; width: 165px; overflow: hidden; height: 18px; line-height: 18px; overflow: hidden;}
+.txt-box h3 a:hover{color: #ce2029;}
+.txt-box h3 a{color: #2c2e38;}
+.txt-box h2{ float: right; width: 80px; font-size: 12px; line-height: 18px; height: 18px; overflow: hidden; }
+.txt-box p{font-size: 12px; line-height: 18px; height: 55px; overflow: hidden;width: 100%; float: left;color: #2c2e38;}
+
+#t-data2 { padding: 0px 20px 20px 20px;}
+#t-data2 .hd { margin-bottom:10px;}
+.msh-show .hd{ margin-bottom:10px;}
+
+li#select.on dl { display: list-item;}

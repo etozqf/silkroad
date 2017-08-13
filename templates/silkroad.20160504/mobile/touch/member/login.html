@@ -1,0 +1,72 @@
+<div id="form-login-container" class="ui-login ui-carbonfibre" style="display:none;">
+    <div class="ui-form-warn"></div>
+    <form id="form-login" action="{MOBILE_URL}member/login" class="ui-login-form js-form-focusblur">
+        <div>
+            <label>姓名</label>
+            <input type="text" name="username">
+            <div class="ui-validate-info" style="display:none;">用户名不能为空</div>
+        </div>
+        <div>
+            <label>密码</label>
+            <input type="password" name="password">
+            <div class="ui-validate-info" style="display:none;">密码不能为空</div>
+        </div>
+        <div>
+            <input type="submit" value="登录">
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="{IMG_URL}js/lib/md5.js"></script>
+<script type="text/javascript">
+    $(function() {
+        // 聚焦
+        var jsFormContainer = $('.js-form-focusblur');
+        var oName = jsFormContainer.find('input[type="text"]');
+        inputfocusblur(oName,oName.prev(), 'js-hidden');
+        var oPwd = jsFormContainer.find('input[type="password"]');
+        inputfocusblur(oPwd,oPwd.prev(), 'js-hidden');
+        var oTextarea = jsFormContainer.find('textarea');
+        inputfocusblur(oTextarea,oTextarea.prev(), 'js-hidden');
+
+        var container = $('#form-login-container');
+        var boxLoginVisible = false;
+        var btnLogin = $('#btn-login').click(function() {
+            if (boxLoginVisible) {
+                container.hide();
+                btnLogin.text('登录');
+                boxLoginVisible = false;
+            } else {
+                container.show();
+                btnLogin.text('取消');
+                boxLoginVisible = true;
+            }
+            return false;
+        });
+        var form = $('#form-login').submit(function() {
+            if (!form[0].username.value) {
+                $(form[0].username).next('.ui-validate-info').show();
+                return false;
+            } else {
+                $(form[0].username).next('.ui-validate-info').hide();
+            }
+            if (!form[0].password.value) {
+                $(form[0].password).next('.ui-validate-info').show();
+                return false;
+            } else {
+                $(form[0].password).next('.ui-validate-info').hide();
+            }
+            $("#form-login").find('input[name="password"]').val(hex_md5($('#form-login').find('input[name="password"]').val()));
+            $.post(form.attr('action'), form.serialize(), function(json) {
+                if (json.state) {
+                    form[0].reset();
+                    container.hide();
+                    $(window).trigger('login');
+                    alert('登录成功');
+                } else {
+                    window.location.href = "{APP_URL}{url('member/index/login')}";
+                }
+            }, 'json');
+            return false;
+        });
+    });
+</script>

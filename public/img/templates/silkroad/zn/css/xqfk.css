@@ -1,0 +1,28 @@
+.crumbs{line-height:1;padding:25px 0 10px;width:1000px;margin:0 auto;}
+.crumbs a{color:#0079c6;}
+.crumbs a:hover{color:#ff6c00;}
+.container{width:1000px;margin:0 auto 20px;}
+.hd{margin:10px auto;padding:0px;height:40px;border-bottom:solid 2px #dcdcdc;clear:both;position:relative;z-index:1;}
+.hd h3{left:0px;top:0px;display:inline-block;font-size:24px;font-weight:normal;line-height:40px;text-align:center;height:40px;border-bottom:solid 2px #c81623;padding:0 24px;position:absolute;z-index:3;}
+.left730 .bd{padding:20px;}
+.suggest-form{}
+.suggest-form dl{ position: relative; padding-left: 120px;margin-bottom: 15px;}
+.suggest-form dt{width: 110px; text-align: right; color: #666; position: absolute; left:0; top:0;}
+.suggest-form dd{}
+.suggest-form textarea{height: 200px; border: 1px solid #e6e7ed; width:550px; padding: 10px; vertical-align: top;}
+.suggest-form .inp{ border: 1px solid #e6e7ed;height: 30px; width: 246px;padding: 0 10px;}
+.suggest-form .formtip{color: #666; margin-left: 10px; font-size: 12px;}
+.suggest-form .subbtn{ width: 138px; height: 46px; color: #fff; font-size: 20px; background: #ff6c00; border-radius: 2px; cursor: pointer; border: none;} 
+.tabbtn{overflow: hidden;}
+.tabbtn span{display: block; float: left; padding: 0 15px; height: 28px; line-height: 28px; color: #0079c6; cursor: pointer;}
+.tabbtn span.on{background: #0079c6; color: #fff; border-radius: 2px;}
+.tabbox{display: none;}
+.right250 .bd{padding: 20px 12px;}
+.contact{line-height: 1; margin-bottom: 18px; overflow: hidden;}
+.contact dt{font-size: 16px; color: #333; padding-left: 20px; margin-bottom: 15px;}
+.contact dd{padding-left: 20px; background: url(../images/ico-contact.jpg) no-repeat; margin-bottom: 12px; line-height: 16px;font-size: 12px;}
+.contact dd.tel{}
+.contact dd.fax{background-position: 0 -26px;}
+.contact dd.eml{ background-position: 0 -48px;} 
+.contact dd.eml a{color: #0079c6;}
+.contact dd.eml a:hover{color: #ff6c00;}

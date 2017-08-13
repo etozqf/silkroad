@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <?php $sitename = explode('&',$SYSTEM[sitename]);?>
+
+    <title>{$title}_{$m[name]}_{$sitename[1]}</title>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/report.css"/>
+    <script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+	<script>
+		catname_top = '报告';	// 顶级栏目名称
+		catname = '{$m[name]}';
+	</script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 顶部 -->
+<!--{template "system/head.html"}-->
+<!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+<!--{if $m[mid] == 8}-->
+    <!--#include virtual="/section/306.html"--><!--# 英文版思路报告 英文版国别报告-国别区块 #-->
+<!--{/if}-->
+<div class="columnA ov mar-t-20">
+    <div class="col-l-main ov ">
+        <div class="bor-rb  ov  ">
+            <div class="bor-trbl ov h-1515">
+                <div class="silk mar-t-15">
+                    <!--标题-->
+                    <div class="mod-tit-box">
+                        <h3 class="tit-h3"><a href="" target="_blank">{$title}</a>
+                        </h3>
+                        <span class="dates">{date('Y-m-d H:i:s', $created)}</span>
+                    </div>
+
+                    <div class="pic-summary">
+                        <!--Silk Road Weekly-->
+                        <div class="silk-show mar-t-25">
+                            <div class="homebanner1">
+                                <ul class="imgs">
+                                    <li>
+                                        <a href="JavaScript:;" target="_blank">
+                                            <img src="{thumb(UPLOAD_URL . $image,240,340,1)}"
+                                                 width="242" height="342"
+                                                 alt=""/>
+                                        </a>
+                                    </li>
+                                </ul>>
+                            </div>
+                            <div class="silk-cont">
+                                <p>{str_cut($description, 800, '...')}</p>
+                                <a href="{APP_URL}?app=magazine&controller=download&id={$eid}&from=en" target="_blank" class="Subscribe fon-20 mar-t-30">
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                        <!--Latest Issues-->
+
+                    </div>
+
+                </div>
+                <div class="hr15"></div>
+                <div class="b-tit-box mar-t-25">
+                    <h3 class="b-h3"><a href="">Visual Info</a>
+                    </h3>
+                </div>
+            <div class="pic-summary">
+                <div class="pic-list1 mar-t-20">
+                    <!--#include virtual="/section/320.html"--><!--# 英文公共区块 图片资讯 #-->
+                </div>
+
+            </div>
+            </div>
+        </div>
+       </div>
+    <div class="bor-rb col-r-main ov">
+        <div class="bor-trbl ov h-1515">
+            <!--#include virtual="/section/310.html"--><!--# 英文公共区块 英文版右侧-定制报告（Customized Report） #-->
+            <!--#include virtual="/section/314.html"--><!--# 英文公共区块 英文版右侧-国别报告(China Factbook) #-->
+            <!--#include virtual="/section/327.html"--><!--# 英文公共区块 英文版右侧-法律法规（Laws & Rules） #-->
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

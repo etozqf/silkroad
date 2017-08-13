@@ -1,0 +1,25 @@
+<table>
+    <thead class="header">
+        <tr>
+            <td class="w420 headtitle"><span>标题</span></td>
+            <td class="align-c"><span class="line">操作</span></td>
+            <td class="align-c"><span class="line">栏目</span></td>
+            <td class="align-c"><span class="line">发表时间</span></td>
+        </tr>
+    </thead>
+    <tbody id="tablelist">
+
+    </tbody>
+</table>
+<div class="article-list-pagination pagination align-c ov page">
+</div>
+<script type="text/template" id="tpl">
+<tr>
+    <td width="55%"><a href="{APP_URL}{url('contribution/panel/edit', 'contributionid=')}{%contributionid%}" title="{%title%}" class="title">{%title%}</a>
+    <p class="em">退稿原因：{%annotation%}</p>
+    </td>
+    <td width="10%" class="align-c"><a href="javascript:;" class="fl-l icon16x16 edit"></a><a href="javascript:;" class="fl-l icon16x16 remove delete"></a></td>
+    <td width="11%" class="align-c"><a href="{%caturl%}" target="_blank" title="{%catname%}" class="category cor06c">{%catname%}</a></td>
+    <td class="align-c"><span class="date nums">{%modified%}</span></td>
+</tr>
+</script>

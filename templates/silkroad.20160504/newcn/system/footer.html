@@ -1,0 +1,396 @@
+<footer class="column ov mar-t-10">
+	<div class="footer">
+		<ul>
+			<li style="margin-left: 220px;"><a href="{WWW_URL}english/page/about-us.shtml" target="_blank">About Us</a><span>|</span></li>
+			<li style="display:none"><a href="{WWW_URL}english/page/feedback.shtml" target="_blank">Feedback</a><span>|</span></li>
+			<li><a href="{WWW_URL}english/page/contact-us.shtml" target="_blank">Contact Us</a><span>|</span></li>
+			<li style="display:none"><a href="" target="_blank">Site Map</a><span>|</span></li>
+			<li><a href="">Announcement</a></li>
+			<!-- <li><a href="{APP_URL}?app=system&controller=newcn&action=announcement_list" target="_blank">Announcement</a></li> -->
+		</ul>
+		<p class="mar-t-6">
+			Sponsored by China Economic Information Service, Xinhua News Agency;Copyright ©
+			2000-2015silkroad.news.cn All Rights Reserved.
+		</p>
+
+		<p><a href="http://www.news.cn/" target="_blank">www.xinhuanet.com</a> Beijing ICP license No.010042</p>
+
+	</div>
+</footer>
+<!--右侧固定菜单-->
+<!--#include virtual="/section/398.html"--><!--# 新英文站 右侧-固定菜单 #-->
+<div class="exoperation"></div>
+<!--login-->
+<div class="login-box">
+	<div class="login-tit">
+		<h3 class="f-l">Log in</h3>
+		<div class="login-close f-r mar-t-12"><a href="javascript:;" onclick="popclose('.login-box')"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/css/images/close.png" class="ie6_png32"></a></div>
+	</div>
+	<div class="login-box-con fz-16">
+	<form action="{APP_URL}?app=member&controller=index&action=login_newcn" method="POST"  name="loginForm" id="member_loginForm">
+		<ul id="login" class="mar-t-25 ov">
+			<li class="bor">
+				<input type="text" name="username" class="l-input w310" placeholder="Use ID"/>
+			</li>
+			<li class="bor">
+				<input type='password' name="password" class="l-input w310" placeholder="Passsword">
+			</li>
+			<li class="ov">
+				<div class="f-l code bor">
+					<input type="text" name="seccode"class="l-input" placeholder="Code" onfocus="$('#seccode_img').click();return false;"/>
+				</div>
+				<div class="yzm f-l mar-t-5 mar-l-10">
+					<img id="seccode_img" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5;" src="{APP_URL}?app=system&controller=seccode&action=image" class="fl-l" alt="" style="cursor: pointer;height:30px;">
+				</div>
+				<div class="f-l not-clear mar-t-3"><a href="javascript:;" onclick="$('#seccode_img').attr('src','{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5);return false;">Reload</a></div>
+			</li>
+			<li class="ov">
+				<div class="f-l w-130">
+					<input class="checkbox_ind" type="checkbox" style="vertical-align:middle; margin-top: -2px;" value="checkbox" name="checkbox"> Remember me
+				</div>
+				<div class="f-r forget"><a href=""target="_blank">Forgot password?</a></div>
+			</li>
+			<li>
+				<a href="javascript:;" class="f-l login-button ie6_png32 fz-20 t-c" id="login-submit"> Log in </a>
+			</li>
+		</ul>
+	</form>
+	</div>
+</div>
+<!--Subscribe-->
+<div class="subscribe-box">
+	<div class="login-tit">
+		<h3 class="f-l">Subscribe</h3>
+		<div class="login-close f-r mar-t-12"><a href="javascript:;" onclick="popclose('.subscribe-box')"><img src="{IMG_URL}templates/{TEMPLATE}/newcn/css/images/close.png" class="ie6_png32"></a></div>
+	</div>
+	<div id="sub-scroll" class="login-box-con  subscribe fz-16">
+		<form action="{APP_URL}?app=member&controller=index&action=register_newcn" method="POST"  name="registerForm" id="member_registerForm">
+			<div class="subscribe-tit ov mar-t-20 bor-1">
+				<h3 class="f-l">Log in Information</h3>
+				<span class="f-r fz-14"><em>* </em>Required fields</span>
+			</div>
+			<ul id="register" class="mar-t-20 ov">
+				<li>
+					<span class="f-l mar-r-10"><em>* </em>Log in ID</span>
+					<input type="text" name="username" class="l-input f-l w240"/><img src='' style='margin:5px 20px;float: left;display:none;'><em style='font-size: 12px;display: block;float: left;'></em>
+				</li>
+				<li>
+					<span class="f-l mar-r-10"><em>* </em>Password</span>
+					<input type="Password" name="password"class="l-input f-l w240"/>
+					<i class="mar-l-10 fz-14">6-20 characters</i>
+				</li>
+				<li>
+					<span class="f-l mar-r-10"><em>* </em>Re-enter Password</span>
+					<input type="Password" name="repassword"class="l-input f-l w240"/>
+					<i class="mar-l-10 fz-14">6-20 characters</i>
+				</li>
+			</ul>
+			<div class="subscribe-tit ov bor-1">
+				<h3 class="f-l">Personal Information</h3>
+			</div>
+			<ul class="mar-t-20 ov">
+				<li class="subscribe-usename">
+					<span class="f-l mar-r-10"><em>* </em>Name</span>
+					<select name="sex" class="subscribe-select w108 f-l">
+						<option value="1">Mr</option>
+						<option value="2">Mrs</option>
+						<option value="3">Ms</option>
+						<option value="4">Miss</option>
+					</select>
+					<input name="firstname" type="text" class="l-input f-l w128 mar-l-10"placeholder="First Name"/>
+					<input name="lastname" type="text" class="l-input f-l w128 mar-l-10"placeholder="Last Name"/>
+				</li>
+				<li class="subscribe-country">
+					<span class="f-l mar-r-10"><em>* </em>Country/Region</span>
+					<select name="country" class="subscribe-select w240 f-l fz-16">
+					<?php 
+						$db = &factory::db();
+						$res = table("property",287,'childids');
+						$arr = $db->select("select * from cmstop_property where parentid=287");
+						foreach($arr as $k=>$v){
+					?>
+							<option value="{$v['proid']}">{$v['alias']}</option>
+					<?php 
+							$data = $db->select("select * from cmstop_property where parentid=$v[proid]"); 
+							foreach($data as $key=>$val){
+					?>
+							<option value="{$val['proid']}">{$val['alias']}</option>
+					<?php
+							}
+							}
+					?>
+					</select>
+				</li>
+				<li class="subscribe-address">
+					<span class="f-l mar-r-10">Address</span>
+					<input type="text" name="address" class="l-input f-l w388"/>
+				</li>
+				<li class="subscribe-company">
+					<span class="f-l mar-r-10">Company</span>
+					<input type="text" name="company" class="l-input f-l w240"/>
+				</li>
+				<li class="subscribe-emailaddress">
+					<span class="f-l mar-r-10"><em>* </em>EmailAddress</span>
+					<input type="email" name="emailaddress" class="l-input f-l w240"/>
+				</li>
+				<li class="subscribe-phonenumber">
+					<span class="f-l mar-r-10"><em>* </em>PhoneNumber</span>
+					<input type="text" name="phonenumber" class="l-input f-l w240" placeholder="86-10-63071114"/>
+				</li>
+				<li class="subscribe-seccode">
+					<span class="f-l mar-r-10"><em>* </em>EntertheCodeShown</span>
+					<input style="width:100px" type="text" name="seccode" class="l-input f-l w240"/ onfocus="$('#seccode_img_re').click();return false;">
+					<div class="yzm f-l mar-t-5 mar-l-10">
+						<img id="seccode_img_re" onclick="this.src='{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5;" src="{APP_URL}?app=system&controller=seccode&action=image" class="fl-l" alt="" style="cursor: pointer;height:30px;">
+					</div>
+					<div class="f-l not-clear mar-t-3"><a href="javascript:;" onclick="$('#seccode_img_re').attr('src','{APP_URL}?app=system&controller=seccode&action=image&id='+Math.random()*5);return false;">Reload</a></div>
+				</li>
+			</ul>
+			<div class="subscribe-tit ov bor-1">
+				<h3 class="f-l">Order Information</h3>
+			</div>
+			<ul class="mar-t-20 ov">
+				<li id="first" class="subscribe-product" style="height:130px">
+					<span class="f-l mar-r-10" style="width:165px;text-align:left">Please select a product</span>
+					<!-- <select name="remarks" class="subscribe-select w240 f-l fz-16">
+					<?php 
+						$db = & factory::db();
+						$data = $db->select("SELECT e.title,e.eid,e.premium FROM cmstop_magazine_edition AS e WHERE e.mid=1 ORDER BY publish DESC");
+						foreach($data as $k=>$v){
+							if($k==0){$firstId = $v[eid];};
+						?>
+						<option value="{$v[eid]}" data-premium="{$v[premium]}">{$v[title]}</option>
+						<?php } ?>
+					</select> -->
+					<div id="selectbox" class="subscribe-select w388 f-l fz-16" style="overflow-y: scroll; height: 120px;overflow-x: scroll;">
+						
+							<?php 
+							$db = & factory::db();
+							$data = $db->select("SELECT e.title,e.eid,e.premium FROM cmstop_magazine_edition AS e WHERE e.mid=18 ORDER BY publish DESC");
+							foreach($data as $k=>$v){
+								
+							?>
+							<p value="{$v[eid]}" data-premium="{$v[premium]}" style="white-space:nowrap;">&nbsp;<input type="checkbox" name="remarks[]" data-title="{$v[title]}" value="{$v[eid]}"/>&nbsp;&nbsp;{$v[title]}</p>
+							<?php } ?>
+						
+					</div>
+				</li>
+				
+				<li id="totalAccess" style="margin-top:-10px">
+					<span class="f-l mar-r-10" style="width:260px;text-align:left">Total Access</span>
+					<p id="1000" class="b f-l w240 ov">US0/Year</p>
+					
+				</li>
+				<li class="t-c">
+					I agree to the <a href="" target="_blank">Terms of use</a> and <a href="" target="_blank">Privacy & cookie policy</a>.
+				</li>
+			</ul>
+			<div class="subscribe-button ov fz-18">
+				<a href="javascript:;" class="submit"><em class=" f-l ov"></em>Agree and confirm your subscription</a>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	//登录表单验证
+	$("#login input[name=username]").blur(function(){
+		var username = $(this).val();
+		if(!username){
+			alert("Please enter your user name");
+		}
+
+	})
+	$("#login input[name=password]").blur(function(){
+		var password = $(this).val();
+		if(!password){
+			alert("Please enter your password");
+		}
+	})
+
+	$("#login-submit").click(function(){
+			var PWD = $("#login input[name=password]").val();
+			var UNAME = $("#login input[name=username]").val();
+			if(UNAME && PWD){
+				$('#member_loginForm').submit();
+			}else{
+				if(!UNAME){
+					alert('Please enter your user name');
+				}else if(!PASSWORD){
+					alert('Please enter your password');
+				}
+			}
+
+	})
+
+	//注册表单验证
+	//username验证是否可用
+	$("#register input[name=username]").blur(function(){
+		var obj = $(this);
+		var username = obj.val();
+		$.getJSON(APP_URL+'?app=member&controller=index&action=ajax_username_check&jsoncallback=?&username='+username,function(data){
+			if(data){
+				obj.siblings('img').attr('src','{IMG_URL}templates/{TEMPLATE}/newcn/img/check_alt.png');
+				obj.siblings('img').attr('style','margin:5px 20px;float: left;display:block;');
+				obj.siblings('em').css('color: green;font-size: 12px;display: block;float: left;');
+				obj.siblings('em').html('User name available');
+				USERNAME = true;
+			}else{
+				obj.siblings('img').attr('src','{IMG_URL}templates/{TEMPLATE}/newcn/img/42.png');
+				obj.siblings('img').attr('style','margin:5px 20px;float: left;display:block;');
+				obj.siblings('em').css('color: red;font-size: 12px;display: block;float: left;');
+				obj.siblings('em').html('User name already exists');
+				USERNAME = false;
+			}
+		})
+	})
+
+	//验证密码
+	$("#register input[name=password]").blur(function(){
+		var pwd = $(this).val();
+		if(pwd.length<6 || pwd.length>20){
+			$(this).siblings('i').attr('style','color:red').html("Incorrect password");
+			PASSWORD = false;
+		}else{
+			$(this).siblings('i').empty().append("<img src='{IMG_URL}templates/{TEMPLATE}/newcn/img/check_alt.png' style='margin:5px 20px;float: left;'>");
+			PASSWORD = true;
+		}
+	})
+	//再一次输入密码
+	$("#register input[name=repassword]").blur(function(){
+		var pwd = $("#register input[name=password]").val();
+		var repwd = $(this).val();
+		if(pwd!=repwd){
+			$(this).siblings('i').attr('style','color:red').html("Two passwords are not consistent");
+			REPASSWORD = false;
+		}else{
+			$(this).siblings('i').empty().append("<img src='{IMG_URL}templates/{TEMPLATE}/newcn/img/check_alt.png' style='margin:5px 20px;float: left;'>");
+			REPASSWORD = true;
+		}
+	})
+
+	
+	//name验证
+	$(".subscribe-usename input[name=firstname]").blur(function(){
+		var firstname = $(this).val();
+		if(!firstname){
+			alert("Please enter your firstname");
+			FIRSTNAME = false;
+		}else{
+			FIRSTNAME = true;
+		}
+	})
+	$(".subscribe-usename input[name=lastname]").blur(function(){
+		var lastname = $(this).val();
+		if(!lastname){
+			alert("Please enter your lastname");
+			LASTNAME = false;
+			
+		}else{
+			LASTNAME = true;
+		}
+	})
+	//emailaddress验证
+	$(".subscribe-emailaddress input[name=emailaddress]").blur(function(){
+		var emailaddress = $(this).val();
+		var pattern = /^[0-9a-zA-Z]*@.*$/;
+		if(!emailaddress){
+			alert("Please enter your emailaddress");
+			EMAILADDRESS = false;
+		}else if(!pattern.test(emailaddress)){
+			alert("Incorrect email");
+			EMAILADDRESS = false;
+		}else{
+			EMAILADDRESS = true;
+		}
+	})
+	//phonenumber验证
+	$(".subscribe-phonenumber input[name=phonenumber]").blur(function(){
+		var phonenumber = $(this).val();
+		var pattern = /^[0-9-]+$/;
+		if(!phonenumber){
+			alert(" Please enter your phonenumber");
+			PHONENUMBER = false;
+		}else if(!pattern.test(phonenumber)){
+			alert("The format you entered is not correct");
+			PHONENUMBER = false;
+		}else{
+			PHONENUMBER = true;
+		}
+		
+	})
+
+	//提交事件
+		$(".submit").click(function(){
+			
+			if(USERNAME && PASSWORD && REPASSWORD && FIRSTNAME && LASTNAME && EMAILADDRESS && PHONENUMBER){
+				$('#member_registerForm').submit();
+			}else{
+				if(!USERNAME){
+					document.getElementById('sub-scroll').scrollTop=0;
+					alert('Please enter your user name');
+				}else if(!PASSWORD){
+					document.getElementById('sub-scroll').scrollTop=0;
+					alert('Please enter your password');
+				}else if(!REPASSWORD){
+					document.getElementById('sub-scroll').scrollTop=0;
+					alert('Please enter your repassword');
+				}else if(!FIRSTNAME){
+					document.getElementById('sub-scroll').scrollTop=100;
+					alert('Please enter your firstname');
+				}else if(!LASTNAME){
+					document.getElementById('sub-scroll').scrollTop=100;
+					alert('Please enter your lasttname');
+				}else if(!EMAILADDRESS){
+					document.getElementById('sub-scroll').scrollTop=170;
+					alert('Please enter your EMAILADDRESS');
+				}else if(!PHONENUMBER){
+					document.getElementById('sub-scroll').scrollTop=170;
+					alert('Please enter your phonenumber');
+				}
+			}
+
+		})
+	
+	
+	//复选框点击事件
+	$('#selectbox p input').change(function(){
+		var a = $(this).prop("checked");
+		var premium = $(this).parent().data('premium');
+		var value = $(this).parent().attr('value');
+		var name = $(this).data('title');
+
+      if(a){
+         createLi(value,name,premium);
+          //计算总价格
+					total();
+        }else{
+         $("#"+value).remove();
+          //计算总价格
+					total();
+        }
+		})
+})
+
+function createLi(value,name,premium){
+	name = name.length>34 ? name.substr(0,34)+'...' : name.substr(0,34);
+	var tmp = '<li style="margin-top:-10px" id="'+value+'">\
+					<span style="text-align:left;width:260px;" class="f-l mar-r-10">'+name+'</span>\
+					<p class="b f-l w240 ov">US$'+premium+'/Year</p>\
+					</li>';
+	$('#totalAccess').before(tmp);
+}
+
+function total(){
+		//计算总价格
+		var total = 0;
+		$('#selectbox p input').each(function(){
+			var access = $(this).parent().data('premium');
+			if($(this).prop("checked")) total+=parseInt(access);
+			
+		})
+		$('#totalAccess').find('p').html('US$'+total+'/Year');
+}
+
+</script>
+

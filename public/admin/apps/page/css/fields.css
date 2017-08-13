@@ -1,0 +1,37 @@
+.section-fields {
+
+}
+.section-fields .fields-row td {
+    clear: both;
+    padding: 2px 0 !important;
+}
+.section-fields .fields-rule,
+.section-fields .fields-rule label {
+    color: #666;
+}
+.section-fields label {
+    color: #000;
+}
+.section-fields label input {
+    display: block;
+    float: left;
+    margin: 5px 5px 0 0 !important;
+}
+.section-fields .fields-text,
+.section-fields .fields-delete {
+    float: left;
+    margin-right: 5px;
+}
+.section-fields .fields-delete {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    background: url(/images/delete.gif) no-repeat 0 center;
+}
+.section-fields .fields-add {
+    display: block;
+    padding-left: 18px;
+    background: url(/images/add_1.gif) no-repeat 0 center;
+    float: left;
+}

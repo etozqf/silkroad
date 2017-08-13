@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+    <?php $title_pos = array_reverse($pos); ?>
+    <title>{$title}_{loop $title_pos $_title_pos}{$_title_pos[name]}_{/loop}{$SYSTEM[sitename]}</title>
+    <meta name="keywords" content="{$tags} {$title}" />
+    <meta name="description" content="{if $description}{$description}{else}{$title}{/if}" />
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-common.css" />
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-vote.css" />
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-comment-mode.css" />
+	<link rel="stylesheet" type="text/css" href="{IMG_URL}templates/{TEMPLATE}/css/cmstop-right-common.css" />
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/helper/modernizr.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/cmstop-common.js"></script>
+	<script type="text/javascript">
+		var contentid = '{$contentid}';// 投票ID
+		var title = {json_encode($title)};//投票标题
+		var topicid = '{$topicid}';// 评论主题
+		<?php $commentSetting = setting('comment');?>
+		var defaultname = '{$commentSetting[defaultname]}';
+		var type = '{$type}';// 投票类型，多选，单选
+		var maxoptions = '{$maxoptions}';// 最多可选项
+	</script>
+</head>
+<body>
+	<!-- 头部 -->
+	<header class="head-repeat-x">
+	<!--#简洁版头部带广告(顶部通栏导航 + 搜索 + 广告)#-->
+	<!--{template "system/head_simple_php.html"}-->
+	</header>
+	<!-- @end头部 -->
+
+	<section class="column article">
+		<div class="crumb">
+		<!--#面包屑#-->
+			<a href="{WWW_URL}">首页</a>
+			<!--{loop $pos $cat}-->
+			<em>&gt;</em> <a href="{$cat[url]}">{$cat[name]}</a>
+			<!--{/loop}-->
+			<em>&gt;</em> <span>{$title} 投票结果</span>
+		</div>
+		<!-- 主内容区域 -->
+		<section class="column-main">
+			<!-- 文章区域 -->
+			<article class="article-main">
+				<div class="inner">
+					<h1 class="article-title">{$title}</h1>
+					<!-- 文章相关信息 -->
+					<div class="article-infos">
+						<span class="date">{date('Y-m-d H:i', $published)}</span>
+                        <!--{if $editor}-->
+						<span class="editors">{$editor}</span>
+                        <!--{/if}-->
+                        <!--{if $allowcomment}-->
+						<a href="#comment">我要评论<span>{$comments}</span></a>
+                        <!--{/if}-->
+						<!-- sactive 当前小字号，bactive当前大字号 -->
+					</div><!-- @end文章相关信息 -->
+					<div class="clear"></div>
+					<!--{if !empty($description)}-->
+					<!-- 描述 -->
+					<p class="describe"><strong>核心提示：</strong>
+					{$description}
+					</p>
+					<!--{/if}-->
+                    <!--{template "vote/display/".$display.".html"}-->
+					<!-- 相关新闻 -->
+					<div class="rel-news">
+						<div class="hd">
+							<strong>相关新闻</strong>
+							<!--{if $keywords}-->
+							<span>关键词：</span>
+							<!--#关键字#-->
+							<!--{loop $keywords $keyword}-->
+							<a href="{$keyword['url']}" title="{$keyword['tag']}">{$keyword['tag']}</a>
+							<!--{/loop}-->
+							<!--{/if}-->
+						</div>
+						<div class="bd">
+							<ul class="list list-point">
+							<!--{if $related}-->
+								<!--{loop $relateds $k $r}-->
+								<li class="item"><span>·</span><a href="{$r[url]}" class="title" target="_blank">{$r[title]}</a><span class="date">{$r[time]}</span></li>
+		                        <!--{/loop}-->
+							<!--{else}-->
+								 <!--{content_related contentid="$contentid" tags="$tags" size="10"}-->
+		                         <li class="item"><span>·</span><a href="{$r[url]}" target="_blank">{$r[title]}</a><span class="date">{date('Y-m-d', $r['published'])}</span></li>
+								 <!--{/content_related}-->
+							<!--{/if}-->
+							</ul>
+						</div>	
+					</div><!-- @end 相关新闻 -->
+					<div class="hr40"></div>
+					<!-- 心情 -->
+					<div class="article-mood">
+						<div class="_inner">
+                            <!--# start mood #-->
+                            <!--{template 'mood/mood.html'}-->
+                            <!--# end mood #-->
+						</div>
+					</div><!-- @end 心情 -->
+					<div class="hr40"></div>
+				</div>
+				<!-- 底部分享，复制 -->
+				<div class="copy-share">
+					<div class="copy">
+						<a id="zeroclipboard" href="javascript:;" class="c-ico" onclick="copyToClipboard(window.location.href);return false">复制网址</a>
+						<a href="javascript:;" onclick="addfavorite();return false;" class="s-ico">收藏本页</a>
+					</div>
+					<div class="share">
+						<!--#share分享#-->
+						<!--#include virtual="/section/cloud/share.html"-->
+					</div>
+					<a class="agree"  id="supports" href="javascript:digg.set({$contentid},'supports')">0</a>
+				</div>
+			</article><!-- @end文章区域 -->
+			<div class="basehr"></div>
+            <!--{if $allowcomment}-->
+			<!--#内容评论#-->
+			<!--{template 'comment/comments.html'}-->
+			<!--#内容评论#-->
+            <!--{/if}-->
+		</section>
+		<!-- 右侧区域 -->
+		<aside class="column-aside">
+			<!-- 今日推荐 -->
+			<div class="mod-list">
+				<div class="inner">
+					<div class="m-head title-head">
+						<em class="ico"></em>
+						<div class="title"><a href="" title="" class="words">今日推荐</a></div>
+					</div>
+					<div class="m-main">
+					<!--# 文章内容 今日推荐 #-->
+					<ul class="list">
+					<!--#include virtual="/section/19.html"-->
+					</ul>
+					</div>
+				</div>
+			</div><!-- @end 今日推荐 -->
+			<!-- 广告位300x240 -->
+			<div class="ad3">
+			<!--# 文章内容 右焦点 300x240 #-->
+			<!--#include virtual="/section/20.html"-->
+			</div>
+			<!-- @end 广告位300x240 -->
+			<div class="basehr"></div>
+			<!-- 新闻排行 -->
+            <div class="news-rank-box">
+                <!--#include virtual="/section/8.html"--><!--# 公共区块 新闻排行 #-->
+            </div><!-- @end 新闻排行 -->
+			<div class="basehr"></div>
+			 <!-- 推荐图片 -->
+            <div class="pic-recommend">
+                <!--#include virtual="/section/11.html"--><!--# 公共区块 推荐图片 #-->
+            </div><!-- @end 推荐图片 -->
+			<div class="basehr"></div>
+			<!-- 推荐视频 -->
+            <div class="pic-recommend">
+                <!--#include virtual="/section/14.html"--><!--# 公共区块 推荐视频 #-->
+            </div><!-- @end 推荐视频 -->
+		</aside>
+	</section>
+
+	<!--#公共区块 网站底部#-->
+	<!--#include virtual="/section/2.html"-->
+	<!-- @end footer -->
+
+	<!-- 脚本区域 -->
+	<script type="text/javascript" src="{IMG_URL}js/zeroclipboard/ZeroClipboard.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/vote-show.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/mood-show.js"></script>	
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/apps/digg.js"></script>
+	<!-- @end 脚本区域 -->
+</body>
+</html>

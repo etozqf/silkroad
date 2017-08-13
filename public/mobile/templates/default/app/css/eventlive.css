@@ -1,0 +1,235 @@
+* {
+    font-size: 13pt;
+}
+body {
+    opacity: 0;
+    transition: opacity 0.3s linear 1s;
+    -webkit-transition: opacity 0.3s linear 1s;
+}
+header {
+    font-size: 0;
+    background: url(../images/eventlive/background.jpg) repeat #E3ECEC;
+    overflow: hidden;
+}
+header img{
+    width: 100%;
+}
+header .description {
+    line-height: 1.4rem;
+    padding: 10px;
+    text-indent: 3px;
+    background: #fff;
+    margin: 14px 10px 0 10px;
+    word-break: break-all;
+    border-radius: 6px;
+    font-family: Tahoma,Microsoft YaHei,Verdana,Arial,Helvetica,sans-serif;
+}
+.thumb {
+    position: fixed;
+    left: 9999px;
+}
+.item {
+    overflow: hidden;
+    margin: 14px 10px 14px 10px;
+}
+.head {
+    float: left;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 2px;
+}
+.main {
+    background: url(../images/eventlive/background.jpg) repeat #e3ecec;
+    position: relative;
+    overflow: hidden;
+}
+.list {
+    overflow: hidden;
+    transition: margin 0s ease;
+    -webkit-transition: margin 0s ease;
+}
+.list .tip {
+    background: url(../images/eventlive/background.jpg) repeat #E3ECEC;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #666;
+    font-size: 1.0rem;
+    height: 60px;
+    line-height: 60px;
+}
+.content-outter {
+    float: left;
+    width: 100%;
+    margin-left: -34px;
+    padding-left: 44px;
+    box-sizing: border-box;
+}
+.content {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px 10px 0 10px;
+    background: #fff;
+    position: relative;
+}
+.content:before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 15px;
+    left: -7px;
+    background: #fff;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border: 1px solid #ddd;
+    border-right: none;
+    border-top: none;
+}
+.head img {
+    width: 100%;
+    height: 100%;
+}
+.content .status {
+    overflow: hidden;
+    margin: 0 0 6pt;
+}
+.content .status .host {
+    color: #366AC3;
+    font-size: 0.9rem;
+    float: left;
+    text-indent: 2pt;
+}
+.content .status time {
+    color: #666;
+    font-size: 0.8rem;
+    float: right;
+}
+article {
+    font-size: 1.2rem;
+    margin-bottom: 10pt;
+    word-break: break-all;
+}
+article a {
+    color: #3C79E0;
+}
+.content .video,
+.content .image {
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.content .image a {
+    display: inline-block;
+    -webkit-tap-highlight-color: rgba(201, 224, 253, 0.8);
+}
+.content .video img,
+.content .image img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.content .video a {
+    display: block; 
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+}
+.content .video video {
+    width: 100%;
+    max-width: 100%;
+}
+.content .video .bg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    top: 50%;
+    margin: -30px 0 0 -30px;
+}
+.audio {
+    padding-top: 4px;
+    display: block;
+    height: 50px;
+    border-top: 1px solid #e3e3e3;
+    overflow:hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+.audio > a {
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    background: #EEE;
+    border-radius: 6px;
+    border: 1px solid #E3E3E3;
+    box-sizing: border-box;
+    text-indent: 1rem;
+}
+.audio > a:before {
+    content: '';
+    width: 20px;
+    height: 30px;
+    display: inline-block;
+    background: url(../images/eventlive/sound.png) no-repeat;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+@keyframes playaudio {
+    0% { background-position: -20px 0;}
+    25% { background-position: -40px 0;}
+    50% { background-position: -60px 0;}
+    75% { background-position: 0 0;}
+}
+@-webkit-keyframes playaudio {
+    0% { background-position: -20px 0;}
+    25% { background-position: -40px 0;}
+    50% { background-position: -60px 0;}
+    75% { background-position: 0 0;}
+}
+.audio > a.play:before {
+    background-position: -60px 0;
+    animation: playaudio 2s steps(1,end) infinite;
+    -webkit-animation: playaudio 2s steps(1,end) infinite;
+}
+.share {
+    overflow: hidden;
+    height: 28px;
+    border: none;
+}
+.share > a {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../images/eventlive/share.png) no-repeat;
+    background-size: 100%;
+    float: right;
+}
+.more {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+.loading {
+    width:32px;
+    height:32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+}
+.update {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    line-height: 60px;
+    text-align: center;
+    color: #666;
+}

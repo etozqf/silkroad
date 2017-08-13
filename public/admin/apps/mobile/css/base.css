@@ -1,0 +1,289 @@
+/* global */
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.clearfix {
+    clear: both;
+}
+input[type=text] {
+    line-height: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* tabs */
+.ui-tab {
+    height: 35px;
+    border: solid #A5C3D8;
+    border-width: 0 0 1px;
+}
+.ui-tab-item {
+    float: left;
+    display: block;
+    padding: 8px 10px;
+    vertical-align: middle;
+    margin-top: 4px;
+    margin-right: 10px;
+    border: solid 1px #A5C3D8;
+    background: #F5F9FA;
+    color: #008ED1;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    min-width: 60px;
+
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.ui-tab-item-active {
+    background: #FFF;
+    color: #008ED1;
+    border-bottom-color: #FFF;
+}
+.ui-tab-content {
+    clear: both;
+}
+.ui-tab-content-item {
+    display: none;
+}
+.ui-tab-content-item-active {
+    display: block;
+}
+
+/* button */
+.ui-btn-flat {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 3px 8px;
+    border: solid 1px #A5C3D8;
+    background: #FFF;
+    color: #077AC7;
+    font-size: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+/*
+.ui-btn-flat:hover {
+    background-color: #F5F9FA;
+}*/
+
+/* editable input */
+.ui-editable {
+    color: #000;
+    background: #ffc;
+    cursor: text;
+}
+
+.ui-shortips,
+.ui-shortips-yellow {
+    display: inline-block;
+    zoom: 1;
+    float: right;
+    padding: 6px 10px;
+    background: #EBF2FA;
+    color: #008ED1;
+}
+.ui-shortips-yellow {
+    background: #FFFDDD;
+    color: #333333;
+}
+
+/* ui-table-view */
+.ui-table-view {
+    padding: 15px 20px 10px 10px;
+}
+.ui-table-view th,
+.ui-table-view td {
+    line-height: 20px;
+}
+.ui-table-view-content {
+    line-height: 24px;
+    width: 400px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* ui-bootstrap-logo */
+.ui-bootstrap-logo {
+    background: #E8E8E8;
+    overflow: hidden;
+    width: 616px;
+}
+.ui-bootstrap-logo .ui-bootstrap-logo-item {
+    float: left;
+    width: 154px;
+}
+.ui-bootstrap-logo-item .ui-bootstrap-logo-item-img {
+    width: 100px;
+    height: 150px;
+    padding: 10px 27px 15px;
+    *padding-top: 15px;
+    background: url(images/phone.png) no-repeat center center;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    *display: block;
+    *font-size: 87px;
+    *font-family:Arial;
+}
+.ui-bootstrap-logo-item-img .ui-bootstrap-logo-item-img-empty {
+    width: 100px;
+    height: 150px;
+    background: url(images/bg-add.png) no-repeat 0 0;
+}
+.ui-bootstrap-logo-item .ui-bootstrap-logo-item-action {
+    padding: 10px 20px;
+    background: #E4E4E4;
+    width: 114px;
+    height: 16px;
+    line-height: 16px;
+}
+.ui-bootstrap-logo-item-img img {
+    max-width: 100px;
+    max-height: 150px;
+    vertical-align: middle;
+}
+.ui-bootstrap-logo-item-action img {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+/* ui-checkable */
+.ui-checkable {
+
+}
+.ui-checkable .ui-checkable-item {
+    display: inline-block;
+    zoom: 1;
+    padding: 3px 5px;
+    border: solid 1px #CCC;
+    margin: 5px 5px 0 0;
+    cursor: pointer;
+}
+.ui-checkable .ui-checkable-item:hover {
+    border-color: #00A5D5;
+}
+.ui-checkable .ui-checkable-item-checked {
+    border-color: #00A5D5;
+    background: #D2E9FA;
+}
+.ui-checkable .ui-checkable-item-disabled {
+    cursor: default;
+    color: #7F7F7F;
+}
+
+.ui-input-thumb {
+    width: 239px;
+}
+
+.ui-category-view {
+    margin-right: 5px;
+}
+
+.ui-related-title {
+    padding: 2px;
+    border: solid 1px #A0C3DA;
+    /*background: #F5F9FA;*/
+}
+.ui-related-title .related-item {
+    padding: 8px 2px 5px;
+    color: #999;
+    display: none;
+}
+.ui-related-title .related-item .hand {
+    text-decoration: underline;
+    padding-left: 5px;
+}
+
+.title {
+    color: #008ED1;
+    font-size: 13px;
+    font-weight: normal;
+    height: 26px;
+    line-height: 27px;
+    padding: 0 5px;
+    background: #EBF2FA;
+    border: 0;
+}
+
+.weibo-platform {
+    display: inline-block;
+    zoom: 1;
+    padding-left: 30px;
+    color: #FFF !important;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    min-width: 80px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    text-decoration: none !important;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.weibo-platform:hover {
+    text-decoration: none !important;
+}
+
+.ui-filter {
+
+}
+.ui-filter a {
+    margin-right: 1px;
+    padding: 1px 1px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.ui-filter a:hover,
+.ui-filter a.active {
+    background: #00CCFF;
+    color: #FFF !important;
+    text-decoration: none !important;
+}
+
+.ui-tips-yellow {
+    background-color: #FFFDD7;
+    border: 1px solid #FDBD77;
+    margin: 10px 0;
+    padding: 10px;
+    line-height: 16px;
+}
+.ui-tips-yellow a:link,
+.ui-tips-yellow a:visited {
+    color: #FF6600;
+    text-decoration: none;
+}
+
+.button_style_1 {
+    *padding-left: 0;
+    *padding-right: 0;
+    *margin-right: 0;
+}
+
+.ui-tab-vertical {
+    float: left;
+}
+.ui-tab-vertical .tab-item {
+    display: block;
+    padding: 8px 10px;
+    text-align: left;
+    margin-bottom: 2px;
+    color: #077AC7;
+}
+.ui-tab-vertical .tab-item:hover,
+.ui-tab-vertical .tab-item-current {
+    background: #f4f9fa;
+    color: #077AC7;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+  <title>{$sitename[0]}_{$SYSTEM[seotitle]}_园区内容</title>
+  <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+	<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/yq-common.css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/contents.css">
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/zn/js/contents.js"></script>
+</head>
+<body>
+<!--{template "system/head_zn.html"}-->
+<!--面包屑-->
+<div class="cumb">
+	<a href="{WWW_URL}">首页</a>
+	<em>></em>
+	<a href="{WWW_URL}yq">园区</a>
+	<em>></em>
+	<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_search">园区数据</a>
+	<em>></em>
+	<a href="{table('content',$contentid,'url')}" class="on">{table('content',$contentid,'title')}</a>
+</div>
+<!--@end 面包屑-->
+<div class="dh_mainbox" style="margin-top: 0;">
+	<div class="box960">
+		<div class="hd">
+			<h3 style="padding:0 5px 0 5px;">{table('content',$contentid,'title')}</h3>
+		</div>
+		<div class="conts-box mar-t-20">
+			<div class="menu-left">
+				<div class="bor-rbs">
+					<div class="bor-trbs">
+						<ul class="list-ul" id="tabm1">
+							<li class="bor-b">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_news&contentid={$contentid}">园区动态</a>
+							</li>
+							<li class="bor-b">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_touzi&contentid={$contentid}">投资环境</a>
+							</li>
+							<li class="bor-b">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_views&contentid={$contentid}">观点 • 参考</a>
+							</li>
+							<li class="bor-b on">
+								<a href="{APP_URL}?app=system&controller=yuanqu&action=yq_contents_company&contentid={$contentid}">入住企业</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="conts-right" id="tabd1">
+				<div class="box-show">
+					<h3 class="conts-h3">入住企业</h3>
+
+					<div class="qiye-list mar-t-15">
+						<ul>
+							<?php 
+								$data = field($first,'company');
+								$data = explode(';',$data);
+								foreach($data as $k=>$v){
+							?>
+								<li><em class="bull">&bull;</em><a href="">{$v}</a></li>
+							<?php
+							}
+							?>
+							
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--{template 'system/foot_zn.html'}-->
+
+</body>
+</html>

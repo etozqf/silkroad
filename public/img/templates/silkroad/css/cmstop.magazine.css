@@ -1,0 +1,273 @@
+.publishday {
+    position: absolute;
+    font-size: 12px;
+    color: #444;
+    left: 100px;
+    bottom: 10px;
+}
+.m-title-h2 > a { color: #444!important;}
+
+.magazine-list {
+    overflow: hidden;
+    _zoom:1;
+    margin-bottom: 20px;
+}
+.magazine-name {
+    background-color: #F4F4F4;
+    height: 36px;
+    line-height: 36px;
+    margin: 10px 0;
+    overflow: hidden;
+    _zoom:1;
+}
+.magazine-name .all-btn {
+    float: right;
+    margin-right: 10px;
+    font-family: SimSun;
+}
+.magazine-name .all-btn:hover {
+    color: #c00;
+}
+.magazine-name .name {
+    display: inline;
+    font-family: "Microsoft YaHei";
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.magazine-item .a-item {
+    width: 290px;
+    float: left;
+    display: inline;
+    margin: 0 65px 0 0;
+}
+.magazine-item .a-item p {
+    padding-top: 0;
+    font-size: 13px;
+    overflow: hidden;
+    _zoom:1;
+}
+.magazine-item .a-item p em {
+    float: right;
+}
+.read-btn,.pdfdownload-btn {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 16px 16px 20px;
+    background: #0091e4;
+}
+.read-btn:hover,.pdfdownload-btn:hover {
+    color: #fff!important;
+}
+.pdfdownload-btn {
+    background-image: url(images/pdf-download.png);
+}
+.magazine-list-wrap ul {width: 1100px;}
+.magazine-years {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #eee;
+    background: #f7f7f7;
+    padding: 0 15px;
+    font-size: 0;
+}
+.magazine-years a {
+    display: inline-block;
+    width: 54px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+.magazine-years .current {
+    color: #0066cc;
+}
+
+.magazine-page-item {
+    border: 1px solid #eee;
+    width: 448px;
+    height: 198px;
+    padding: 20px;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 19px;
+    overflow: hidden;
+    _zoom: 1;
+}
+.magazine-page-item .cover {
+    float: left;
+    border: 1px solid #ccc;
+    padding: 1px;
+    overflow: hidden;
+    zoom: 1;
+    margin-right: 20px;
+}
+.magazine-page-item .infos {
+    float: left;
+    height: 100%;
+    position: relative;
+}
+.magazine-page-item .title {
+    font-size: 18px;
+    margin-bottom: 16px;
+    margin-top: 10px;
+    height: 60px;
+    display: block;
+    color: #444;
+}
+.magazine-page-item .title:hover {
+    color: #c00;
+}
+.magazine-page-item p {
+    line-height: 22px;
+    font-size: 14px;
+    color: #777;
+}
+.magazine-page-item .read-btn, .magazine-page-item .pdfdownload-btn {
+    margin: 10px 20px 0 0;
+}
+.magazine-page-list .odd {
+    margin-right: 15px;
+}
+.magazine-page-item .read-btn {
+    position: absolute;
+    bottom: -4px;
+}
+
+.magazine-show {
+    background-color: #F4F4F4;
+    overflow: hidden;
+    _zoom:1;
+}
+.magazine-cover-left {
+    width: 310px;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    _zoom:1;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.magazine-cover-left > img,
+.magazine-cover-left > span {
+    display: block!important;
+    margin: 0 auto;
+} 
+.magazine-cover-left .nav {
+    background-color: #FFF;
+    height: 30px;
+    line-height: 30px;
+    width: 290px;
+    margin: 0 auto;
+}
+.magazine-cover-left .nav a {
+    color: #777!important;
+    margin: 0 10px;
+    font-size: 13px;
+}
+.magazine-cover-left .nav a:hover {
+    color: #c00;
+}
+.magazine-cover-left .prev-next {
+    position: absolute;
+    width: 115px;
+    right: 5px;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.magazine-cover-left .share-wrap {
+    margin: 10px auto;
+    display: block;
+    width: 290px;
+}
+.magazine-cover-left .history {
+    margin: 0 auto;
+    display: block;
+    width: 290px;
+    font-size: 14px;
+    color: #444;
+    height: 30px;
+    line-height: 30px;
+}
+.magazine-cover-left .history .btn {
+    position: absolute;
+    left: 174px;
+    top: 0;
+    background: #0091e4;
+    border-radius: 4px;
+    width: 60px;
+    height: 30px;
+    line-height: 23px;
+    color: #fff!important;
+    text-align: center;
+    line-height: 30px;
+}
+.magazine-articlelist-right {
+    width: 650px;
+    min-height: 600px;
+    height: auto!important;
+    height: 600px;
+    float: right;
+    display: inline;
+    background-color: #FFF;
+    padding-left: 10px;
+}
+.title-line {
+    height: 24px;
+    background: transparent url(images/dotted-h.png) repeat-x left 12px;
+    overflow: hidden;
+    _zoom:1;
+}
+.title-line span {
+    background-color: #666;
+    color: #fff;
+    padding: 0 10px;
+    line-height:24px;
+    font-size: 14px;
+    float: left;
+    font-weight: bold;
+}
+.magazine-post-title {
+    font-family: Microsoft YaHei;
+    margin:  15px 0 5px 0;
+}
+.magazine-post-title .title {
+    font-size: 16px;
+    color: #0066cc!important;
+}
+.magazine-post-title .first {
+    /* TODO: 第一行*/
+}
+
+.describe {
+    color: #333333;
+    line-height: 22px;
+}
+.magazine-article-item .content {
+    margin: 10px 20px;
+}
+.magazine-article-item h2 a {
+    font-size: 12px;
+}
+.magazine-article-item h2 a:hover {
+    color: #c00;
+}
+.magazine-article-item .content .describe {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #444;
+}
+.magazine-post-title .ico_b {
+    background: url(images/ico16x16.png) no-repeat -20px -1090px;
+    width: 12px;
+    height: 16px;
+    display: inline-block;
+}

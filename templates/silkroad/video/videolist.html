@@ -1,0 +1,25 @@
+<!--{if $videolist}-->
+<div class="commend-videolist">
+    <div class="m-title-a">
+        <p class="fl-r keywords"><input id="autoplaylist" type="checkbox" class="checkbox" checked="checked"/>连播</p>
+        <h2 class="m-title-h2"><a>{$listname}</a></h2>
+    </div>
+    <div class="commend-inner">
+        <div class="m-accordion">
+            <ul class="list-point">
+                <!--{loop $videolist $r}-->
+                <li class="m-accordion-item">
+                    <a title="{$r['title']}" href="{$r['url']}" player="{$r['player']}" vid="{$r['vid']}" class="title">{str_natcut($r['title'],20,'')}</a>
+                </li>
+                <!--{/loop}-->
+            </ul>
+        </div>
+        <!-- 分页 -->
+        <div class="article-page">
+            <div class="article-list-pagination pagination ov page" style="margin-top:0;">
+                <tr></tr>
+            </div>
+        </div><!-- @end 分页 -->
+    </div>
+</div>
+<!--{/if}-->

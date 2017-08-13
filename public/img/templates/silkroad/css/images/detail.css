@@ -1,0 +1,50 @@
+/*左主栏*/
+.col-l-main{width: 730px; background: #fff; float: left;overflow: hidden; _display: inline;}
+.col-r-main{width: 250px; background: #fff; float: right; height: 1640px;  overflow: hidden; _display: inline;}
+/*左侧文章显示*/
+.left-m-box{width: 680px; float: left; margin-top: 18px; margin-left: 25px;}
+.mod-tit-box{width: 100%; padding-bottom: 16px; border-bottom: 1px dashed #ccc;}
+.artcles p{width: 100%; font-family: Arial; font-size: 16px; color: #333; line-height: 24px; margin-top: 23px;}
+.tit-h3{width: 100%;line-height: 32px;}
+.dates{width: 100%; font-size: 14px; height: 14px; overflow: hidden; line-height: 14px; font-family: Arial; color: #7f7f7f; margin-top: 8px;}
+.tit-h3 a{ font-family: "Times New Roman"; font-size: 32px; color: #3a3a3a;}
+.introduce{width: 678px; border: 1px solid #cdcdcd; height: 78px; background: #f8f8f8; overflow: hidden;}
+.introduce p{width: 645px; float: left; margin-top: 12px; margin-left: 16px; text-indent: 28px; font-family: Arial; line-height:21px; font-size: 14px; color: #666;}
+.artic-img{width:545px; height:355px; margin: 0 auto; margin-top: 28px;}
+/*分享*/
+.share-box{width: 100%; height: 38px; line-height: 38px; font-size: 14px; color: #b9b9b9;font-family: Arial; text-indent: 5px; }
+.faceb,.bird,.xinlang,.email,.msg{width: 43px; height: 37px; float: left;  margin-left: 5px; background: url("images/icons.png") -17px -12px no-repeat; display: block;}
+.bird{background-position: -79px -12px;}
+.xinlang{background-position: -144px -12px;}
+.email{background-position: -211px -12px;}
+.msg{background-position: -272px -12px;}
+.topic,.visual{width: 100%; overflow: hidden;}
+/*标题*/
+.b-tit-box{width: 100%; height: 20px; border-bottom: 2px solid #dcdcdc; position: relative;  padding-bottom: 8px;}
+.b-h3{position: absolute; border-bottom: 2px solid #c81623; left:0; bottom: -2px;  z-index: 10; padding: 0 8px 8px 10px;}
+.b-h3 a{font-size: 18px; font-weight: bold; font-family: Arial; color: #333;}
+.b-h3 a:hover{text-decoration: none;}
+.more1{font-size: 14px; color: #666; font-family: Arial; float: right;}
+.jiao{width: 4px; float: left; height: 5px; background: url("images/icons.png") -16px -64px no-repeat; margin-left: 4px; margin-right: 12px; margin-top: 6px;}
+/*文字列表*/
+.txt-list1,.txt-list2,.pic-list1{width: 100%; overflow: hidden; }
+.txt-list1 ul li{width: 100%; height: 30px; line-height: 30px; overflow: hidden;font-size: 16px;  font-family: "Times New Roman";}
+.txt-list1 ul li .icon1{font-size: 12px; color: #c81623; margin-left: 9px; margin-right: 9px;}
+/*图片列表*/
+.pic-list1 .pic1-ul{width: 730px; overflow: hidden;}
+.pic-list1 ul li{width: 150px; float: left; margin-right: 25px;}
+.pic1-ul h3 {width: 100%; font-size: 14px; line-height: 16px;font-family: Arial; color: #333; margin-top: 5px;}
+/*右侧*/
+.silk,.facebook,.most{width: 100%; overflow: hidden;}
+.ad01{width: 210px; height: 300px; float: left; margin-left: 20px; margin-top: 20px; margin-bottom: 15px; overflow: hidden;}
+.txt-list2 ul li{width: 100%; line-height: 16px; overflow: hidden;font-size: 12px; margin-bottom: 8px; font-family: Arial;}
+.txt-list2 ul li a{float: left; width: 205px; display: block;}
+.txt-list2 ul li .icon1{font-size: 12px; float: left; color: #c81623; margin-left: 12px; margin-right: 9px;}
+.citys{width: 210px; overflow: hidden;float: left;font-size: 12px;  margin-left: 20px; line-height: 24px; }
+.citys a{float:left;font-family: Arial; color: #333;margin-left: 4px; }
+.citys span{float: left; color: #ccc; margin-left: 5px;}
+.most-box{width: 232px; float: left; margin-left: 9px; margin-top: 9px;}
+.most-list li{width: 100%; border-bottom: 1px dashed #d9d9d9; line-height: 16px; padding-bottom: 8px; margin-top: 9px; overflow: hidden;}
+.most-list li a{float: left; width: 200px; margin-left: 6px;}
+.most-list .icon2{width: 18px; height: 18px;display: block; float: left; margin-left: 3px; color: #fff; line-height: 18px; text-align: center;background: #989898;}
+.most-list .icon2.tops{background: #c60000;}

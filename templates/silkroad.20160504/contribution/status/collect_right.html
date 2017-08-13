@@ -1,0 +1,38 @@
+<div class="member-right fl-l w680 margin-l-20">
+            <div class="member-article pos-r">
+                <div class="gray pos-a"></div>
+                <table>
+                    <thead class="header">
+                        <tr>
+                            <td class="w420 headtitle"><span>标题</span></td>
+                            <td class="align-c"><span class="line">栏目</span></td>
+                            <td class="align-c"><span class="line">点击</span></td>
+                            <td class="align-c"><span class="line">评论</span></td>
+                            <td class="align-c"><span class="line">收藏时间</span></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--{db sql=" select `title`,`created`,`catid` from cmstop_contribution where status=6"}-->
+                        <tr>
+                            <td width="55%"><a href="" class="title">{$r[title]}</a></td>
+                            <td width="10%" class="align-c"><a href="" class="category cor06c">{table('category',$r[catid],'name')}</a></td>
+                            <td width="10%" class="align-c"><a href="" class="nums cor06c">122</a></td>
+                            <td width="10%" class="align-c"><a href="" class="nums cor06c">74</a></td>
+                            <td class="align-c"><span class="date nums">{date('Y-m-d H:i:s',$r[created])}</span></td>
+                        </tr>
+                        <!--{/db}-->
+                    </tbody>
+                </table>
+                <div class="article-list-pagination pagination align-c ov">
+                    <a class="prev" href="" title="上一页">&lt</a>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="" class="current">4</a>
+                    <a href="">5</a>
+                    <a>...</a>
+                    <a href="">10</a>
+                    <a class="next" href="" title="下一页">&gt</a>
+                </div>
+            </div>
+        </div>

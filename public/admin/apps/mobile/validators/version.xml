@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root box="errorbox">
+    <iphone_version>
+        <required event="submit">请填写版本代号</required>
+    </iphone_version>
+    <android_version>
+        <required event="submit">请填写版本代号</required>
+    </android_version>
+</root>

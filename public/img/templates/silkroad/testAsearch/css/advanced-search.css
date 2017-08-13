@@ -1,0 +1,55 @@
+/*.crumbs{border-bottom: 0;}*/
+/*left*/
+.advanced-l-title{width: 80px;color: #333}
+/*right*/
+.advanced-r{width: 580px;}
+.advanced-r-seach{height: 30px; line-height: 30px;width: 356px;background: #fff;}
+.advanced-r-seach em{display: block;width: 16px; height: 16px;background: url("../img/en-icon.png") no-repeat;margin-left: 8px;}
+.advanced-r-input{height: 30px; line-height: 30px;outline: none;width: 328px;border: none;color: #333}
+.advanced-r-h3{clear: both;color: #333}
+.advanced-r-button a{display: block; height: 46px;line-height: 46px; background: #006e97;color: #fff;padding: 0 32px;border-radius: 5px;overflow: hidden}
+.w86{width: 86px;}
+.w-90{width: 90px;}
+.w68{width: 68px;}
+.w138{width: 138px;}
+.w-186{width: 186px;}
+.w-158{width: 158px;}
+/*单选 */
+.label_radio,.label_check {display: block;cursor: pointer;line-height: 30px; height: 30px;color: #666}
+.label_radio input { margin-right: 10px;}
+.label_radio,.label_check {margin-right: 30px;  padding-left: 20px;}
+.label_radio{ background: url(../img/radio2.jpg) no-repeat 0 7px;}
+.label_radio.r_on { background: url(../img/radio.jpg) no-repeat 1px 7px;}
+.label_check{background: url("../img/label_check.jpg") no-repeat 2px 5px;line-height: 24px; height: 24px;}
+.label_check.c_on { background: url(../img/label_check2.jpg) no-repeat  2px 5px;}
+.label_radio input,.label_check input { position: absolute; left: -9999px;}
+/*多选*/
+.multi-select{width: 265px; }
+.multi-select-con{height: 103px;overflow-y: scroll; border-radius: 0;padding-left: 3px;padding-top:5px;}
+/*日历*/
+.to{color: #666;line-height: 32px;}
+.calendar .invalidday a, .calendar .invalidday a:hover { color: #ccc; background: #fff; cursor: default; }
+.calendar .selectedday { background: #ddd; }
+.calendar .today { font-weight: bold; color: #f00; }
+.calendar a { padding: 0 2px; color: #000; text-decoration: none; }
+.calendar a:hover { background: #bbb; }
+.calendar table { border-collapse: collapse; font-size: 90%; }
+.calendar tbody td { width: 20px; }
+.calendar td { padding: 1px; text-align: center; }
+.calendar thead tr td { border-bottom: 1px solid #aaa; font-weight: bold; }
+.calendar thead tr.dclinks td a { font-size: 95%; font-weight: bold; }
+.calendar thead tr.dclinks td { padding: 2px 0; vertical-align: middle; background: #ddd; border: 0; }
+.calendar { padding-bottom: 2px; border: 1px solid #aaa; font-size: small; background: #fff; }
+.calendaricon { cursor: pointer;margin-left: 5px;position: relative;top: 7px;}
+/*------------------列表内容页面样式-----------------------*/
+.list-left-300{width: 280px;background: #f7f7f7;_display: inline;float: left;padding: 10px;}
+.w-660{width: 660px;}
+.advanced-r-button-list a{padding: 0 20px;}
+.bor-b-1{border-bottom: 1px dashed #ccc;padding-bottom: 15px;}
+.sec-h3{width: 500px;}
+.sec-h3,.sec-r{font-size: 18px; font-weight: bold; line-height: 32px;}
+.sec-h3 a,.sec-r span{color: #006e97;}
+.sec-r{width: 160px;}
+.advanced-detail li{line-height: 24px; height: 24px; overflow: hidden}
+.advanced-detail li,.advanced-detail h3{color: #000;font-size: 18px;}
+.advanced-detail li a em{margin-right: 5px;}

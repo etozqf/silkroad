@@ -1,0 +1,13 @@
+.mod-map {
+    clear: both;
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin: 15px auto;
+    padding: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+.mod-map a {
+    text-decoration: none;
+    outline: none;
+}

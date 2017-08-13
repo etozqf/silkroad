@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>组图_{$SYSTEM[sitename]}</title>
+    <link rel="stylesheet" href="{MOBILE_URL}templates/{TEMPLATE}/touch/css/touch-app.css" />
+    <link rel="apple-touch-startup-image" href="{MOBILE_URL}templates/{TEMPLATE}/touch/startup/320x460.png" />
+    <link rel="apple-touch-icon" apple-touch-icon-precomposed="false" sizes="57x57" href="{MOBILE_URL}templates/{TEMPLATE}/startup/cover.png"/>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/zepto.min.js"></script><!--http://zeptojs.com/ -->
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.swipeslide.js"></script>
+    <script src="{MOBILE_URL}templates/{TEMPLATE}/touch/js/cmstop.touchapp.js"></script>
+</head>
+<body>
+<div class="ui-container">
+    <header>
+        <div class="ui-header-bar"> <a href="{MOBILE_URL}" class="ui-gohomepage"></a>
+            <div class="ui-pagetitle">组图</div>
+            <div class="ui-menu-trigger js-menubtn-top"></div>
+        </div>
+    </header>
+    <!--{template 'mobile/touch/_blocks/nav.html'}-->
+    <div class="ui-pictures-container">
+        <section class="ui-articles-container photos-page">
+            <section class="ui-category-gallery">
+                <ul>
+                </ul>
+            </section>
+            <a href="javascript:;" class="ui-more">加载更多图片</a>
+        </section>
+    </div>
+</div>
+<!-- 底部栏目面板 -->
+<div class="js-category-bottom-container"></div>
+<!--@end 底部栏目面板 -->
+<!-- 底部 -->
+<footer class="ui-bottom-bar">
+    <!--{template 'mobile/touch/_blocks/footer.html'}-->
+</footer>
+<!--@end 底部 -->
+<script type="text/javascript">
+    $(function(){
+        var page = 1,
+            loadLock = false,
+            colWidth = 600,
+            container = $('.ui-category-gallery ul');
+        function appendCells()
+        {
+            var pagesize = 10;
+            if (loadLock) return;
+            loadLock = true;
+            $.post('/picture/', {
+                width: colWidth,
+                page: page,
+                pagesize: pagesize
+            }, function(json) {
+                if (pagesize > json.data.length) {
+                    $(".ui-more").hide();
+                } else {
+                    $(".ui-more").text('加载更多图片');
+                }
+                if (json && json.data && json.data.length) {
+                    var fragment = document.createDocumentFragment(),
+                            cells = [];
+                    $.each(json.data, function(index, item) {
+                        var cell = '<li>' +
+                                    '<a href="' + item.url+ '">' +
+                                        '<img src="' + item.src + '" alt="">' +
+                                        '<p>' + item.title+ '</p>' +
+                                    '</a>' +
+                                    '</li>';
+                        cell = $(cell);
+                        cells.push(cell[0]);
+                        fragment.appendChild(cell[0]);
+                    });
+                    container.append(fragment);
+                    more = page * pagesize < (parseInt(json.total) || 0);
+                    page += 1;
+                }
+                if (!more) {
+                    $('#loader').hide();
+                    $(window).off('scroll');
+                }
+                loadLock = false;
+            }, 'json');
+        }
+
+        appendCells();
+
+        $(".ui-more").click(function(){
+            $(this).text('加载中...');
+            appendCells();
+        })
+    })
+</script>
+</body>
+</html>

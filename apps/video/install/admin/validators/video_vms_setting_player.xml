@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<playerlogoImgPath tips="网站LOGO支持jpg,png格式">
+	</playerlogoImgPath>
+    <playerlogoClickUrl tips="网站LOGO链接地址">
+    </playerlogoClickUrl>
+    <playervideoInfoPath tips="视频信息调用接口">
+    </playervideoInfoPath>
+    <playeradInfoPath tips="广告信息调用接口">
+    </playeradInfoPath>
+    <playerstatUrl tips="统计信息收集接口，提供vid,pageUrl">
+    </playerstatUrl>
+    <playervideoInfoPath tips="视频信息调用接口">
+    </playervideoInfoPath>
+</root>

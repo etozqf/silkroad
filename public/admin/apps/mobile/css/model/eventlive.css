@@ -1,0 +1,57 @@
+#title {
+    width: 735px;
+}
+.upload-avatar {
+    position: relative;
+}
+.upload-avatar .tip {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    text-align: center;
+    background: rgba(80, 80, 80, 0.8);
+    color: #fff;
+    height: 16px;
+    line-height: 16px;
+}
+.livelist-panel {
+    border-top: solid 1px #C9D4E5;
+    clear: both;
+}
+.livelist-panel .head {
+    height: 26px;
+    line-height: 26px;
+    padding-top: 12px;
+}
+.livelist-panel .head img {
+    margin: -4px 4px 0 0;
+    vertical-align: middle;
+}
+.livelist-panel .body {
+    padding: 10px 5px;
+}
+.livelist-panel li {
+    padding: 3px 5px 3px 18px;
+    height: 20px;
+    line-height: 20px;
+}
+.livelist-panel li img {
+    margin-left: 4px;
+}
+#btn-pick {
+    position: inherit;
+}
+.dialog-box .eventlive-post-form {
+    margin: 16px 0;
+}
+.eventlive-post-form input[type="text"] {
+    width: 230px;
+    margin: 4px 0;
+    background-color: #fff;
+}
+.eventlive-post-form input.input_calendar {
+    width: inherit;
+}
+.eventlive-post-form .miniEditor {
+    background: #fff;
+}

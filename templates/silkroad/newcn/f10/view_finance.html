@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$SYSTEM[sitename]} _F10_view_finance</title>
+    <meta name="Keywords" content="{$SYSTEM[sitename]} {$SYSTEM[seokeywords]}">
+    <meta name="description" content="{$SYSTEM[sitename]} {$SYSTEM[seodescription]}">
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <link rel="shortcut icon" href="{WWW_URL}favicon.ico" />
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/common.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css">
+    <link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/f10/css/style.css">
+    <script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/jquery-1.8.2.min.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $ (".zb-tab-menu li").hover ( function () {
+                $ ( this ).addClass ( "sel" ).siblings ().removeClass ();
+                $ ( ".zb-tab-data>div" ).hide ().eq ( $ ( '.zb-tab-menu li' ).index ( this ) ).show ();
+            } );
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="{IMG_URL}templates/{TEMPLATE}/f10/js/html5.js"></script>
+    <![endif]-->
+    <!--解决IE6下PNG无法透明-->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/f10/js/ie6_png32.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix ( '.ie6_png32' );</script>
+    <![endif]-->
+
+</head>
+<!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-15">
+    <div class="bor-rb ov">
+        <div class="bg-fff bor-trbl ov">
+            <!--东华重机-->
+            <!--{template "newcn/f10/view_types.html"}-->
+            <div class="ov hdzj-tag">
+                <ul class="ov">
+                    <li><a href="#nav01">Major Indicators</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav02">Major Financial Ratios</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav03">Income Statement</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav04">Balance Sheet</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav05">Cash Flow</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav06">Balance Sheet for Financial-type Companies</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav07">Income Statement for Financial-type Companies</a></li>
+                    <li><span>|</span></li>
+                    <li><a href="#nav08">Cash Flow Statement for Financial-type Companies</a></li>
+                </ul>
+            </div>
+            <!--内容-->
+            <div class="w-960 ov">
+                <div class="zb ov" id="nav01">
+                    <div class="mod-title bgff9933">Major Indicators</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 1200px;">
+                            <tr>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Return on Equity (ROE)</th>
+                                <th>Debt-to-Asset Ratio</th>
+                                <th>NAV Per Share</th>
+                                <th>Earnings Per Share (EPS)</th>
+                                <th>Industry</th>
+                                <th>Industry Classification Standard</th>
+                            </tr>
+                            <!--{if !$data['A041']}-->
+                            <tr>
+                                <td colspan="8" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A041'] $val}-->
+                            <tr>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['jingzicanshouyilv']}</td>
+                                <td>{$val['zicanfuzhailv']}</td>
+                                <td>{$val['meigujingzican']}</td>
+                                <td>{$val['meigushouyi']}</td>
+                                <td class="center">{$val['suoshuhangye']}</td>
+                                <td class="center">{$val['hangyefenleibiaozhun']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="zb ov mar-t-20" id="nav02">
+                    <div class="mod-title bge51c2b">Major Financial Ratios</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Retained Profit</th>
+                                <th>Receivables Turnover Ratio</th>
+                                <th>Retained Profit Per Share</th>
+                                <th>Net Profit</th>
+                                <th>Current Assets Turnover</th>
+                                <th>Capital Reserve</th>
+                                <th>EPS after Deducting Non-recurring<br/> Gains and Losses</th>
+                                <th>Inventory Turnover Ratio</th>
+                                <th>Operating Income</th>
+                                <th>Fixed Assets Ratio</th>
+                                <th>Net Non-Operating Income and<br/> Expenditure</th>
+                                <th>Rate of Return on Total Assets (ROA)</th>
+                                <th>Equity Ratio</th>
+                                <th>Turnover Ratio of Operating Funds</th>
+                                <th>Total Non-recurring Gains <br/>and Profits</th>
+                                <th>Total Amount of Financial,<br/> Administrative and Operating Expenses</th>
+                                <th>Total Liabilities</th>
+                                <th>Net Assets Ratio</th>
+                                <th>Operating Net Cash <br/>Ratio(Short-term Debts)</th>
+                                <th>Recovery Ratio of Cash to<br/> Total Assets</th>
+                                <th>Operating Expenses Ratio</th>
+                                <th>Monetary Fund Ratio</th>
+                                <th>NAV Per Share</th>
+                                <th>Net Increase in Cash and <br/>Cash Equivalents</th>
+                                <th>Net Profit Growth Rate</th>
+                                <th>Ratio of Profits to Cost</th>
+                                <th>Monetary Funds</th>
+                                <th>Inventory Turnover Ratio</th>
+                                <th>Minority Shareholders’ Equity</th>
+                                <th>ROE</th>
+                                <th>Quick Ratio</th>
+                                <th>Operating Cash Flow Per Share</th>
+                                <th>Basic EPS</th>
+                                <th>Inventory Shares</th>
+                                <th>Quick Ratio</th>
+                                <th>AR Turnover</th>
+                                <th>Equity Attributable to Equity <br/>Holders of the Parent</th>
+                                <th>Net Cash Flow from Investing<br/> Activities</th>
+                                <th>Diluted EPS</th>
+                                <th>Non-current Debt Ratio</th>
+                                <th>Data Resource</th>
+                                <th>Net Income from Change of <br/>Fair Value</th>
+                                <th>Rate of Return on Investment (ROI)</th>
+                                <th>Proportion of Financial,<br/> Administrative and Operating Expenses</th>
+                                <th>Operating Income Cash Coverage</th>
+                                <th>Inventory</th>
+                                <th>Current Debt Ratio</th>
+                                <th>Liability Structure Ratio</th>
+                                <th>Working Capital</th>
+                                <th>Fixed Assets Growth Rate</th>
+                                <th>Fixed Assets</th>
+                                <th>Total Profit</th>
+                                <th>Ratio of Total Assets Turnover</th>
+                                <th>EPS</th>
+                                <th>Total Assets</th>
+                                <th>Total Current Liabilities</th>
+                                <th>Financial Expenses Ratio</th>
+                                <th>Net Profit Ratio</th>
+                                <th>Total Shareholders’ Equity</th>
+                                <th>Current Assets Turnover Days</th>
+                                <th>Operating Tax Ratio</th>
+                                <th>Cash Asset</th>
+                                <th>Capital Reserve Per Share</th>
+                                <th>Trading Financial Assets Ratio</th>
+                                <th>Total Non-current Liabilities</th>
+                                <th>Operating Profit</th>
+                                <th>Total Non-current Assets</th>
+                                <th>Net Profit Attributable to<br/> Ordinary Equity Holders of the Parent</th>
+                                <th>Cash Flow Per Share</th>
+                                <th>Held for Trading Financial Assets</th>
+                                <th>Share Capital</th>
+                                <th>Inventory Turnover Days</th>
+                                <th>Current Assets Ratio</th>
+                                <th>Investment Real Estate</th>
+                                <th>Current Ratio</th>
+                                <th>Investment Income</th>
+                                <th>Operating Profit Growth Rate</th>
+                                <th>Net Cash Flow from Operating<br/> Activities</th>
+                                <th>Net Profit after Deducting <br/>Non-recurring Gains and Profits</th>
+                                <th>Net Cash Flow from Financing Activities</th>
+                                <th>Asset Liability Ratio</th>
+                                <th>Financial Expense</th>
+                                <th>Surplus Reserve</th>
+                                <th>Operating Cost</th>
+                                <th>Total Assets Turnover Days</th>
+                                <th>Operating Income Growth Rate</th>
+                                <th>Receivables</th>
+                                <th>Total Current Assets</th>
+                                <th>Equity Turnover</th>
+                                <th>Debt To Tangible Assets Ratio</th>
+                                <th>Goodwill</th>
+                                <th>Net Assets Growth Rate</th>
+                                <th>Operating Cost Ratio</th>
+                                <th>Fixed Assets Turnover Ratio</th>
+                                <th>Operating Net Cash Ratio</th>
+                                <th>Investment Income Growth Rate</th>
+                                <th>Administrative Expense</th>
+                                <th>Total Assets Growth Rate</th>
+                                <th>Operating Profit Ratio</th>
+                                <th>Net Cash Provided by Operating <br/>Activities to Net Profit</th>
+                                <th>Sales Expense</th>
+                            </tr>
+                            <!--{if !$data['A042']}-->
+                            <tr>
+                                <td colspan="120" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A042'] $val}-->
+                            <tr>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['weifenpeilirun']}</td>
+                                <td>{$val['yingshouzhangkuanzhouzhuanlv']}</td>
+                                <td>{$val['meiguweifenpeilirun']}</td>
+                                <td>{$val['jinglirun']}</td>
+                                <td>{$val['liudongzicanzhouzhuanlv']}</td>
+                                <td>{$val['zibengongji']}</td>
+                                <td>{$val['kouchufeijingjixingshunyimeigushouyi']}</td>
+                                <td>{$val['cunhuozhouzhuanlv']}</td>
+                                <td>{$val['yingyeshouru']}</td>
+                                <td>{$val['gudingzicanbilv']}</td>
+                                <td>{$val['yingyewaishouzijinge']}</td>
+                                <td>{$val['zongzicanbaochoulv']}</td>
+                                <td>{$val['canquanbilv']}</td>
+                                <td>{$val['yunyingzijinzhouzhuanlv']}</td>
+                                <td>{$val['feijingchangxingshunyiheji']}</td>
+                                <td>{$val['sanfeiheji']}</td>
+                                <td>{$val['fuzhaiheji']}</td>
+                                <td>{$val['jingzicanbilv']}</td>
+                                <td>{$val['jingyingjingxianjinbilv(duanqizhaiwu)']}</td>
+                                <td>{$val['quanbuzicanxianjinhuishoulv']}</td>
+                                <td>{$val['guanlifeiyonglv']}</td>
+                                <td>{$val['huobizijinbilv']}</td>
+                                <td>{$val['meigujingzican']}</td>
+                                <td>{$val['xianjinjixianjindengjiawujingzengjiae']}</td>
+                                <td>{$val['jinglirunzengzhanglv']}</td>
+                                <td>{$val['chengbenfeiyonglirunlv']}</td>
+                                <td>{$val['huobizijin']}</td>
+                                <td>{$val['cunhuobilv']}</td>
+                                <td>{$val['shaoshugudongquanyi']}</td>
+                                <td>{$val['jingzicanshouyilv']}</td>
+                                <td>{$val['baoshousudongbilv']}</td>
+                                <td>{$val['meigujingyingxianjinliuliang']}</td>
+                                <td>{$val['jibenmeigushouyi']}</td>
+                                <td>{$val['kucungu']}</td>
+                                <td>{$val['sudongbilv']}</td>
+                                <td>{$val['yingshouzhangkuanzhouzhuantianshu']}</td>
+                                <td>{$val['guishuyumugongsisuoyouzhequanyi']}</td>
+                                <td>{$val['touzihuodongxianjinliuliangjinge']}</td>
+                                <td>{$val['xishimeigushouyi']}</td>
+                                <td>{$val['feiliudongfuzhaibilv']}</td>
+                                <td class="center">{$val['shujulaiyuan']}</td>
+                                <td>{$val['gongyunjiazhibiandongjingshouyi']}</td>
+                                <td>{$val['touzishouyilv']}</td>
+                                <td class="center">{$val['sanfeibizhong']}</td>
+                                <td>{$val['yingyeshouruxianjinhanliang']}</td>
+                                <td>{$val['cunhuo']}</td>
+                                <td>{$val['liudongfuzhaibilv']}</td>
+                                <td>{$val['fuzhaijiegoubi']}</td>
+                                <td>{$val['yingyunzijin']}</td>
+                                <td>{$val['gudingzicanzengzhanglv']}</td>
+                                <td>{$val['gudingzican']}</td>
+                                <td>{$val['lirunzonge']}</td>
+                                <td>{$val['zongzicanzhouzhuanlv']}</td>
+                                <td>{$val['meigushouyi']}</td>
+                                <td>{$val['zicanzongji']}</td>
+                                <td>{$val['liudongfuzhaiheji']}</td>
+                                <td>{$val['caiwufeiyonglv']}</td>
+                                <td>{$val['jinglirunlv']}</td>
+                                <td>{$val['gudongquanyiheji']}</td>
+                                <td>{$val['liudongzicanzhouzhuantianshu']}</td>
+                                <td>{$val['yingyeshuijinlv']}</td>
+                                <td>{$val['xianjinbilv']}</td>
+                                <td>{$val['meiguzibengongjijin']}</td>
+                                <td>{$val['jiaoyixingjinrongzicanbilv']}</td>
+                                <td>{$val['feiliudongfuzhaiheji']}</td>
+                                <td>{$val['yingyelirun']}</td>
+                                <td>{$val['feiliudongzicanheji']}</td>
+                                <td>{$val['guishuyumugongsisuoyouzhedejinglirun']}</td>
+                                <td>{$val['meiguxianjinliuliang']}</td>
+                                <td>{$val['jiaoyixingjinrongzican']}</td>
+                                <td>{$val['guben']}</td>
+                                <td>{$val['cunhuozhouzhuantianshu']}</td>
+                                <td>{$val['liudongzicanbilv']}</td>
+                                <td>{$val['touzixingfangdican']}</td>
+                                <td>{$val['liudongbilv']}</td>
+                                <td>{$val['touzishouyi']}</td>
+                                <td>{$val['yingyelirunzengzhanglv']}</td>
+                                <td>{$val['jingyinghuodongxianjinliuliangjinge']}</td>
+                                <td>{$val['kouchufeijingchangxingshunyihoudejinglirun']}</td>
+                                <td>{$val['chouzihuodongxianjinliuliangjinge']}</td>
+                                <td>{$val['zicanfuzhaibilv']}</td>
+                                <td>{$val['caiwufeiyong']}</td>
+                                <td>{$val['yingyugongji']}</td>
+                                <td>{$val['yingyechengben']}</td>
+                                <td>{$val['zongzicanzhouzhuantianshu']}</td>
+                                <td>{$val['yingyeshouruzengzhanglv']}</td>
+                                <td>{$val['yingshouzhangkuan']}</td>
+                                <td>{$val['liudongzicanheji']}</td>
+                                <td>{$val['gudongquanyizhouzhuanlv']}</td>
+                                <td>{$val['youxingzicanjingzhizhaiwulv']}</td>
+                                <td>{$val['shangyu']}</td>
+                                <td>{$val['jingzicanzengzhanglv']}</td>
+                                <td>{$val['yingyechengbenlv']}</td>
+                                <td>{$val['gudingzicanzhouzhuanlv']}</td>
+                                <td>{$val['jingyingjingxianjinbilv']}</td>
+                                <td>{$val['touzishouyizengzhanglv']}</td>
+                                <td>{$val['guanlifeiyong']}</td>
+                                <td>{$val['zongzicanzengzhanglv']}</td>
+                                <td>{$val['yingyelirunlv']}</td>
+                                <td>{$val['jingyinghuodongxianjinjingliuliangyujinglirunbilv']}</td>
+                                <td>{$val['xiaoshoufeiyong']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="zb ov mar-t-20" id="nav03">
+                    <div class="mod-title bg666" name="nav01">Income Statement</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Reporting Period</th>
+                                <th>Ⅰ. Total Operating Income</th>
+                                <th>Ⅱ. Total Operating Cost</th>
+                                <th>Ⅲ Operating Profit</th>
+                                <th>Ⅳ Total Profit</th>
+                                <th>Ⅴ. Net Profit</th>
+                                <th>Ⅵ 1. Basic EPS</th>
+                                <th>Ⅵ 2. Diluted EPS</th>
+                                <th>Ⅶ. Other Comprehensive Income</th>
+                                <th>Ⅷ.Total Comprehensive Income</th>
+                                <th>Assets Impairments</th>
+                                <th>Other Items</th>
+                                <th>Financial Expense</th>
+                                <th>Exploration cost</th>
+                                <th>Exchange Earning</th>
+                                <th>Sales Expense</th>
+                                <th>Investment Income</th>
+                                <th>Administrative Expense</th>
+                                <th>Non-operating Income</th>
+                                <th>Operating Taxes and Surcharges</th>
+                                <th>Minority Shareholders’ Gains and Losses</th>
+                                <th>Net Profit Attributable to <br/>Ordinary Equity Holders of <br/>the Parent</th>
+                                <th>Add: Subsidy Income</th>
+                                <th>Add: Net Income from <br/>Change of Fair Value</th>
+                                <th>Add: Other Items</th>
+                                <th>Add: Other Items</th>
+                                <th>Less: Income Tax</th>
+                                <th>Less: Non-operating Expenditure</th>
+                                <th>Of Which: Investment Income <br/>from Affiliates and Joint Venture</th>
+                                <th>Of Which: Net Loss on Disposal <br/>of Non-current Assets</th>
+                                <th>Of Which: Operating Income</th>
+                                <th>Of Which: Attributable to Equity<br/> Holders of the Parent</th>
+                                <th>Of Which: Operating Cost</th>
+                                <th>Consolidation Type</th>
+                                <th>Statement Source</th>
+                            </tr>
+                            <!--{if !$data['A043']}-->
+                            <tr>
+                                <td colspan="38" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A043'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td>{$val['yi.yingyezongshouru']}</td>
+                                <td>{$val['er.yingyezongchengben']}</td>
+                                <td>{$val['san.yingyelirun']}</td>
+                                <td>{$val['si.lirunzonge']}</td>
+                                <td>{$val['wu.jinglirun']}</td>
+                                <td>{$val['(yi).jibenmeigushouyi']}</td>
+                                <td>{$val['(er).xishimeigushouyi']}</td>
+                                <td>{$val['qi.qitazongheshouyi']}</td>
+                                <td>{$val['ba.zongheshouyizonge']}</td>
+                                <td>{$val['zicanjianzhishunshi']}</td>
+                                <td>{$val['yingxiangyingyelirundeqitakemu']}</td>
+                                <td>{$val['caiwufeiyong']}</td>
+                                <td>{$val['kantanfeiyong']}</td>
+                                <td>{$val['huiduishouyi']}</td>
+                                <td>{$val['xiaoshoufeiyong']}</td>
+                                <td>{$val['touzishouyi']}</td>
+                                <td>{$val['guanlifeiyong']}</td>
+                                <td>{$val['yingyewaishouru']}</td>
+                                <td>{$val['yingyeshuijinjifujia']}</td>
+                                <td>{$val['shaoshugudongshunyi']}</td>
+                                <td>{$val['guishuyumugongsisuoyouzhedejinglirun']}</td>
+                                <td>{$val['jia:butieshouru']}</td>
+                                <td>{$val['jia:gongyunjiazhibiandongjingshouyi']}</td>
+                                <td>{$val['jia:yingxianglirunzongedeqitakemu']}</td>
+                                <td>{$val['jia:yingxiangjinglirundeqitakemu']}</td>
+                                <td>{$val['jian:suodeshui']}</td>
+                                <td>{$val['jian:yingyewaizhichu']}</td>
+                                <td>{$val['qizhong:duilianyingqiyeheheyingqiyedetouzishouyi']}</td>
+                                <td>{$val['qizhong:feiliudongzicanchuzhijingshunshi']}</td>
+                                <td>{$val['qizhong:yingyeshouru']}</td>
+                                <td>{$val['qizhong:guishuyumugongsi']}</td>
+                                <td>{$val['qizhong:yingyechengben']}</td>
+                                <td class="center">{$val['hebingleixing']}</td>
+                                <td class="center">{$val['baobiaolaiyuan']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav04">
+                    <div class="mod-title bgff9933">Balance Sheet</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Reporting Period</th>
+                                <th>End Date</th>
+                                <th>Deferred Income</th>
+                                <th>Balance of Foreign Currency<br/> Statement Translation</th>
+                                <th>Intangible Assets</th>
+                                <th>Retained Profit</th>
+                                <th>Non-Current Liabilities <br/>Due Within One Year</th>
+                                <th>Inventory</th>
+                                <th>Total Owners' Equity</th>
+                                <th>Fixed Assets</th>
+                                <th>Non-Current Assets Due Within<br/> One Year</th>
+                                <th>Capital Reserve</th>
+                                <th>Construction in Progress</th>
+                                <th>Accrued Interest Receivable</th>
+                                <th>Staff Remuneration Payables</th>
+                                <th>Fixed Assets Liquidation</th>
+                                <th>Total Assets</th>
+                                <th>Total Current Liabilities</th>
+                                <th>Deferred Income Tax Assets</th>
+                                <th>Other Non-Current Assets</th>
+                                <th>Notes Receivable</th>
+                                <th>Less: Inventory Shares</th>
+                                <th>Long-term Loans</th>
+                                <th>Total Liabilities</th>
+                                <th>Bonds Payable</th>
+                                <th>Estimated Liabilities</th>
+                                <th>Statement Source</th>
+                                <th>Interest Payable</th>
+                                <th>Total Non-current Liabilities</th>
+                                <th>Other Current Assets</th>
+                                <th>Total Non-current Assets</th>
+                                <th>Adjustment to Abnormal Operation<br/> Income</th>
+                                <th>Held for Trading Financial Assets</th>
+                                <th>Financial Assets Available for Sale</th>
+                                <th>Special Payables</th>
+                                <th>Investment Real Estate</th>
+                                <th>Monetary Funds</th>
+                                <th>Notes Payable</th>
+                                <th>Development Expenditure</th>
+                                <th>Other Non-Current Liabilities</th>
+                                <th>Advance Received from Customers</th>
+                                <th>Other Accounts Receivable</th>
+                                <th>Minority Shareholders’ Equity</th>
+                                <th>Paid In Capital(or Equity)</th>
+                                <th>Surplus Reserve</th>
+                                <th>Taxes Payable</th>
+                                <th>Dividend Receivable</th>
+                                <th>Consolidation Type</th>
+                                <th>Other Comprehensive Income</th>
+                                <th>Other Current Liability</th>
+                                <th>Receivables</th>
+                                <th>Dividend Payable</th>
+                                <th>Other Payable</th>
+                                <th>Accounts Payable</th>
+                                <th>Of Which: Expendable Biological <br/>Assets</th>
+                                <th>Long-term Equity Investment</th>
+                                <th>Project Materials</th>
+                                <th>Total Current Assets</th>
+                                <th>Oil and Gas Assets</th>
+                                <th>Held-to-maturity Investment</th>
+                                <th>Goodwill</th>
+                                <th>Long-term Payable</th>
+                                <th>Account Prepaid</th>
+                                <th>Equity Attributable to Equity <br/>Holders of the Parent</th>
+                                <th>Total Liabilities and Owners’ Equity</th>
+                                <th>Short-term Loans</th>
+                                <th>Deferred Income Tax Liabilities</th>
+                                <th>Productive Biological Assets</th>
+                                <th>Long-term Account Receivable</th>
+                                <th>Held-for-trading Financial<br/> Liabilities</th>
+                                <th>Accounts Receivable from<br/> Related Companies</th>
+                                <th>Accounts Payable for Related Parties</th>
+                                <th>Long-term Deferred Expense</th>
+                                <th>Special Reserve</th>
+                            </tr>
+                            <!--{if !$data['A044']}-->
+                            <tr>
+                                <td colspan="80" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A044'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['diyanshouyi']}</td>
+                                <td>{$val['waibibaobiaozhesuanjiacha']}</td>
+                                <td>{$val['wuxingzican']}</td>
+                                <td>{$val['weifenpeilirun']}</td>
+                                <td>{$val['yinianneidaoqidefeiliudongfuzhai']}</td>
+                                <td>{$val['cunhuo']}</td>
+                                <td>{$val['suoyouzhequanyi(huogudongquanyi)heji']}</td>
+                                <td>{$val['gudingzican']}</td>
+                                <td>{$val['yinianneidaoqidefeiliudongzican']}</td>
+                                <td>{$val['zibengongji']}</td>
+                                <td>{$val['zaijiangongcheng']}</td>
+                                <td>{$val['yingshoulixi']}</td>
+                                <td>{$val['yingfuzhigongxinchou']}</td>
+                                <td>{$val['gudingzicanqingli']}</td>
+                                <td>{$val['zicanzongji']}</td>
+                                <td>{$val['liudongfuzhaiheji']}</td>
+                                <td>{$val['diyansudeshuizican']}</td>
+                                <td>{$val['qitafeiliudongzican']}</td>
+                                <td>{$val['yingshoupiaoju']}</td>
+                                <td>{$val['jian:kuchungu']}</td>
+                                <td>{$val['changqijiekuan']}</td>
+                                <td>{$val['fuzhaiheji']}</td>
+                                <td>{$val['yingfuzhaiquan']}</td>
+                                <td>{$val['yujifuzhai']}</td>
+                                <td>{$val['baobiaolaiyuan']}</td>
+                                <td>{$val['yingfulixi']}</td>
+                                <td>{$val['feiliudongfuzhaiheji']}</td>
+                                <td>{$val['qitaliudongzican']}</td>
+                                <td>{$val['feiliudongzicanheji']}</td>
+                                <td>{$val['feizhengchangjingyingxiangmushouyitiaozheng']}</td>
+                                <td>{$val['jiaoyixingjinrongzican']}</td>
+                                <td>{$val['kegongchushoujinrongzican']}</td>
+                                <td>{$val['zhuanxiangyingfukuan']}</td>
+                                <td>{$val['touzixingfangdican']}</td>
+                                <td>{$val['huobizijin']}</td>
+                                <td>{$val['yingfupiaoju']}</td>
+                                <td>{$val['kaifazhichu']}</td>
+                                <td>{$val['qitafeiliudongfuzhai']}</td>
+                                <td>{$val['yushoukuanxiang']}</td>
+                                <td>{$val['qitayingshoukuan']}</td>
+                                <td>{$val['shaoshugudongquanyi']}</td>
+                                <td>{$val['shishouziben(huoguben)']}</td>
+                                <td>{$val['yingyugongji']}</td>
+                                <td>{$val['yingjiaoshuifei']}</td>
+                                <td>{$val['yingshouguli']}</td>
+                                <td>{$val['hebingleixing']}</td>
+                                <td>{$val['qitazongheshouyi']}</td>
+                                <td>{$val['qitaliudongfuzhai']}</td>
+                                <td>{$val['yingshouzhangkuan']}</td>
+                                <td>{$val['yingfuguli']}</td>
+                                <td>{$val['qitayingfukuan']}</td>
+                                <td>{$val['yingfuzhangkuan']}</td>
+                                <td>{$val['qizhong:xiaohaoxingshengwuzican']}</td>
+                                <td>{$val['changqiguquantouzi']}</td>
+                                <td>{$val['gongchengwuzi']}</td>
+                                <td>{$val['liudongzicanheji']}</td>
+                                <td>{$val['youqizican']}</td>
+                                <td>{$val['chiyouzhidaoqitouzi']}</td>
+                                <td>{$val['shangyu']}</td>
+                                <td>{$val['changqiyingfukuan']}</td>
+                                <td>{$val['yufukuanxiang']}</td>
+                                <td>{$val['guishuyumugongsisuoyouzhequanyi']}</td>
+                                <td>{$val['fuzhaihesuoyouzhe(huogudongquanyi)heji']}</td>
+                                <td>{$val['duanqijiekuan']}</td>
+                                <td>{$val['diyansuodeshuifuzhai']}</td>
+                                <td>{$val['shengcanxingshengwuzican']}</td>
+                                <td>{$val['changqiyingshoukuan']}</td>
+                                <td>{$val['jiaoyixingjinrongfuzhai']}</td>
+                                <td>{$val['yingshouguanliangongsikuan']}</td>
+                                <td>{$val['yingfuguanliangongsikuan']}</td>
+                                <td>{$val['changqidaitanfeiyong']}</td>
+                                <td>{$val['zhuanxiangchubei']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav05">
+                    <div class="mod-title bge51c2b">Cash Flow</div>
+                    <div class="tab-data-con">
+                        <table class="table" style="width: 2000px;">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Reporting Period</th>
+                                <th>Net Increase of Pledge Loans</th>
+                                <th>Borrowings</th>
+                                <th>Net Cash Flow From Financing<br/> Activities</th>
+                                <th>Cash Paid To and for Employees</th>
+                                <th>Cash Paid For Goods and Services</th>
+                                <th>Other Cash Paid Related <br/>to Financing Activities</th>
+                                <th>Refund of Tax and Fee Received</th>
+                                <th>Net Profit</th>
+                                <th>Loss from Fair Value Change</th>
+                                <th>Cash From Investments Income</th>
+                                <th>Add: Provision for Asset Losses</th>
+                                <th>Other Cash Paid Related <br/>to Investing Activities</th>
+                                <th>Net Cash Flow from Operating<br/> Activities</th>
+                                <th>Debt Converted to Capital</th>
+                                <th>Amortization of Long-Term<br/> Deferred Expenses</th>
+                                <th>Cash Outflow Related to <br/>Operating Activities Sub-total</th>
+                                <th>Cash Received from Issuing Bonds</th>
+                                <th>Amortization of Intangible Assets</th>
+                                <th>Convertible Bonds Due Within One Year</th>
+                                <th>Cash Inflow Relating to <br/>Financing Activities Sub-total</th>
+                                <th>Net Increase in Cash and <br/>Cash Equivalents</th>
+                                <th>Cash Paid for Debts</th>
+                                <th>Decrease of Operating <br/>Receivable Items</th>
+                                <th>Less: Cash Beginning Balance</th>
+                                <th>Losses on Disposal of Fixed<br/> Assets, Intangible Assets and<br/> Other Long-Term Assets</th>
+                                <th>Statement Source</th>
+                                <th>Other Cash Received Relating <br/>to Financing Activities</th>
+                                <th>Decrease of Deferred Tax Assets</th>
+                                <th>Less: Cash Equivalents’  Beginning Balance</th>
+                                <th>Investment Losses</th>
+                                <th>Depreciations of Fixed Assets,<br/> Oil and Gas Assets, and <br/>Productive Biological Assets</th>
+                                <th>Cash Received from Accepting<br/> Investment</th>
+                                <th>Decrease of Inventories</th>
+                                <th>Add: Cash Equivalents’ Ending Balance</th>
+                                <th>Increase of Deferred Tax Liabilities</th>
+                                <th>Other Cash Received Relating<br/> to Operating Activities</th>
+                                <th>Cash Outflow Relating to Financing<br/> Activities Sub-total</th>
+                                <th>Cash from Disposal of Subsidiary or<br/> Other Operating Business Units</th>
+                                <th>Other Cash Paid Related to<br/> Operating Activities</th>
+                                <th>Cash Inflow Relating to <br/>Operating Activities Sub-total</th>
+                                <th>Cash From Investment Withdrawal</th>
+                                <th>Cash Paid for Investments</th>
+                                <th>Taxes and Fees Paid</th>
+                                <th>V. Net Increase in Cash<br/> and Cash Equivalents</th>
+                                <th>Cash Outflow Relating to<br/> Investing Activities Sub-total</th>
+                                <th>Cash Ending Balance</th>
+                                <th>Losses of Fixed Assets <br/>Retirement by Scrapping</th>
+                                <th>Financial Expense</th>
+                                <th>Consolidation Type</th>
+                                <th>Other Cash Received Relating<br/> to Investing Activities</th>
+                                <th>Cash Received From selling<br/> Goods or Rendering Services</th>
+                                <th>Cash Inflow Relating to <br/>Investing Activities Sub-total</th>
+                                <th>Net Cash Paid for Acquiring<br/> Subsidiaries and Other Business units</th>
+                                <th>Losses on Disposal of Fixed Assets, Intangible Assets and Other<br/> Long-Term Assets</th>
+                                <th>Cash Paid for Acquisitions <br/>of Fixed Assets, Intangible Assets<br/> and Other Long-term Assets</th>
+                                <th>Add: Other Cash</th>
+                                <th>Add: Other Cash 2</th>
+                                <th>Net Cash Flows From<br/>Investing Activities</th>
+                                <th>LV. Foreign Currency <br/>Translation Gains (Losses)</th>
+                                <th>Fixed Assets Under Financing<br/> Lease</th>
+                                <th>Cash and Cash Equivalents’ Ending<br/> Balance</th>
+                                <th>Cash and Cash Equivalents’ Beginning<br/> Balance</th>
+                                <th>Increase of Operating Payable Items</th>
+                                <th>Cash Paid for Dividend,<br/> Profit or Interest</th>
+                                <th>Other</th>
+                            </tr>
+                            <!--{if !$data['A045']}-->
+                            <tr>
+                                <td colspan="80" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A045'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td>{$val['zhiyadaikuanjingzengjiae']}</td>
+                                <td>{$val['qudejiekuanshoudaodexianjin']}</td>
+                                <td>{$val['chouzihuodongcanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['zhifugeizhigongyijiweizhigongzhifudexianjin']}</td>
+                                <td>{$val['goumaishangpin,jieshoulaowuzhifudexianjin']}</td>
+                                <td>{$val['zhifuqitayuchouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['shoudaodeshuifeifanhuan']}</td>
+                                <td>{$val['jinglirun']}</td>
+                                <td>{$val['gongyunjiazhibiandongshunshi']}</td>
+                                <td>{$val['qudetouzishouyishoudaodexianjin']}</td>
+                                <td>{$val['jia:zicanjianzhizhunbei']}</td>
+                                <td>{$val['zhifuqitayutouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['jingyinghuodongcanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['zhaiwuzhuanweiziben']}</td>
+                                <td>{$val['changqidaitanfeiyongtanxiao']}</td>
+                                <td>{$val['jingyinghuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['faxingzhaiquanshoudaodexianjin']}</td>
+                                <td>{$val['wuxingzicantanxiao']}</td>
+                                <td>{$val['yinianneidaoqidekezhuanhuangongsizhaiquan']}</td>
+                                <td>{$val['chouzihuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['xianjinjixianjindengjiawuzengjiae']}</td>
+                                <td>{$val['changhuanzhaiwuzhifudexianjin']}</td>
+                                <td>{$val['jingyingxingyingshouxiangmudejianshao']}</td>
+                                <td>{$val['jian:xianjindeqichuyue']}</td>
+                                <td>{$val['chuzhigudingzican,wuxingzicanheqitachangqizicandeshunshi']}</td>
+                                <td>{$val['baobiaolaiyuan']}</td>
+                                <td>{$val['shoudaoqitayuchouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['diyansuodeshuizicanjianshao']}</td>
+                                <td>{$val['jian:xianjindengjiawudeqichuyue']}</td>
+                                <td>{$val['touzishunshi']}</td>
+                                <td>{$val['gudingzicanzhejiu,youqizicanzhehao,shengcanxingshengwuzicanzhejiu']}</td>
+                                <td>{$val['xishoutouzishoudaodexianjin']}</td>
+                                <td>{$val['cunhuodejianshao']}</td>
+                                <td>{$val['jia:xianjindengjiawudeqimoyue']}</td>
+                                <td>{$val['diyansuodeshuifuzhaizengjia']}</td>
+                                <td>{$val['shoudaoqitayujingyinghuodongyouguandexianjin']}</td>
+                                <td>{$val['chouzihuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['chuzhizigongsijiqitayingyedanweishoudaodexianjinjinge']}</td>
+                                <td>{$val['zhifuqitayujingyinghuodongyouguandexianjin']}</td>
+                                <td>{$val['jingyinghuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['shouhuitouzishoudaodexianjin']}</td>
+                                <td>{$val['touzizhifudexianjin']}</td>
+                                <td>{$val['zhifudegexiangshuifei']}</td>
+                                <td>{$val['wu,xianjinjixianjindejiawujingzengjiae']}</td>
+                                <td>{$val['touzihuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['xianjindeqimoyue']}</td>
+                                <td>{$val['gudingzicanbaofeishunshi']}</td>
+                                <td>{$val['caiwufeiyong']}</td>
+                                <td>{$val['hebingleixing']}</td>
+                                <td>{$val['shoudaoqitayutouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['xiaoshoushangpin,tigonglaowushoudaodexianjin']}</td>
+                                <td>{$val['touzihuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['qudezigongsijiqitayingyedanweizhifudexianjinjinge']}</td>
+                                <td>{$val['chuzhigudingzican,wuxingzicanheqitachangqizicanshouhuidexianjinjinge']}</td>
+                                <td>{$val['goujiangudingzican,wuxingzicanheqitachangqizicanzhifudexianjin']}</td>
+                                <td>{$val['jia:qitayuanyinduixianjindeyingxiang']}</td>
+                                <td>{$val['si(er),qitayuanyinduixianjindeyingxiang']}</td>
+                                <td>{$val['touzihuodongcanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['si.huilvbiandongduixianjindeyingxiang']}</td>
+                                <td>{$val['rongzizhurugudingzican']}</td>
+                                <td>{$val['qimoxianjinjixianjindengjiawuyue']}</td>
+                                <td>{$val['qichuxianjinjixianjindengjiawuyue']}</td>
+                                <td>{$val['jingyingxingyingfuxiangmudezengjia']}</td>
+                                <td>{$val['fenpeiguli,lirun,huochangfulixizhifudexianjin']}</td>
+                                <td class="center">{$val['qita']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav06">
+                    <div class="mod-title bg666">Balance Sheet for Financial-type Companies</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Reporting Period</th>
+                                <th>Announcement Date</th>
+                                <th>End Date</th>
+                                <th>Fixed Assets</th>
+                                <th>Retained Profit</th>
+                                <th>Demolition funds</th>
+                                <th>Claim Reserves</th>
+                                <th>Construction in Progress</th>
+                                <th>Capital Reserve</th>
+                                <th>Expensive Metals</th>
+                                <th>Handling Charges and <br/>Commissions Payable</th>
+                                <th>General Risk Reserve</th>
+                                <th>Provision of Settlement Fund</th>
+                                <th>Liabilities from Vicarious Business</th>
+                                <th>Funds from Sales of Financial <br/>Assets with Repurchase Agreement</th>
+                                <th>Loans and Advances</th>
+                                <th>Bonds Payable</th>
+                                <th>Total Liabilities</th>
+                                <th>Statement Source</th>
+                                <th>Investment Real Estate</th>
+                                <th>Held for Trading Financial Assets</th>
+                                <th>Funds Received as Stock Underwrite</th>
+                                <th>Borrowings from Central Bank</th>
+                                <th>Of Which: Membership Fees</th>
+                                <th>Other Assets</th>
+                                <th>Placements from Banks and <br/>Other Financial Institutions</th>
+                                <th>Term Deposits</th>
+                                <th>Savings Absorption</th>
+                                <th>Deposit for Recognizance</th>
+                                <th>Monetary Funds</th>
+                                <th>Separate account assets</th>
+                                <th>Minority Shareholders’ Equity</th>
+                                <th>Other Liabilities</th>
+                                <th>Consolidation Type</th>
+                                <th>Total Assets</th>
+                                <th>Emergency investment</th>
+                                <th>Buy In Financial Assets<br/> Sold For Repurchase</th>
+                                <th>Total Owners' Equity</th>
+                                <th>Of Which: Customer Deposits</th>
+                                <th>Long-term Equity Investment</th>
+                                <th>Accounts Payable</th>
+                                <th>Life Insurance Reserves</th>
+                                <th>Receivable Reserves for Life<br/> Insurance Duty of Reinsurance</th>
+                                <th>Intangible Assets</th>
+                                <th>Short-term Loans</th>
+                                <th>Insurance Premiums Receivable</th>
+                                <th>Placements from Banks and <br/>Other Financial Institutions</th>
+                                <th>Long-term Deferred Expense</th>
+                                <th>Cession Insurance Premiums Payable</th>
+                                <th>Financial Assets Available for Sale</th>
+                                <th>Receivable Reserves for <br/>-term Health Insurance Duty of Reinsurance</th>
+                                <th>Inventory</th>
+                                <th>Cash and bank deposits</th>
+                                <th>Loan and Receivable Financial Assets</th>
+                                <th>Of Which: Pledge Loans</th>
+                                <th>Storage capital margin</th>
+                                <th>Accrued Interest Receivable</th>
+                                <th>Receivable Reserves for <br/>Undue Duty of Reinsurance</th>
+                                <th>Receivable Reserves for <br/>Reinsurance Outstanding Claim</th>
+                                <th>Long-term Loans</th>
+                                <th>Estimated Liabilities</th>
+                                <th>Interest Payable</th>
+                                <th>Loans to Policyholders</th>
+                                <th>Cession Premiums Receivable</th>
+                                <th>Capital in Vicarious Business</th>
+                                <th>Subrogation Receivables</th>
+                                <th>Total Liabilities and Owners’ Equity</th>
+                                <th>Notes Payable</th>
+                                <th>Advance Received from Customers</th>
+                                <th>Equity Attributable to <br/>Equity Holders of the Parent</th>
+                                <th>Derivative Financial Liabilities</th>
+                                <th>Of Which: Customer Deposit <br/>Reservation</th>
+                                <th>Balance of Foreign Currency<br/> Statement Translation</th>
+                                <th>Funds Received as Agent of<br/> Stock Exchange</th>
+                                <th>Staff Remuneration Payables</th>
+                                <th>Paid In Capital(or Equity)</th>
+                                <th>Surplus Reserve</th>
+                                <th>Taxes Payable</th>
+                                <th>Less: Inventory Shares</th>
+                                <th>Loan and Receivable Investments</th>
+                                <th>Long-term Health Insurance Reserves</th>
+                                <th>Deferred Income Tax Assets</th>
+                                <th>Deposit for Undue Duty <br/>of Reinsurance</th>
+                                <th>Held-to-maturity Investment</th>
+                                <th>Deposit Funds</th>
+                                <th>Premiums Received in Advance</th>
+                                <th>Claims Payable</th>
+                                <th>Separate Account Liabilities</th>
+                                <th>Policyholder Dividends Payable</th>
+                                <th>Deferred Income Tax Liabilities</th>
+                                <th>Held-for-trading Financial Liabilities</th>
+                                <th>Fixed Assets Liquidation</th>
+                            </tr>
+                            <!--{if !$data['A046']}-->
+                            <tr>
+                                <td colspan="93" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A046'] $val}-->
+                            <tr>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['gudingzichan']}</td>
+                                <td>{$val['weifenpeilirun']}</td>
+                                <td>{$val['yanshengjinrongzichan']}</td>
+                                <td>{$val['chaichuzijin']}</td>
+                                <td>{$val['weijuepeikuanzhunbeijin']}</td>
+                                <td>{$val['zaijiangongcheng']}</td>
+                                <td>{$val['zibengongji']}</td>
+                                <td>{$val['guijinsu']}</td>
+                                <td>{$val['yingfushouxufeijiyongjin']}</td>
+                                <td>{$val['yibanfengxianzhunbei']}</td>
+                                <td>{$val['jiesuanbeifujin']}</td>
+                                <td>{$val['dailiyewufuzhai']}</td>
+                                <td>{$val['maichuhuigoujinrongzichankuan']}</td>
+                                <td>{$val['fafangdaikuanjidiankuan']}</td>
+                                <td>{$val['yingfuzhaiquan']}</td>
+                                <td>{$val['fuzhaiheji']}</td>
+                                <td>{$val['baobiaolaiyuan']}</td>
+                                <td>{$val['touzixingfangdichan']}</td>
+                                <td>{$val['jiaoyixingjinrongzichan']}</td>
+                                <td>{$val['dailichengxiaozhengquankuan']}</td>
+                                <td>{$val['xiangzhongyangyinhangjiekuan']}</td>
+                                <td>{$val['qizhong:jiaoyixiweifei']}</td>
+                                <td>{$val['qitazichan']}</td>
+                                <td>{$val['tongyejiqitajinrongjigoucunfangkuanxiang']}</td>
+                                <td>{$val['dingqicunkuan']}</td>
+                                <td>{$val['xishoucunkuan']}</td>
+                                <td>{$val['cunchubaozhengjin']}</td>
+                                <td>{$val['huobizijin']}</td>
+                                <td>{$val['dulizhanghuzichan']}</td>
+                                <td>{$val['shaoshugudongquanyi']}</td>
+                                <td>{$val['qitafuzhai']}</td>
+                                <td>{$val['hebingleixing']}</td>
+                                <td>{$val['zichanzongji']}</td>
+                                <td>{$val['baohuchujinjitouzikuan']}</td>
+                                <td>{$val['mairufanshoujinrongzichan']}</td>
+                                <td>{$val['suoyouzhequanyi(huogudongquanyi)']}</td>
+                                <td>{$val['qizhong:kehuzijincunkuan']}</td>
+                                <td>{$val['changqiguquantouzi']}</td>
+                                <td>{$val['yingfuzhangkuan']}</td>
+                                <td>{$val['shouxianzerenzhunbeijin']}</td>
+                                <td>{$val['yingshoufenbaoshouxianzerenzhunbeijin']}</td>
+                                <td>{$val['wuxingzichan']}</td>
+                                <td>{$val['duanqijiekuan']}</td>
+                                <td>{$val['yingshoubaofei']}</td>
+                                <td>{$val['cunfangtongyekuanxiang']}</td>
+                                <td>{$val['changqidaitanfeiyong']}</td>
+                                <td>{$val['yingfufenbaozhangkuan']}</td>
+                                <td>{$val['kegongchushoujinrongzichan']}</td>
+                                <td>{$val['yingshoufenbaochangqijiankangxianzerenzhunbeijin']}</td>
+                                <td>{$val['cunhuo']}</td>
+                                <td>{$val['xianjinjicunfangzhongyangyinhangkuanxiang']}</td>
+                                <td>{$val['daikuanjiyingshoukuanleijinrongzichan']}</td>
+                                <td>{$val['qizhong:zhiyajiekuan']}</td>
+                                <td>{$val['cunchuzibenbaozhengjin']}</td>
+                                <td>{$val['yingshoulixi']}</td>
+                                <td>{$val['yingshoufenbaoweidaoqizherenzhunbeijin']}</td>
+                                <td>{$val['yingshoufenbaoweijuepeichangzhunbeijin']}</td>
+                                <td>{$val['changqijiekuan']}</td>
+                                <td>{$val['yujifuzhai']}</td>
+                                <td>{$val['yingfulixi']}</td>
+                                <td>{$val['baohuzhiyadaikuan']}</td>
+                                <td>{$val['yingshoufenbaozhangkuan']}</td>
+                                <td>{$val['dailiyewuzichan']}</td>
+                                <td>{$val['yingshoudaiweizhuichangkuan']}</td>
+                                <td>{$val['fuzhaihesuoyouzhequanyi(huogudongquanyi)zongji']}</td>
+                                <td>{$val['yingfupiaoju']}</td>
+                                <td>{$val['yushoukuanxiang']}</td>
+                                <td>{$val['guisuyumugongsisuoyouzhequanyi']}</td>
+                                <td>{$val['yanshengjinrongfuzhai']}</td>
+                                <td>{$val['qizhong:kehubeifujin']}</td>
+                                <td>{$val['waibibaobiaozhesuanchae']}</td>
+                                <td>{$val['dailimaimaizhengquankuan']}</td>
+                                <td>{$val['yifuzhigongxinchou']}</td>
+                                <td>{$val['shishouziben(huoguben)']}</td>
+                                <td>{$val['yingyugongji']}</td>
+                                <td>{$val['yingjiaoshuifei']}</td>
+                                <td>{$val['jian:kucungu']}</td>
+                                <td>{$val['yingshoukuanxiangleitouzi']}</td>
+                                <td>{$val['changqijiankangxianzerenzhunbeijin']}</td>
+                                <td>{$val['diyansuodeshuizichan']}</td>
+                                <td>{$val['weidaoqizerenzhunbeijin']}</td>
+                                <td>{$val['chiyouzhidaoqitouzi']}</td>
+                                <td>{$val['chairuzijin']}</td>
+                                <td>{$val['yushoubaofei']}</td>
+                                <td>{$val['yingfupeifukuan']}</td>
+                                <td>{$val['dulizhanghufuzhai']}</td>
+                                <td>{$val['yingfubaodanhongli']}</td>
+                                <td>{$val['diyansuodeshuifuzhai']}</td>
+                                <td>{$val['jiaoyixingjinrongfuzhai']}</td>
+                                <td>{$val['gudingzichanqingli']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav07">
+                    <div class="mod-title bgff9933">Income Statement for Financial-type Companies</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Reporting Period</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Of Which:Interest Expense</th>
+                                <th>Other Operating Income</th>
+                                <th>1. Net Profit Attributable to <br/>Equity Holders of the Parent</th>
+                                <th>Of Which: Net Income from Entrusted<br/> Customer Assets Management</th>
+                                <th>Add: Other Items That <br/>Change Total Profit</th>
+                                <th>Handling Charges and Commissions<br/> Expenses</th>
+                                <th>Net Interest Income</th>
+                                <th>Ⅴ. Net Profit</th>
+                                <th>Of Which: Handling Charges <br/>and Commissions Expenses</th>
+                                <th>Premium Income</th>
+                                <th>Net Commission and  Fee Income</th>
+                                <th>Less: Premiums Ceded to Reinsurers</th>
+                                <th>Less: Amortized Compensation Expenses</th>
+                                <th>2. Diluted EPS</th>
+                                <th>Cession Charges</th>
+                                <th>Statement Source</th>
+                                <th>Other Operating Cost</th>
+                                <th>Operating Taxes and Surcharges</th>
+                                <th>Less: Non-operating Expenditure</th>
+                                <th>Ⅷ. Total Comprehensive Income</th>
+                                <th>Ⅳ. Total Profit</th>
+                                <th>Less: Income Tax</th>
+                                <th>Refund of Insurance Premiums</th>
+                                <th>Non-operating Income</th>
+                                <th>Less: Amortized Deposit for Duty</th>
+                                <th>III.Operating Profit</th>
+                                <th>Investment Income</th>
+                                <th>II. Operating Cost</th>
+                                <th>Claims Paid</th>
+                                <th>Of Which: Net Income from<br/> Vicariously Sold Securities</th>
+                                <th>Provision for Unearned Premium Reserves</th>
+                                <th>Attributable to Minority Shareholders’</th>
+                                <th>Of Which: Interest Income</th>
+                                <th>General and Administrative Expenses</th>
+                                <th>Consolidation Type</th>
+                                <th>Other Comprehensive Income</th>
+                                <th>Impairment Losses</th>
+                                <th>1. Basic EPS</th>
+                                <th>Of Which: Reinsurance Premium Income</th>
+                                <th>Of Which: Attributable to Equity<br/> Holders of the Parent</th>
+                                <th>Expenditures Dividend Policy</th>
+                                <th>Of Which: Net Income from <br/>Vicariously Traded Securities</th>
+                                <th>Profit and Loss from Fair Value Changes</th>
+                                <th>Less: Amortized Reinsurance Expenditures</th>
+                                <th>一，Operating Income</th>
+                                <th>Exchange Earning</th>
+                                <th>2. Net Profit Attributable to<br/> Equity Holders of the Parent</th>
+                                <th>Add: Other Items</th>
+                                <th>Net Premiums Earned</th>
+                                <th>Of Which: Investment Income <br/>from Affiliates and Joint Venture</th>
+                                <th>Appropriation of Deposit for Duty</th>
+                                <th>Of Which: Handling Charges<br/> and Commissions Income</th>
+                                <th>Add: Subsidy Income</th>
+                            </tr>
+                            <!--{if !$data['A047']}-->
+                            <tr>
+                                <td colspan="57" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A047'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['qizhong:lixizhichu']}</td>
+                                <td>{$val['qitayewushouru']}</td>
+                                <td>{$val['(yi)guisuyumugongsisuoyouzhedejinglirun']}</td>
+                                <td>{$val['qizhong:weituokehuguanlizichanyewujingshouru']}</td>
+                                <td>{$val['jia:yingxianglirundeqitakemu']}</td>
+                                <td>{$val['shouxufeijiyongjinzhichu']}</td>
+                                <td>{$val['lixijingshouru']}</td>
+                                <td>{$val['wu,jinglirun']}</td>
+                                <td>{$val['qizhong:shouxufeijiyongjinzhichu']}</td>
+                                <td>{$val['baoxianyewushouru']}</td>
+                                <td>{$val['shouxufeijiyongjinjingshouru']}</td>
+                                <td>{$val['jian:fenchubaofei']}</td>
+                                <td>{$val['jian:tanhuipeifuzhichu']}</td>
+                                <td>{$val['(er)xishimeigushouyi']}</td>
+                                <td>{$val['fenbaofeiyong']}</td>
+                                <td>{$val['baobiaolaiyuan']}</td>
+                                <td>{$val['qitayewuchengben']}</td>
+                                <td>{$val['yingyeshuijinjifujia']}</td>
+                                <td>{$val['jian:yingyewaizhichu']}</td>
+                                <td>{$val['ba,zongheshouyizonge']}</td>
+                                <td>{$val['si:lirunzonge']}</td>
+                                <td>{$val['jian:suodeshui']}</td>
+                                <td>{$val['tuibaojin']}</td>
+                                <td>{$val['yingyewaishouru']}</td>
+                                <td>{$val['jian:tanhuibaoxianzerenzhunbeijin']}</td>
+                                <td>{$val['san,yingyelirun']}</td>
+                                <td>{$val['touzishouyi']}</td>
+                                <td>{$val['er:yingyezhichu']}</td>
+                                <td>{$val['peifuzhichu']}</td>
+                                <td>{$val['qizhong:zhengquanchengxiaoyewujingshouru']}</td>
+                                <td>{$val['tiquweidaoqizerenzhunbeijin']}</td>
+                                <td>{$val['qizhong:guisuyushaoshugudong']}</td>
+                                <td>{$val['qizhong:lixishouru']}</td>
+                                <td>{$val['yewujiguanlifei']}</td>
+                                <td>{$val['hebingleixing']}</td>
+                                <td>{$val['qitazongheshouyi']}</td>
+                                <td>{$val['zichanjianzhishunshi']}</td>
+                                <td>{$val['(yi)jibenmeigushouyi']}</td>
+                                <td>{$val['qizhong:fenbaofeishouru']}</td>
+                                <td>{$val['qizhong:guisuyumugongsi']}</td>
+                                <td>{$val['baodanhonglizhichu']}</td>
+                                <td>{$val['qizhong:dailimaimaizhengquanyewujingshouru']}</td>
+                                <td>{$val['gongyunjiazhibiandongshouyi']}</td>
+                                <td>{$val['jian:tanhuifenbaofeiyong']}</td>
+                                <td>{$val['yi,yingyeshouru']}</td>
+                                <td>{$val['huiduishouyi']}</td>
+                                <td>{$val['(er)shaoshugudongshunyi']}</td>
+                                <td>{$val['jia:yingxianglirunzongedeqitakemu']}</td>
+                                <td>{$val['yizhuanbaofei']}</td>
+                                <td>{$val['qizhong:duilianyingqiyeheheyingqiyedetouzishouyi']}</td>
+                                <td>{$val['tiqubaoxianzerenzhunbeijin']}</td>
+                                <td>{$val['qizhong:shouxufeijiyongjinshouru']}</td>
+                                <td>{$val['jia:butieshouru']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mar-t-20" id="nav08">
+                    <div class="mod-title bge51c2b">Cash Flow Statement for Financial-type Companies</div>
+                    <div class="tab-data-con">
+                        <table class="table">
+                            <tr>
+                                <th>Announcement Date</th>
+                                <th>Reporting Period</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Commissions on insurance<br/> policies paid</th>
+                                <th>Losses of Fixed Assets <br/>Retirement by Scrapping</th>
+                                <th>Net Increase of Pledge Loans</th>
+                                <th>Borrowings</th>
+                                <th>Net Increase In Deposit Of<br/> Central Bank And Interbank Funds</th>
+                                <th>Cash Paid To and for Employees</th>
+                                <th>Refund of Tax and Fee Received</th>
+                                <th>Net Profit</th>
+                                <th>Loss from Fair Value Change</th>
+                                <th>Other Cash Paid Related to <br/>Investing Activities</th>
+                                <th>Debt Converted to Capital</th>
+                                <th>Net Increase in Customer Deposits <br/>and Interbank Deposits</th>
+                                <th>Amortization of Long-Term <br/>Deferred Expenses</th>
+                                <th>Cash Inflow Relating to Financing<br/> Activities Sub-total</th>
+                                <th>Convertible Bonds Due<br/> Within One Year</th>
+                                <th>Cash Paid for Debts</th>
+                                <th>Statement Source</th>
+                                <th>Net Increase in Borrowing from<br/> Other Financial Institutions</th>
+                                <th>Other Cash Received Relating to<br/> Financing Activities</th>
+                                <th>Fixed Assets Under Financing Lease</th>
+                                <th>Depreciations of Fixed Assets,<br/> Oil and Gas Assets,<br/> and Productive Biological Assets</th>
+                                <th>Net Increase In Loans And Advances</th>
+                                <th>Cash Received from Accepting<br/> Investment</th>
+                                <th>V. Net Increase in Cash <br/>and Cash Equivalents</th>
+                                <th>Net Increase in Cash <br/>and Cash Equivalents</th>
+                                <th>Other Cash Received Relating<br/> to Operating Activities</th>
+                                <th>Increase of Deferred Tax<br/> Liabilities</th>
+                                <th>Other Cash Paid Related to<br/> Operating Activities</th>
+                                <th>Net Cash Flows From <br/>Investing Activities</th>
+                                <th>Cash From Investment Withdrawal</th>
+                                <th>Net Increase in Borrowing<br/> from the Central Bank</th>
+                                <th>Cash Ending Balance</th>
+                                <th>Consolidation Type</th>
+                                <th>Net Cash Flow from <br/>Operating Activities</th>
+                                <th>Cash Inflow Relating to <br/>Investing Activities Sub-total</th>
+                                <th>Cash and Cash Equivalents’ Ending Balance</th>
+                                <th>Net Increase in Disposal of<br/> Transactional Financial Assets</th>
+                                <th>Add: Other Cash</th>
+                                <th>Net Reduction in Customer Deposits <br/> and Placements with Banks and Other<br/> Financial Institutions</th>
+                                <th>Add: Provision for Asset Losses</th>
+                                <th>Net Reduction in Central Bank Deposits<br/> and Placements with Banks and Other<br/> Financial Institutions</th>
+                                <th>Decrease of Deferred Tax Assets</th>
+                                <th>Net Reduction in Borrowings <br/>from the Central Bank</th>
+                                <th>Cash Paid for Goods and Services</th>
+                                <th>Increase of Operating Payable Items</th>
+                                <th>Other</th>
+                                <th>Cash Received from Reinsurance, Net</th>
+                                <th>Other Cash Paid Related to<br/> Financing Activities</th>
+                                <th>Net Reduction in Repurchase Business</th>
+                                <th>Cash Paid for Reinsurance, Net</th>
+                                <th>Net Cash Flow From Financing Activities</th>
+                                <th>Cash Paid for Acquisitions of<br/> Fixed Assets, Intangible Assets and<br/> Other Long-term Assets</th>
+                                <th>Cash Outflow Related to <br/>Operating Activities Sub-total</th>
+                                <th>IV. Foreign Currency <br/>Translation Gains (Losses)</th>
+                                <th>Amortization of Intangible Assets</th>
+                                <th>Cash Received from Issuing Bonds</th>
+                                <th>Decrease of Operating<br/> Receivable Items</th>
+                                <th>Cash From Investment Withdrawal</th>
+                                <th>Less: Cash Beginning Balance </th>
+                                <th>Less: Cash Equivalents’  Beginning Balance</th>
+                                <th>Investment Losses</th>
+                                <th>Cash Received From Interest, <br/>Handling Charges And Commissions</th>
+                                <th>Decrease of Inventories</th>
+                                <th>Cash Received from Disposal of<br/> Fixed Assets, Intangible Assets and <br/>Other Long-term Assets</th>
+                                <th>Cash Outflow Relating to Financing<br/> Activities Sub-total</th>
+                                <th>Add: Cash Equivalents’ Ending Balance</th>
+                                <th>Cash Inflow Relating to Operating<br/> Activities Sub-total</th>
+                                <th>Taxes and Fees Paid</th>
+                                <th>Cash Paid for Investments</th>
+                                <th>Cash Outflow Relating to Investing <br/>Activities Sub-total</th>
+                                <th>Losses on Disposal of Fixed Assets,<br/> Intangible Assets and Other Long-Term Assets</th>
+                                <th>IV.(2) Other Gains (Losses)</th>
+                                <th>Financial Expense</th>
+                                <th>Net Reduction in Loans and<br/> Advances to Customers</th>
+                                <th>Net Increase in Borrowing</th>
+                                <th>Other Cash Received Relating<br/> to Investing Activities</th>
+                                <th>Net Increase in Purchase of <br/>Transactional Financial Assets</th>
+                                <th>Net Increase in Lendings to <br/>Banks and Other Financial Institutions</th>
+                                <th>Cash Received from Premium of <br/>Original Insurance Contract</th>
+                                <th> Net Increase In Repurchase <br/>Operations Funds</th>
+                                <th>Cash Received From selling Goods <br/>or Rendering Services</th>
+                                <th>Cash Paid for Interest, <br/>Handling Charges And Commissions</th>
+                                <th>Net Increase in Deposit of <br/>the Insured and Investment</th>
+                                <th>Cash Paid For Payment Of <br/>Original Insurance Contract</th>
+                                <th>Cash Paid for Dividend, <br/>Profit or Interest</th>
+                                <th>Net Increase in Insured Savings<br/> and Investment Fund</th>
+                                <th>Cash and Cash Equivalents’ Beginning Balance</th>
+                            </tr>
+                            <!--{if !$data['A048']}-->
+                            <tr>
+                                <td colspan="91" class="none">No relevant information</td>
+                            </tr>
+                            <!--{/if}-->
+                            <!--{loop $data['A048'] $val}-->
+                            <tr>
+                                <td class="center">{$val['gonggaoriqi']}</td>
+                                <td class="center">{$val['baogaoniandu']}</td>
+                                <td class="center">{$val['kaishiriqi']}</td>
+                                <td class="center">{$val['jiezhiriqi']}</td>
+                                <td>{$val['zhifubaodanhonglidexianjin']}</td>
+                                <td>{$val['gudingzichanbaofeishunshi']}</td>
+                                <td>{$val['zhiyadaikuanjingzengjiae']}</td>
+                                <td>{$val['qudejiekuanshoudaodexianjin']}</td>
+                                <td>{$val['cunfangzhongyangyinhanghetongyekuanxiangjingzengjiae']}</td>
+                                <td>{$val['zhifugeizhigongyijiweizhigongzhifudexianjin']}</td>
+                                <td>{$val['shoudaodeshuifeifanhuan']}</td>
+                                <td>{$val['jinglirun']}</td>
+                                <td>{$val['gongyunjiazhibiandongshunshi']}</td>
+                                <td>{$val['zhifuqitayutouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['zhaiwuzhuanweiziben']}</td>
+                                <td>{$val['kehucunkuanhetongyecunfangkuanjingzengjiae']}</td>
+                                <td>{$val['changqidaitanfeiyongtanxiao']}</td>
+                                <td>{$val['chouzihuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['yinianneidaoqidekezhuanhuangongsizhaiquan']}</td>
+                                <td>{$val['changhuanzhaiwuzhifudexianjin']}</td>
+                                <td>{$val['baobiaolaiyuan']}</td>
+                                <td>{$val['xiangqitajinrongjigouchairuzijinjingzengjiae']}</td>
+                                <td>{$val['shoudaoqitayuchouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['rongzizhurugudingzichan']}</td>
+                                <td>{$val['gudingzichanzhejiu,youqizichanzhehao,shengchanxingshengwuxichanzhejiu']}</td>
+                                <td>{$val['kehudaikuanjidiankuanjingzengjiae']}</td>
+                                <td>{$val['xishoutouzishoudaodexianjin']}</td>
+                                <td>{$val['wu,xianjinjixianjindengjiawujingzengjiae']}</td>
+                                <td>{$val['xianjinjixianjindengjiawujingzengjiae']}</td>
+                                <td>{$val['shoudaoqitayujingyinghuodongyouguandexianjin']}</td>
+                                <td>{$val['diyansuodeshuifuzhaizengjia']}</td>
+                                <td>{$val['zhifuqitayujingyinghuodongyouguandexianjin']}</td>
+                                <td>{$val['touzihuodongchanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['shouhuitouzishoudaodexianjin']}</td>
+                                <td>{$val['xiangzhongyangyinhangjiekuanjingzengjiae']}</td>
+                                <td>{$val['xianjindeqimoyue']}</td>
+                                <td>{$val['hebingleixing']}</td>
+                                <td>{$val['jingyinghuodongchanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['touzihuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['qimoxianjinjixianjidengjiawuyue']}</td>
+                                <td>{$val['chuzhijiaoyixingjinrongzichanjingzengjiae']}</td>
+                                <td>{$val['jia:qitayuanyinduixianjindeyingxiang']}</td>
+                                <td>{$val['kehucunfangjitongyecunfangkuanxiangjingjianshaoe']}</td>
+                                <td>{$val['jia:zichanjianzhizhunbei']}</td>
+                                <td>{$val['cunfangzhongyangyinhanghetongyekuanxiangjingjianshaoe']}</td>
+                                <td>{$val['diyansuodeshuizichanjianshao']}</td>
+                                <td>{$val['xiangzhongyangyinhangjiekuanjingjiashaoe']}</td>
+                                <td>{$val['goumaishangpin,tigonglaowuzhifudexianjin']}</td>
+                                <td>{$val['jingyingxingyingfuxiangmudezengjia']}</td>
+                                <td>{$val['qita']}</td>
+                                <td>{$val['shoudaozaibaoyewuxianjinjinge']}</td>
+                                <td>{$val['zhifuqitayuchouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['huigouyewuzijinjingjiashaoe']}</td>
+                                <td>{$val['zhifuzaibaoyewuxianjinjinge']}</td>
+                                <td>{$val['chouzihuodongchanshengdexianjinliuliangjinge']}</td>
+                                <td>{$val['goujiangudingzichan,wuxingzichanheqitachangqizichanzhifudexianjin']}</td>
+                                <td>{$val['jingyinghuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['si,huilvbiandongduixianjindeyingxiang']}</td>
+                                <td>{$val['wuxingzichantanxiao']}</td>
+                                <td>{$val['faxingzhaiquanshoudaodexianjin']}</td>
+                                <td>{$val['jingyingxingyingshouxiangmudejianshao']}</td>
+                                <td>{$val['quhuitouzishouyishoudaodexianjin']}</td>
+                                <td>{$val['jian:xianjindeqichuyue']}</td>
+                                <td>{$val['jian:xianjindengjiawudeqichuyue']}</td>
+                                <td>{$val['touzishunshi']}</td>
+                                <td>{$val['shouqulixi,shouxufeijiyongjindexianjin']}</td>
+                                <td>{$val['cunhuodejianshao']}</td>
+                                <td>{$val['chuzhigudingzichan,wuxingzichanheqita']}</td>
+                                <td>{$val['chouzihuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['jia:xianjindengjiawudeqimoyue']}</td>
+                                <td>{$val['jingyinghuodongxianjinliuruxiaoji']}</td>
+                                <td>{$val['zhifugexiangshuifei']}</td>
+                                <td>{$val['touzizhifudexianjin']}</td>
+                                <td>{$val['touzihuodongxianjinliuchuxiaoji']}</td>
+                                <td>{$val['chuzhigudingzichan,wuxingzichanheqitachangqizichandeshunshi']}</td>
+                                <td>{$val['si(2),qitayuanyinduixianjindeyingxiang']}</td>
+                                <td>{$val['caiwufeiyong']}</td>
+                                <td>{$val['kehudaikuanjidiankuanjingjianshaoe']}</td>
+                                <td>{$val['chairuzijinjingzengjiae']}</td>
+                                <td>{$val['shoudaoqitayutouzihuodongyouguandexianjin']}</td>
+                                <td>{$val['gourujiaoyixingjinrongzichanjingzengjiae']}</td>
+                                <td>{$val['xiangqitajinrongjigouchaichuzijinjingzengjiae']}</td>
+                                <td>{$val['shoudaoyuanbaoxianhetongbaofeiqudedexianjin']}</td>
+                                <td>{$val['huigouyewuzijinjingzengjiae']}</td>
+                                <td>{$val['xiaoshoushangpin,tigonglaowushoudaodexianjin']}</td>
+                                <td>{$val['zhifulixi,shouxufeijiyongjindexianjin']}</td>
+                                <td>{$val['baohuchujinjitouzikuanjingjiashaoe']}</td>
+                                <td>{$val['zhifuyuanbaoxianhetongpeifukuanxiangdexianjin']}</td>
+                                <td>{$val['fenpeiguli,lirunhuochangfulixizhifudexianjin']}</td>
+                                <td>{$val['baohuchujinjitouzikuanjingzengjiae']}</td>
+                                <td>{$val['qichuxianjinjixianjidengjiawuyue']}</td>
+                            </tr>
+                            <!--{/loop}-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>

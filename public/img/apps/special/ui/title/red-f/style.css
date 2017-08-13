@@ -1,0 +1,15 @@
+﻿/*
+ @name 红色系列
+ @notes 每条规则 以 .title-{风格包文件夹名} 开头
+*/
+.title-red-f {
+	overflow: hidden;
+	background:#BC2421 url("images/red-f.jpg") no-repeat 0 0;
+	height:40px;
+	line-height:40px;
+	font-size:24px;
+	font-weight:bold;
+	padding-left:80px;
+}
+.title-red-f a,
+.title-red-f span{color:#fc0;font-weight:bold;font-size:24px;}

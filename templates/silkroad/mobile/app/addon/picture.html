@@ -1,0 +1,24 @@
+<div class="ui-addon-gallery">
+    <div class="addon-gallery mod-gallery">
+        <div class="gallery-content">
+			<div class="gallery-photo-items">
+				<a href="{MOBILE_PROTOCOL}://{$contentid},2"><img src="{thumb($thumbig,300,0)}" border="0" width="300" /></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="ui-gallery-mark">图集</div>
+	</div>
+</div>
+<script type="text/javascript">
+    (function() {
+        var timeout;
+        $('a[href^="{MOBILE_PROTOCOL}://"]').click(function() {
+            if (timeout) {
+                return false;
+            }
+            timeout = setTimeout(function() {
+                timeout = null;
+            }, 1000);
+        });
+    })();
+</script>

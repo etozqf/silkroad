@@ -1,0 +1,37 @@
+/*面包屑*/
+.cumb{overflow: hidden;font-size: 14px; font-family: "Microsoft YaHei", "微软雅黑";line-height: 30px;height: 30px; width: 1000px; margin: 0 auto; margin-top: 16px;}
+.cumb a,.cumb em{display: block; float: left;margin-right: 8px; color: #8d8d8d;}
+.cumb a,.cumb a:hover{color: #0079c6;}
+.cumb a.on{color: #555;text-decoration: none}
+.conts-box{width: 100%; overflow: hidden;}
+.menu-left{width: 164px; background: #fff; float: left; _display: inline;position: relative;z-index: 1;}
+/*右侧*/
+.conts-right{width: 755px; float: right;  overflow: hidden; _display: inline;}
+.conts-show{width: 100%; padding-bottom: 130px; overflow: hidden;}
+.conts-show p{width: 100%; font-size: 14px; line-height: 32px; color: #333; text-indent: 30px;}
+.conts-h3{width: 100%;  border-bottom: 1px dashed #ccc; padding-bottom: 18px; font-size: 22px; color: #3a3a3a; line-height: 22px; overflow: hidden; text-align: center;  margin-top: 10px;}
+.summary-list{overflow: hidden;}
+.summary-list li{height: 48px;overflow: hidden;}
+.summary-list li a{font-family: "Times New Roman";color: #0079c6;width: 560px;font-size: 14px;overflow: hidden;display: block;line-height: 48px;text-decoration: none}
+.summary-list li em{margin:0 10px;color: #c1c1c1;line-height: 48px;overflow: hidden;}
+.summary-list li .txt{width: 120px;color: #999;}
+.summary-list li .txt span,.summary-list li .txt i{display: block;text-align: center;line-height: 48px;font-style: normal;font-size: 12px;}
+.summary-list li.on{background: #f3f3f3}
+/*边框*/
+.bor-rb{border-bottom:1px solid #ededed;border-right:1px solid #ededed;}
+.bor-trbl{border-left: 1px solid #f1f1f1; border-top: 1px solid #f1f1f1; border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;}
+.bor-rbs{border:1px solid #f8f8f8;}
+.bor-trbs{ border:1px solid #efeeef;}
+/*菜单*/
+.list-ul{width: 124px;border: 1px solid #c6dfef;padding:10px 17px;}
+.list-ul li{font-size: 14px;height: 31px; line-height:32px;position: relative;z-index: 10;text-indent: 5px;cursor: pointer;}
+.list-ul li a{color: #0079c6;}
+.list-ul li a:hover{text-decoration: none;color: #c81623;}
+.list-ul li.on{background: url("images/red-jt.jpg") 118px 14px no-repeat}
+.list-ul li.on a{color: #c81623;}
+.bor-b{border-bottom: 1px dashed #e5e5e5;}
+/*入住企业*/
+.qiye-list{width: 100%; overflow: hidden; padding-bottom: 125px;}
+.qiye-list li{float: left; font-size: 14px; line-height: 32px; width: 251px; float: left; overflow: hidden;}
+.qiye-list li a:hover{color: #c81623;}
+.bull{font-size: 12px; float: left; color: #c1c1c1; padding: 0 10px 0 2px;}

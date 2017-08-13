@@ -1,0 +1,62 @@
+.mod-dropdialog {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.dropdialog-arrow {
+    display: block;
+    width: 11px;
+    height: 6px;
+    position: relative;
+    top: 0;
+    left: 33%;
+    background: url(images/dropdialog-arrow.png) no-repeat 0 0;
+}
+.dropdialog-close {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    background: url(images/dropdialog-icon.png) no-repeat 5px -40px;
+    cursor: pointer;
+}
+.dropdialog-content-container {
+    border: solid #94C5E5;
+    border-width: 2px 1px 1px 1px;
+    background: #FFF;
+}
+.dropdialog-content {
+    min-width: 300px;
+    min-height: 150px;
+}
+.dropdialog-footer,
+.dropdialog-extra,
+.dropdialog-buttons {
+    height: 30px;
+    line-height: 30px;
+}
+.dropdialog-footer {
+    overflow: hidden;
+    border-top: solid 1px #EEE;
+}
+.dropdialog-extra {
+    float: left;
+    text-align: left;
+    padding-left: 5px;
+}
+.dropdialog-extra .selectlist {
+    margin-top: 5px;
+}
+.dropdialog-buttons {
+    float: right;
+    text-align: right;
+    padding-right: 5px;
+}
+.dropdialog-buttons .button_style_1 {
+    margin: 4px 0 0 10px;
+}
+.dropdialog-loading {
+    background: #FFF url(images/loader.gif) no-repeat center center;
+}

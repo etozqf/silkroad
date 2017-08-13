@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<title>新华丝路数据库 _ 导航页</title>
+<meta name="Keywords" content="新华丝路数据库,一带一路,新华丝路,新华社">
+<meta name="description" content=" ">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/base.css">
+<link href="{IMG_URL}templates/{TEMPLATE}/zn/css/lefont.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/consultation.css"> 
+<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/js/jquery/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+<script>
+	catname_top = '咨询';	// 顶级栏目名称
+	catname = '{$typesname}';
+</script>
+</head>
+<body>
+ <!-- 顶部 -->
+    <!--{template "system/head_zn.html"}-->
+<!--#include virtual="/section/277.html"--><!--# 公共区块 公共区块搜索 #-->
+ 
+<div class="container">
+	<!-- left -->
+	<div class="left730">
+		<div class="zix">
+			<div class="hd">
+				<h3>{$typesname}</h3>
+			</div>
+			<div class="bd">
+				<ul class="main-title-list" id="tablelist">
+					<!--{loop $data $k $r}--> 
+					<li>
+						<img src="{UPLOAD_URL}{$r['photo']}" alt="">
+						<h3><a href="{SPACE_URL}{$r['alias']}?typeid={$typeid}&spaceid={$r['spaceid']}">{$r['name']}</a></h3>
+						<div class="intro">{html_entity_decode(str_natcut($r['description'],50,'...'))}
+						<a href="{SPACE_URL}{$r['alias']}?typeid=1">[详情]</a>
+						<a href="{APP_URL}?app=guestbook&controller=index&action=index&typeid={$typeid}" class="talk">&nbsp;</a></div>
+						
+						<div class="zw" style="height:72px;">
+							<!--{if $r['typeid']==1}--> 
+							<span class="label">专文：</span>
+							 <!--{loop $r['article'] $i $c}--> 
+							<a href="{$c['url']}">{$c['title']}</a>
+							<!--{/loop}-->
+							<!--{/if}--> 
+						</div>
+						
+
+						<!--{if $r['tags']}--> 
+						<div class="tags">标签：<span>{$r['tags']}</span></div>
+						<!--{/if}--> 
+						<?php 
+								$result = in_array($r['spaceid'],$collected);
+						 ?>
+						<!--{if $result}-->
+						<span class="fav on" data-url="{SPACE_URL}{$r['alias']}?typeid={$typeid}&spaceid={$r['spaceid']}"></span>
+						<!--{else}--> 
+						<span class="fav" data-url="{SPACE_URL}{$r['alias']}?typeid={$typeid}&spaceid={$r['spaceid']}"></span>
+						<!--{/if}--> 
+					 
+					</li> 
+					
+					<!--{/loop}-->
+				</ul>
+				<!-- 分页 -->
+					<div class="page">
+					 <!--{space_pages($total, $page, $pagesize, 3, null, false, '', 'number red', '&lt;', '&gt;')}-->
+					<span>共<i>{$page}/{ceil($total/$pagesize)}</i>页 , <i>{$total}</i>记录</span>
+					</div>
+				<!-- @end 分页 -->
+			</div>
+		</div>
+	</div>
+	<!-- right -->
+	<div class="right250">
+		<div class="item">
+			<!--#include virtual="/section/291.html"--><!--# 咨询频道 首席记者 #-->
+		</div>
+		<div class="item">
+			<!--#include virtual="/section/283.html"--><!--# 咨询频道 专家观点 #-->
+		</div>
+		<div class="item">
+			<!--#include virtual="/section/292.html"--><!--# 咨询频道 机构观点 #-->
+		</div>
+	</div>
+	<div class="clearfix"></div>	
+</div>
+<!--{template "system/foot_zn.html"}-->
+<script>
+$(function(){ 
+	$('.fav').each(function(){
+		var fav = $(this).attr('class');
+		if(fav == 'fav'){
+			$(this).text("收藏");
+		}else{
+			$(this).text("取消收藏");
+		}
+	
+
+	})
+	
+	$(".zix li .fav").click(function(){
+		var fav = $(this).attr('class');
+		var data_url = $(this).attr("data-url");
+		// console.log(data_url);
+		var strs= new Array(); //定义一数组 
+		strs=data_url.split("?"); //字符分割 
+		var memberid = $.cookie(COOKIE_PRE+'userid');
+		var strss = strs[1]+'&memberid='+memberid;
+		// console.log(strss);
+		
+		$(this).toggleClass("on");
+		var res = $(this).hasClass("on");
+		if(!res){
+			//ajax请求服务器取消收藏
+			$.getJSON(
+                    '?app=member&controller=index&action=ajax_not_collect&jsoncallback=?&'+strss,
+                    function(data){
+                               if(data.status!='success')
+                               {
+                                      alert('取消失败');
+                                      return false;
+                               }
+                    	}
+                    );
+       
+
+			$(this).text("收藏");
+
+		}else{
+			
+			//ajax请求服务器完成收藏
+			$.getJSON(
+                    '?app=member&controller=index&action=ajax_collect&jsoncallback=?&'+strss,
+                    function(data){
+                               if(data.status!='success')
+                               {
+                                      alert('收藏失败');
+                                      return false;
+                               }
+                    	}
+                    );
+       
+
+			$(this).text("取消收藏")
+		}
+	});
+});
+</script>
+</body>
+</html>

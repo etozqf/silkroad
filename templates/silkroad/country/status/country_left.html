@@ -1,0 +1,19 @@
+<div class="inner border1">
+    <ul class="member-aside">
+        <li rel="published"><a href="{url('country/list/index')}" title="我的报告">我的报告</a></li>
+        <li rel="recycle"><a href="{url('country/list/recycle')}" title="回收站">回收站</a></li>
+        
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    var rel = "{$_GET[action]}";
+    if (!rel || rel == 'index') {
+        rel = 'published';
+    }
+    if (rel == 'edit') {
+        rel = 'contribute';
+    }
+    $('.member-aside li[rel="'+rel+'"]').find('a').addClass('current');
+});
+</script>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+ 	<name tips="请输入属性名">
+	   	<max args="18">标题不能大于9个中文字</max>
+    </name>
+    <alias tips="只能有字母数字和下划线">
+	  	<required event="submit">名称不能为空</required>
+	   	<max args="18">标题不能大于18个英文字符</max>
+    </alias>
+</root>

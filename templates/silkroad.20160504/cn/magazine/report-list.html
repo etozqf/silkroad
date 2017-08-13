@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+	<title>{$m[name]}_{$sitename[1]}</title>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/report.css"/>
+	<script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script><script type="text/javascript" src="{IMG_URL}/js/config.js"></script>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/semonLib.2.03.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+	<script>
+	$(function () {
+		catname_top = 'Publications';	// 顶级栏目名称
+		catname="{$m[name]}";
+	})
+	</script>
+	<!--[if lt IE 9]>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<style>
+	.lastest-show ul li p{text-indent:2em;}
+</style>
+<body>
+<!-- 顶部 -->
+<!--{template "system/head.html"}-->
+<!--#include virtual="/section/322.html"--><!--# 英文公共区块 英文站头部搜索 #-->
+<!--{if $m[mid] == 8}-->
+ 	<!--#include virtual="/section/306.html"--><!--# 英文版思路报告 英文版国别报告-国别区块 #-->
+<!--{/if}-->
+<div class="columnA ov mar-t-20">
+	<div class="col-l-main ov">
+		<div class="bor-rb">
+			<div class="bor-trbl ov">
+				<div class="silk mar-t-15">
+					<!--标题-->
+					<div class="b-tit-box">
+						<h3 class="b-h3"><a href="javascript:;">{$m[name]}</a>
+						</h3>
+					</div>
+					<div class="pic-summary">
+						<!--Silk Road Weekly-->
+						<div class="silk-show mar-t-25">
+							<div class="homebanner1">
+							<ul class="imgs">
+							<?php $logo = json_decode($m['logo'], true); foreach ($logo as $key => $value) {
+                    		?>
+								<li>
+								    <a href="Javascript:;" target="_blank">
+								        <img src="{thumb($value,240,340,1)}" width="242" height="342" alt=""/>
+								    </a>
+								</li>
+                    		<?php } ?>
+								
+							</ul>
+							<ul class="nums">
+							<?php $is = true; $logo = json_decode($m['logo'], true); foreach ($logo as $key => $value) {
+                    		?>
+								<li <?php if($is) echo'class="curr"';?> >
+									{$key}
+								</li>
+                    		<?php $is = false; } ?>
+							</ul>
+							<a href="javascript:;" class="p-left ie6_png32"></a>
+							<a href="javascript:;" class="p-right ie6_png32"></a>							
+							</div>
+							<div class="silk-cont">
+								<p>
+									{$m[memo]}
+								</p>
+								<a href="" target="_blank" class="Subscribe fon-20 mar-t-30" style="display:none;">
+									Subscribe
+								</a>
+							</div>
+						</div>
+						<!--Latest Issues-->
+						<div class="lastest mar-t-35">
+							<!--标题-->
+							<div class="b-tit-box">
+								<h3 class="b-h3"><a href="JavaScript:;">Latest</a>
+								</h3>
+								<a href="" class="more1"><span class="f-l">More</span><em
+									class="jiao ie6_png32"></em></a>
+							</div>
+							<div class="lastest-show ov">
+								<ul>
+								<?php $mid = $m['mid'];?>
+								<!--{db sql="SELECT * FROM #table_magazine_edition WHERE mid = $mid  ORDER BY publish DESC"}-->
+									<li>
+										<h3><a href="{WWW_URL}magazine/{$m['alias']}/{$r['eid']}/" target="_blank"
+										       class="b">{str_cut($r['title'], 80, '')}</a>
+										</h3>
+
+										<p class="mar-t-10">{$r[description]}[<a href="{WWW_URL}magazine/{$m['alias']}/{$r['eid']}/"
+											                target="_blank">Detail</a>]
+										</p>
+									</li>
+									<!--{/db}-->
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hr15"></div>
+			</div>
+		</div>
+		<div class="hr-25-bg"></div>
+		<div class="bor-rb" style="display:none;">
+			<div class="bor-trbl ov">
+				<!--标题-->
+				<div class="b-tit-box mar-t-25">
+					<h3 class="b-h3"><a href="">Your Reports</a>
+					</h3>
+				</div>
+			</div>
+			<div class="pic-summary">
+				<div class="pic-list2 mar-t-20">
+					<ul>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Business Envirnment & Assessment Report on
+									China(2015)
+								</a>
+							</h3>
+						</li>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Belt & Road Trade Report Vo1.1 No.1
+								</a>
+							</h3>
+						</li>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Belt & Road Trade Report Vo1.1 No.1
+								</a>
+							</h3>
+						</li>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Business Envirnment & Assessment Report on China(2015)
+								</a>
+							</h3>
+						</li>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Belt & Road Trade Report Vo1.1 No.1
+								</a>
+							</h3>
+						</li>
+						<li>
+							<a href="" target="_blank">
+								<img src="{IMG_URL}templates/{TEMPLATE}/img/w210-h300.jpg" width="210"
+								     height="300" alt=""/>
+							</a>
+
+							<h3>
+								<a href="" target="_blank">
+									Belt & Road Trade Report Vo1.1 No.1
+								</a>
+							</h3>
+						</li>
+					</ul>
+				</div>
+				<div class="more-box">
+					<a href="" target="_blank">Find Your Other Reports ></a>
+				</div>
+			</div>
+			<div class="hr25"></div>
+		</div>
+	</div>
+	<div class="bor-rb col-r-main ov">
+		<div class="bor-trbl ov h-1951">
+			<!--#include virtual="/section/310.html"--><!--# 英文公共区块 英文版右侧-定制报告（Customized Report） #-->
+			<!--#include virtual="/section/314.html"--><!--# 英文公共区块 英文版右侧-国别报告(China Factbook) #-->
+			<!--#include virtual="/section/327.html"--><!--# 英文公共区块 英文版右侧-法律法规（Laws & Rules） #-->
+		</div>
+	</div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+</html>	

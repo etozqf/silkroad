@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IP法律法规</title>
+	<!--{template 'ipr/system/header_jscss_yuqing.html'}-->
+</head>
+<body>
+<!--头部-->
+<!--{template 'ipr/system/header_channel.html'}-->
+<!--{template 'ipr/system/header_search.html'}-->
+
+<div class="column ov mar-t-20">
+	<div class="left_menu">
+		<ul class="mar-t-10">
+			<!--{template 'ipr/system/list1.html'}-->
+			<!--{template 'ipr/system/list2.html'}-->
+			<!--{template 'ipr/system/list3.html'}-->
+			<li class="on"><a >法律法规<em class="icon-jl"></em></a></li>
+			<!--{template 'ipr/system/list5.html'}-->
+			<!--{template 'ipr/system/list6.html'}-->
+			<!--{template 'ipr/system/list7.html'}-->
+			<!--{template 'ipr/system/list8.html'}-->
+			<!--{template 'ipr/system/list9.html'}-->
+		</ul>
+	</div>
+	<div class="right_data">
+
+	<!--中间内容-->
+	<!--{template 'ipr/system/guojia.html'}-->
+<script>
+	$(function () {
+		$(".morebtn").on("click", function () {
+			$(this).parents("dl").toggleClass("all");
+		});
+		$(".allcountry dd span").not(".disfont").on("click", function () {
+			$(".allcountry dd span").removeClass("on");
+			$(this).addClass("on");
+			// return false;
+		})
+	})
+</script>
+	</div>
+
+</div>
+
+<!--尾部-->
+<!--{template 'system/foot_zn.html'}-->
+</body>
+</html>

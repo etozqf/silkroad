@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+		<?php $sitename = explode('&',$SYSTEM[sitename]);?>
+		<title>{$alias}_China Factbook_{$sitename[1]}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <!-- 别忘记此处的meta标签，确保IE都是在标准模式下渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/common.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/head.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/footer.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/css/report.css"/>
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/dialog.css">
+	<link rel="stylesheet" href="{IMG_URL}templates/{TEMPLATE}/zn/css/ComUse.css">
+	<script type="text/javascript" src="{IMG_URL}js/config.js"></script>
+    <script src="{IMG_URL}templates/{TEMPLATE}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/jquery.cookie.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/report.js"></script>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/common.js"></script>
+	<!--[if lt IE 9]>
+	<script src="{IMG_URL}templates/{TEMPLATE}/js/html5/html5.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG无法透明-->
+	<!--[if IE 6]>
+	<script type="text/javascript" src="{IMG_URL}templates/{TEMPLATE}/js/ie6_png32.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('.ie6_png32');</script>
+	<![endif]-->
+</head>
+<body>
+ <!--{template "system/head.html"}-->
+<div class="columnA ov mar-t-12">
+	<div class="crumbs">
+		<a href="{APP_URL}map.php">Home</a>
+		<sapn> ></sapn>
+		<a href="">China Factbook</a>
+		<sapn> ></sapn>
+		<sapn>{$alias} Factbook</sapn>
+	</div>
+</div>
+<!--#include virtual="/section/306.html"--><!--# 英文版思路报告 英文报告-省别报告 #-->
+<div class="columnA ov mar-t-15 bg-fff pos-r">
+	<div class="bor-rb">
+		<div class="bor-trbl ov">
+			<!--标题-->
+			<div class="b-tit-box mar-t-22">
+				<h3 class="b-h3"><a href="" style="font-size: 20px;">{$alias}</a>
+				</h3>
+			</div>
+			<a href="JavaScript:makePdf();" class="c-report">
+				Create Report
+			</a>
+
+			<div class="reports-950">
+				<div class="left-cont">
+					<!--广告位240X224-->
+					<div class="ad02">
+						<a href="" target="_blank">
+							<img src="{thumb($jianjie['thumb'],240,null,1)}" width="240" alt=""/>
+						</a>
+					</div>
+					<!--Province Profile-->
+					<div class="Province ov mar-t-28">
+						<div class="b-tit-box">
+							<h3 class="b-h3"><a href="" target="_blank">{$jianjie['alias']}</a>
+							</h3>
+						</div>
+						<div class="contp mar-t-15">
+							{$jianjie['description']}
+						</div>
+					</div>
+					<div class="hr20"></div>
+				</div>
+				<div class="right-cont" style="height:auto;">
+					<div class="rc-list" id="DCountryTree">
+						<input type="hidden" name="proid" value="{$proid}">
+						<dl>
+							<dt>
+							<div class="check-icon">
+								<label>
+									<input type="checkbox" name="checkbox"
+									       value="checkbox" id="AllCheck"
+									       class="checkbox"/>
+									All
+								</label>
+							</div>
+							</dt>
+						<!--{loop $res $k $v}--> 
+							<dd>
+								<div class="check-icon">
+									<label>
+										<input type="checkbox" name="contentid"
+										       value="{$v['content']['contentid']}"
+										       class="checkbox bigMenu"/>
+										{$v['alias']}
+									</label>
+								</div>
+								<div class="line"></div>
+								<div class="b-close">+</div>
+
+								<div class="gjml_tagsub hide" >
+									<?php echo $v['content'] ? $v['content']['content'] : '<div style="text-align:center;">No content for the time being!</div>';?>
+								</div>
+							</dd>
+						<!--{/loop}--> 
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div class="hr20"></div>
+		</div>
+	</div>
+</div>
+<!--页脚-->
+<!--#include virtual="/section/267.html"--><!--# 公共区块 公共尾部 #-->
+<!--@end页脚-->
+</body>
+
+<script src="{IMG_URL}templates/{TEMPLATE}/js/dialog.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/js/countryjs.js"></script>
+<script src="{IMG_URL}templates/{TEMPLATE}/js/position.js"></script>
+</html>

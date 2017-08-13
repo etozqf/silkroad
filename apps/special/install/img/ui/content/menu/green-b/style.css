@@ -1,0 +1,17 @@
+/*
+ @name 湖绿色菜单样式
+ @notes  湖绿底白字
+*/
+.content-menu-green-b {
+	background:#2D766E;
+	padding:0px 10px;
+}
+.content-menu-green-b a {
+	color:#fff;
+	font-size:12px;
+}
+.content-menu-green-b span.sepr {
+	margin:0 4px;
+	color:#fff;
+	font-size:12px;
+}
